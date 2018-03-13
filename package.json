@@ -13,8 +13,6 @@
     "start": "npm run storybook",
     "clean": "rimraf dist && npm run test:visual:clean",
     "build": "npm run clean && npm run build:cjs && npm run build:umd",
-    "build:modules": "gulp build-modules --gulpfile build/gulpfile.js",
-    "build:lib": "gulp build-ts --gulpfile build/gulpfile.js",
     "build:cjs": "webpack -p --config build/webpack.config.cjs.js",
     "build:umd": "webpack -p --config build/webpack.config.umd.js",
     "test": "npm run eslint && npm run test:server && jest",
@@ -91,7 +89,7 @@
     "transformIgnorePatterns": [],
     "testRegex": ".*/__tests__/.*\\.(test|spec)\\.(jsx?)$",
     "setupFiles": [
-      "./src/__tests__/setup.js"
+      "./lib/__tests__/setup.js"
     ],
     "moduleFileExtensions": [
       "js",

@@ -4,7 +4,7 @@ var pkg = require('../package.json');
 var join = require('path').join;
 
 module.exports = {
-    entry: join(__dirname, '..', 'src', 'index.ts'),
+    entry: join(__dirname, '..', 'lib', 'index.js'),
 
     output: {
         filename: pkg.name + '.min.js',
