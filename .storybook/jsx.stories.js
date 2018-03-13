@@ -30,9 +30,9 @@ const Button = jsx('button', {
         position: 'relative',
         top: '2px',
     },
-    // '@media (max-width: 480px)': {
-        // width: '160px',
-    // }
+    '@media (max-width: 480px)': {
+        width: '160px',
+    }
 });
 
 storiesOf('jsx()', module)
