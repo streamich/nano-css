@@ -2,11 +2,7 @@
 
 exports.addonStyled = function (renderer) {
     renderer.styled = function (fn, styles, dynamicTemplate, block) {
-        var isElement = typeof fn === 'string';
         var jsxComponent = renderer.jsx(fn, styles, block);
-
-        if (!block && !isElement)
-            block = fn.displayName || fn.name;
 
         var Component = function(props) {
             var copy = props;
