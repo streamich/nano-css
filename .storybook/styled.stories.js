@@ -3,8 +3,10 @@ import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../lib');
+const {addonStyled} = require('../addon/styled');
 
 const renderer = create(h);
+addonStyled(renderer);
 const {styled} = renderer;
 
 const RedBorder = styled('div', {
