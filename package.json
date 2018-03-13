@@ -1,5 +1,5 @@
 {
-  "name": "pico-style",
+  "name": "zepto-style",
   "version": "0.0.1",
   "description": "Smallest 4th gen CSS-in-JS library",
   "main": "lib/index.js",
