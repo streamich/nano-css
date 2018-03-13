@@ -11,6 +11,30 @@ const RedBorder = jsx('div', {
   border: '1px solid red'
 });
 
+const Block = jsx('div', {
+    'text-align': 'center'
+});
+
+const Button = jsx('button', {
+    background: 'red',
+    width: '320px',
+    padding: '20px',
+    borderRadius: '5px',
+    textAlign: 'center',
+    cursor: 'pointer',
+    outline: 'none',
+    ':hover': {
+        color: '#fff',
+    },
+    ':active': {
+        position: 'relative',
+        top: '2px',
+    },
+    // '@media (max-width: 480px)': {
+        // width: '160px',
+    // }
+});
+
 storiesOf('jsx()', module)
     .add('Default', () =>
         h(RedBorder, null, 'Hello world')
@@ -20,4 +44,9 @@ storiesOf('jsx()', module)
     )
     .add('Inline styles', () =>
         h(RedBorder, {style: {color: 'red'}, css: {fontWeight: 'bold'}}, 'Hello world')
+    )
+    .add('Button', () =>
+        h(Block, null,
+            h(Button, null, 'Click me!')
+        )
     )
