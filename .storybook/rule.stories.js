@@ -11,7 +11,7 @@ const className1 = rule({
   border: '1px solid red'
 }, 'RedBorder');
 
-storiesOf('Light/rule()', module)
+storiesOf('rule()', module)
   .add('Default', () =>
     h('div', {className: className1}, 'Hello world')
   )
