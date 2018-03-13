@@ -3,28 +3,28 @@ import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../lib');
-const {addonSheet} = require('../addon/sheet');
+const {addon} = require('../addon/sheet');
 
 const renderer = create(h);
-addonSheet(renderer);
+addon(renderer);
 const {sheet} = renderer;
 
 const styles = sheet({
     tomato: {
-        bd: '1px solid tomato',
+        border: '1px solid tomato',
     },
     yellow: {
-        bd: '1px solid yellow',
+        border: '1px solid yellow',
     },
 }, 'hello');
 
 
 const styles2 = renderer.sheet({
     tomato: {
-        bd: '1px solid tomato',
+        border: '1px solid tomato',
     },
     yellow: {
-        bd: '1px solid yellow',
+        border: '1px solid yellow',
     },
 });
 

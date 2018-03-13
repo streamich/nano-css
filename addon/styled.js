@@ -1,6 +1,6 @@
 'use strict';
 
-exports.addonStyled = function (renderer) {
+exports.addon = function (renderer) {
     renderer.styled = function (fn, styles, dynamicTemplate, block) {
         var jsxComponent = renderer.jsx(fn, styles, block);
 

@@ -2,7 +2,7 @@
 
 var hash = require('../lib/hash').hash;
 
-exports.addonSheet = function (renderer) {
+exports.addon = function (renderer) {
     renderer.sheet = function (map, block) {
         var result = {};
 
@@ -10,7 +10,7 @@ exports.addonSheet = function (renderer) {
             block = hash(map);
         }
 
-        function onElementModifiler (elementModifier) {
+        var onElementModifier = function (elementModifier) {
             var styles = map[elementModifier];
 
             Object.defineProperty(result, elementModifier, {
@@ -25,10 +25,10 @@ exports.addonSheet = function (renderer) {
                     return classNames;
                 },
             });
-        }
+        };
 
         for (var elementModifier in map) {
-            onElementModifiler(elementModifier);
+            onElementModifier(elementModifier);
         }
 
         return result;
