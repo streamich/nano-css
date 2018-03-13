@@ -50,8 +50,8 @@ var atoms = {
 };
 
 exports.addon = function (renderer) {
-    var originalKey = renderer.key;
-    renderer.key = function (key, value) {
-        return originalKey(atoms[key] || key, value);
+    var originalDecl = renderer.decl;
+    renderer.decl = function (key, value) {
+        return originalDecl(atoms[key] || key, value);
     };
 };
