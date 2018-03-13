@@ -10,21 +10,25 @@ exports.addonSheet = function (renderer) {
             block = hash(map);
         }
 
-        for (var elementModifier in map) {
+        function onElementModifiler (elementModifier) {
             var styles = map[elementModifier];
 
             Object.defineProperty(result, elementModifier, {
                 configurable: true,
                 get: function () {
-                    var classNames = this.rule(styles, block + '-' + elementModifier);
+                    var classNames = renderer.rule(styles, block + '-' + elementModifier);
 
                     Object.defineProperty(result, elementModifier, {
-                        value: classNames,
+                        value: classNames
                     });
 
                     return classNames;
                 },
             });
+        }
+
+        for (var elementModifier in map) {
+            onElementModifiler(elementModifier);
         }
 
         return result;
