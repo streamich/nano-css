@@ -1,6 +1,6 @@
 {
   "name": "pico-style",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Smallest 4th gen CSS-in-JS library",
   "main": "lib/index.js",
   "unpkg": "dist/pico-style.umd.min.js",
@@ -11,8 +11,8 @@
   "scripts": {
     "eslint": "eslint src",
     "start": "npm run storybook",
-    "clean": "rimraf modules lib dist && npm run test:visual:clean",
-    "build": "npm run clean && npm run build:lib && npm run build:cjs && npm run build:umd",
+    "clean": "rimraf dist && npm run test:visual:clean",
+    "build": "npm run clean && npm run build:cjs && npm run build:umd",
     "build:modules": "gulp build-modules --gulpfile build/gulpfile.js",
     "build:lib": "gulp build-ts --gulpfile build/gulpfile.js",
     "build:cjs": "webpack -p --config build/webpack.config.cjs.js",
