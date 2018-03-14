@@ -2,8 +2,12 @@
 
 [![][npm-badge]][npm-url] [![][travis-badge]][travis-url]
 
-Super lite CSS-in-JS solution.
+Super lite CSS-in-JS solution at only __0.XKb__ packing more features than you will find in any other CSS-in-JS library.
 
+- Only __0.XKb__ minified and gzipped.
+- Library agnostic
+- Use with any virtual DOM library, not just React.
+- Isomorphic &mdash; render on server and browser.
 - Does not create wrapper components.
 
 
