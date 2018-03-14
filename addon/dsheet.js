@@ -9,26 +9,26 @@ exports.addon = function (renderer) {
         var styles = renderer.sheet(map, block);
         var closures = {};
 
-        var createClosure = function (modifier) {
+        var createClosure = function (elementModifier) {
             var closure = function (dynamicStyles) {
                 if (!dynamicStyles) {
-                    return styles[modifier];
+                    return styles[elementModifier];
                 }
 
                 var dynamicClassName = renderer.cache(dynamicStyles);
 
-                return styles[modifier] + dynamicClassName;
+                return styles[elementModifier] + dynamicClassName;
             };
 
             closure.toString = function () {
-                return styles[modifier];
+                return styles[elementModifier];
             };
 
             return closure;
         };
 
-        for (var modifier in map) {
-            closures[modifier] = createClosure(modifier);
+        for (var elementModifier in map) {
+            closures[elementModifier] = createClosure(elementModifier);
         }
 
         return closures;
