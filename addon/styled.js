@@ -140,6 +140,10 @@ var tags = [
 ];
 
 exports.addon = function (renderer) {
+    if (process.env.NODE_ENV !== 'production') {
+        require('./__dev__/warnOnMissingDependencies')('styled', renderer, ['style']);
+    }
+
     var styled = function (tag) {
         return function (styles, dynamicTemplate) {
             return renderer.style(tag, styles, dynamicTemplate);
