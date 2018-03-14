@@ -19,7 +19,7 @@ exports.addon = function (renderer) {
 
         if (process.env.NODE_ENV !== 'production') {
             if (block) {
-                Component.displayName = block;
+                Component.displayName = 'withStyles(' + block + ')';
             }
         }
 

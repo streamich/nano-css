@@ -26,7 +26,22 @@ const Example1 = withStyles(styles, function Example1 (props) {
     )
 });
 
+const styles2 = {
+    main: {
+        border: '1px solid red',
+    }
+};
+
+function HelloWorld ({styles}) {
+    return h('div', {className: styles.main}, 'Hello world!');
+}
+
+const Bordered = withStyles(styles2, HelloWorld);
+
 storiesOf('Addons/withStyles()', module)
     .add('Default', () =>
         h(Example1)
+    )
+    .add('Hello world', () =>
+        h(Bordered)
     )
