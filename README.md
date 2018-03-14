@@ -4,6 +4,8 @@
 
 Super lite CSS-in-JS solution.
 
+- Does not create wrapper components.
+
 
 ## Usage
 
