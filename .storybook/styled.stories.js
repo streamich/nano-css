@@ -19,7 +19,7 @@ const RedBorder = styled('div', {
     }
 });
 
-storiesOf('styled()', module)
+storiesOf('Addons/styled()', module)
     .add('Default', () =>
         h(RedBorder, null, 'Hello world')
     )

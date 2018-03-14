@@ -16,7 +16,7 @@ const className = rule({
     }
 }, 'nesting');
 
-storiesOf('Addon: nesting', module)
+storiesOf('Addons/Nesting', module)
     .add('Default', () =>
         h('div', {className}, 'Hover me!')
     )
