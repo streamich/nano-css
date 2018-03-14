@@ -22,5 +22,8 @@ storiesOf('drule()', module)
     h('div', {className: '' + className1}, 'Hello world')
   )
   .add('Dynamic styles', () =>
-    h('div', {className: className1({fontWeight: 'bold'})}, 'Hello world')
+    h('div', null,
+        h('div', {className: className1({fontWeight: 'bold'})}, 'Hello world'),
+        h('div', {className: className1({color: 'blue'})}, 'Hello world')
+    )
   )
