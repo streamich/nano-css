@@ -5,7 +5,7 @@ const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../lib');
 const {addon} = require('../addon/nesting');
 
-const renderer = create(h);
+const renderer = create({h});
 addon(renderer);
 const {rule} = renderer;
 

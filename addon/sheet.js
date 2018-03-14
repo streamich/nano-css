@@ -1,8 +1,13 @@
 'use strict';
 
 var hash = require('../lib/hash').hash;
+var addonRule = require('./rule').addon;
 
 exports.addon = function (renderer) {
+    if (!renderer.rule) {
+        addonRule(renderer);
+    }
+
     renderer.sheet = function (map, block) {
         var result = {};
 

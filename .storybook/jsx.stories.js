@@ -4,7 +4,7 @@ const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../lib');
 
-const renderer = create(h);
+const renderer = create({h});
 const {jsx} = renderer;
 
 const RedBorder = jsx('div', {

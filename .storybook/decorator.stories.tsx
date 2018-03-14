@@ -5,7 +5,7 @@ const {linkTo} = require('@storybook/addon-links');
 
 import {create} from '../lib';
 import {addon} from '../addon/decorator';
-const renderer = create();
+const renderer = create({h});
 addon(renderer);
 const {css} = renderer;
 

@@ -3,13 +3,11 @@
 var cloneElement = require('react').cloneElement;
 
 exports.addon = function (renderer) {
-    var transformStatic = function (fn, styles, block) {
-        block = block || fn.displayName || fn.name;
-
-        var render_ = fn.prototype.render;
+    var transformStatic = function (prototype, styles, block) {
+        var render_ = prototype.render;
         var className = '';
 
-        fn.prototype.render = function() {
+        prototype.render = function() {
             var element = render_.call(this);
 
             if (element) {
@@ -30,9 +28,34 @@ exports.addon = function (renderer) {
         };
     };
 
+    /*
+    var transformDynamic = function (prototype, dynamicTemplate) {
+        var render_ = prototype.render;
+
+        prototype.render = function () {
+            var element = render_.apply(this, arguments);
+            var props = element.props;
+            var className =
+                (props.className || '') +
+                renderer.render(this.constructor, this, this[$$el], dynamicTemplate(this));
+
+            if (process.env.NODE_ENV === 'production') {
+                element.ref = ref;
+                props.className = className;
+                return element;
+            }
+
+            return cloneElement(element, Object.assign({}, props, {ref: ref, className: className}), props.children);
+        };
+    };
+    */
+
     renderer.css = function (a, b) {
         return function (Klass) {
-            transformStatic(Klass, a, b);
+            var block = b || Klass.displayName || Klass.name;
+            var prototype = Klass.prototype;
+
+            transformStatic(prototype, a, block);
         };
     };
 };

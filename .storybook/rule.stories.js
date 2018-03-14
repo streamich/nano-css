@@ -2,9 +2,11 @@ import {createElement as h} from 'react';
 import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
-const {create} = require('../lib');
+const {create} = require('../index');
+const {addon} = require('../addon/rule');
 
-const renderer = create(h);
+const renderer = create();
+addon(renderer);
 const {rule} = renderer;
 
 const className1 = rule({

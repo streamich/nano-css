@@ -1,29 +1,157 @@
 'use strict';
 
+var tags = [
+    'a',
+    'abbr',
+    'address',
+    'area',
+    'article',
+    'aside',
+    'audio',
+    'b',
+    'base',
+    'bdi',
+    'bdo',
+    'big',
+    'blockquote',
+    'body',
+    'br',
+    'button',
+    'canvas',
+    'caption',
+    'cite',
+    'code',
+    'col',
+    'colgroup',
+    'data',
+    'datalist',
+    'dd',
+    'del',
+    'details',
+    'dfn',
+    'dialog',
+    'div',
+    'dl',
+    'dt',
+    'em',
+    'embed',
+    'fieldset',
+    'figcaption',
+    'figure',
+    'footer',
+    'form',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'head',
+    'header',
+    'hgroup',
+    'hr',
+    'html',
+    'i',
+    'iframe',
+    'img',
+    'input',
+    'ins',
+    'kbd',
+    'keygen',
+    'label',
+    'legend',
+    'li',
+    'link',
+    'main',
+    'map',
+    'mark',
+    'marquee',
+    'menu',
+    'menuitem',
+    'meta',
+    'meter',
+    'nav',
+    'noscript',
+    'object',
+    'ol',
+    'optgroup',
+    'option',
+    'output',
+    'p',
+    'param',
+    'picture',
+    'pre',
+    'progress',
+    'q',
+    'rp',
+    'rt',
+    'ruby',
+    's',
+    'samp',
+    'script',
+    'section',
+    'select',
+    'small',
+    'source',
+    'span',
+    'strong',
+    'style',
+    'sub',
+    'summary',
+    'sup',
+    'table',
+    'tbody',
+    'td',
+    'textarea',
+    'tfoot',
+    'th',
+    'thead',
+    'time',
+    'title',
+    'tr',
+    'track',
+    'u',
+    'ul',
+    'var',
+    'video',
+    'wbr',
+
+    // SVG
+    'circle',
+    'clipPath',
+    'defs',
+    'ellipse',
+    'foreignObject',
+    'g',
+    'image',
+    'line',
+    'linearGradient',
+    'mask',
+    'path',
+    'pattern',
+    'polygon',
+    'polyline',
+    'radialGradient',
+    'rect',
+    'stop',
+    'svg',
+    'text',
+    'tspan',
+];
+
 exports.addon = function (renderer) {
-    renderer.styled = function (fn, styles, dynamicTemplate, block) {
-        var jsxComponent = renderer.jsx(fn, styles, block);
-
-        var Component = function(props) {
-            var copy = props;
-
-            if (process.env.NODE_ENV !== 'production') {
-                copy = Object.assign({}, props);
-            }
-
-            if (dynamicTemplate) {
-                copy.css = dynamicTemplate(props);
-            }
-
-            return jsxComponent(copy);
+    var styled = function (tag) {
+        return function (styles, dynamicTemplate) {
+            return renderer.style(tag, styles, dynamicTemplate);
         };
-
-        if (process.env.NODE_EVN !== 'production') {
-            if (block || (typeof fn === 'function')) {
-                Component.displayName = 'styled(' + (block || fn.displayName || fn.name) + ')';
-            }
-        }
-
-        return Component;
     };
+
+    var tag;
+
+    for (var i = 0; i < tags.length; i++) {
+        tag = tags[i];
+        styled[tag] = styled(tag);
+    }
+
+    renderer.styled = styled;
 };

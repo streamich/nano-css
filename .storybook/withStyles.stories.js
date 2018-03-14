@@ -4,7 +4,7 @@ const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../lib');
 
-const renderer = create(h);
+const renderer = create({h});
 require('../addon/sheet').addon(renderer);
 require('../addon/withStyles').addon(renderer);
 const {withStyles} = renderer;

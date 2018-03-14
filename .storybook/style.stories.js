@@ -2,14 +2,18 @@ import {createElement as h} from 'react';
 import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
-const {create} = require('../lib');
-const {addon} = require('../addon/styled');
+const {create} = require('../index');
+const {addon: addonRule} = require('../addon/rule');
+const {addon: addonJsx} = require('../addon/jsx');
+const {addon: addonStyle} = require('../addon/style');
 
-const renderer = create(h);
-addon(renderer);
-const {styled} = renderer;
+const renderer = create({h});
+addonRule(renderer);
+addonJsx(renderer);
+addonStyle(renderer);
+const {style} = renderer;
 
-const RedBorder = styled('div', {
+const RedBorder = style('div', {
   border: '1px solid red'
 }, (props) => {
     if (props.primary) {
@@ -19,7 +23,11 @@ const RedBorder = styled('div', {
     }
 });
 
-storiesOf('Addons/styled()', module)
+const RedBorderItalic = style(RedBorder, {
+    fontStyle: 'italic'
+});
+
+storiesOf('style()', module)
     .add('Default', () =>
         h(RedBorder, null, 'Hello world')
     )
@@ -28,4 +36,7 @@ storiesOf('Addons/styled()', module)
     )
     .add('Inline styles', () =>
         h(RedBorder, {style: {color: 'red'}, primary: true}, 'Hello world')
+    )
+    .add('Composability', () =>
+        h(RedBorderItalic, null, 'Hello world')
     )

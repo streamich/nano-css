@@ -2,10 +2,10 @@ import {createElement as h} from 'react';
 import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
-const {create} = require('../lib');
+const {create} = require('../index');
 const {addon} = require('../addon/sheet');
 
-const renderer = create(h);
+const renderer = create({h});
 addon(renderer);
 const {sheet} = renderer;
 
@@ -28,7 +28,7 @@ const styles2 = renderer.sheet({
     },
 });
 
-storiesOf('Addons/sheet()', module)
+storiesOf('sheet()', module)
     .add('Default', () =>
         h('div', null,
             h('div', {className: styles.tomato}, 'Red'),

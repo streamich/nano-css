@@ -2,7 +2,7 @@
   "name": "zepto-style",
   "version": "0.0.1",
   "description": "Smallest 4th gen CSS-in-JS library",
-  "main": "lib/index.js",
+  "main": "index.js",
   "unpkg": "dist/pico-style.umd.min.js",
   "repository": {
     "type": "git",
