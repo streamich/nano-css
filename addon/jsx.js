@@ -15,9 +15,6 @@ exports.addon = function (renderer) {
         var className;
         var isElement = typeof fn === 'string';
 
-        if (!block && !isElement)
-            block = fn.displayName || fn.name;
-
         var Component = function (props) {
             if (!className) {
                 className = renderer.rule(styles, block);

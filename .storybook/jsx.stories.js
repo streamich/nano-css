@@ -35,6 +35,10 @@ const Button = jsx('button', {
     }
 });
 
+const ButtonYellow = jsx(Button, {
+    color: 'yellow'
+});
+
 storiesOf('jsx()', module)
     .add('Default', () =>
         h(RedBorder, null, 'Hello world')
@@ -48,5 +52,10 @@ storiesOf('jsx()', module)
     .add('Button', () =>
         h(Block, null,
             h(Button, null, 'Click me!')
+        )
+    )
+    .add('Composition', () =>
+        h(Block, null,
+            h(ButtonYellow, null, 'Click me!')
         )
     )
