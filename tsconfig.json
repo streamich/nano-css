@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "removeComments": false,
+        "noImplicitAny": false,
+        "sourceMap": false,
+        "experimentalDecorators": true,
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react",
+        "jsxFactory": "h",
+        "importHelpers": true,
+        "lib": [
+          "dom",
+          "es5",
+          "es6",
+          "es7",
+          "es2015",
+          "scripthost",
+          "dom.iterable"
+        ]
+    }
+}

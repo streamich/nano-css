@@ -30,11 +30,9 @@ exports.addon = function (renderer) {
         };
     };
 
-    var decorator = function (a, b) {
+    renderer.css = function (a, b) {
         return function (Klass) {
             transformStatic(Klass, a, b);
         };
     };
-
-    return decorator;
 };
