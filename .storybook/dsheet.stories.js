@@ -20,12 +20,12 @@ const styles = dsheet({
 });
 
 storiesOf('dsheet()', module)
-  .add('Default', () =>
-    h('div', {className: '' + styles.block}, 'Hello world')
-  )
-  .add('Dynamic', () =>
-    h('div', null,
-        h('div', {className: styles.block({color: 'red'})}, 'Hello world'),
-        h('div', {className: styles.block({color: 'green'})}, 'Hello world'),
+    .add('Default', () =>
+        h('div', {className: '' + styles.block}, 'Hello world')
     )
-  )
+    .add('Dynamic', () =>
+        h('div', null,
+            h('div', {className: styles.block({color: 'red'})}, 'Hello world'),
+            h('div', {className: styles.block({color: 'green'})}, 'Hello world'),
+        )
+    )

@@ -18,12 +18,12 @@ const className1 = drule({
 }, 'RedBorder');
 
 storiesOf('drule()', module)
-  .add('Default', () =>
-    h('div', {className: '' + className1}, 'Hello world')
-  )
-  .add('Dynamic styles', () =>
-    h('div', null,
-        h('div', {className: className1({fontWeight: 'bold'})}, 'Hello world'),
-        h('div', {className: className1({color: 'blue'})}, 'Hello world')
+    .add('Default', () =>
+        h('div', {className: '' + className1}, 'Hello world')
     )
-  )
+    .add('Dynamic styles', () =>
+        h('div', null,
+            h('div', {className: className1({fontWeight: 'bold'})}, 'Hello world'),
+            h('div', {className: className1({color: 'blue'})}, 'Hello world')
+        )
+    )
