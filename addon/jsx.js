@@ -8,7 +8,7 @@ exports.addon = function (renderer) {
     }
 
     if (process.env.NODE_ENV !== 'production') {
-        require('./__dev__/warnOnMissingDependencies')('styled', renderer, ['rule', 'cache']);
+        require('./__dev__/warnOnMissingDependencies')('jsx', renderer, ['rule', 'cache']);
     }
 
     renderer.jsx = function (fn, styles, block) {

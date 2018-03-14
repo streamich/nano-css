@@ -1,6 +1,10 @@
 'use strict';
 
 exports.addon = function (renderer) {
+    if (process.env.NODE_ENV !== 'production') {
+        require('./__dev__/warnOnMissingDependencies')('rule', renderer, ['put']);
+    }
+
     renderer.rule = function (styles, block) {
         if (!block) {
             block = renderer.hash(styles);
