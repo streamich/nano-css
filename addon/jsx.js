@@ -7,6 +7,10 @@ exports.addon = function (renderer) {
         addonCache(renderer);
     }
 
+    if (process.env.NODE_ENV !== 'production') {
+        require('./__dev__/warnOnMissingDependencies')('styled', renderer, ['rule', 'cache']);
+    }
+
     renderer.jsx = function (fn, styles, block) {
         var className;
         var isElement = typeof fn === 'string';
@@ -20,17 +24,27 @@ exports.addon = function (renderer) {
             }
 
             var copy = props;
+            var $as = copy.$as;
+            var $ref = copy.$ref;
 
             if (process.env.NODE_ENV !== 'production') {
-                copy = Object.assign({}, props);
+                copy = renderer.assign({}, props);
             }
 
             var dynamicClassName = renderer.cache(props.css);
             delete copy.css;
+            delete copy.$as;
+
+            if (isElement || $as) {
+                delete copy.$ref;
+                copy.ref = $ref;
+            }
 
             copy.className = (props.className || '') + className + dynamicClassName;
 
-            return isElement ? renderer.h(fn, copy) : fn(copy);
+            return (isElement || $as)
+                ? renderer.h($as || fn, copy)
+                : fn(copy);
         };
 
         if (process.env.NODE_EVN !== 'production') {
