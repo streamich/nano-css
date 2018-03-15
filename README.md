@@ -10,6 +10,8 @@ The smallest CSS-in-JS library that you can actually use in production.
 - Performant &mdash; does not create wrapper components and caches styles
 
 
+## Reference
+
 - Usage
 - Addons
   - [`put()`](./docs/put.md)
