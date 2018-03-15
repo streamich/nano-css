@@ -2,7 +2,7 @@
 
 [![][npm-badge]][npm-url] [![][travis-badge]][travis-url]
 
-The smallest [5<sup>th</sup> generation] CSS-in-JS(https://github.com/streamich/freestyler/blob/master/docs/en/generations.md#5th-generation) library that you can actually use in production; *with tons of addons*.
+The smallest [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/master/docs/en/generations.md#5th-generation) CSS-in-JS library that you can actually use in production; *with tons of addons*.
 
 - Only __0.5Kb__ in base configuration
 - __Agnostic__ &mdash; use it standalone, with React, Preact, Vue.js, or any other library
