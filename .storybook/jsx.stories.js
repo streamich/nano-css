@@ -2,9 +2,13 @@ import {createElement as h} from 'react';
 import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
-const {create} = require('../lib');
+const {create} = require('../index');
+const {addon: addonRule} = require('../addon/rule');
+const {addon: addonJsx} = require('../addon/jsx');
 
 const renderer = create({h});
+addonRule(renderer);
+addonJsx(renderer);
 const {jsx} = renderer;
 
 const RedBorder = jsx('div', {

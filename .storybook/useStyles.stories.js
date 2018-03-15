@@ -2,7 +2,7 @@ import {createElement as h} from 'react';
 import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
-const {create} = require('../lib');
+const {create} = require('../index');
 
 const renderer = create({h});
 require('../addon/sheet').addon(renderer);
@@ -37,7 +37,7 @@ function HelloWorld (props, styles) {
 
 const Bordered = useStyles(styles2, HelloWorld);
 
-storiesOf('Addons/useStyles()', module)
+storiesOf('useStyles()', module)
     .add('Default', () =>
         h(Example1)
     )

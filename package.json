@@ -1,12 +1,12 @@
 {
-  "name": "zepto-style",
+  "name": "nano-css",
   "version": "0.0.1",
-  "description": "Smallest 4th gen CSS-in-JS library",
+  "description": "Smallest 5th gen CSS-in-JS library",
   "main": "index.js",
-  "unpkg": "dist/pico-style.umd.min.js",
+  "unpkg": "dist/nano-css.umd.min.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/streamich/pico-style.git"
+    "url": "https://github.com/streamich/nano-css.git"
   },
   "scripts": {
     "eslint": "eslint src",

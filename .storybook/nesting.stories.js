@@ -2,11 +2,13 @@ import {createElement as h} from 'react';
 import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
-const {create} = require('../lib');
-const {addon} = require('../addon/nesting');
+const {create} = require('../index');
+const {addon: addonRule} = require('../addon/rule');
+const {addon: addonNesting} = require('../addon/nesting');
 
 const renderer = create({h});
-addon(renderer);
+addonRule(renderer);
+addonNesting(renderer);
 const {rule} = renderer;
 
 const className = rule({
@@ -16,7 +18,7 @@ const className = rule({
     }
 }, 'nesting');
 
-storiesOf('Addons/Nesting', module)
+storiesOf('Nesting', module)
     .add('Default', () =>
         h('div', {className}, 'Hover me!')
     )

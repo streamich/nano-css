@@ -1,61 +1,36 @@
 'use strict';
 
-var cloneElement = require('react').cloneElement;
+var transformComponentStatic = require('./util/transformComponentStatic');
+var transformComponentDynamic = require('./util/transformComponentDynamic');
 
 exports.addon = function (renderer) {
-    var transformStatic = function (prototype, styles, block) {
-        var render_ = prototype.render;
-        var className = '';
-
-        prototype.render = function() {
-            var element = render_.call(this);
-
-            if (element) {
-                if (!className) {
-                    className = renderer.rule(styles, block);
-                }
-
-                if (process.env.NODE_ENV === 'production') {
-                    element.props.className = (element.props.className || '') + className;
-                } else {
-                    element = cloneElement(element, {
-                        className: (element.props.className || '') + className,
-                    });
-                }
-            }
-
-            return element;
-        };
-    };
-
-    /*
-    var transformDynamic = function (prototype, dynamicTemplate) {
-        var render_ = prototype.render;
-
-        prototype.render = function () {
-            var element = render_.apply(this, arguments);
-            var props = element.props;
-            var className =
-                (props.className || '') +
-                renderer.render(this.constructor, this, this[$$el], dynamicTemplate(this));
-
-            if (process.env.NODE_ENV === 'production') {
-                element.ref = ref;
-                props.className = className;
-                return element;
-            }
-
-            return cloneElement(element, Object.assign({}, props, {ref: ref, className: className}), props.children);
-        };
-    };
-    */
+    if (process.env.NODE_ENV !== 'production') {
+        require('./__dev__/warnOnMissingDependencies')('css', renderer, ['rule', 'cache']);
+    }
 
     renderer.css = function (a, b) {
-        return function (Klass) {
-            var block = b || Klass.displayName || Klass.name;
-            var prototype = Klass.prototype;
+        var isComponent = a && a.prototype && a.prototype.render;
 
-            transformStatic(prototype, a, block);
+        // Static class decorator.
+        if (isComponent) {
+            if (a.css) transformComponentStatic(renderer, a.prototype, a.css);
+
+            return a;
+        }
+
+        return function (instanceOrComp, key, descriptor) {
+            if (typeof key === 'string') {
+                // .render() method decorator
+                var Comp = instanceOrComp.constructor;
+
+                transformComponentDynamic(renderer, Comp, a);
+                descriptor.value = Comp.prototype.render;
+
+                return descriptor;
+            }
+
+            // Class decorator
+            transformComponentStatic(renderer, instanceOrComp.prototype, a, b);
         };
     };
 };

@@ -3,10 +3,14 @@ import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
 
-import {create} from '../lib';
-import {addon} from '../addon/decorator';
+import {create} from '../index';
+import {addon as addonRule} from '../addon/rule';
+import {addon as addonCache} from '../addon/cache';
+import {addon as addonDecorator} from '../addon/decorator';
 const renderer = create({h});
-addon(renderer);
+addonRule(renderer);
+addonCache(renderer);
+addonDecorator(renderer);
 const {css} = renderer;
 
 @css({
@@ -18,7 +22,36 @@ class CssTest extends Component<any, any> {
   }
 }
 
-storiesOf('Addons/@css decorator', module)
+@css({
+  border: '1px solid red'
+})
+class Dynamic extends Component<any, any> {
+  @css(props => ({
+    color: 'green'
+  }))
+  render () {
+    return <div>Hello there</div>;
+  }
+}
+
+@css
+class Static extends Component<any, any> {
+  static css = {
+    border: '1px dashed blue',
+  };
+
+  render () {
+    return <div>Hello there</div>;
+  }
+}
+
+storiesOf('@css decorator', module)
   .add('Default', () =>
     <CssTest />
+  )
+  .add('Dynamic styles', () =>
+    <Dynamic />
+  )
+  .add('Static decorator', () =>
+    <Static />
   )

@@ -1,6 +1,5 @@
 'use strict';
 
-var hash = require('../lib/hash').hash;
 var addonRule = require('./rule').addon;
 
 exports.addon = function (renderer) {
@@ -12,7 +11,7 @@ exports.addon = function (renderer) {
         var result = {};
 
         if (!block) {
-            block = hash(map);
+            block = renderer.hash(map);
         }
 
         var onElementModifier = function (elementModifier) {
