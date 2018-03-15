@@ -2,12 +2,12 @@
 
 [![][npm-badge]][npm-url] [![][travis-badge]][travis-url]
 
-The smallest CSS-in-JS [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/master/docs/en/generations.md#5th-generation) library that you can actually use in production; with tons of addons.
+The smallest [5<sup>th</sup> generation] CSS-in-JS(https://github.com/streamich/freestyler/blob/master/docs/en/generations.md#5th-generation) library that you can actually use in production; *with tons of addons*.
 
 - Only __0.5Kb__ in base configuration
-- Library agnostic &mdash; use it standalone, with React, Preact, Vue.js, or any other way
-- Isomorphic &mdash; render on server and browser
-- Performant &mdash; does not create wrapper components and caches styles
+- __Agnostic__ &mdash; use it standalone, with React, Preact, Vue.js, or any other library
+- __Isomorphic__ &mdash; render on server and browser
+- __Performant__ &mdash; does not create wrapper components and caches styles
 
 
 ## Reference
@@ -26,10 +26,10 @@ The smallest CSS-in-JS [5<sup>th</sup> generation](https://github.com/streamich/
   - [`style()`](./docs/style.md)
   - [`styled()`](./docs/styled.md)
   - [`hyperstyle()`](./docs/hyperstyle.md)
-  - [`Atoms`](./docs/Atoms.md)
-  - [`Nesting`](./docs/Nesting.md)
-  - [`Stable stringify`](./docs/Stable.md)
-  - [`keyframes`](./docs/keyframes.md)
+  - [Atoms](./docs/Atoms.md)
+  - [Nesting](./docs/Nesting.md)
+  - [Stable](./docs/Stable.md)
+  - [`keyframes()`](./docs/keyframes.md)
 - Server side rendering
 
 
