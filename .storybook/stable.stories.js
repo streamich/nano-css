@@ -15,7 +15,7 @@ const className = rule({
     bd: '1px solid red'
 }, 'atoms');
 
-storiesOf('Stable hash', module)
+storiesOf('Addons/Stable hash', module)
     .add('Default', () =>
         h('div', {className}, 'Red')
     )

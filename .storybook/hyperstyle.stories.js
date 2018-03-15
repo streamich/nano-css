@@ -20,7 +20,7 @@ const h = hyperstyle({
     },
 }, 'hello');
 
-storiesOf('hyperstyle()', module)
+storiesOf('Addons/hyperstyle()', module)
     .add('Default', () =>
         h('div', null,
             h('div', {styleName: 'tomato'}, 'Red'),

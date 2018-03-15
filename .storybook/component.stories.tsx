@@ -65,7 +65,7 @@ class Static2 extends Component {
   }
 }
 
-storiesOf('Component', module)
+storiesOf('Addons/Component', module)
     .add('Default', () =>
         h(CssTest as any)
     )

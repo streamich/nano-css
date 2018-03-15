@@ -28,7 +28,7 @@ const styles2 = renderer.sheet({
     },
 });
 
-storiesOf('sheet()', module)
+storiesOf('Addons/sheet()', module)
     .add('Default', () =>
         h('div', null,
             h('div', {className: styles.tomato}, 'Red'),

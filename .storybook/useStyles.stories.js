@@ -37,7 +37,7 @@ function HelloWorld (props, styles) {
 
 const Bordered = useStyles(styles2, HelloWorld);
 
-storiesOf('useStyles()', module)
+storiesOf('Addons/useStyles()', module)
     .add('Default', () =>
         h(Example1)
     )

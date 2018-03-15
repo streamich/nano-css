@@ -19,7 +19,7 @@ const styles = dsheet({
     }
 });
 
-storiesOf('dsheet()', module)
+storiesOf('Addons/dsheet()', module)
     .add('Default', () =>
         h('div', {className: '' + styles.block}, 'Hello world')
     )

@@ -17,7 +17,7 @@ const className1 = drule({
   border: '1px solid red'
 }, 'RedBorder');
 
-storiesOf('drule()', module)
+storiesOf('Addons/drule()', module)
     .add('Default', () =>
         h('div', {className: '' + className1}, 'Hello world')
     )

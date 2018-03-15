@@ -2,14 +2,33 @@
 
 [![][npm-badge]][npm-url] [![][travis-badge]][travis-url]
 
-Super lite CSS-in-JS solution at only __0.XKb__ packing more features than you will find in any other CSS-in-JS library.
+The smallest CSS-in-JS library that you can actually use in production.
 
-- Only __0.XKb__ minified and gzipped.
-- Library agnostic
-- Use with any virtual DOM library, not just React.
-- Isomorphic &mdash; render on server and browser.
-- Does not create wrapper components.
+- Only __0.XKb__
+- Library agnostic &mdash; use it standalone, with React, Preact, Vue.js, or any other way
+- Isomorphic &mdash; render on server and browser
+- Performant &mdash; does not create wrapper components and caches styles
 
+
+- Usage
+- Addons
+  - [`put()`](./docs/put.md)
+  - [`rule()`](./docs/rule.md)
+  - [`drule()`](./docs/drule.md)
+  - [`sheet()`](./docs/sheet.md)
+  - [`dsheet()`](./docs/dsheet.md)
+  - [`jsx()`](./docs/jsx.md)
+  - [`useStyles()`](./docs/useStyles.md)
+  - [`withStyles()`](./docs/withStyles.md)
+  - [`Decorator`](./docs/Decorator.md)
+  - [`style()`](./docs/style.md)
+  - [`styled()`](./docs/styled.md)
+  - [`hyperstyle()`](./docs/hyperstyle.md)
+  - [`Atoms`](./docs/Atoms.md)
+  - [`Nesting`](./docs/Nesting.md)
+  - [`Stable stringify`](./docs/Stable.md)
+  - [`keyframes`](./docs/keyframes.md)
+- Server side rendering
 
 
 ## License

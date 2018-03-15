@@ -43,7 +43,7 @@ const ButtonYellow = jsx(Button, {
     color: 'yellow'
 });
 
-storiesOf('jsx()', module)
+storiesOf('Addons/jsx()', module)
     .add('Default', () =>
         h(RedBorder, null, 'Hello world')
     )

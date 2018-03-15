@@ -17,7 +17,7 @@ put('red-border', {
   }
 });
 
-storiesOf('put()', module)
+storiesOf('Addons/put()', module)
   .add('Default', () =>
     h('div', {className: 'red-border'}, 'Hello world')
   )

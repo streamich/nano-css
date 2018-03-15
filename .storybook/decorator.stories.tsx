@@ -62,7 +62,7 @@ class Static2 extends Component<any, any> {
   }
 }
 
-storiesOf('@css decorator', module)
+storiesOf('Addons/@css decorator', module)
   .add('Default', () =>
     <CssTest />
   )

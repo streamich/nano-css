@@ -27,7 +27,7 @@ const RedBorderItalic = style(RedBorder, {
     fontStyle: 'italic'
 });
 
-storiesOf('style()', module)
+storiesOf('Addons/style()', module)
     .add('Default', () =>
         h(RedBorder, null, 'Hello world')
     )
