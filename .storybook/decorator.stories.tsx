@@ -45,6 +45,23 @@ class Static extends Component<any, any> {
   }
 }
 
+@css
+class Static2 extends Component<any, any> {
+  static css = {
+    border: '1px dashed blue',
+  };
+
+  css () {
+    return {
+      color: this.props.color
+    };
+  }
+
+  render () {
+    return <div>Hello there</div>;
+  }
+}
+
 storiesOf('@css decorator', module)
   .add('Default', () =>
     <CssTest />
@@ -54,4 +71,7 @@ storiesOf('@css decorator', module)
   )
   .add('Static decorator', () =>
     <Static />
+  )
+  .add('Static dynamic styles', () =>
+    <Static2 color='blue' />
   )

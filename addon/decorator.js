@@ -15,6 +15,13 @@ exports.addon = function (renderer) {
         if (isComponent) {
             if (a.css) transformComponentStatic(renderer, a.prototype, a.css);
 
+            var componentWillMount_ = a.prototype.componentWillMount;
+
+            a.prototype.componentWillMount = function () {
+                if (this.css) transformComponentDynamic(renderer, a, this.css.bind(this));
+                if (componentWillMount_) componentWillMount_.apply(this);
+            };
+
             return a;
         }
 
