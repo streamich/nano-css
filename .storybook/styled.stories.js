@@ -1,5 +1,6 @@
 import {createElement as h} from 'react';
 import {storiesOf} from '@storybook/react';
+import Button2 from './styled/Button';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../index');
@@ -7,8 +8,12 @@ const {addon: addonRule} = require('../addon/rule');
 const {addon: addonJsx} = require('../addon/jsx');
 const {addon: addonStyle} = require('../addon/style');
 const {addon: addonStyled} = require('../addon/styled');
+const {addon: addonNesting} = require('../addon/nesting');
+const {addon: addonAtoms} = require('../addon/atoms');
 
 const renderer = create({h});
+addonNesting(renderer);
+addonAtoms(renderer);
 addonRule(renderer);
 addonJsx(renderer);
 addonStyle(renderer);
@@ -70,4 +75,7 @@ storiesOf('Addons/styled()', module)
     )
     .add('Button', () =>
         h(Button, null, 'Click me!')
+    )
+    .add('Button 2', () =>
+        h(Button2, null, 'Click me!')
     )
