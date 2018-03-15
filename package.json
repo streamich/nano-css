@@ -1,20 +1,18 @@
 {
-  "name": "pico-style",
-  "version": "0.1.0",
-  "description": "Smallest 4th gen CSS-in-JS library",
-  "main": "lib/index.js",
-  "unpkg": "dist/pico-style.umd.min.js",
+  "name": "nano-css",
+  "version": "0.0.1",
+  "description": "Smallest 5th gen CSS-in-JS library",
+  "main": "index.js",
+  "unpkg": "dist/nano-css.umd.min.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/streamich/pico-style.git"
+    "url": "https://github.com/streamich/nano-css.git"
   },
   "scripts": {
     "eslint": "eslint src",
     "start": "npm run storybook",
-    "clean": "rimraf modules lib dist && npm run test:visual:clean",
-    "build": "npm run clean && npm run build:lib && npm run build:cjs && npm run build:umd",
-    "build:modules": "gulp build-modules --gulpfile build/gulpfile.js",
-    "build:lib": "gulp build-ts --gulpfile build/gulpfile.js",
+    "clean": "rimraf dist && npm run test:visual:clean",
+    "build": "npm run clean && npm run build:cjs && npm run build:umd",
     "build:cjs": "webpack -p --config build/webpack.config.cjs.js",
     "build:umd": "webpack -p --config build/webpack.config.umd.js",
     "test": "npm run eslint && npm run test:server && jest",
@@ -80,7 +78,10 @@
     "mocha": "5.0.4",
     "chai": "4.1.2",
     "webpack-bundle-analyzer": "^2.9.0",
-    "eslint": "^4.9.0"
+    "eslint": "^4.9.0",
+    "typescript": "2.7.2",
+    "tslib": "1.9.0",
+    "ts-loader": "3.5.0"
   },
   "config": {
     "commitizen": {
@@ -91,7 +92,7 @@
     "transformIgnorePatterns": [],
     "testRegex": ".*/__tests__/.*\\.(test|spec)\\.(jsx?)$",
     "setupFiles": [
-      "./src/__tests__/setup.js"
+      "./lib/__tests__/setup.js"
     ],
     "moduleFileExtensions": [
       "js",
