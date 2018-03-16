@@ -11,8 +11,11 @@ const h = nano.hyperstyle({
 });
 
 const App = () =>
-    h('div', {styleName: 'red'}, 'My app...');
+    h('div', {styleName: 'foo'}, 'My app...');
 ```
+
+Then in your elements you use `styleName` prop to pick one of the defined styles.
+
 
 For TypeScript you can set in `tsconfig.json` to use `h` as hyperscript function.
 
@@ -42,7 +45,7 @@ const h = nano.hyperstyle({
 });
 
 const App = () =>
-    <div styleName='foo'>My app..</div>;
+    <div styleName="foo">My app..</div>;
 ```
 
 
