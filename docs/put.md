@@ -1,6 +1,6 @@
 # `put()`
 
-`put()` is the only addon that comes pre-installed with `nano-style`.
+`put()` is the only addon that comes pre-installed with `nano-css`.
 
 It simply injects CSS given a selector and a CSS-like object.
 
