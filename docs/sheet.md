@@ -19,6 +19,8 @@ const styles = sheet(cssMap);
 <button className={styles.button}>Click me!</button>
 ```
 
+> __Nota Bene__
+>
 > Unlike styles created using `rule()` interface, the styles created with `sheet()` interface are
 > not injected into the DOM when they are created. The injection is postponed util the style is accessed for the first time:
 >
