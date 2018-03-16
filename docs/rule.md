@@ -14,6 +14,8 @@ const css = {
 const className = nano.rule(css);
 ```
 
+> __Nota Bene__
+> 
 > The code above will automatically generate predictable class names on the server and browser.
 > However, by default it uses unstable JSON stringify, which is fine in most cases if your
 > app runs only in a browser, however, if you render on the server side and want to re-hydrate
