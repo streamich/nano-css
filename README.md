@@ -8,7 +8,7 @@ __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/
 - __Library-agnostic__ &mdash; use it standalone, with React, Preact, Vue.js, or any other library
 - __Isomorphic__ &mdash; render on server and browser, generates stable class names, and re-hydrates
 - __Performant__ &mdash; does not create wrapper components, does not use inline styles or inline `<style>` elements in the document body, but caches all class names for re-use and injects CSS using `.insertRule()` for performance
-- Supports __`@media` queries__ and __animation `@keyframes`__
+- __`@media` queries__ and __animation `@keyframes`__ are supported
 
 
 ## Reference
