@@ -1,13 +1,11 @@
 # Addons
 
 `nano-css` comes only with a single [`put()`](./put.md) addon pre-installed. However, it has
-a bunch of addons you can choose to add.
+plenty of addons to chose from. All addons are in the `nano-css/addon/` folder and are exported
+as an `addon` named export. Addon is simply a function that receives `nano-css` renderer object
+as a single argument.
 
-All addons are in the `nano-css/addon/` folder and are exported as a function under the
-`addon` name. To install an addon simply give it the `nano-css` renderer object as a
-single argument.
-
-Here we install `rule()` and `atoms` addons:
+Here we install [`rule()`](./rule.md) and [`atoms`](./atoms.md) addons:
 
 ```js
 import {create} from 'nano-css';
