@@ -92,7 +92,7 @@ describe('nano-css', function () {
                     }
                 }
             });
-console.log(renderer.raw);
+            console.log(renderer.raw);
             // expect(renderer.raw).to.equal('@media screen{ .foo{color:red;}}');
         });
     });

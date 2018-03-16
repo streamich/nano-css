@@ -31,6 +31,8 @@ __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/
   - [Nesting](./docs/Nesting.md)
   - [Stable](./docs/Stable.md)
   - [`keyframes()`](./docs/keyframes.md)
+  - [`!important`](./docs/important.md)
+  - [`global`](./docs/global.md)
 - Server side rendering
 
 
