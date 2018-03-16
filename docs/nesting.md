@@ -29,7 +29,7 @@ nano.put('.foo', {
     '&:hover': {
         color: 'blue'
     },
-    '.globa_class &': {
+    '.global_class &': {
         color: 'green'
     }
 });

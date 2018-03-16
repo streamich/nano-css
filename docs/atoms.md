@@ -16,7 +16,7 @@ const className = rule({
 });
 ```
 
-`atoms` addon provides a list of *atoms* that can be used as CSS rule declarations properties
+`atoms` addon provides a list of *atoms* that can be used as shorthands for CSS rule declarations properties.
 
 ```js
 const className = rule({

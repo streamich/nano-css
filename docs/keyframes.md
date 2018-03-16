@@ -4,8 +4,11 @@ This addon allows one to define CSS `@keyframes` in any CSS-like object. It also
 a `keyframes()` function, which can generate a unique animation name.
 
 ```js
-const animation = keyframes({
-    to: {
+const animation = nano.keyframes({
+    '0%': {
+        transform: 'rotate(0deg)'
+    },
+    '100%': {
         transform: 'rotate(359deg)'
     }
 });
