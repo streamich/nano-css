@@ -1,6 +1,6 @@
 {
   "name": "nano-css",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Smallest 5th gen CSS-in-JS library",
   "main": "index.js",
   "unpkg": "dist/nano-css.umd.min.js",
@@ -18,7 +18,7 @@
     "test": "npm run eslint && npm run test:server && jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
-    "test:server": "NODE_ENV=production mocha -r ts-node/register src/**/*.test-server.ts*",
+    "test:server": "NODE_ENV=production mocha addon/**/*.test-server.js",
     "test:visual": "npm run storybook",
     "test:visual:build": "build-storybook",
     "test:visual:clean": "rimraf storybook-static",
@@ -92,7 +92,7 @@
     "transformIgnorePatterns": [],
     "testRegex": ".*/__tests__/.*\\.(test|spec)\\.(jsx?)$",
     "setupFiles": [
-      "./lib/__tests__/setup.js"
+      "./addon/__tests__/setup.js"
     ],
     "moduleFileExtensions": [
       "js",

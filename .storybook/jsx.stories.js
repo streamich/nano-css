@@ -3,10 +3,12 @@ import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../index');
+const {addon: addonKeyframes} = require('../addon/keyframes');
 const {addon: addonRule} = require('../addon/rule');
 const {addon: addonJsx} = require('../addon/jsx');
 
 const renderer = create({h});
+addonKeyframes(renderer);
 addonRule(renderer);
 addonJsx(renderer);
 const {jsx} = renderer;

@@ -15,10 +15,13 @@ const className = rule({
     border: '1px solid red',
     '&:hover': {
         fontWeight: 'bold'
-    }
+    },
+    '&>span': {
+        color: 'red',
+    },
 }, 'nesting');
 
 storiesOf('Addons/Nesting', module)
     .add('Default', () =>
-        h('div', {className}, 'Hover me!')
+        h('div', {className}, 'Hover ', h('span', null, 'me!'))
     )

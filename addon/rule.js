@@ -32,7 +32,7 @@ exports.addon = function (renderer) {
         }
 
         block = renderer.pfx + block;
-        renderer.put(block, styles);
+        renderer.put('.' + block, styles);
         renderer.cns[block] = 1;
 
         return ' ' + block;

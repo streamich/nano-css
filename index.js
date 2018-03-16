@@ -31,33 +31,53 @@ exports.create = function (config) {
         selector: function (parent, selector) {
             return parent + (selector[0] === ':' ? ''  : ' ') + selector;
         },
+        putRaw: function (rawCssRule) {
+            renderer.raw += rawCssRule;
+        },
+        putAtrule: function (selector, decls, prelude) {
+            renderer.put(selector, decls, prelude);
+        }
     }, config);
 
-    var putRaw;
+    var sheet, stylesheet;
 
     if (renderer.client) {
-        var sheet = document.head.appendChild(document.createElement('style')).sheet;
-        putRaw = function (rawCss) {
-            sheet.insertRule(rawCss, 0);
-        };
-    } else {
-        putRaw = function (rawCss) {
-            renderer.raw += rawCss;
+        if (process.env.NODE_ENV === 'production') {
+            sheet = document.head.appendChild(document.createElement('style')).sheet;
+        } else {
+            stylesheet = document.createElement('style');
+            document.head.appendChild(stylesheet);
+        }
+
+        renderer.putRaw = function (rawCssRule) {
+            if (process.env.NODE_ENV === 'production') {
+                sheet.insertRule(rawCssRule, 0);
+            } else {
+                try {
+                    stylesheet.sheet.insertRule(rawCssRule, 0);
+                } catch (error) {
+                    // eslint-disable-next-line
+                    console.info('Could not insert CSS rule.');
+                    console.error(error);
+
+                    stylesheet.appendChild(document.createTextNode(rawCssRule));
+                }
+            }
         };
     }
 
-    var put = function (selector, decls, atrule) {
+    renderer.put = function (selector, decls, atrule) {
         var str = '';
         var prop, value;
 
         for (prop in decls) {
             value = decls[prop];
 
-            if (value instanceof Object) {
+            if ((value instanceof Object) && !(value instanceof Array)) {
                 if (prop[0] === '@') {
-                    put(selector, value, prop);
+                    renderer.putAtrule(selector, value, prop);
                 } else {
-                    put(renderer.selector(selector, prop), value, atrule);
+                    renderer.put(renderer.selector(selector, prop), value, atrule);
                 }
             } else {
                 str += renderer.decl(prop, value);
@@ -65,12 +85,10 @@ exports.create = function (config) {
         }
 
         if (str) {
-            str = '.' + selector + '{' + str + '}';
-            putRaw(atrule ? atrule + '{' + str + '}' : str);
+            str = selector + '{' + str + '}';
+            renderer.putRaw(atrule ? atrule + '{' + str + '}' : str);
         }
     };
-
-    renderer.put = put;
 
     return renderer;
 };
