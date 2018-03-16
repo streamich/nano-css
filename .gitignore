@@ -11,8 +11,5 @@ dist/
 lerna-debug.log
 /modules/
 /dist/
-.vscode/
 _book/
-/demo/*.js
-/demo/*.js.map
-/demo/analyzer/
+/demo/
