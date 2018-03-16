@@ -19,12 +19,15 @@ const styles = sheet(cssMap);
 <button className={styles.button}>Click me!</button>
 ```
 
-Unlike styles created using `rule()` interface, the styles created with `sheet()` interface are
-not injected into the DOM when they are created. The injection is postponed util the style is accessed for the first time:
-
-```js
-const inputClassName = styles.input;
-```
+> Unlike styles created using `rule()` interface, the styles created with `sheet()` interface are
+> not injected into the DOM when they are created. The injection is postponed util the style is accessed for the first time:
+>
+> ```js
+> // CSS in not injected yet.
+> const inputClassName = styles.input; // Now it is injected.
+> ```
+>
+> This allows to insert styles *just-in-time* and only if they are actually used.
 
 For semantic and performance reasons you can optionally specify a name for your sheet:
 

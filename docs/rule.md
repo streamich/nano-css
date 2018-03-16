@@ -5,14 +5,13 @@ interface. You can find this interface in many other CSS-in-JS libraries, it sim
 returns a list of class names given a CSS-like object:
 
 ```js
-const {rule} = nano;
 const css = {
     color: 'tomato',
     ':hover': {
         color: 'blue',
     },
 };
-const className = rule(css);
+const className = nano.rule(css);
 ```
 
 > The code above will automatically generate predictable class names on the server and browser.
@@ -31,8 +30,7 @@ const className = rule(css, 'RedText');
 
 ## Leading Space
 
-`nano-css` always returns class names with a leading space, so you can simply concatenate those
-with your other class names.
+`nano-css` always returns class names with a leading space, so you can concatenate those with other classes.
 
 ```jsx
 const otherClass = 'foo';

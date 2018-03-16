@@ -1,41 +1,36 @@
 # `drule()` Addon
 
-`drule()` interface is similar to [`rule()`](./rule.md) interface, but also allows you
+`drule()` (or *Dynamic Rule*) interface is similar to [`rule()`](./rule.md) interface, but also allows you
 to create CSS dynamically inside your render function, making it a [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/master/docs/en/generations.md#5th-generation)
 interface.
 
 ```jsx
-const {drule} = nano;
 const css = {
     border: '1px solid #888',
     color: '#888',
 };
-const className = drule(css);
+const classNames = nano.drule(css);
 ```
 
 Static use case is similar to [`rule()`](./rule.md) interface:
 
 ```jsx
-<button className={className()}>Click me!</button>
+<button className={classNames()}>Click me!</button>
+<button className={classNames.toString()}>Click me!</button>
+<button className={'' + classNames}>Click me!</button>
+<button className={String(classNames)}>Click me!</button>
 ```
 
-or
+But `drule()` also allows you to add custom styling overrides on the fly.
 
 ```jsx
-<button className={'' + className}>Click me!</button>
-<button className={String(className)}>Click me!</button>
+<button className={classNames({color: 'red'})}>Click me!</button>
 ```
 
-but `drule()` also allows you to add custom styling overrides on the fly:
-
-```jsx
-<button className={className({color: 'red'})}>Click me!</button>
-```
-
-Just like with `rule()` interface you can specify the class name explicitly:
+Just like with `rule()` interface you can specify a semantic class name:
 
 ```js
-const className = drule(css, 'MyButton');
+const classNames = drule(css, 'MyButton');
 ```
 
 
@@ -44,13 +39,13 @@ const className = drule(css, 'MyButton');
 Below is an example of a React button component that changes its color based on `primary` props.
 
 ```jsx
-const className = drule({
+const classNames = drule({
     border: '1px solid #888',
     color: '#fff',
 });
 
 const Button = ({children, primary}) =>
-    <button className={className({
+    <button className={classNames({
         background: primary ? 'blue' : 'grey'
     })}>
         {children}
