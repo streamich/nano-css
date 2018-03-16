@@ -69,4 +69,15 @@ export {
 
 The `create()` function accepts an options object with the following keys:
 
-- `pfx` &mdash; optional, string, prefix to add to all automatically generated class and animation names
+- `pfx` &mdash; optional, string, prefix to add to all generated class and animation names.
+- `h` &mdash; optional, hyperscript function of you virtual DOM library. Only necessary if you are using addon that requires it.
+
+
+```js
+import {createElement} from 'react';
+
+const nano = create({
+    pfx: 'my-company-',
+    h: createElement
+});
+```

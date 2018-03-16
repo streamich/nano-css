@@ -2,7 +2,7 @@
 
 `rule()` is a wrapper around [`put()`](./put.md) interface; it is a [3<sup>rd</sup> generation](https://github.com/streamich/freestyler/blob/master/docs/en/generations.md#3rd-generation)
 interface. You can find this interface in many other CSS-in-JS libraries, it simply
-returns a list class names given a css-like object:
+returns a list of class names given a CSS-like object:
 
 ```js
 const {rule} = nano;
@@ -15,11 +15,11 @@ const css = {
 const className = rule(css);
 ```
 
-The code above will automatically generate predictable class names on the server and browser.
-However, by default it uses unstable JSON stringify, which is fine in most cases if your
-app runs only in a browser, however, if you render on the server side and want to hydrate
-your CSS, you should use [`stable` addon](./stable.md), which makes sure that class names
-are the same between different JavaScript environments.
+> The code above will automatically generate predictable class names on the server and browser.
+> However, by default it uses unstable JSON stringify, which is fine in most cases if your
+> app runs only in a browser, however, if you render on the server side and want to re-hydrate
+> your CSS, you should use [`stable` addon](./stable.md), which makes sure that class names
+> are the same between different JavaScript environments.
 
 Optionally, using the second argument, you can specify the class name explicitly for performance
 and semantic reasons.
