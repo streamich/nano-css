@@ -78,7 +78,7 @@ You can pass components as an element type.
 const Button = jsx(MyComp, css);
 ```
 
-, where
+where
 
 ```jsx
 const MyComp = (props) => {
@@ -149,6 +149,9 @@ const Link = (props) => Button({
     ...props,
     $as: 'a'
 });
+
+<Link>Click me!</Link>
+// <a>Click me!</a>
 ```
 
 
