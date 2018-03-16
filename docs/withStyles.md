@@ -34,7 +34,7 @@ const MyComp = withStyles(cssMap, function MyComponent ({styles}) {
 
 Install `withStyles` addon and its dependencies:
 
-- [`rule()`](./rule.md)`
-- [`sheet()`](./sheet.md)`
+- [`rule()`](./rule.md)
+- [`sheet()`](./sheet.md)
 
 Read more about the [Addons](./Addons.md).

@@ -48,7 +48,7 @@ class Button extends Component {
 }
 ```
 
-You can also specify a dynamic CSS template, the `css` prototype method.
+You can also specify a dynamic CSS template in the `css` method.
 
 ```js
 @css
@@ -68,7 +68,7 @@ class Button extends Component {
 
 ### Customizable Decorator
 
-You can also specify static styles directly in the class decorator.
+You can specify static styles directly in the class decorator.
 
 ```js
 @css({

@@ -35,7 +35,7 @@ const MyComp = useStyles(cssMap, function MyComponent (props, styles) {
 
 Install `useStyles` addon and its dependencies:
 
-- [`rule()`](./rule.md)`
-- [`sheet()`](./sheet.md)`
+- [`rule()`](./rule.md)
+- [`sheet()`](./sheet.md)
 
 Read more about the [Addons](./Addons.md).
