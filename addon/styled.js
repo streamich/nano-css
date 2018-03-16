@@ -145,8 +145,8 @@ exports.addon = function (renderer) {
     }
 
     var styled = function (tag) {
-        return function (styles, dynamicTemplate) {
-            return renderer.style(tag, styles, dynamicTemplate);
+        return function (styles, dynamicTemplate, block) {
+            return renderer.style(tag, styles, dynamicTemplate, block);
         };
     };
 

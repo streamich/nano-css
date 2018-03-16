@@ -25,7 +25,7 @@ __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/
   - [`withStyles()`](./docs/withStyles.md)
   - [`@css` decorator](./docs/Decorator.md)
   - [`style()`](./docs/style.md)
-  - [`styled()`](./docs/styled.md)
+  - [`styled()()`](./docs/styled.md)
   - [`hyperstyle()`](./docs/hyperstyle.md)
   - [Atoms](./docs/Atoms.md)
   - [Nesting](./docs/Nesting.md)

@@ -14,7 +14,7 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`decorator`](./decorator.md)
 - [`component`](./component.md)
 - [`style()`](./style.md)
-- [`styled()`](./styled.md)
+- [`styled()()`](./styled.md)
 - [`hyperstyle()`](./hyperstyle.md)
 - [`stable`](./stable.md)
 - [`atoms`](./atoms.md)

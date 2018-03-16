@@ -8,11 +8,6 @@ pre-generated HTML tags.
 const Button = styled('button')({
     display: 'inline-block',
     borderRadius: '3px',
-    padding: '0.5rem 0',
-    margin: '0.5rem 1rem',
-    width: '11rem',
-    color: 'white',
-    border: '2px solid white',
 }, (props) => ({
     background: props.primary ? 'blue' : 'grey',
     fontSize: props.small ? '12px' : '16px'
@@ -25,15 +20,22 @@ const Button = styled('button')({
 const Button = styled.button({
     display: 'inline-block',
     borderRadius: '3px',
-    padding: '0.5rem 0',
-    margin: '0.5rem 1rem',
-    width: '11rem',
-    color: 'white',
-    border: '2px solid white',
 }, (props) => ({
     background: props.primary ? 'blue' : 'grey',
     fontSize: props.small ? '12px' : '16px'
 }));
+```
+
+Optionally, you can specify semantic component name.
+
+```js
+const Button = styled.button(css, dynamicCss, 'MyButton');
+```
+
+or
+
+```js
+const Button = styled('button')(css, dynamicCss, 'MyButton');
 ```
 
 

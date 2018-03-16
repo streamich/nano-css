@@ -1,8 +1,8 @@
 # `style()` Addon
 
-The `style()` allows you to create *"styled components"*.
+The `style()` interface allows you to create *"styled components"*.
 
-See [`styled()()`](./styled.md) addon for more functionality.
+> See [`styled()()`](./styled.md) addon for more functionality.
 
 ```jsx
 const Button = style('button', {
@@ -29,13 +29,13 @@ style(type, css, dynamicCss?, name?);
 
 - `type` &mdash; string or component to style
 - `css` &mdash; CSS-like object to use for styling
-- `dynamicCss` &mdash; optional style override function that receives props and returns a CSS-like object
-- `name` &mdash; optional, string, name of the component
+- `dynamicCss` &mdash; optional, dynamic style template that receives props and returns a CSS-like object
+- `name` &mdash; optional, string, semantic name of the component
 
-> Before using `style()` interface you might first consider using [`jsx()`](./jsx.md)
-> interface instead.
+> __Nota Bene__
 >
-> Using `jsx()` interface you can achieve everything you can with `style()` styled components
+> Before using `style()` interface you might first consider using [`jsx()`](./jsx.md)
+> interface instead. Using `jsx()` interface you can achieve everything you can with the styled components
 > but without the complexities that styled components bring. Also, `jsx()` is a
 > [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/master/docs/en/generations.md#5th-generation)
 > interface, whereas `style()` is only [4<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/master/docs/en/generations.md#4th-generation).
@@ -43,10 +43,10 @@ style(type, css, dynamicCss?, name?);
 > The main problem with styled components is that they receive 3 different types of props:
 >
 > - component props
-> - passthrough props
+> - pass-through props
 > - CSS overrides
 >
-> And the user has to make user that only the white listed props "*pass through*"
+> And the user has to make sure that only the pass-through props "*pass through*"
 > onto the actual DOM element.
 
 
@@ -59,7 +59,7 @@ Styled components *pass through* all props to the underlying element type.
 
 ## Filtering Pass-through Props
 
-You might want to use semantic *component props* with in your styled components, like
+You might want to use semantic *component props* with your styled components, like
 `primary` or `small`.
 
 ```jsx
@@ -86,20 +86,24 @@ const ButtonWhitelist = ({className, children, title, onClick}) =>
 const Button = style(ButtonWhitelist, {
     // ...
 });
+
+<Button title="Click it!" onClick={}>Click me!</Button>
 ```
 
 
-### Black-listing Pass-through Props
+### Black-listing Non-pass-through Props
 
-Below we *black-list* only `primary` and `small` semantic component props.
+Below we *black-list* `primary` and `small` semantic component props.
 
 ```jsx
 const ButtonBlacklist = ({primary, small, ...rest}) =>
-    <button {...rest}>;
+    <button {...rest} />;
 
 const Button = style(ButtonBlacklist, {
     // ...
 });
+
+<Button title="Click it!" onClick={}>Click me!</Button>
 ```
 
 
