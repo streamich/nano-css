@@ -1,6 +1,6 @@
 # `dsheet()` Addon
 
-`dsheet()` interface is similar to [`sheet()`](./sheet.md) interface, but allows you to add
+`dsheet()` (or *Dyamic Sheet*) interface is similar to [`sheet()`](./sheet.md) interface, but allows you to add
 CSS overrides inside render functions, making it a [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/master/docs/en/generations.md#5th-generation)
 interface.
 
@@ -21,9 +21,9 @@ Usage:
 
 ```jsx
 <input className={styles.input()}>
+<input className={styles.input.toString()}>
 <input className={'' + styles.input}>
 <input className={String(styles.input)}>
-<input className={styles.input.toString()}>
 <input className={styles.input({
     color: 'red',
     outline: 'none',
@@ -45,7 +45,7 @@ const styles = sheet(cssMap, 'ContactForm');
 Install `dsheet` addon and its dependencies:
 
 - `cache`
-- `rule`
-- `sheet`
+- [`rule()`](./rule.md)
+- [`sheet()`](./sheet.md)
 
 Read more about the [Addons](./Addons.md).
