@@ -1,4 +1,4 @@
-# Usage
+# Installation
 
 Install `nano-css`
 
@@ -22,9 +22,27 @@ nano.put('.test', {
 ```
 
 
+## Configuration
+
+The `create()` function accepts an options object with the following keys:
+
+- `pfx` &mdash; optional, string, prefix to add to all generated class and animation names.
+- `h` &mdash; optional, hyperscript function of you virtual DOM library. Only necessary if you are using addon that requires it.
+
+
+```js
+import {createElement} from 'react';
+
+const nano = create({
+    pfx: 'my-company-',
+    h: createElement
+});
+```
+
+
 ## Recommended Setup
 
-However, recommended optimal usage in a large project is with the following addons (read more about [addons](./Addons.md)).
+Recommended optimal usage in a large project is with the following addons (read more about [addons](./Addons.md)).
 Create an empty `css.js` file in your project and paste the below:
 
 ```js
@@ -62,22 +80,4 @@ export {
     jsx,
     keyframes,
 };
-```
-
-
-## Configuration
-
-The `create()` function accepts an options object with the following keys:
-
-- `pfx` &mdash; optional, string, prefix to add to all generated class and animation names.
-- `h` &mdash; optional, hyperscript function of you virtual DOM library. Only necessary if you are using addon that requires it.
-
-
-```js
-import {createElement} from 'react';
-
-const nano = create({
-    pfx: 'my-company-',
-    h: createElement
-});
 ```

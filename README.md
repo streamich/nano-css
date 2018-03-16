@@ -35,7 +35,7 @@ __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/
   - [`unitless`](./docs/unitless.md)
   - [`!important`](./docs/important.md)
   - [`global`](./docs/global.md)
-- [Server side rendering](./docs/SSR.md)
+- [Server-side rendering](./docs/SSR.md)
 
 
 # Installation

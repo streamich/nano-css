@@ -1,7 +1,7 @@
 # `unitless` Addon
 
 When a style declarations accepts a single numeric value with a unit, in `nano-css`
-you have to specify that in a string.
+you have to specify that as a string.
 
 ```js
 nano.rule('.foo', {
@@ -9,8 +9,8 @@ nano.rule('.foo', {
 });
 ```
 
-This addon allows you tu use numbers instead, it will postfix every numeric property that
-requires a unit with `px`. Properties that don't need a unit will be kep unitless.
+This addon allows you to use numbers instead, it will postfix every numeric property that
+requires a unit with `px`. Properties that don't need a unit will remain unitless.
 
 ```js
 nano.rule('.foo', {

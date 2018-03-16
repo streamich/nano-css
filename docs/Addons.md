@@ -42,13 +42,6 @@ const nano = create();
 
 addonRule(nano);
 addonAtoms(nano);
-
-const {put, rule} = nano;
-
-export {
-    put,
-    rule
-};
 ```
 
 When these docs mention that you need to install an addon, say `xxx`, you simply import it
@@ -58,4 +51,6 @@ from the addon folder and apply to the nano renderer object:
 import {addon as addonXXX} from 'nano-css/addon/xxx';
 
 addonXXX(nano);
+
+nano.xxx(/* ... */);
 ```
