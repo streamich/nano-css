@@ -6,15 +6,14 @@ Install `nano-css`
 npm i <a href="https://www.npmjs.com/package/nano-css">nano-css</a> --save
 </pre>
 
-To use the stock version simply create a `renderer`
+To use a stock version simply create a `nano` renderer object.
 
 ```jsx
 import {create} from 'nano-css';
 
-const renderer = create();
-const {put} = renderer;
+const nano = create();
 
-put('.test', {
+nano.put('.test', {
     color: 'red',
     border: '1px solid red'
 });
@@ -22,8 +21,11 @@ put('.test', {
 <div className='test'>Hello world!</div>
 ```
 
-However, recommended optimal usage in a large project is with the following addons (read more about [addons](./Addons.md)),
-create an empty `css.js` file in your project and paste the below
+
+## Recommended Setup
+
+However, recommended optimal usage in a large project is with the following addons (read more about [addons](./Addons.md)).
+Create an empty `css.js` file in your project and paste the below:
 
 ```js
 import {createElement} from 'react';
@@ -61,3 +63,10 @@ export {
     keyframes,
 };
 ```
+
+
+## Configuration
+
+The `create()` function accepts an options object with the following keys:
+
+- `pfx` &mdash; optional, string, prefix to add to all automatically generated class and animation names
