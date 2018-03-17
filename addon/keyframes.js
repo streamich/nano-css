@@ -5,6 +5,11 @@ exports.addon = function (renderer) {
         require('./__dev__/warnOnMissingDependencies')('keyframes', renderer, ['putRaw', 'put']);
     }
 
+    if (renderer.client) {
+        // Craete @keyframe Stylesheet `ksh`.
+        document.head.appendChild(renderer.ksh = document.createElement('style'))
+    }
+
     var putAtrule = renderer.putAtrule;
 
     renderer.putAtrule = function (__, keyframes, prelude) {
@@ -25,7 +30,7 @@ exports.addon = function (renderer) {
             str = prelude + '{' + str + '}';
 
             if (renderer.client) {
-                renderer.sh.appendChild(document.createTextNode(str));
+                renderer.ksh.appendChild(document.createTextNode(str));
             } else {
                 renderer.raw += str;
             }
