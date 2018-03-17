@@ -1,7 +1,7 @@
 # CSS Resets
 
 `nano-css` has a number of CSS reset addons. Simply, install one of the following
-addons.
+addons and that CSS reset will be injected on your page.
 
 - `reset/EricMeyer`
 - `reset/EricMeyerCondensed`
