@@ -59,20 +59,18 @@ for (var i = 0; i < UNITLESS_NUMBER_PROPS.length; i++) {
 }
 
 exports.addon = function (renderer) {
-    var originalDecl = renderer.decl;
+    var decl = renderer.decl;
 
     renderer.decl = function (prop, value) {
-        var str = originalDecl(prop, value);
+        var str = decl(prop, value);
 
         if (typeof value === 'number') {
             var pos = str.indexOf(':');
             var propKebab = str.substr(0, pos);
 
-            if (unitlessCssProperties[propKebab]) {
-                return str;
+            if (!unitlessCssProperties[propKebab]) {
+                return decl(prop, value + 'px');
             }
-
-            return originalDecl(prop, value + 'px');
         }
 
         return str;
