@@ -11,7 +11,7 @@ const className = nano.put('.foo', {
     '.nested': {
         fontWeight: 'bold'
     },
-    ':root': {
+    ':global': {
         '.global_class': {
             border: '1px solid red'
         }
@@ -33,7 +33,7 @@ This results in:
 }
 ```
 
-Use `global()` function to emit global CSS styles.
+Use `global()` function to emit global CSS.
 
 ```js
 nano.global({

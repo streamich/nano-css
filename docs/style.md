@@ -32,6 +32,8 @@ style(type, css, dynamicCss?, name?);
 - `dynamicCss` &mdash; optional, dynamic style template that receives props and returns a CSS-like object
 - `name` &mdash; optional, string, semantic name of the component
 
+---
+
 > __Nota Bene__
 >
 > Before using `style()` interface you might first consider using [`jsx()`](./jsx.md)
@@ -49,6 +51,7 @@ style(type, css, dynamicCss?, name?);
 > And the user has to make sure that only the pass-through props "*pass through*"
 > onto the actual DOM element.
 
+---
 
 Styled components *pass through* all props to the underlying element type.
 

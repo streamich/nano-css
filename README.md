@@ -38,13 +38,13 @@ __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/
 - [Server-side rendering](./docs/SSR.md)
 
 
-# Installation
+## Installation
 
 <pre>
 npm i <a href="https://www.npmjs.com/package/nano-css">nano-css</a> --save
 </pre>
 
-Read more about [*Intallation*](./docs/Installation.md).
+Read more about [*Installation*](./docs/Installation.md).
 
 
 ## License
