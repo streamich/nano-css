@@ -7,7 +7,7 @@ name.
 - `animate/fadeIn`
 - `animate/fadeInDown`
 
-Read more about the [Addons](./Addons.md).
+Read more about the [Addons Installation](./Addons.md#addon-installation).
 
 
 ## Example

@@ -30,4 +30,4 @@ Result:
 
 ## Installation
 
-Simply install `unitless` addon. Read more about the [Addons](./Addons.md).
+Simply install `unitless` addon. Read more about the [Addons Installation](./Addons.md#addon-installation).

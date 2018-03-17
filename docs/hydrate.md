@@ -25,4 +25,4 @@ addonHydrate(nano, 'custom-id');
 
 Simply install `hydrate` addon.
 
-Read more about the [Addons](./Addons.md).
+Read more about the [Addons Installation](./Addons.md#addon-installation).

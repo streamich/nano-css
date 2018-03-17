@@ -21,4 +21,4 @@ const className = rule({
 
 ## Installation
 
-Simply install `keyframes` addon. Read more about the [Addons](./Addons.md).
+Simply install `keyframes` addon. Read more about the [Addons Installation](./Addons.md#addon-installation).
