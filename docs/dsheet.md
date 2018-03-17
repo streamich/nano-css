@@ -1,6 +1,6 @@
 # `dsheet()` Addon
 
-`dsheet()` (or *Dyamic Sheet*) interface is similar to [`sheet()`](./sheet.md) interface, but allows you to add
+`dsheet()` (or *Dynamic Sheet*) interface is similar to [`sheet()`](./sheet.md) interface, but allows you to add
 CSS overrides inside render functions, making it a [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/master/docs/en/generations.md#5th-generation)
 interface.
 
@@ -33,7 +33,7 @@ Usage:
 })}>
 ```
 
-Optionally, you can name your style sheets.
+Optionally, you can name your dynamic style sheets.
 
 ```js
 const styles = sheet(cssMap, 'ContactForm');

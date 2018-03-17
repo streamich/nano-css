@@ -20,9 +20,10 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`atoms`](./atoms.md)
 - [`nesting`](./nesting.md)
 - [`keyframes()`](./keyframes.md)
+- [`hydrate`](./hydrate.md)
 - [`unitless`](./unitless.md)
 - [`!important`](./important.md)
-- [`global`](./global.md)
+- [`:global`](./global.md)
 
 
 ## Addon Installation

@@ -3,10 +3,12 @@ import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../index');
+const {addon: addonRule} = require('../addon/rule');
 const {addon: addonSheet} = require('../addon/sheet');
 const {addon: addonHyperstyle} = require('../addon/hyperstyle');
 
 const renderer = create({h: createElement});
+addonRule(renderer);
 addonSheet(renderer);
 addonHyperstyle(renderer);
 const {hyperstyle} = renderer;

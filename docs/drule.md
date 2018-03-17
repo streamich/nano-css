@@ -27,7 +27,7 @@ But `drule()` also allows you to add custom styling overrides on the fly.
 <button className={classNames({color: 'red'})}>Click me!</button>
 ```
 
-Just like with `rule()` interface you can specify a semantic class name:
+Just like with `rule()` interface you can specify a semantic name.
 
 ```js
 const classNames = drule(css, 'MyButton');
@@ -36,7 +36,7 @@ const classNames = drule(css, 'MyButton');
 
 ## Example
 
-Below is an example of a React button component that changes its color based on `primary` props.
+Below is an example of a React button component that changes its color based on `primary` prop.
 
 ```jsx
 const classNames = drule({

@@ -1,0 +1,17 @@
+# `hydrate` Addon
+
+Re-hydrates CSS styles generated on the server. On the server add `nano-css` id to your stylesheet.
+
+```js
+html += `<style id="nano-css">${nano.raw}</style>`;
+```
+
+That's it! `hydrate` addon will find this stylesheet in the browser and will not emit CSS
+rules that are already there.
+
+
+## Installation
+
+Simply install `hydrate` addon.
+
+Read more about the [Addons](./Addons.md).

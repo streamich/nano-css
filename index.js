@@ -16,7 +16,6 @@ exports.create = function (config) {
 
     var renderer = assign({
         raw: '',
-        cns: {},
         pfx: '_',
         client: typeof window === 'object',
         assign: assign,

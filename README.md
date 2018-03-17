@@ -32,19 +32,20 @@ __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/
   - [`atoms`](./docs/atoms.md)
   - [`nesting`](./docs/nesting.md)
   - [`keyframes()`](./docs/keyframes.md)
+  - [`hydrate`](./docs/hydrate.md)
   - [`unitless`](./docs/unitless.md)
   - [`!important`](./docs/important.md)
-  - [`global`](./docs/global.md)
+  - [`:global`](./docs/global.md)
 - [Server-side rendering](./docs/SSR.md)
 
 
-# Installation
+## Installation
 
 <pre>
 npm i <a href="https://www.npmjs.com/package/nano-css">nano-css</a> --save
 </pre>
 
-Read more about [*Intallation*](./docs/Installation.md).
+Read more about [*Installation*](./docs/Installation.md).
 
 
 ## License

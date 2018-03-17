@@ -8,12 +8,12 @@ exports.addon = function (renderer) {
     var selector = renderer.selector;
 
     renderer.selector = function (parent, current) {
-        if (parent === ':global') parent = '';
+        if (parent.indexOf(':global') > -1) parent = '';
 
         return selector(parent, current);
     };
 
-    renderer.global = function (selector, css) {
+    renderer.global = function (css) {
         return renderer.put('', css);
     };
 };

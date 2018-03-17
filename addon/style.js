@@ -1,10 +1,8 @@
 'use strict';
 
-var addonJsx = require('./jsx').addon;
-
 exports.addon = function (renderer) {
-    if (!renderer.jsx) {
-        addonJsx(renderer);
+    if (process.env.NODE_ENV !== 'production') {
+        require('./__dev__/warnOnMissingDependencies')('style', renderer, ['jsx']);
     }
 
     renderer.style = function (fn, styles, dynamicTemplate, block) {

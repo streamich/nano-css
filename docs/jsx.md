@@ -19,6 +19,10 @@ const Button = jsx('button', {
 <Button>Click me!</Button>
 ```
 
+---
+
+> __Nota Bene__
+>
 > To use this interface you need to provide the hyperscript function `h` of your virtual
 > DOM library when creating a `nano-css` instance. In case of React,
 > this is the `createElement` function:
@@ -31,6 +35,8 @@ const Button = jsx('button', {
 >     h: createElement
 > });
 > ```
+
+---
 
 Optionally, you can name your styling block:
 

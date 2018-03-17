@@ -3,9 +3,11 @@ import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../index');
+const {addon: addonRule} = require('../addon/rule');
 const {addon} = require('../addon/sheet');
 
 const renderer = create({h});
+addonRule(renderer);
 addon(renderer);
 const {sheet} = renderer;
 
