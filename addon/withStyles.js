@@ -1,6 +1,10 @@
 'use strict';
 
 exports.addon = function (renderer) {
+    if (process.env.NODE_ENV !== 'production') {
+        require('./__dev__/warnOnMissingDependencies')('withStyles', renderer, ['sheet']);
+    }
+
     renderer.withStyles = function (map, fn, block) {
         block = block || fn.displayName || fn.name;
 

@@ -1,10 +1,8 @@
 'use strict';
 
-var addonRule = require('./rule').addon;
-
 exports.addon = function (renderer) {
-    if (!renderer.rule) {
-        addonRule(renderer);
+    if (process.env.NODE_ENV !== 'production') {
+        require('./__dev__/warnOnMissingDependencies')('sheet', renderer, ['rule']);
     }
 
     renderer.sheet = function (map, block) {
