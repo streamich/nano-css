@@ -5,12 +5,15 @@ const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../index');
 const {addon: addonRule} = require('../addon/rule');
 const {addon: addonKeyframes} = require('../addon/keyframes');
-const {addon: addonFadeIn} = require('../addon/animate/fadeIn');
+
+const animations = [
+    'fadeIn',
+    'fadeInDown',
+];
 
 const nano = create();
 addonRule(nano);
 addonKeyframes(nano);
-addonFadeIn(nano);
 const {rule} = nano;
 
 var className = rule({
@@ -19,7 +22,11 @@ var className = rule({
     background: 'red',
 });
 
-storiesOf('Addons/Animate', module)
-    .add('fadeIn', () =>
-        h('div', {className: 'fadeIn' + className}, 'Hello world')
-    )
+let stories = storiesOf('Addons/Animate', module);
+
+animations.forEach(name => {
+    stories = stories.add(name, () => {
+        require('../addon/animate/' + name).addon(nano);
+        return h('div', {className: name + className});
+    });
+});
