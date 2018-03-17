@@ -38,6 +38,22 @@ describe('nano-css', function () {
         expect(typeof nano.put).toBe('function');
     });
 
+    it('default prefix is "_"', function () {
+        expect(create().pfx).toBe('_');
+    });
+
+    it('default assign function is Object.assign', function () {
+        expect(create().assign).toBe(Object.assign);
+    });
+
+    it('default stringify function is JSON.stringify', function () {
+        expect(create().stringify).toBe(JSON.stringify);
+    });
+
+    it('has no default hyperscript function', function () {
+        expect(create().h).toBe(undefined);
+    });
+
     it('can set configuration', function () {
         var assign = function () {
             return Object.assign.apply(Object, arguments);
