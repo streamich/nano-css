@@ -22,7 +22,7 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`keyframes()`](./keyframes.md)
 - [`unitless`](./unitless.md)
 - [`!important`](./important.md)
-- [`global`](./global.md)
+- [`:global`](./global.md)
 
 
 ## Addon Installation

@@ -34,7 +34,7 @@ __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/
   - [`keyframes()`](./docs/keyframes.md)
   - [`unitless`](./docs/unitless.md)
   - [`!important`](./docs/important.md)
-  - [`global`](./docs/global.md)
+  - [`:global`](./docs/global.md)
 - [Server-side rendering](./docs/SSR.md)
 
 
