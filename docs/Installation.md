@@ -71,10 +71,9 @@ addonRule(nano);
 addonSheet(nano);
 addonJsx(nano);
 
-const {put, rule, sheet, jsx, keyframes} = nano;
+const {rule, sheet, jsx, keyframes} = nano;
 
 export {
-    put,
     rule,
     sheet,
     jsx,
