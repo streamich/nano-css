@@ -36,7 +36,8 @@
     "react-dom": "*"
   },
   "dependencies": {
-    "fastest-stable-stringify": "^1.0.1"
+    "fastest-stable-stringify": "^1.0.1",
+    "stylis": "3.5.0"
   },
   "devDependencies": {
     "@types/react": "16.0.40",
