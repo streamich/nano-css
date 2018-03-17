@@ -39,20 +39,20 @@ exports.create = function (config) {
     }, config);
 
     if (renderer.client) {
-        document.head.appendChild(renderer.sheet = document.createElement('style'));
+        document.head.appendChild(renderer.sh = document.createElement('style'));
 
         renderer.putRaw = function (rawCssRule) {
             if (process.env.NODE_ENV === 'production') {
-                renderer.sheet.insertRule(rawCssRule, 0);
+                renderer.sh.sheet.insertRule(rawCssRule, 0);
             } else {
                 try {
-                    renderer.sheet.sheet.insertRule(rawCssRule, 0);
+                    renderer.sh.sheet.insertRule(rawCssRule, 0);
                 } catch (error) {
                     // eslint-disable-next-line
                     console.info('Could not insert CSS rule.');
                     console.error(error);
 
-                    renderer.sheet.appendChild(document.createTextNode(rawCssRule));
+                    renderer.sh.appendChild(document.createTextNode(rawCssRule));
                 }
             }
         };

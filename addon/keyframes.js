@@ -25,7 +25,7 @@ exports.addon = function (renderer) {
             str = prelude + '{' + str + '}';
 
             if (renderer.client) {
-                renderer.sheet.appendChild(document.createTextNode(str));
+                renderer.sh.appendChild(document.createTextNode(str));
             } else {
                 renderer.raw += str;
             }
