@@ -90,7 +90,7 @@ const Button = style(ButtonWhitelist, {
     // ...
 });
 
-<Button title="Click it!" onClick={}>Click me!</Button>
+<Button primary small title="Click it!" onClick={}>Click me!</Button>
 ```
 
 
@@ -106,7 +106,7 @@ const Button = style(ButtonBlacklist, {
     // ...
 });
 
-<Button title="Click it!" onClick={}>Click me!</Button>
+<Button primary small title="Click it!" onClick={}>Click me!</Button>
 ```
 
 

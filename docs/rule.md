@@ -33,8 +33,6 @@ and semantic reasons.
 const className = rule(css, 'RedText');
 ```
 
----
-
 > __P.S.__
 >
 > If you specify all style names explicitly, you don't need to install `stable` addon.
