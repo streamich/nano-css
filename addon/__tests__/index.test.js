@@ -148,5 +148,22 @@ describe('nano-css', function () {
             expect(typeof rule).toBe('object');
             expect(rule.style.color).toBe('green');
         });
+
+        it('can insert @media queries', function () {
+            var nano = create();
+            nano.putRaw = jest.fn();
+
+            nano.put('', {
+                '@media screen': {
+                    '.global' : {
+                        color: 'green',
+                    }
+                }
+            });
+
+
+            expect(nano.putRaw).toHaveBeenCalledTimes(1);
+            expect(nano.putRaw.mock.calls[0][0].replace(/ /g, '')).toBe('@mediascreen{.global{color:green;}}');
+        });
     });
 });
