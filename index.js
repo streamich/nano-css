@@ -38,28 +38,21 @@ exports.create = function (config) {
         }
     }, config);
 
-    var sheet, stylesheet;
-
     if (renderer.client) {
-        if (process.env.NODE_ENV === 'production') {
-            sheet = document.head.appendChild(document.createElement('style')).sheet;
-        } else {
-            stylesheet = document.createElement('style');
-            document.head.appendChild(stylesheet);
-        }
+        document.head.appendChild(renderer.sh = document.createElement('style'));
 
         renderer.putRaw = function (rawCssRule) {
             if (process.env.NODE_ENV === 'production') {
-                sheet.insertRule(rawCssRule, 0);
+                renderer.sh.sheet.insertRule(rawCssRule, 0);
             } else {
                 try {
-                    stylesheet.sheet.insertRule(rawCssRule, 0);
+                    renderer.sh.sheet.insertRule(rawCssRule, 0);
                 } catch (error) {
                     // eslint-disable-next-line
                     console.info('Could not insert CSS rule.');
                     console.error(error);
 
-                    stylesheet.appendChild(document.createTextNode(rawCssRule));
+                    renderer.sh.appendChild(document.createTextNode(rawCssRule));
                 }
             }
         };
