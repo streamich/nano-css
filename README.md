@@ -32,6 +32,7 @@ __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/
   - [`atoms`](./docs/atoms.md)
   - [`nesting`](./docs/nesting.md)
   - [`keyframes()`](./docs/keyframes.md)
+  - [`hydrate`](./docs/hydrate.md)
   - [`unitless`](./docs/unitless.md)
   - [`!important`](./docs/important.md)
   - [`:global`](./docs/global.md)

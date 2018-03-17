@@ -8,3 +8,12 @@ on the server:
 html += `<style>${nano.raw}</style>`;
 ```
 
+
+## Re-hydrating
+
+`nano-css` can re-hydrate server-side generated CSS. To do that, you need to install [`hydrate` addon](hydrate.md);
+and set `nano-css` id on your `<style>` element.
+
+```js
+html += `<style id="nano-css">${nano.raw}</style>`;
+```
