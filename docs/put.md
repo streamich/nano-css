@@ -70,7 +70,7 @@ The above will result in:
 }
 ```
 
-For, more advanced nesting feature install [`nesting` addon](./nesting.md).
+For more advanced nesting feature install [`nesting` addon](./nesting.md).
 
 
 ## Kebab-case and Camel-case Properties
