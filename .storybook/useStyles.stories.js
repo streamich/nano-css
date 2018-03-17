@@ -5,6 +5,7 @@ const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../index');
 
 const renderer = create({h});
+require('../addon/rule').addon(renderer);
 require('../addon/sheet').addon(renderer);
 require('../addon/useStyles').addon(renderer);
 const {useStyles} = renderer;
