@@ -6,12 +6,6 @@ exports.addon = function (renderer) {
     }
 
     var putAtrule = renderer.putAtrule;
-    var stylesheet;
-
-    if (renderer.client) {
-        stylesheet = document.createElement('style');
-        document.head.appendChild(stylesheet);
-    }
 
     renderer.putAtrule = function (__, keyframes, prelude) {
         // @keyframes
@@ -31,7 +25,7 @@ exports.addon = function (renderer) {
             str = prelude + '{' + str + '}';
 
             if (renderer.client) {
-                stylesheet.appendChild(document.createTextNode(str));
+                renderer.sheet.appendChild(document.createTextNode(str));
             } else {
                 renderer.raw += str;
             }
