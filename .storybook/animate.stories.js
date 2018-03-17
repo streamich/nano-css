@@ -9,6 +9,7 @@ const {addon: addonKeyframes} = require('../addon/keyframes');
 const animations = [
     'fadeIn',
     'fadeInDown',
+    'fadeInExpand',
 ];
 
 const nano = create();
