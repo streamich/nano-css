@@ -21,10 +21,8 @@ exports.addon = function (renderer, id) {
 
         var cssRules = stylesheet.cssRules;
 
-        for (var i = 0; i < cssRules.length; i++) {
-            var rule = cssRules[i];
-            hydrated[rule.selectorText] = 1;
-        }
+        for (var i = 0; i < cssRules.length; i++)
+            hydrated[cssRules[i].selectorText] = 1;
 
         var put = renderer.put;
 

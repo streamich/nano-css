@@ -1,6 +1,6 @@
 # `:global` Addon
 
-`global` addons allows to inject global CSS. It introduces a `:global` selector that can be
+`global` addon allows to inject global CSS. It introduces a `:global` selector that can be
 used in any CSS-like object and exposes `global()` function for convenience.
 
 Use `:global` selector.
