@@ -24,6 +24,7 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`unitless`](./unitless.md)
 - [`!important`](./important.md)
 - [`:global`](./global.md)
+- [CSS resets](./resets.md)
 
 
 ## Addon Installation
