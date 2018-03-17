@@ -16,7 +16,7 @@ exports.addon = function (renderer) {
         },
 
         '.fadeIn': {
-            animationName: 'fadeIn',
+            animation: 'fadeIn .4s linear',
         }
     });
 };
