@@ -1,19 +1,17 @@
 'use strict';
 
-exports.addon = function (renderer, id) {
-    id = id || 'nano-css';
-
+exports.addon = function (renderer) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('hydrate', renderer, ['put']);
     }
 
     if (renderer.client) {
         var hydrated = {};
-        var stylesheet = document.getElementById(id);
+        var stylesheet = renderer.sh;
 
         if (!stylesheet) {
             if (process.env.NODE_ENV !== 'production') {
-                console.error('Hydration stylesheet with id "' + id + '" was not found.');
+                console.error('Hydration style sheet was not found.');
             }
 
             return;

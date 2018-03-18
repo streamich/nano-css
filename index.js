@@ -39,7 +39,8 @@ exports.create = function (config) {
     }, config);
 
     if (renderer.client) {
-        document.head.appendChild(renderer.sh = document.createElement('style'));
+        if (!renderer.sh)
+            document.head.appendChild(renderer.sh = document.createElement('style'));
 
         renderer.putRaw = function (rawCssRule) {
             if (process.env.NODE_ENV === 'production') {
