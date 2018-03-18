@@ -9,6 +9,7 @@ __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/
 - __Isomorphic__ &mdash; render on server and browser, generates stable class names, and re-hydrates
 - __Performant__ &mdash; does not create wrapper components, does not use inline styles or inline `<style>` elements in the document body, but caches all class names for re-use and injects CSS using `.insertRule()` for performance
 - __`@media` queries__ and __animation `@keyframes`__ are supported
+- __Auto-prefixes__ your styles
 
 
 ## Reference
@@ -33,6 +34,7 @@ __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/
   - [`nesting`](./docs/nesting.md)
   - [`keyframes()`](./docs/keyframes.md)
   - [`hydrate`](./docs/hydrate.md)
+  - [`prefixer`](./docs/prefixer.md)
   - [`stylis`](./docs/stylis.md)
   - [`unitless`](./docs/unitless.md)
   - [`!important`](./docs/important.md)

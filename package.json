@@ -37,7 +37,8 @@
   },
   "dependencies": {
     "fastest-stable-stringify": "^1.0.1",
-    "stylis": "3.5.0"
+    "stylis": "3.5.0",
+    "inline-style-prefixer": "^4.0.0"
   },
   "devDependencies": {
     "@types/react": "16.0.40",
