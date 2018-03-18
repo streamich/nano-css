@@ -4,12 +4,21 @@ const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../index');
 const {addon: addonStylis} = require('../addon/stylis');
+const {addon: addonRule} = require('../addon/rule');
 
 const renderer = create({h});
 addonStylis(renderer);
-const {jsx} = renderer;
+addonRule(renderer);
+const {rule} = renderer;
+
+const className = rule(`
+    color: red;
+    &:hover {
+        color: blue;
+    }
+`);
 
 storiesOf('Addons/stylis', module)
     .add('Default', () =>
-        h('div', null, 'Hello world')
+        h('div', {className}, 'Hello world')
     )
