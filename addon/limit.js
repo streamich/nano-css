@@ -13,7 +13,7 @@ exports.addon = function (renderer, limit) {
         renderer.putRaw = function (rawCssRule) {
             if (renderer.raw.length + rawCssRule.length > limit) {
                 /* eslint-disable */
-                console.info('CSS was not injected, because it would go over ' + limit + ' byte limit.');
+                console.info('CSS was not injected, because total CSS would go over ' + limit + ' byte limit.');
                 console.log(rawCssRule);
                 /* eslint-enable */
 
