@@ -12,10 +12,10 @@ addonImportant(renderer);
 const {rule} = renderer;
 
 const className1 = rule({
-  border: '1px solid red'
+    border: '1px solid red'
 }, 'RedBorderImportant');
 
 storiesOf('Addons/!important', module)
-  .add('Default', () =>
-    h('div', {className: className1}, 'Hello world')
-  )
+    .add('Default', () =>
+        h('div', {className: className1}, 'Hello world')
+    )

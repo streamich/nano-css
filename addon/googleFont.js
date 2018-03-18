@@ -1,7 +1,7 @@
 'use strict';
 
 function createUrl (font, weights, subsets) {
-    var params = 'family=' + encodeURIComponent(font);
+    var params = '?family=' + encodeURIComponent(font);
 
     if (weights) {
         if (!(weights instanceof Array))
