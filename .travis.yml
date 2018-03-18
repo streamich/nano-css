@@ -11,7 +11,6 @@ node_js:
   - '8'
 script:
   - npm run test
-  - npm run build
 matrix:
   allow_failures: []
   fast_finish: true
