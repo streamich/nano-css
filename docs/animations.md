@@ -6,7 +6,9 @@ name.
 
 - `animate/fadeIn`
 - `animate/fadeInDown`
-- `animate/fadeInExpand`
+- `animate/fadeInScale`
+- `animate/fadeOut`
+- `animate/fadeOutScale`
 
 Read more about the [Addons Installation](./Addons.md#addon-installation).
 
