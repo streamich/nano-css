@@ -30,6 +30,8 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`reset/*`](./resets.md) &mdash; collection of CSS resets
 - [`reset-font`](./reset-font.md) &mdash; global styles for better font
 - [`googleFont()`](./googleFont.md) &mdash; loads custom fonts from *Google Fonts*
+- [`limit`](./limit.md) &mdash; limits server-side style sheet size
+
 
 ## Addon Installation
 
