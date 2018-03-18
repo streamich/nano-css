@@ -34,6 +34,56 @@ var removeImportant = function (renderer) {
     };
 };
 
+var warnOnReservedSelectors = function (renderer) {
+    var putRaw = renderer.putRaw;
+
+    renderer.putRaw = function (rawCssRule) {
+        var pos = rawCssRule.indexOf('{');
+
+        if (pos < 0)
+            return putRaw(rawCssRule);
+
+        var selectors = ' ' + rawCssRule.substr(0, pos);
+
+        if (selectors.match(/\s\.-amp-/g)) {
+            console.error(
+                'Detected class name that starts with "-amp-". ' +
+                'Class names starting with "-amp-" are reserved from AMP components. ' +
+                rawCssRule
+            );
+        }
+
+        if (selectors.match(/\si-amp-/g)) {
+            console.error(
+                'Detected CSS selector that matches "i-amp-" elements. ' +
+                'Slectors for "i-amp-" elements are reserved from AMP components. ' +
+                rawCssRule
+            );
+        }
+
+        return putRaw(rawCssRule);
+    };
+};
+
+var removeReservedSelectors = function (renderer) {
+    var putRaw = renderer.putRaw;
+
+    renderer.putRaw = function (rawCssRule) {
+        var pos = rawCssRule.indexOf('{');
+
+        if (pos < 0)
+            return putRaw(rawCssRule);
+
+        var selectors = ' ' + rawCssRule.substr(0, pos);
+
+        if (selectors.match(/\s\.-amp-/g) || selectors.match(/\si-amp-/g)) {
+            return;
+        }
+
+        return putRaw(rawCssRule);
+    };
+};
+
 var warnOnBanned = function (renderer) {
     var decl = renderer.decl;
 
@@ -82,6 +132,16 @@ exports.addon = function (renderer, config) {
     // Remove all !important modifiers.
     if (config.removeImportant) {
         removeImportant(renderer);
+    }
+
+    // Warn on reserved selectors.
+    if (process.env.NODE_ENV !== 'production') {
+        warnOnReservedSelectors(renderer);
+    }
+
+    // Remove reserved selectors ".-amp-" and "i-amp-".
+    if (config.removeReserved) {
+        removeReservedSelectors(renderer);
     }
 
     // Warn on banned CSS properties.
