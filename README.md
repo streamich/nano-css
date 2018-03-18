@@ -44,6 +44,7 @@ __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/
   - [`reset-font`](./docs/reset-font.md)
   - [`googleFont()`](./docs/googleFont.md)
   - [`limit`](./docs/limit.md)
+  - [`amp`](./docs/amp.md)
 - [Server-side rendering](./docs/SSR.md)
 
 

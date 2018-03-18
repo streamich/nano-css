@@ -31,7 +31,7 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`reset-font`](./reset-font.md) &mdash; global styles for better font
 - [`googleFont()`](./googleFont.md) &mdash; loads custom fonts from *Google Fonts*
 - [`limit`](./limit.md) &mdash; limits server-side style sheet size
-
+- [`amp`](./amp.md) &mdash; displays warnings and cleans up styles for AMP apps
 
 ## Addon Installation
 
