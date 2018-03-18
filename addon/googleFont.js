@@ -37,7 +37,7 @@ exports.addon = function (renderer) {
         };
     } else {
         renderer.googleFont = function (font, weights, subsets) {
-            renderer.raw = "@import url('" + createUrl(font, weights, subsets) + "');" + renderer.raw;
+            renderer.putRaw("@import url('" + createUrl(font, weights, subsets) + "');");
         };
     }
 };

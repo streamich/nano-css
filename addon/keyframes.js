@@ -32,7 +32,7 @@ exports.addon = function (renderer) {
             if (renderer.client) {
                 renderer.ksh.appendChild(document.createTextNode(str));
             } else {
-                renderer.raw += str;
+                renderer.putRaw(str);
             }
 
             return;
