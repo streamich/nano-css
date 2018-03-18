@@ -36,9 +36,6 @@ exports.create = function (config) {
         putRaw: function (rawCssRule) {
             renderer.raw += rawCssRule;
         },
-        putAtrule: function (selector, decls, prelude) {
-            renderer.put(selector, decls, prelude);
-        }
     }, config);
 
     if (renderer.client) {
@@ -70,7 +67,7 @@ exports.create = function (config) {
 
             if ((value instanceof Object) && !(value instanceof Array)) {
                 if (prop[0] === '@') {
-                    renderer.putAtrule(selector, value, prop);
+                    renderer.putAt(selector, value, prop);
                 } else {
                     renderer.put(renderer.selector(selector, prop), value, atrule);
                 }
@@ -84,6 +81,8 @@ exports.create = function (config) {
             renderer.putRaw(atrule ? atrule + '{' + str + '}' : str);
         }
     };
+
+    renderer.putAt = renderer.put;
 
     return renderer;
 };

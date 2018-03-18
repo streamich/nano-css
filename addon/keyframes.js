@@ -10,9 +10,9 @@ exports.addon = function (renderer) {
         document.head.appendChild(renderer.ksh = document.createElement('style'))
     }
 
-    var putAtrule = renderer.putAtrule;
+    var putAt = renderer.putAt;
 
-    renderer.putAtrule = function (__, keyframes, prelude) {
+    renderer.putAt = function (__, keyframes, prelude) {
         // @keyframes
         if (prelude[1] === 'k') {
             var str = '';
@@ -38,14 +38,14 @@ exports.addon = function (renderer) {
             return;
         }
 
-        putAtrule(__, keyframes, prelude);
+        putAt(__, keyframes, prelude);
     };
 
     renderer.keyframes = function (keyframes, block) {
         if (!block) block = renderer.hash(keyframes);
         block = renderer.pfx + block;
 
-        renderer.putAtrule('', keyframes, '@keyframes ' + block);
+        renderer.putAt('', keyframes, '@keyframes ' + block);
 
         return block;
     };
