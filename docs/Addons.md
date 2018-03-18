@@ -28,7 +28,8 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`:global`](./global.md) &mdash; allows emitting global styles
 - [`animate/*`](./animations.md) &mdash; collection of animation styles
 - [`reset/*`](./resets.md) &mdash; collection of CSS resets
-- [`reset-font`](./docs/reset-font.md) &mdash; global styles for better font
+- [`reset-font`](./reset-font.md) &mdash; global styles for better font
+- [`googleFont()`](./googleFont.md) &mdash; loads custom fonts from *Google Fonts*
 
 ## Addon Installation
 

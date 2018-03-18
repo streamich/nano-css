@@ -12,6 +12,8 @@ const css = {
     },
 };
 const className = nano.rule(css);
+
+<div className={className}>Hello world!</div>
 ```
 
 ---

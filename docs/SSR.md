@@ -12,8 +12,12 @@ html += `<style>${nano.raw}</style>`;
 ## Re-hydrating
 
 `nano-css` can re-hydrate server-side generated CSS. To do that, you need to install [`hydrate` addon](hydrate.md);
-and set `nano-css` id on your `<style>` element.
+and provide style sheet you want to hydrate to the `nano-css` instance when creating it.
 
 ```js
+const nano = create({
+    sh: typeof document === 'object' ? document.getElementById('nano-css') : null
+});
+
 html += `<style id="nano-css">${nano.raw}</style>`;
 ```
