@@ -21,6 +21,7 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`nesting`](./nesting.md) &mdash; better nesting features
 - [`keyframes()`](./keyframes.md) &mdash; adds `@keyframes` support
 - [`hydrate`](./hydrate.md) &mdash; adds support for re-hydration on client side
+- [`stylis`](./stylis.md) &mdash; write CSS as strings
 - [`unitless`](./unitless.md) &mdash; automatically adds `px` to styles
 - [`!important`](./important.md) &mdash; adds `!important` to all declarations
 - [`:global`](./global.md) &mdash; allows emitting global styles
