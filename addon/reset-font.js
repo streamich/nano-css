@@ -7,9 +7,9 @@ exports.addon = function (renderer) {
 
     renderer.put('', {
         'html, body': {
-            ff: '"Open Sans",sans',
-            fw: 400,
-            fz: '16px',
+            fontFamily: '"Open Sans",sans',
+            fontWeight: 400,
+            fontSize: '16px',
 
             '-moz-text-size-adjust': '100%',
             '-ms-text-size-adjust': '100%',

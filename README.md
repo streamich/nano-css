@@ -39,8 +39,9 @@ __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/
   - [`unitless`](./docs/unitless.md)
   - [`!important`](./docs/important.md)
   - [`:global`](./docs/global.md)
-  - [Animations](./docs/animations.md)
-  - [CSS resets](./docs/resets.md)
+  - [`animate/*`](./docs/animations.md)
+  - [`reset/*`](./docs/resets.md)
+  - [`reset-font`](./docs/reset-font.md)
 - [Server-side rendering](./docs/SSR.md)
 
 
