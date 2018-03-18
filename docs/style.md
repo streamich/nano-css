@@ -118,4 +118,4 @@ Simply install `style` addon and its dependencies:
 - [`rule()`](./rule.md)
 - [`jsx()`](./jsx.md)
 
-Read more about the [Addons Installation](./Addons.md#addon-installation).
+Read more about the [Addon Installation](./Addons.md#addon-installation).

@@ -168,4 +168,4 @@ Simply install `jsx` addon and its dependencies:
 - `cache`
 - [`rule()`](./rule.md)
 
-Read more about the [Addons Installation](./Addons.md#addon-installation).
+Read more about the [Addon Installation](./Addons.md#addon-installation).

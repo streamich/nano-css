@@ -10,7 +10,7 @@ name.
 - `animate/fadeOut`
 - `animate/fadeOutScale`
 
-Read more about the [Addons Installation](./Addons.md#addon-installation).
+Read more about the [Addon Installation](./Addons.md#addon-installation).
 
 
 ## Example

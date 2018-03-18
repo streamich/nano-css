@@ -51,4 +51,4 @@ console.log(styles.input); // pfx-ContactForm-input
 
 Simply install `rule` and `sheet` addons.
 
-Read more about the [Addons Installation](./Addons.md#addon-installation).
+Read more about the [Addon Installation](./Addons.md#addon-installation).
