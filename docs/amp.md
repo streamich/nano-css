@@ -3,7 +3,7 @@
 Sets [restrictions](https://www.ampproject.org/docs/design/responsive/style_pages) and displays AMP style sheet
 warnings for AMP apps.
 
-- limits style sheet size at 50Kb
+- limits style sheet size to 50Kb
 - displays error messages in development, if `!important` is used
 - removes `!important` modifiers
 - displays error messages in development, if `behavior` or `-moz-binding` banned declarations are used
