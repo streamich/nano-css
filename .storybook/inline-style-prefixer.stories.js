@@ -12,10 +12,13 @@ addonPrefixer(renderer);
 const {rule} = renderer;
 
 const className1 = rule({
-    alignItems: 'center'
+    display: 'flex',
+    alignItems: 'center',
+    boxShadow: '0 0 5px red',
+    'text-shadow': '2px 2px #ff0000',
 });
 
 storiesOf('Addons/inline-style-prefixer', module)
-  .add('Default', () =>
-    h('div', {className: className1}, 'Hello world')
-  )
+    .add('Default', () =>
+        h('div', {className: className1}, 'Hello world')
+    )

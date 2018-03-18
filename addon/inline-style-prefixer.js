@@ -11,19 +11,26 @@ var matchCallback = function (match) {
 exports.addon = function (renderer) {
     var decl = renderer.decl;
 
-    renderer.toCamel = function (prop) {
+    renderer.camel = function (prop) {
         return prop.replace(CAMEL_REGEX, matchCallback);
     };
 
     renderer.prefix = function (prop, value) {
         var obj = {};
-        obj[renderer.toCamel(prop)] = value;
+        obj[renderer.camel(prop)] = value;
         obj = prefixAll(obj);
 
         var str = '';
 
         for (var propPrefixed in obj) {
-            str += propPrefixed + ':' + obj[propPrefixed] + ';';
+            value = obj[propPrefixed];
+            propPrefixed = renderer.kebab(propPrefixed);
+
+            if (value instanceof Array) {
+                str += propPrefixed + ':' + value.join(';' + propPrefixed + ':') + ';';
+            } else {
+                str += propPrefixed + ':' + value + ';';
+            }
         }
 
         return str;
