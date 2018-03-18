@@ -26,9 +26,9 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`unitless`](./unitless.md) &mdash; automatically adds `px` to styles
 - [`!important`](./important.md) &mdash; adds `!important` to all declarations
 - [`:global`](./global.md) &mdash; allows emitting global styles
-- [Animations](./animations.md) &mdash; collection of animation styles
-- [CSS resets](./resets.md) &mdash; collection of CSS resets
-
+- [`animate/*`](./animations.md) &mdash; collection of animation styles
+- [`reset/*`](./resets.md) &mdash; collection of CSS resets
+- [`reset-font`](./docs/reset-font.md) &mdash; global styles for better font
 
 ## Addon Installation
 

@@ -15,4 +15,4 @@ const className = nano.rule(`
 
 ## Installation
 
-Simply install `stylis` addon. Read more about the [Addons Installation](./Addons.md#addon-installation).
+Simply install `stylis` addon. Read more about the [Addon Installation](./Addons.md#addon-installation).

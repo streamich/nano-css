@@ -15,7 +15,7 @@ addons and that CSS reset will be injected on your page.
 - `reset/Tripoli`
 - `reset/Universal`
 
-Read more about the [Addons Installation](./Addons.md#addon-installation).
+Read more about the [Addon Installation](./Addons.md#addon-installation).
 
 
 ## Example

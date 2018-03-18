@@ -6,4 +6,4 @@ to generate fast predictable hashes across JavaScript runtimes.
 
 ## Installation
 
-Simply install `stable` addon. Read more about the [Addons Installation](./Addons.md#addon-installation).
+Simply install `stable` addon. Read more about the [Addon Installation](./Addons.md#addon-installation).

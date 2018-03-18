@@ -6,7 +6,7 @@ exports.addon = function (renderer) {
     }
 
     renderer.put('', {
-        '@keyframes fadeInExpand': {
+        '@keyframes fadeInScale': {
             from: {
                 opacity: 0,
                 transform: 'scale(.95)'
@@ -18,8 +18,8 @@ exports.addon = function (renderer) {
             }
         },
 
-        '.fadeInExpand': {
-            animation: 'fadeInExpand .3s',
+        '.fadeInScale': {
+            animation: 'fadeInScale .3s',
         }
     });
 };
