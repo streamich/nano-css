@@ -20,8 +20,11 @@ exports.create = function (config) {
         client: typeof window === 'object',
         assign: assign,
         stringify: JSON.stringify,
+        toKebab: function (prop) {
+            return prop.replace(KEBAB_REGEX, '-$&').toLowerCase();
+        },
         decl: function (key, value) {
-            key = key.replace(KEBAB_REGEX, '-$&').toLowerCase();
+            key = renderer.toKebab(key);
             return key + ':' + value + ';';
         },
         hash: function (obj) {
