@@ -52,4 +52,4 @@ This results in:
 
 ## Installation
 
-Simply install `nesting` addon. Read more about the [Addons](./Addons.md).
+Simply install `nesting` addon. Read more about the [Addons Installation](./Addons.md#addon-installation).

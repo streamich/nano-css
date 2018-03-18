@@ -58,7 +58,7 @@ This results in:
 
 ## Installation
 
-Simply add the the `rule` addon, read more about the [Addons](./Addons.md).
+Simply add the the `rule` addon.
 
 ```js
 import {create} from 'nano-css';
@@ -72,3 +72,5 @@ export {
     rule
 }
 ```
+
+Read more about the [Addons Installation](./Addons.md#addon-installation).

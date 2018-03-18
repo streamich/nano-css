@@ -55,7 +55,7 @@ const Button = ({children, primary}) =>
 
 ## Installation
 
-To use, install `drule` addon, which depends on `rule` and `cache` addons, read more about the [Addons](./Addons.md).
+To use, install `drule` addon, which depends on `rule` and `cache` addons.
 
 ```js
 import {create} from 'nano-css';
@@ -74,3 +74,5 @@ export {
     drule
 }
 ```
+
+Read more about the [Addons Installation](./Addons.md#addon-installation).

@@ -38,4 +38,4 @@ Install `useStyles` addon and its dependencies:
 - [`rule()`](./rule.md)
 - [`sheet()`](./sheet.md)
 
-Read more about the [Addons](./Addons.md).
+Read more about the [Addons Installation](./Addons.md#addon-installation).

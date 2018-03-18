@@ -6,17 +6,20 @@ exports.addon = function (renderer) {
     }
 
     renderer.put('', {
-        '@keyframes fadeIn': {
+        '@keyframes fadeInExpand': {
             from: {
                 opacity: 0,
+                transform: 'scale(.95)'
             },
+
             to: {
                 opacity: 1,
+                transform: 'scale(1)',
             }
         },
 
-        '.fadeIn': {
-            animation: 'fadeIn .4s linear',
+        '.fadeInExpand': {
+            animation: 'fadeInExpand .3s',
         }
     });
 };

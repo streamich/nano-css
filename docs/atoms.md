@@ -24,7 +24,7 @@ const className = rule({
 });
 ```
 
-Those are handy DX and they will decrease your overall bundle size after
+Those are good for __DX__ and they will decrease your overall bundle size after
 sufficient use. You can find the full up-to-date atom list [here](../addon/atoms.js). Below
 is the atom list at the moment of this writing:
 
@@ -82,4 +82,4 @@ var atoms = {
 
 ## Installation
 
-Simply install `atoms` addon. Read more about the [Addons](./Addons.md).
+Simply install `atoms` addon. Read more about the [Addons Installation](./Addons.md#addon-installation).

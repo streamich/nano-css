@@ -102,4 +102,4 @@ Simply install `decorator` addon and its dependencies:
 - `cache`
 - [`rule()`](./rule.md)
 
-Read more about the [Addons](./Addons.md).
+Read more about the [Addons Installation](./Addons.md#addon-installation).

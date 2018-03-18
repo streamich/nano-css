@@ -48,4 +48,4 @@ Simply install `styled` addon and its dependencies:
 - [`jsx()`](./jsx.md)
 - [`style()`](./style.md)
 
-Read more about the [Addons](./Addons.md).
+Read more about the [Addons Installation](./Addons.md#addon-installation).

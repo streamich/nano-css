@@ -46,4 +46,4 @@ nano.global({
 
 ## Installation
 
-Simply install `global` addon. Read more about the [Addons](./Addons.md).
+Simply install `global` addon. Read more about the [Addons Installation](./Addons.md#addon-installation).
