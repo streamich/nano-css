@@ -73,7 +73,7 @@ describe('amp', function () {
             color: 'blue !important'
         });
 
-        expect(nano.raw.indexOf('!important') > -1).to.true;
+        expect(nano.raw.indexOf('!important') > -1).to.be.true;
         expect(calls.length).to.equal(1);
         expect(calls[0][0].indexOf('!important') > -1).to.be.true;
 
@@ -89,7 +89,7 @@ describe('amp', function () {
             color: 'blue !important'
         });
 
-        expect(nano.raw.indexOf('!important') > -1).to.false;
+        expect(nano.raw.indexOf('!important') > -1).to.be.false;
     });
 
     it('warns on reserved selectors', function () {

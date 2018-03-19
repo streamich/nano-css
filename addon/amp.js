@@ -149,7 +149,7 @@ exports.addon = function (renderer, config) {
         warnOnBanned(renderer);
     }
 
-    // Warn on banned CSS properties.
+    // Remove banned CSS properties.
     if (config.removeBanned) {
         removeBanned(renderer);
     }

@@ -35,7 +35,7 @@ addonAmp(nano, {
 
 , where
 
-- `limit` &mdash; maximum size of style sheet on server
+- `limit` &mdash; maximum size of style sheet on server, defaults to `50000`
 - `removeImportant` &mdash; whether to remove `!important` modfiers, defaults to `false`
 - `removeReserved` &mdash; whether to remove rules with reserved selectors, defaults to `false`
 - `removeBanned` &mdash; whether to remove banned declarations, defaults to `false`
