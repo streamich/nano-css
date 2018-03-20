@@ -14,10 +14,24 @@ exports.create = function (config) {
     config = config || {};
     var assign = config.assign || Object.assign;
 
+    var client = typeof window === 'object';
+
+    // Check if we are really in browser environment.
+    if (process.env.NODE_ENV !== 'production') {
+        if (client) {
+            if ((typeof document !== 'object') || !document.getElementsByTagName('HTML')) {
+                console.error(
+                    'nano-css detected browser environment because of "window" global, but ' +
+                    '"document" global seems to be defective.'
+                );
+            }
+        }
+    }
+
     var renderer = assign({
         raw: '',
         pfx: '_',
-        client: typeof window === 'object',
+        client: client,
         assign: assign,
         stringify: JSON.stringify,
         kebab: function (prop) {
@@ -73,7 +87,7 @@ exports.create = function (config) {
                     renderer.put(renderer.selector(selector, prop), value, atrule);
                 }
             } else {
-                str += renderer.decl(prop, value);
+                str += renderer.decl(prop, value, selector, atrule);
             }
         }
 

@@ -9,4 +9,6 @@ configure({
     adapter: new Adapter()
 });
 
-global.requestAnimationFrame = window.requestAnimationFrame = function (callback) { return setTimeout(callback, 17); };
+if (typeof window === 'object') {
+    global.requestAnimationFrame = window.requestAnimationFrame = function (callback) { return setTimeout(callback, 17); };
+}

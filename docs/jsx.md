@@ -160,6 +160,21 @@ const Link = (props) => Button({
 // <a>Click me!</a>
 ```
 
+Other libraries provide a method like `withComponent`:
+
+```js
+const Link = withComponent(Button, 'a');
+```
+
+You can make one yourself:
+
+```js
+const withComponent = (styledComp, comp) => (props) => styledComp({
+    ...props,
+    $as: comp
+});
+```
+
 
 ## Installation
 
