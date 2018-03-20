@@ -77,9 +77,9 @@ exports.addon = function (renderer) {
 
             if ((value instanceof Object) && !(value instanceof Array)) {
                 if (prop[0] === '@') {
-                    renderer.putAt(selectorTemplate, value, prop);
+                    renderer.virtual(selectorTemplate, value, prop);
                 } else {
-                    renderer.virtual(renderer.selector(selectorTemplate, prop), value, atrule);
+                    classNames += renderer.virtual(renderer.selector(selectorTemplate, prop), value, atrule);
                 }
             } else {
                 var rawDecl = renderer.decl(prop, value);

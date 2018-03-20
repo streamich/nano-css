@@ -3,8 +3,7 @@
 [![][npm-badge]][npm-url] [![][travis-badge]][travis-url]
 
 __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/master/docs/en/generations.md#5th-generation) CSS-in-JS library__ that you can actually use in production.
-
-> Motto of `nano-css` is simple: create the smallest possible CSS-in-JS library and provide all features of any other CSS-in-JS library through addons.
+Motto of `nano-css` is simple: create the smallest possible CSS-in-JS library and provide all features of any other CSS-in-JS library through addons.
 
 - Only __0.5 Kb__ in base configuration
 - __Library-agnostic__ &mdash; use it standalone, with React, Preact, Vue.js, or any other library
@@ -18,6 +17,35 @@ __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/
 
 - [Installation](./docs/Installation.md)
 - [Addons](./docs/Addons.md)
+  - [`put()`](./docs/put.md)
+  - [`rule()`](./docs/rule.md)
+  - [`drule()`](./docs/drule.md)
+  - [`sheet()`](./docs/sheet.md)
+  - [`dsheet()`](./docs/dsheet.md)
+  - [`jsx()`](./docs/jsx.md)
+  - [`useStyles()`](./docs/useStyles.md)
+  - [`withStyles()`](./docs/withStyles.md)
+  - [`decorator`](./docs/decorator.md)
+  - [`component`](./docs/component.md)
+  - [`style()`](./docs/style.md)
+  - [`styled()()`](./docs/styled.md)
+  - [`hyperstyle()`](./docs/hyperstyle.md)
+  - [`stable`](./docs/stable.md)
+  - [`atoms`](./docs/atoms.md)
+  - [`nesting`](./docs/nesting.md)
+  - [`keyframes()`](./docs/keyframes.md)
+  - [`hydrate`](./docs/hydrate.md)
+  - [`prefixer`](./docs/prefixer.md)
+  - [`stylis`](./docs/stylis.md)
+  - [`unitless`](./docs/unitless.md)
+  - [`!important`](./docs/important.md)
+  - [`:global`](./docs/global.md)
+  - [`animate/*`](./docs/animations.md)
+  - [`reset/*`](./docs/resets.md)
+  - [`reset-font`](./docs/reset-font.md)
+  - [`googleFont()`](./docs/googleFont.md)
+  - [`limit`](./docs/limit.md)
+  - [`amp`](./docs/amp.md)
 - [Server-side rendering](./docs/SSR.md)
 
 
