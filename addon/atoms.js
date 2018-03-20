@@ -1,6 +1,6 @@
 'use strict';
 
-var atoms = {
+var atoms = exports.atoms = {
     d:      'display',
 
     mar:    'margin',
