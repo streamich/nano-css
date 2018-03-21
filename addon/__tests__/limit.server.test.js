@@ -1,7 +1,7 @@
+/** @jest-environment node */
 /* eslint-disable */
 'use strict';
 
-var expect = require('chai').expect;
 var create = require('../../index').create;
 var addonLimit = require('../../addon/limit').addon;
 
@@ -29,7 +29,7 @@ describe('limit', function () {
             color: 'red'
         });
 
-        expect(nano.raw.replace(/ /g, '')).to.equal('.foo{color:red;}.bar{color:red;}.baz{color:red;}');
+        expect(nano.raw.replace(/ /g, '')).toBe('.foo{color:red;}.bar{color:red;}.baz{color:red;}');
     });
 
     it('caps at limit', function () {
@@ -49,6 +49,6 @@ describe('limit', function () {
             color: 'red'
         });
 
-        expect(nano.raw.replace(/ /g, '')).to.equal('.foo{color:red;}.bar{color:red;}');
+        expect(nano.raw.replace(/ /g, '')).toBe('.foo{color:red;}.bar{color:red;}');
     });
 });

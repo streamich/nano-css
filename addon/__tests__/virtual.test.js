@@ -1,7 +1,7 @@
 /* eslint-disable */
 'use strict';
 
-var vars = require('./vars');
+var env = require('./env');
 var create = require('../../index').create;
 var addonVirtual = require('../../addon/virtual').addon;
 
@@ -29,7 +29,7 @@ describe('virtual', function () {
 
             expect(className).toBe('_a');
 
-            if (vars.isServer) {
+            if (env.isServer) {
                 expect(nano.raw).toBe('._a{color:red;}');
             }
         });
@@ -41,7 +41,7 @@ describe('virtual', function () {
             expect(nano.atomic('&', 'color:blue;')).toBe('_b')
             expect(nano.atomic('&', 'color:green;')).toBe('_c')
 
-            if (vars.isServer) {
+            if (env.isServer) {
                 expect(nano.raw).toBe('._a{color:red;}._b{color:blue;}._c{color:green;}');
             }
         });
@@ -59,7 +59,7 @@ describe('virtual', function () {
             expect(nano.atomic('&', 'color:red;', '@media screen')).toBe('_a')
             expect(nano.atomic('&', 'color:red;', '@media screen')).toBe('_a')
 
-            if (vars.isServer) {
+            if (env.isServer) {
                 expect(nano.raw).toBe('@media screen{._a{color:red;}}');
             }
         });
@@ -70,7 +70,7 @@ describe('virtual', function () {
             expect(nano.atomic('.global &:hover', 'color:red;', '@media screen')).toBe('_a')
             expect(nano.atomic('.global &:hover', 'color:red;', '@media screen')).toBe('_a')
 
-            if (vars.isServer) {
+            if (env.isServer) {
                 expect(nano.raw).toBe('@media screen{.global ._a:hover{color:red;}}');
             }
         });
@@ -92,7 +92,7 @@ describe('virtual', function () {
             });
 
             expect(className).toBe(' _a');
-            if (vars.isServer) {
+            if (env.isServer) {
                 expect(nano.raw).toBe('._a{color:red}');
             }
         });
@@ -107,7 +107,7 @@ describe('virtual', function () {
 
             expect(className).toBe(' _a _b _c');
 
-            if (vars.isServer) {
+            if (env.isServer) {
                 expect(nano.raw.includes('color:red')).toBe(true);
                 expect(nano.raw.includes('background:black')).toBe(true);
                 expect(nano.raw.includes('text-align:center')).toBe(true);
@@ -125,7 +125,7 @@ describe('virtual', function () {
 
             expect(className).toBe(' _a _b');
 
-            if (vars.isServer) {
+            if (env.isServer) {
                 expect(nano.raw.includes('._a')).toBe(true);
                 expect(nano.raw.includes('._b')).toBe(true);
                 expect(nano.raw.includes(':hover')).toBe(true);
