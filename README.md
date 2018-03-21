@@ -3,7 +3,7 @@
 [![][npm-badge]][npm-url] [![][travis-badge]][travis-url]
 
 __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/master/docs/en/generations.md#5th-generation) CSS-in-JS library__ that you can actually use in production.
-Motto of `nano-css` is simple: create the smallest possible CSS-in-JS library and provide all features of any other CSS-in-JS library through addons.
+__Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS library and provide all features of any other library through addons.*
 
 - Only __0.5 Kb__ in base configuration
 - __Library-agnostic__ &mdash; use it standalone, with React, Preact, Vue.js, or any other library

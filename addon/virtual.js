@@ -4,9 +4,9 @@ var createMemoizer = function (pfx) {
     var offset = 10;
     var msb = 35;
     var power = 1;
-    var cache = {};
 
     var self = {
+        cache: {},
         length: 0,
 
         next: function () {
@@ -22,7 +22,7 @@ var createMemoizer = function (pfx) {
         },
 
         get: function () {
-            var curr = cache;
+            var curr = self.cache;
             var lastIndex = arguments.length - 1;
             var lastStep = arguments[lastIndex];
 
@@ -36,7 +36,7 @@ var createMemoizer = function (pfx) {
             if (!curr[lastStep]) curr[lastStep] = pfx + self.next().toString(36);
 
             return curr[lastStep];
-        },
+        }
     };
 
     return self;
@@ -47,9 +47,10 @@ exports.addon = function (renderer) {
         require('./__dev__/warnOnMissingDependencies')('styled', renderer, ['putRaw']);
     }
 
-    var memo = createMemoizer(renderer.pfx);
+    renderer.memo = createMemoizer(renderer.pfx);
 
     renderer.atomic = function (selectorTemplate, rawDecl, atrule) {
+        var memo = renderer.memo;
         var memoLength = memo.length;
         var className = memo.get(atrule, selectorTemplate, rawDecl);
 

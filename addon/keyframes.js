@@ -54,11 +54,7 @@ exports.addon = function (renderer, config) {
         if (!block) block = renderer.hash(keyframes);
         block = renderer.pfx + block;
 
-        for (var i = 0; i < prefixes.length; i++) {
-            var prefix = prefixes[i];
-
-            renderer.putAt('', keyframes, '@' + prefix + 'keyframes ' + block);
-        }
+        renderer.putAt('', keyframes, '@keyframes ' + block);
 
         return block;
     };

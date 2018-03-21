@@ -1,6 +1,7 @@
 /* eslint-disable */
 'use strict';
 
+var env = require('./env');
 var create = require('../../index').create;
 
 function findCssRuleAndDelete (selector) {
@@ -81,10 +82,16 @@ describe('nano-css', function () {
                 color: 'red'
             });
 
-            var rule = findCssRuleAndDelete('.foo');
+            if (env.isClient) {
+                var rule = findCssRuleAndDelete('.foo');
 
-            expect(typeof rule).toBe('object');
-            expect(rule.style.color).toBe('red');
+                expect(typeof rule).toBe('object');
+                expect(rule.style.color).toBe('red');
+            }
+
+            if (env.isServer) {
+                expect(nano.raw).toBe('.foo{color:red;}');
+            }
         });
 
         it('puts many declarations', function () {
@@ -96,15 +103,24 @@ describe('nano-css', function () {
                 'border-radius': '5px',
             });
 
-            var rule = findCssRuleAndDelete('.foo2');
+            if (env.isClient) {
+                var rule = findCssRuleAndDelete('.foo2');
 
-            expect(typeof rule).toBe('object');
-            expect(rule.style.color).toBe('red');
-            expect(rule.style['text-decoration']).toBe('underline');
-            expect(rule.style['border-radius']).toBe('5px');
+                expect(typeof rule).toBe('object');
+                expect(rule.style.color).toBe('red');
+                expect(rule.style['text-decoration']).toBe('underline');
+                expect(rule.style['border-radius']).toBe('5px');
+            }
+
+            if (env.isServer) {
+                expect(nano.raw.includes('.foo2')).toBe(true);
+                expect(nano.raw.includes('color:red')).toBe(true);
+                expect(nano.raw.includes('text-decoration:underline')).toBe(true);
+                expect(nano.raw.includes('border-radius:5px')).toBe(true);
+            }
         });
 
-        it('supports class name nesting', function () {
+        it('supports nesting', function () {
             var nano = create();
 
             nano.put('.foo3', {
@@ -113,10 +129,42 @@ describe('nano-css', function () {
                 }
             });
 
-            var rule = findCssRuleAndDelete('.foo3 .nested');
+            if (env.isClient) {
+                var rule = findCssRuleAndDelete('.foo3 .nested');
 
-            expect(typeof rule).toBe('object');
-            expect(rule.style.color).toBe('blue');
+                expect(typeof rule).toBe('object');
+                expect(rule.style.color).toBe('blue');
+            }
+
+            if (env.isServer) {
+                expect(nano.raw.includes('.foo3 .nested')).toBe(true);
+                expect(nano.raw.includes('color:blue')).toBe(true);
+            }
+        });
+
+        it('supports nesting - 2', function () {
+            var renderer = create();
+
+            renderer.put('.foo', {
+                '.bar': {
+                    '.baz': {
+                        '.bazooka': {
+                            color: 'red'
+                        }
+                    }
+                }
+            });
+
+            if (env.isClient) {
+                var rule = findCssRuleAndDelete('.foo .bar .baz .bazooka');
+
+                expect(typeof rule).toBe('object');
+                expect(rule.style.color).toBe('red');
+            }
+
+            if (env.isServer) {
+                expect(renderer.raw).toBe('.foo .bar .baz .bazooka{color:red;}');
+            }
         });
 
         it('supports pseudo selectors', function () {
@@ -128,10 +176,17 @@ describe('nano-css', function () {
                 }
             });
 
-            var rule = findCssRuleAndDelete('.foo3:hover');
+            if (env.isClient) {
+                var rule = findCssRuleAndDelete('.foo3:hover');
 
-            expect(typeof rule).toBe('object');
-            expect(rule.style.color).toBe('green');
+                expect(typeof rule).toBe('object');
+                expect(rule.style.color).toBe('green');
+            }
+
+            if (env.isServer) {
+                expect(nano.raw.includes('.foo3:hover')).toBe(true);
+                expect(nano.raw.includes('color:green')).toBe(true);
+            }
         });
 
         it('can insert global styles', function () {
@@ -143,13 +198,20 @@ describe('nano-css', function () {
                 }
             });
 
-            var rule = findCssRuleAndDelete('.global');
+            if (env.isClient) {
+                var rule = findCssRuleAndDelete('.global');
 
-            expect(typeof rule).toBe('object');
-            expect(rule.style.color).toBe('green');
+                expect(typeof rule).toBe('object');
+                expect(rule.style.color).toBe('green');
+            }
+
+            if (env.isServer) {
+                expect(nano.raw.includes('.global')).toBe(true);
+                expect(nano.raw.includes('color:green')).toBe(true);
+            }
         });
 
-        it('can insert @media queries', function () {
+        it('supports @media queries - 2', function () {
             var nano = create();
             nano.putRaw = jest.fn();
 
@@ -161,9 +223,33 @@ describe('nano-css', function () {
                 }
             });
 
-
             expect(nano.putRaw).toHaveBeenCalledTimes(1);
             expect(nano.putRaw.mock.calls[0][0].replace(/ /g, '')).toBe('@mediascreen{.global{color:green;}}');
+        });
+
+        it('supports @media queries - 2', function () {
+            var nano = create();
+
+            if (env.isClient) {
+                nano.putRaw = jest.fn();
+            }
+
+            nano.put('.parent', {
+                '@media screen': {
+                    '.foo': {
+                        color: 'red'
+                    }
+                }
+            });
+
+            if (env.isClient) {
+                expect(nano.putRaw).toHaveBeenCalledTimes(1);
+                expect(nano.putRaw.mock.calls[0][0].replace(/ /g, '')).toBe('@mediascreen{.parent.foo{color:red;}}');
+            }
+
+            if (env.isServer) {
+                expect(nano.raw).toBe('@media screen{.parent .foo{color:red;}}');
+            }
         });
     });
 });

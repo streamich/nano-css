@@ -1,11 +1,10 @@
+/** @jest-environment node */
 /* eslint-disable */
 'use strict';
 
-var expect = require('chai').expect;
+var env = require('./env');
 var create = require('../../index').create;
 var addonAmp= require('../../addon/amp').addon;
-
-process.env.NODE_ENV = 'development';
 
 function createNano (config, addonConfig) {
     var nano = create(config);
@@ -17,7 +16,7 @@ function createNano (config, addonConfig) {
 
 describe('amp', function () {
     it('is a function', function () {
-        expect(typeof addonAmp).to.equal('function');
+        expect(typeof addonAmp).toBe('function');
     });
 
     it('allows inserting rules', function () {
@@ -31,7 +30,7 @@ describe('amp', function () {
             color: 'red'
         });
 
-        expect(nano.raw.replace(/ /g, '')).to.equal('.foo{color:red;}.bar{color:red;}');
+        expect(nano.raw.replace(/ /g, '')).toBe('.foo{color:red;}.bar{color:red;}');
     });
 
     it('caps at limit', function () {
@@ -51,7 +50,7 @@ describe('amp', function () {
             color: 'red'
         });
 
-        expect(nano.raw.replace(/ /g, '')).to.equal('.foo{color:red;}.bar{color:red;}');
+        expect(nano.raw.replace(/ /g, '')).toBe('.foo{color:red;}.bar{color:red;}');
     });
 
     it('warns on !important', function () {
@@ -67,15 +66,20 @@ describe('amp', function () {
             color: 'red'
         });
 
-        expect(calls.length).to.equal(0);
+        expect(calls.length).toBe(0);
 
         nano.put('.bar', {
             color: 'blue !important'
         });
 
-        expect(nano.raw.indexOf('!important') > -1).to.true;
-        expect(calls.length).to.equal(1);
-        expect(calls[0][0].indexOf('!important') > -1).to.be.true;
+        expect(nano.raw.indexOf('!important') > -1).toBe(true);
+
+        if (env.isDev) {
+            expect(calls.length).toBe(1);
+            expect(calls[0][0].indexOf('!important') > -1).toBe(true);
+        } else {
+            expect(calls.length).toBe(0);
+        }
 
         console.error = console$error
     });
@@ -89,7 +93,7 @@ describe('amp', function () {
             color: 'blue !important'
         });
 
-        expect(nano.raw.indexOf('!important') > -1).to.false;
+        expect(nano.raw.indexOf('!important') > -1).toBe(false);
     });
 
     it('warns on reserved selectors', function () {
@@ -105,25 +109,37 @@ describe('amp', function () {
             color: 'red'
         });
 
-        expect(calls.length).to.equal(0);
+        expect(calls.length).toBe(0);
 
         nano.put('.-amp-bar', {
             color: 'blue'
         });
 
-        expect(calls.length).to.equal(1);
+        if (env.isDev) {
+            expect(calls.length).toBe(1);
+        } else {
+            expect(calls.length).toBe(0);
+        }
 
         nano.put('i-amp-baz', {
             color: 'yellow'
         });
 
-        expect(calls.length).to.equal(2);
+        if (env.isDev) {
+            expect(calls.length).toBe(2);
+        } else {
+            expect(calls.length).toBe(0);
+        }
 
         nano.put('amp-baz', {
             color: 'green'
         });
 
-        expect(calls.length).to.equal(2);
+        if (env.isDev) {
+            expect(calls.length).toBe(2);
+        } else {
+            expect(calls.length).toBe(0);
+        }
 
         console.error = console$error
     });
@@ -143,19 +159,19 @@ describe('amp', function () {
             color: 'red'
         });
 
-        expect(nano.raw.length).to.equal(length);
+        expect(nano.raw.length).toBe(length);
 
         nano.put('i-amp-baz', {
             color: 'green'
         });
 
-        expect(nano.raw.length).to.equal(length);
+        expect(nano.raw.length).toBe(length);
 
         nano.put('amp-bazooka', {
             color: 'orange'
         });
 
-        expect(nano.raw.length > length).to.be.true;
+        expect(nano.raw.length > length).toBe(true);
     });
 
     it('warns on banned declarations', function () {
@@ -171,13 +187,17 @@ describe('amp', function () {
             color: 'red'
         });
 
-        expect(calls.length).to.equal(0);
+        expect(calls.length).toBe(0);
 
         nano.put('.bar', {
             behavior: 'something'
         });
 
-        expect(calls.length).to.equal(1);
+        if (env.isDev) {
+            expect(calls.length).toBe(1);
+        } else {
+            expect(calls.length).toBe(0);
+        }
 
         console.error = console$error
     });
@@ -197,6 +217,6 @@ describe('amp', function () {
             behavior: 'something'
         });
 
-        expect(nano.raw.length).to.equal(length);
+        expect(nano.raw.length).toBe(length);
     });
 });
