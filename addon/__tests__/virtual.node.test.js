@@ -72,7 +72,7 @@ describe('virtual - node', function () {
             });
 
             expect(className).toBe(' _a');
-            expect(nano.raw).toBe('._a{color:red;}');
+            expect(nano.raw).toBe('._a{color:red}');
         });
 
         it('makes styles atomic', function () {
@@ -121,16 +121,33 @@ describe('virtual - node', function () {
                 },
                 '@media screen': {
                     textAlign: 'right',
+                    cursor: 'pointer',
                 }
-            });console.log(nano.atomic.mock.calls);
+            });
 
-            expect(nano.atomic).toHaveBeenCalledWith('&', 'color:tomato;', undefined);
-            expect(nano.atomic).toHaveBeenCalledWith('&', 'border:1px solid red;', undefined);
-            expect(nano.atomic).toHaveBeenCalledWith('&', 'margin:10px auto;', undefined);
-            expect(nano.atomic).toHaveBeenCalledWith('&', 'padding:0;', undefined);
-            expect(nano.atomic).toHaveBeenCalledWith('&:focus', 'color:blue;', undefined);
-            expect(nano.atomic).not.toHaveBeenCalledWith('&:focus', 'color:tomato;', undefined);
-            expect(nano.atomic).toHaveBeenCalledWith('&', 'text-align:right;', '@media screen');
+            expect(nano.atomic).toHaveBeenCalledWith('&', 'color:tomato', undefined);
+            expect(nano.atomic).toHaveBeenCalledWith('&', 'border:1px solid red', undefined);
+            expect(nano.atomic).toHaveBeenCalledWith('&', 'margin:10px auto', undefined);
+            expect(nano.atomic).toHaveBeenCalledWith('&', 'padding:0', undefined);
+            expect(nano.atomic).toHaveBeenCalledWith('&:focus', 'color:blue', undefined);
+            expect(nano.atomic).not.toHaveBeenCalledWith('&:focus', 'color:tomato', undefined);
+            expect(nano.atomic).toHaveBeenCalledWith('&', 'text-align:right', '@media screen');
+            expect(nano.atomic).toHaveBeenCalledWith('&', 'cursor:pointer', '@media screen');
+            expect(nano.atomic).not.toHaveBeenCalledWith('&', 'color:tomato', '@media screen');
+        });
+
+        it('extrapolates array values', function () {
+            var nano = createNano();
+
+            nano.atomic = jest.fn();
+
+            var className = nano.virtual('&', {
+                color: 'blue;color:red;',
+            });
+
+            expect(nano.atomic).toHaveBeenCalledTimes(2);
+            expect(nano.atomic).toHaveBeenCalledWith('&', 'color:blue', undefined);
+            expect(nano.atomic).toHaveBeenCalledWith('&', 'color:red', undefined);
         });
     });
 });

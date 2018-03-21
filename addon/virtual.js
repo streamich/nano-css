@@ -83,8 +83,12 @@ exports.addon = function (renderer) {
                 }
             } else {
                 var rawDecl = renderer.decl(prop, value);
+                var rawDecls = rawDecl.split(';');
 
-                classNames += ' ' + renderer.atomic(selectorTemplate, rawDecl, atrule);
+                for (var i = 0; i < rawDecls.length; i++) {
+                    var d = rawDecls[i];
+                    if (d) classNames += ' ' + renderer.atomic(selectorTemplate, d, atrule);
+                }
             }
         }
 
