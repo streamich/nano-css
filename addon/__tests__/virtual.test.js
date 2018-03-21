@@ -1,7 +1,7 @@
-/** @jest-environment node */
 /* eslint-disable */
 'use strict';
 
+var vars = require('./vars');
 var create = require('../../index').create;
 var addonVirtual = require('../../addon/virtual').addon;
 
@@ -13,7 +13,7 @@ function createNano (config) {
     return nano;
 };
 
-describe('virtual - node', function () {
+describe('virtual', function () {
     it('installs interface', function () {
         var nano = createNano();
 
@@ -28,7 +28,10 @@ describe('virtual - node', function () {
             var className = nano.atomic('&', 'color:red;', '');
 
             expect(className).toBe('_a');
-            expect(nano.raw).toBe('._a{color:red;}')
+
+            if (vars.isServer) {
+                expect(nano.raw).toBe('._a{color:red;}');
+            }
         });
 
         it('increments ID', function () {
@@ -37,7 +40,10 @@ describe('virtual - node', function () {
             expect(nano.atomic('&', 'color:red;')).toBe('_a')
             expect(nano.atomic('&', 'color:blue;')).toBe('_b')
             expect(nano.atomic('&', 'color:green;')).toBe('_c')
-            expect(nano.raw).toBe('._a{color:red;}._b{color:blue;}._c{color:green;}');
+
+            if (vars.isServer) {
+                expect(nano.raw).toBe('._a{color:red;}._b{color:blue;}._c{color:green;}');
+            }
         });
 
         it('caches', function () {
@@ -52,7 +58,10 @@ describe('virtual - node', function () {
 
             expect(nano.atomic('&', 'color:red;', '@media screen')).toBe('_a')
             expect(nano.atomic('&', 'color:red;', '@media screen')).toBe('_a')
-            expect(nano.raw).toBe('@media screen{._a{color:red;}}');
+
+            if (vars.isServer) {
+                expect(nano.raw).toBe('@media screen{._a{color:red;}}');
+            }
         });
 
         it('interpolates selector', function () {
@@ -60,7 +69,10 @@ describe('virtual - node', function () {
 
             expect(nano.atomic('.global &:hover', 'color:red;', '@media screen')).toBe('_a')
             expect(nano.atomic('.global &:hover', 'color:red;', '@media screen')).toBe('_a')
-            expect(nano.raw).toBe('@media screen{.global ._a:hover{color:red;}}');
+
+            if (vars.isServer) {
+                expect(nano.raw).toBe('@media screen{.global ._a:hover{color:red;}}');
+            }
         });
 
         it('prefixes class names', function () {
@@ -80,7 +92,9 @@ describe('virtual - node', function () {
             });
 
             expect(className).toBe(' _a');
-            expect(nano.raw).toBe('._a{color:red}');
+            if (vars.isServer) {
+                expect(nano.raw).toBe('._a{color:red}');
+            }
         });
 
         it('makes styles atomic', function () {
@@ -92,9 +106,12 @@ describe('virtual - node', function () {
             });
 
             expect(className).toBe(' _a _b _c');
-            expect(nano.raw.includes('color:red')).toBe(true);
-            expect(nano.raw.includes('background:black')).toBe(true);
-            expect(nano.raw.includes('text-align:center')).toBe(true);
+
+            if (vars.isServer) {
+                expect(nano.raw.includes('color:red')).toBe(true);
+                expect(nano.raw.includes('background:black')).toBe(true);
+                expect(nano.raw.includes('text-align:center')).toBe(true);
+            }
         });
 
         it('allows nesting', function () {
@@ -107,11 +124,14 @@ describe('virtual - node', function () {
             });
 
             expect(className).toBe(' _a _b');
-            expect(nano.raw.includes('._a')).toBe(true);
-            expect(nano.raw.includes('._b')).toBe(true);
-            expect(nano.raw.includes(':hover')).toBe(true);
-            expect(nano.raw.includes('color:red')).toBe(true);
-            expect(nano.raw.includes('color:blue')).toBe(true);
+
+            if (vars.isServer) {
+                expect(nano.raw.includes('._a')).toBe(true);
+                expect(nano.raw.includes('._b')).toBe(true);
+                expect(nano.raw.includes(':hover')).toBe(true);
+                expect(nano.raw.includes('color:red')).toBe(true);
+                expect(nano.raw.includes('color:blue')).toBe(true);
+            }
         });
 
         it('multiple styles', function () {
