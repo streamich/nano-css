@@ -62,6 +62,14 @@ describe('virtual - node', function () {
             expect(nano.atomic('.global &:hover', 'color:red;', '@media screen')).toBe('_a')
             expect(nano.raw).toBe('@media screen{.global ._a:hover{color:red;}}');
         });
+
+        it('prefixes class names', function () {
+            var nano = createNano({
+                pfx: 'foo-'
+            });
+
+            expect(nano.atomic('&', 'color:red;')).toBe('foo-a');
+        });
     });
 
     describe('virtual()', function () {
@@ -148,6 +156,19 @@ describe('virtual - node', function () {
             expect(nano.atomic).toHaveBeenCalledTimes(2);
             expect(nano.atomic).toHaveBeenCalledWith('&', 'color:blue', undefined);
             expect(nano.atomic).toHaveBeenCalledWith('&', 'color:red', undefined);
+        });
+
+        it('removes semicolons', function () {
+            var nano = createNano();
+
+            nano.atomic = jest.fn();
+
+            var className = nano.virtual('&', {
+                color: 'blue;;;;;',
+            });
+
+            expect(nano.atomic).toHaveBeenCalledTimes(1);
+            expect(nano.atomic).toHaveBeenCalledWith('&', 'color:blue', undefined);
         });
     });
 });

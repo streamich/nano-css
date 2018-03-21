@@ -94,4 +94,8 @@ exports.addon = function (renderer) {
 
         return classNames;
     };
+
+    renderer.rule = function (decls) {
+        return renderer.virtual('&', decls);
+    };
 };
