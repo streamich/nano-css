@@ -17,7 +17,7 @@ module.exports = function warnOnMissingDependencies (addon, renderer, deps) {
         var str = 'Addon "' + addon + '" is missing the following dependencies:';
 
         for (var j = 0; j < missing.length; j++) {
-            str += '\n require("' + pkg.name + '/addon/' + missing[j] + '").addon(renderer);';
+            str += '\n require("' + pkg.name + '/addon/' + missing[j] + '").addon(nano);';
         }
 
         throw new Error(str);

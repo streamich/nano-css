@@ -1,13 +1,13 @@
 'use strict';
 
-exports.addon = function (renderer) {
+exports.addon = function (renderer, stylesheet) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('hydrate', renderer, ['put']);
     }
 
     if (renderer.client) {
         var hydrated = {};
-        var stylesheet = renderer.sh;
+        stylesheet = stylesheet || renderer.sh;
 
         if (!stylesheet) {
             if (process.env.NODE_ENV !== 'production') {
