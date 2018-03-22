@@ -1,6 +1,6 @@
 {
   "name": "nano-css",
-  "version": "1.4.1",
+  "version": "1.6.0",
   "description": "Smallest 5th gen CSS-in-JS library",
   "main": "index.js",
   "unpkg": "dist/nano-css.umd.min.js",
@@ -37,7 +37,8 @@
   "dependencies": {
     "fastest-stable-stringify": "^1.0.1",
     "stylis": "3.5.0",
-    "inline-style-prefixer": "^4.0.0"
+    "inline-style-prefixer": "^4.0.0",
+    "rtl-css-js": "^1.9.0"
   },
   "devDependencies": {
     "@types/react": "16.0.40",
