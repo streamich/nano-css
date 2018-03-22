@@ -1,6 +1,6 @@
 'use strict';
 
-var flip = require('rtl-css-js')
+var rtl = require('rtl-css-js').default;
 
 exports.addon = function (renderer) {
     if (process.env.NODE_ENV !== 'production') {
@@ -10,6 +10,6 @@ exports.addon = function (renderer) {
     var put = renderer.put;
 
     renderer.put = function (selector, css) {
-        return put(selector, flip(css));
+        return put(selector, rtl(css));
     };
 };
