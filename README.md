@@ -46,6 +46,10 @@ __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS libra
   - [`googleFont()`](./docs/googleFont.md)
   - [`limit`](./docs/limit.md)
   - [`amp`](./docs/amp.md)
+  - [`virtual`](./docs/virtual.md)
+  - [`spread`](./docs/spread.md)
+  - [`array`](./docs/array.md)
+  - [`snake`](./docs/snake.md)
 - [Server-side rendering](./docs/SSR.md)
 
 

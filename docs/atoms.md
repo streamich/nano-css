@@ -76,6 +76,7 @@ var atoms = {
     vis:    'visibility',
     ww:     'word-wrap',
     con:    'content',
+    z:      'z-index',
 };
 ```
 

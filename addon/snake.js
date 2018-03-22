@@ -1,33 +1,71 @@
+/* eslint-disable no-invalid-this */
 'use strict';
 
 var atoms = require('./atoms').atoms;
 
-var createSnake = function (renderer, rules) {
+exports.addon = function (renderer, rules) {
     rules = rules || {};
 
     var defaultRules = renderer.assign({}, atoms, {
         bgWhite: function () {
-            defaultRules.bg.call(this, '#fff');
+            this.backgroundColor = '#fff';
         },
 
         bgBlack: function () {
-            defaultRules.bg.call(this, '#000');
+            this.backgroundColor = '#000';
         },
+
+        pointer: function () {
+            this.cursor = 'pointer';
+        },
+
+        inlineBlock: function () {
+            this.display = 'inline-block';
+        },
+
+        bold: function () {
+            this.fontWeight = 'bold';
+        },
+
+        em: function () {
+            this.fontStyle = 'italic';
+        }
     });
 
-    rules = renderer.assign({}, defaultRules, rules);
+    rules = renderer.assign(defaultRules, rules);
 
-    var snake = {
-        start: function () {
-            var instance = Object.create(snake);
+    var snake = {};
 
-            instance.obj = {};
-            instance.toString = function () {
-                return renderer.cache(instance.obj);
-            };
+    var start = function () {
+        var instance = Object.create(snake);
 
-            return instance;
-        }
+        instance.obj = {};
+        instance.toString = function () {
+            if (process.env.NODE_ENV !== 'production') {
+                require('./__dev__/warnOnMissingDependencies')('snake', renderer, ['cache']);
+            }
+
+            return renderer.cache(instance.obj);
+        };
+        instance.valueOf = instance.toString;
+
+        return instance;
+    };
+
+    var checkStart = function (name, fn) {
+        return function () {
+            if (!this.obj) {
+                var instance = start();
+
+                if (typeof instance[name] === 'function') {
+                    return instance[name].apply(instance, arguments);
+                }
+
+                return instance[name];
+            }
+
+            return fn.apply(this, arguments);
+        };
     };
 
     var onRule = function (name) {
@@ -36,40 +74,26 @@ var createSnake = function (renderer, rules) {
         if (typeof rule === 'function') {
             if (!rule.length) {
                 Object.defineProperty(snake, name, {
-                    get: function () {
+                    get: checkStart(name, function () {
                         rule.call(this.obj);
                         return this;
-                    }
+                    })
                 });
             } else {
-                snake[name] = function () {
+                snake[name] = checkStart(name, function () {
                     rule.apply(this.obj, arguments);
                     return this;
-                };
+                });
             }
         } else {
-            snake[name] = function (value) {
+            snake[name] = checkStart(name, function (value) {
                 this.obj['' + rule] = value;
                 return this;
-            };
+            });
         }
     };
 
     for (var name in rules) onRule(name);
 
-    return snake;
-};
-
-exports.addon = function (renderer) {
-    if (process.env.NODE_ENV !== 'production') {
-        require('./__dev__/warnOnMissingDependencies')('sheet', renderer, ['cache']);
-    }
-
-    var snake = createSnake(renderer);
-
-    Object.defineProperty(renderer, 's', {
-        get: function () {
-            return snake.start();
-        }
-    });
+    renderer.s = snake;
 };

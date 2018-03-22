@@ -15,6 +15,14 @@ Below example loads `Roboto Slab` font at `400` and `700` widths, including `cyr
 nano.googleFont('Roboto Slab', [400, 700], 'cyrillic');
 ```
 
+Now you can use this font.
+
+```js
+const className = nano.rule({
+    fontFamily: '"Roboto Slab", sans'
+});
+```
+
 
 ## Installation
 
