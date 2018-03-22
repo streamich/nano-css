@@ -74,7 +74,7 @@
     "gitbook-cli": "2.3.2",
     "libreact": "0.16.5",
     "webpack-bundle-analyzer": "2.11.1",
-    "eslint": "4.19.0",
+    "eslint": "4.19.1",
     "typescript": "2.7.2",
     "tslib": "1.9.0",
     "ts-loader": "3.5.0"
