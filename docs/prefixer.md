@@ -15,8 +15,8 @@ Result:
 
 ```css
 .foo {
-    -webkit-flex:1;
-    flex:1;
+    -webkit-flex: 1;
+    flex: 1;
 }
 ```
 
