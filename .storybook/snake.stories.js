@@ -10,7 +10,17 @@ const {addon: addonSnake} = require('../addon/snake');
 const nano = create({h});
 addonRule(nano);
 addonCache(nano);
-addonSnake(nano);
+addonSnake(nano, {
+    inline: function () {
+        this.display = 'inline';
+    },
+
+    cornerRadius: function (value) {
+        this.borderRadius = value;
+    },
+
+    style: 'fontStyle'
+});
 
 const {s} = nano;
 
@@ -31,5 +41,5 @@ storiesOf('Addons/snake', module)
         h('div', {className: lazy}, 'Hello world')
     )
     .add('Getters', () =>
-        h('div', {className: s.bgBlack.col('pink')}, 'Hello world')
+        h('div', {className: s.bgBlack.col('pink').inline.pointer.cornerRadius('4px').style('italic').bold}, 'Hello world')
     )

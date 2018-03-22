@@ -3,7 +3,7 @@
 
 var atoms = require('./atoms').atoms;
 
-var createSnake = function (renderer, rules) {
+exports.addon = function (renderer, rules) {
     rules = rules || {};
 
     var defaultRules = renderer.assign({}, atoms, {
@@ -14,9 +14,25 @@ var createSnake = function (renderer, rules) {
         bgBlack: function () {
             this.backgroundColor = '#000';
         },
+
+        pointer: function () {
+            this.cursor = 'pointer';
+        },
+
+        inlineBlock: function () {
+            this.display = 'inline-block';
+        },
+
+        bold: function () {
+            this.fontWeight = 'bold';
+        },
+
+        em: function () {
+            this.fontStyle = 'italic';
+        }
     });
 
-    rules = renderer.assign({}, defaultRules, rules);
+    rules = renderer.assign(defaultRules, rules);
 
     var snake = {};
 
@@ -31,6 +47,7 @@ var createSnake = function (renderer, rules) {
 
             return renderer.cache(instance.obj);
         };
+        instance.valueOf = instance.toString;
 
         return instance;
     };
@@ -77,12 +94,6 @@ var createSnake = function (renderer, rules) {
     };
 
     for (var name in rules) onRule(name);
-
-    return snake;
-};
-
-exports.addon = function (renderer) {
-    var snake = createSnake(renderer);
 
     renderer.s = snake;
 };
