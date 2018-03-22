@@ -46,14 +46,12 @@ exports.addon = function (renderer) {
     // Render styled component once with default props
     // to extract its static CSS and "default" dynamic CSS.
     if (style) {
-        renderer.style = function (tag, css, dynamicTemplate) {
+        renderer.style = function () {
             var styledComponent = style.apply(this, arguments);
 
-            if (typeof dynamicTemplate === 'function') {
-                process.nextTick(function () {
-                    styledComponent(styledComponent.defaultProps || {});
-                });
-            }
+            process.nextTick(function () {
+                styledComponent(styledComponent.defaultProps || {});
+            });
 
             return styledComponent;
         };
