@@ -42,16 +42,16 @@ You can define your custom chain rules as the second parameter of the addon.
 import {addon as addonSnake} from 'nano-css/addon/snake';
 
 addonSnake(nano, {
-    // This will create a function: nano.s.border('1px solid red');
+    // This will create a function: nano.s.b('1px solid red');
     b: 'border',
 
-    // This creates a property: nano.s.display;
+    // This creates a property: nano.s.block;
     block: function () {
         this.display = block;
     },
 
     // This creates a method: nano.s.font('Arial')
-    border: function (fontFace) {
+    font: function (fontFace) {
         this.fontFace = fontFace;
     }
 });
