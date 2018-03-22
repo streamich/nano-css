@@ -41,6 +41,8 @@ var atoms = exports.atoms = {
     td:     'text-decoration',
     fl:     'float',
     w:      'width',
+    minW:   'min-width',
+    maxW:   'max-width',
     h:      'height',
     trs:    'transition',
     out:    'outline',

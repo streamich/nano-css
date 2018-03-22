@@ -29,7 +29,11 @@ exports.addon = function (renderer, rules) {
 
         em: function () {
             this.fontStyle = 'italic';
-        }
+        },
+
+        u: function () {
+            this.textDecoration = 'underline';
+        },
     });
 
     rules = renderer.assign(defaultRules, rules);
