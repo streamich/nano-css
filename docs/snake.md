@@ -34,6 +34,7 @@ nano.s
     .inlineBlock    // inline: block
     .bold           // fontWeight: bold
     .em             // fontStyle: italic
+    .u              // textDecoration: underline
 ```
 
 You can define your custom chain rules as the second parameter of the addon.

@@ -37,6 +37,7 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`array`](./array.md) &mdash; use arrays to specify multiple values
 - [`snake`](./snake.md) &mdash; chain styling rules
 - [`rtl`](./rtl.md) &mdash; flips all styles RTL (right-to-left)
+- [`extract`](./extract.md) &mdash; allows extraction of CSS into external style sheet
 
 ## Addon Installation
 
