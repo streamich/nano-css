@@ -34,6 +34,7 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`amp`](./amp.md) &mdash; displays warnings and cleans up styles for AMP apps
 - [`virtual`](./virtual.md) &mdash; virtual CSS renderer, splits css rules in atomic declarations
 - [`spread`](./spread.md) &mdash; returns an object with data attributes used as a selector
+- [`array`](./array.md) &mdash; use arrays to specify multiple values
 
 ## Addon Installation
 
