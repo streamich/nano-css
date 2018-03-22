@@ -35,6 +35,7 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`virtual`](./virtual.md) &mdash; virtual CSS renderer, splits css rules in atomic declarations
 - [`spread`](./spread.md) &mdash; returns an object with data attributes used as a selector
 - [`array`](./array.md) &mdash; use arrays to specify multiple values
+- [`snake`](./snake.md) &mdash; chain styling rules
 
 ## Addon Installation
 

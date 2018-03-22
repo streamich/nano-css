@@ -47,6 +47,7 @@ var atoms = exports.atoms = {
     vis:    'visibility',
     ww:     'word-wrap',
     con:    'content',
+    z:      'z-index',
 };
 
 exports.addon = function (renderer) {
