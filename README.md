@@ -11,6 +11,7 @@ __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS libra
 - __Performant__ &mdash; does not create wrapper components, does not use inline styles or inline `<style>` elements in the document body, but caches all class names for re-use and injects CSS using `.insertRule()` for performance
 - __`@media` queries__ and __animation `@keyframes`__ are supported
 - __Auto-prefixes__ your styles
+- __Extract CSS__ into external style sheet
 
 
 ## Reference
