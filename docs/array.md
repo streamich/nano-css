@@ -8,6 +8,15 @@ nano.put('.foo', {
 });
 ```
 
+Result:
+
+```css
+.foo {
+  display: flex;
+  display: -webkit-flex;
+}
+```
+
 It also allows to specify multiple CSS-like objects as an array, which will be merged.
 
 ```js
@@ -19,6 +28,15 @@ nano.put('.bar', [
         border: '1px solid red'
     }
 ]);
+```
+
+Result:
+
+```css
+.bar {
+  color: red;
+  border: 1px solid red;
+}
 ```
 
 
