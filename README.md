@@ -47,6 +47,7 @@ __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS libra
   - [`limit`](./docs/limit.md)
   - [`amp`](./docs/amp.md)
   - [`virtual`](./docs/virtual.md)
+  - [`spread`](./docs/spread.md)
 - [Server-side rendering](./docs/SSR.md)
 
 
