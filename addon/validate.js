@@ -10,7 +10,7 @@ exports.addon = function (renderer) {
     if (process.env.NODE_ENV === 'production') {
         console.warn(
             'You are using nano-css "validate" in production. ' +
-            'This addon is suggested to be used only in development.'
+            'This addon is meant to be used only in development.'
         );
     }
 

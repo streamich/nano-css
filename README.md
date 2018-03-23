@@ -12,6 +12,8 @@ __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS libra
 - __`@media` queries__ and __animation `@keyframes`__ are supported
 - __Auto-prefixes__ your styles
 - Can __extract CSS__ into external style sheet
+- __100% test coverage__ for [recommended setup](./docs/Installation.md#recommended-setup)
+- __Public domain__ &mdash; [Unlicense license](./LICENSE)
 
 
 ## Reference
@@ -54,20 +56,6 @@ __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS libra
   - [`rtl`](./docs/rtl.md)
   - [`extract`](./docs/extract.md)
 - [Server-side rendering](./docs/SSR.md)
-
-
-## Installation
-
-<pre>
-npm i <a href="https://www.npmjs.com/package/nano-css">nano-css</a> --save
-</pre>
-
-Read more about [*Installation*](./docs/Installation.md).
-
-
-## License
-
-[Unlicense](./LICENSE) &mdash; public domain.
 
 
 [npm-url]: https://www.npmjs.com/package/nano-css
