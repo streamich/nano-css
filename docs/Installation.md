@@ -59,10 +59,14 @@ import {addon as addonSheet} from 'nano-css/addon/sheet'
 import {addon as addonJsx} from 'nano-css/addon/jsx'
 
 const nano = create({
+    // Add prefix to all generated class names.
     pfx: 'my-company-',
+
+    // Set hyperscript function of your virtual DOM library, for jsx() addon.
     h: createElement,
 });
 
+// Add addons you would like to use.
 addonCache(nano);
 addonStable(nano);
 addonNesting(nano);
@@ -74,7 +78,9 @@ addonJsx(nano);
 
 const {rule, sheet, jsx, keyframes} = nano;
 
+// Export everything.
 export {
+    nano,
     rule,
     sheet,
     jsx,
