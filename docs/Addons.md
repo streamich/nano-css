@@ -6,7 +6,7 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`put()`](./put.md) &mdash; injects CSS styles given a selector
 - [`rule()`](./rule.md) &mdash; injects CSS styles and returns a generated selector
 - [`drule()`](./drule.md) &mdash; like `rule()`, but allows to add on-the-fly overrides
-- [`sheet()`](./sheet.md) &mdash; collection of `rule()`s, injects CSS styles only when used
+- [`sheet()`](./sheet.md) &mdash; collection of `rule()`s, lazy injects CSS styles only when used
 - [`dsheet()`](./dsheet.md) &mdash; like `sheet()`, but allows to add on-the-fly overrides
 - [`jsx()`](./jsx.md) &mdash; creates styling blocks for virtual DOM libraries
 - [`useStyles()`](./useStyles.md) &mdash; adds `styles` as a second argument for your component
