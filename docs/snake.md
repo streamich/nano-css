@@ -29,6 +29,7 @@ It also supports the following keys.
 ```js
 nano.s
     .rel                // position: relative
+    .abs                // position: absolute
     .bgWhite            // backgroundColor: '#fff'
     .bgBlack            // backgroundColor: '#000'
     .pointer            // cursor: pointer
@@ -54,6 +55,37 @@ Result:
 {
     ':hover': {
         backgroundColor: '#fff'
+    }
+}
+```
+
+`.s(obj)` can also accept an object.
+
+```js
+nano.s.u.s({color: 'red'}).obj
+```
+
+Result:
+
+```js
+{
+    textDecoration: 'underline',
+    color: 'red'
+}
+```
+
+There are also built in `.hover()` and `.focus()` pseudo-selectors.
+
+```js
+nano.s.hover(nano.s.col('red'));
+```
+
+Result:
+
+```js
+{
+    ':hover': {
+        color: 'red'
     }
 }
 ```
