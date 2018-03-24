@@ -8,7 +8,21 @@ exports.addon = function (renderer, rules) {
 
     var defaultRules = renderer.assign({}, atoms, {
         s: function (prop, value) {
-            this[prop] = (value instanceof Object) ? (value.obj || value) : value;
+            if (prop instanceof Object) {
+                for (var name in prop) {
+                    defaultRules.s.call(this, name, prop[name]);
+                }
+            } else {
+                this[prop] = (value instanceof Object) ? (value.obj || value) : value;
+            }
+        },
+
+        hover: function (value) {
+            defaultRules.s.call(this, ':hover', value);
+        },
+
+        focus: function (value) {
+            defaultRules.s.call(this, ':focus', value);
         },
 
         bgWhite: function () {
@@ -21,6 +35,10 @@ exports.addon = function (renderer, rules) {
 
         rel: function () {
             this.position = 'relative';
+        },
+
+        abs: function () {
+            this.position = 'absolute';
         },
 
         pointer: function () {
