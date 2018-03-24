@@ -5,9 +5,9 @@ const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../index');
 const {addon} = require('../addon/rule');
 
-const renderer = create();
-addon(renderer);
-const {rule} = renderer;
+const nano = create();
+addon(nano);
+const {rule} = nano;
 
 const className1 = rule({
   border: '1px solid red'
