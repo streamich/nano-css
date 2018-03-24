@@ -68,7 +68,7 @@ exports.addon = function (renderer) {
     renderer.putRaw = function (rawCssRule) {
         var errors = validate(rawCssRule);
 
-        if (errors.length) {
+        if (errors && errors.length) {
             errors.forEach(function (error) {
                 console.error('nano-css error, ' + error.name + ': ' + error.message);
                 // eslint-disable-next-line
