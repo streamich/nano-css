@@ -70,10 +70,10 @@ exports.addon = function (renderer) {
 
         if (errors.length) {
             errors.forEach(function (error) {
-                console.error('Error in CSS: ' + error.message);
-                console.error(error);
+                console.error('nano-css error, ' + error.name + ': ' + error.message);
                 // eslint-disable-next-line
-                console.log(rawCssRule);
+                console.log(error);
+                console.error(rawCssRule);
             });
         }
 
