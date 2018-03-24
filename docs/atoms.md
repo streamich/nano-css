@@ -80,6 +80,8 @@ var atoms = {
 };
 ```
 
+For even better DX see [`snake`](./snake.md) addon.
+
 
 ## Installation
 
