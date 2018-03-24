@@ -28,13 +28,34 @@ It also supports the following keys.
 
 ```js
 nano.s
-    .bgWhite        // backgroundColor: '#fff'
-    .bgBlack        // backgroundColor: '#000'
-    .pointer        // cursor: pointer
-    .inlineBlock    // inline: block
-    .bold           // fontWeight: bold
-    .em             // fontStyle: italic
-    .u              // textDecoration: underline
+    .rel                // position: relative
+    .bgWhite            // backgroundColor: '#fff'
+    .bgBlack            // backgroundColor: '#000'
+    .pointer            // cursor: pointer
+    .inlineBlock        // inline: block
+    .bold               // fontWeight: bold
+    .b                  // fontWeight: bold
+    .italic             // fontStyle: italic
+    .i                  // fontStyle: italic
+    .underline          // textDecoration: underline
+    .u                  // textDecoration: underline
+    .s('key', 'value')  // key: value
+```
+
+The `.s(key, value)` method allows you to do nesting.
+
+```js
+nano.s.s(':hover'. nano.s.bgWhite)
+```
+
+Result:
+
+```js
+{
+    ':hover': {
+        backgroundColor: '#fff'
+    }
+}
 ```
 
 You can define your custom chain rules as the second parameter of the addon.

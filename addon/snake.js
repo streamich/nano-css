@@ -7,12 +7,20 @@ exports.addon = function (renderer, rules) {
     rules = rules || {};
 
     var defaultRules = renderer.assign({}, atoms, {
+        s: function (prop, value) {
+            this[prop] = (value instanceof Object) ? (value.obj || value) : value;
+        },
+
         bgWhite: function () {
             this.backgroundColor = '#fff';
         },
 
         bgBlack: function () {
             this.backgroundColor = '#000';
+        },
+
+        rel: function () {
+            this.position = 'relative';
         },
 
         pointer: function () {
@@ -27,8 +35,20 @@ exports.addon = function (renderer, rules) {
             this.fontWeight = 'bold';
         },
 
-        em: function () {
+        b: function () {
+            this.fontWeight = 'bold';
+        },
+
+        italic: function () {
             this.fontStyle = 'italic';
+        },
+
+        i: function () {
+            this.fontStyle = 'italic';
+        },
+
+        underline: function () {
+            this.textDecoration = 'underline';
         },
 
         u: function () {
