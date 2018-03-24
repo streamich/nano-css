@@ -111,5 +111,14 @@ describe('snake', function () {
                 }
             });
         });
+
+        it('accepts an object', function () {
+            var nano = createNano();
+
+            expect(nano.s.s({color: 'red', font: 'Verdana'}).obj).toEqual({
+                color: 'red',
+                font: 'Verdana'
+            });
+        });
     });
 });
