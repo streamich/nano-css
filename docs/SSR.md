@@ -21,3 +21,9 @@ const nano = create({
 
 html += `<style id="nano-css">${nano.raw}</style>`;
 ```
+
+
+## External Style Sheet Extraction
+
+You can also extract styles into an external style sheet. Make sure you need to do it, because it might
+be an anti-pattern. To do that use [`extract`](./extract.md) addon.
