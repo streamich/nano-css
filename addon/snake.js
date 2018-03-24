@@ -8,7 +8,7 @@ exports.addon = function (renderer, rules) {
 
     var defaultRules = renderer.assign({}, atoms, {
         s: function (prop, value) {
-            this[prop] = value;
+            this[prop] = (value instanceof Object) ? (value.obj || value) : value;
         },
 
         bgWhite: function () {
@@ -17,6 +17,10 @@ exports.addon = function (renderer, rules) {
 
         bgBlack: function () {
             this.backgroundColor = '#000';
+        },
+
+        rel: function () {
+            this.position = 'relative';
         },
 
         pointer: function () {
