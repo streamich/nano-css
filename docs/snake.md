@@ -47,31 +47,21 @@ The `.s(key, value)` method allows you to do nesting.
 
 ```js
 nano.s.s(':hover'. nano.s.bgWhite)
+// {
+//    ':hover': {
+//        backgroundColor: '#fff'
+//    }
+// }
 ```
 
-Result:
+`.s` can also accept an object.
 
 ```js
-{
-    ':hover': {
-        backgroundColor: '#fff'
-    }
-}
-```
-
-`.s(obj)` can also accept an object.
-
-```js
-nano.s.u.s({color: 'red'}).obj
-```
-
-Result:
-
-```js
-{
-    textDecoration: 'underline',
-    color: 'red'
-}
+nano.s.u.s({color: 'red'})
+// {
+//     textDecoration: 'underline',
+//     color: 'red'
+// }
 ```
 
 There are also built in `.hover()` and `.focus()` pseudo-selectors.
