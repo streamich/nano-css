@@ -23,5 +23,5 @@ export {
 
 Below is a list of available presets.
 
-- `sheet` &mdash; preset install [`sheet()`](./sheet.md) interface
-- `vdom` &mdash; light preset form usage with virtual DOM libraries, such as React
+- `sheet` &mdash; installs [`sheet()`](./sheet.md) addon, as well as `stable`, `nesting`, `atoms`, and `keyframes` addons
+- `vdom` &mdash; similar to `sheet` preset, but also installs [`jsx()`](./jsx.md) addon, you need to provide `h` function in configuration
