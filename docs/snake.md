@@ -46,7 +46,7 @@ nano.s
 The `.s(key, value)` method allows you to do nesting.
 
 ```js
-nano.s.s(':hover'. nano.s.bgWhite)
+s.s(':hover'. nano.s.bgWhite)
 // {
 //    ':hover': {
 //        backgroundColor: '#fff'
@@ -57,7 +57,7 @@ nano.s.s(':hover'. nano.s.bgWhite)
 `.s` can also accept an object.
 
 ```js
-nano.s.u.s({color: 'red'})
+s.u.s({color: 'red'})
 // {
 //     textDecoration: 'underline',
 //     color: 'red'
@@ -67,17 +67,15 @@ nano.s.u.s({color: 'red'})
 There are also built in `.hover()` and `.focus()` pseudo-selectors.
 
 ```js
-nano.s.hover(nano.s.col('red'));
-```
-
-Result:
-
-```js
-{
-    ':hover': {
-        color: 'red'
-    }
-}
+s.hover(s.col('red')).focus(s.col('yellow'));
+// {
+//    ':hover': {
+//        color: 'red'
+//    },
+//    ':focus': {
+//        color: 'yellow'
+//    }
+// }
 ```
 
 You can define your custom chain rules as the second parameter of the addon.
