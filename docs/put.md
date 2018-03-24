@@ -91,4 +91,4 @@ and camel-case property syntax.
 }
 ```
 
-It also supports *Atoms* via the [`atoms` addon](./atoms.md).
+It also supports *Atoms* via the [`atoms`](./atoms.md) addon and "chaining" using the [`snake`](./snake.md) addon.
