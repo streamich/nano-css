@@ -1,0 +1,27 @@
+# Presets
+
+`nano-css` comes with a range of addons that sometimes may be overwhelming to pick through and
+cumbersome to install. To ease this we have created *Presets* &mdash; presets are simply functions
+that create a `nano-css` instance and install addons automatically for you.
+
+
+## Example
+
+```js
+import {preset} from 'nano-css/preset/sheet';
+
+const {rule, sheet} = preset();
+
+export {
+    rule,
+    sheet
+};
+```
+
+
+## List
+
+Below is a list of available presets.
+
+- `sheet` &mdash; preset install [`sheet()`](./sheet.md) interface
+- `vdom` &mdash; light preset form usage with virtual DOM libraries, such as React

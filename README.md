@@ -54,6 +54,7 @@ __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS libra
   - [`snake`](./docs/snake.md)
   - [`rtl`](./docs/rtl.md)
   - [`extract`](./docs/extract.md)
+- [Presets](./docs/Presets.md)
 - [Server-side rendering](./docs/SSR.md)
 
 

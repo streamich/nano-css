@@ -87,3 +87,5 @@ export {
     keyframes,
 };
 ```
+
+Learn about [presets](./Presets.md) to do this setup for you.
