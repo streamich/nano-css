@@ -3,17 +3,17 @@ import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../index');
-const {addon} = require('../addon/rule');
 
 const nano = create();
-addon(nano);
+require('../addon/rule').addon(nano);
+require('../addon/validate').addon(nano);
 const {rule} = nano;
 
 const className1 = rule({
   border: '1px solid red'
-}, 'RedBorder');
+}, 'validate1');
 
-storiesOf('Addons/rule()', module)
-  .add('Default', () =>
+storiesOf('Addons/validate', module)
+  .add('No error', () =>
     h('div', {className: className1}, 'Hello world')
   )

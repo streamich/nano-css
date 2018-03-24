@@ -1,6 +1,55 @@
 'use strict';
 
-var validateString = require('csstree-validator').validateString;
+var csstree = require('css-tree');
+var syntax = csstree.lexer;
+
+function validate(css, filename) {
+    var errors = [];
+    var ast = csstree.parse(css, {
+        filename: filename,
+        positions: true,
+        onParseError: function(error) {
+            errors.push(error);
+        }
+    });
+
+    csstree.walk(ast, {
+        visit: 'Declaration',
+        enter: function(node) {
+            var match = syntax.matchDeclaration(node);
+            var error = match.error;
+
+            if (error) {
+                var message = error.rawMessage || error.message || error;
+
+                // ignore errors except those which make sense
+                if (error.name !== 'SyntaxMatchError' &&
+                    error.name !== 'SyntaxReferenceError') {
+                    return;
+                }
+
+                if (message === 'Mismatch') {
+                    message = 'Invalid value for `' + node.property + '`';
+                } else if (message === 'Uncomplete match') {
+                    message = 'The rest part of value can\'t be matched to `' + node.property + '` syntax';
+                }
+
+                errors.push({
+                    name: error.name,
+                    node: node,
+                    loc: error.loc || node.loc,
+                    line: error.line || node.loc && node.loc.start && node.loc.start.line,
+                    column: error.column || node.loc && node.loc.start && node.loc.start.column,
+                    property: node.property,
+                    message: message,
+                    error: error
+                });
+            }
+        }
+    });
+
+    return errors;
+}
 
 exports.addon = function (renderer) {
     if (process.env.NODE_ENV !== 'production') {
@@ -17,7 +66,7 @@ exports.addon = function (renderer) {
     var putRaw = renderer.putRaw;
 
     renderer.putRaw = function (rawCssRule) {
-        var errors = validateString(rawCssRule)['<unknown>'];
+        var errors = validate(rawCssRule);
 
         if (errors.length) {
             errors.forEach(function (error) {
@@ -28,6 +77,6 @@ exports.addon = function (renderer) {
             });
         }
 
-        putRaw(rawCssRule);
+        return putRaw.apply(renderer, arguments);
     };
 };
