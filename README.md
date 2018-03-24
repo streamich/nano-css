@@ -29,7 +29,7 @@ __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS libra
   - [`withStyles()`](./docs/withStyles.md)
   - [`decorator`](./docs/decorator.md)
   - [`component`](./docs/component.md)
-  - [`style()`](./docs/style.md)
+  - [`style()`](./docs/style.md) &mdash; [*demo!*](https://codesandbox.io/s/53qk3qkopn)
   - [`styled()()`](./docs/styled.md)
   - [`hyperstyle()`](./docs/hyperstyle.md)
   - [`stable`](./docs/stable.md)
