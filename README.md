@@ -23,7 +23,7 @@ __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS libra
   - [`rule()`](./docs/rule.md) &mdash; [*demo!*](https://codesandbox.io/s/oxlj92m1m9)
   - [`drule()`](./docs/drule.md) &mdash; [*demo!*](https://codesandbox.io/s/9jq5zmm91p)
   - [`sheet()`](./docs/sheet.md) &mdash; [*demo!*](https://codesandbox.io/s/wyw093m7kw)
-  - [`dsheet()`](./docs/dsheet.md)
+  - [`dsheet()`](./docs/dsheet.md) &mdash; [*demo!*](https://codesandbox.io/s/q7rx4981vq)
   - [`jsx()`](./docs/jsx.md)
   - [`useStyles()`](./docs/useStyles.md)
   - [`withStyles()`](./docs/withStyles.md)
