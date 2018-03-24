@@ -11,6 +11,14 @@ exports.addon = function (renderer, rules) {
             this[prop] = (value instanceof Object) ? (value.obj || value) : value;
         },
 
+        hover: function (value) {
+            defaultRules.s.call(this, ':hover', value);
+        },
+
+        focus: function (value) {
+            defaultRules.s.call(this, ':focus', value);
+        },
+
         bgWhite: function () {
             this.backgroundColor = '#fff';
         },
@@ -21,6 +29,10 @@ exports.addon = function (renderer, rules) {
 
         rel: function () {
             this.position = 'relative';
+        },
+
+        abs: function () {
+            this.position = 'absolute';
         },
 
         pointer: function () {
