@@ -25,11 +25,39 @@ describe('snake', function () {
         });
     });
 
-    it('.relative', function () {
+    it('.rel', function () {
         var nano = createNano();
 
         expect(nano.s.rel.obj).toEqual({
             position: 'relative',
+        });
+    });
+
+    it('.abs', function () {
+        var nano = createNano();
+
+        expect(nano.s.abs.obj).toEqual({
+            position: 'absolute',
+        });
+    });
+
+    it('.hover', function () {
+        var nano = createNano();
+
+        expect(nano.s.hover(nano.s.abs).obj).toEqual({
+            ':hover': {
+                position: 'absolute',
+            }
+        });
+    });
+
+    it('.focus', function () {
+        var nano = createNano();
+
+        expect(nano.s.focus(nano.s.abs).obj).toEqual({
+            ':focus': {
+                position: 'absolute',
+            }
         });
     });
 
