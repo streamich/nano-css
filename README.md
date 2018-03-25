@@ -5,7 +5,7 @@
 __Tiny [5<sup>th</sup> generation](https://github.com/streamich/freestyler/blob/master/docs/en/generations.md#5th-generation) CSS-in-JS library__ that you can actually use in production.
 __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS library and provide all features of any other library through addons.*
 
-- Only __0.5 Kb__ in base configuration, *e.g. [`aphrodite`](https://github.com/Khan/aphrodite) is 20Kb*
+- Only __0.5 Kb__ in base configuration, *e.g. [`aphrodite`](https://github.com/Khan/aphrodite) is 6.4Kb*
 - __Library-agnostic__ &mdash; use it standalone, with React, Preact, Vue.js, or any other library
 - __Isomorphic__ &mdash; render on server and browser, generates stable class names, and re-hydrates
 - __Performant__ &mdash; [*simply the fastest library*](https://github.com/streamich/CSS-IN-JS-Benchmarks/blob/master/RESULT.md); does not create wrapper components, does not use inline styles or inline `<style>` elements in the document body, but caches all class names for re-use and injects CSS using `.insertRule()` for performance
