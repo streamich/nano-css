@@ -186,5 +186,30 @@ exports.addon = function (renderer, ruleOverrides) {
     for (var i = 0; i < tachyons.length; i++)
         onTachyon(tachyons[i]);
 
+    // Add hover rules
+    rules.grow = function () {
+        this['-moz-osx-font-smoothing'] = 'grayscale';
+        this.backfaceVisibility = 'hidden';
+        this.transform = 'translateZ(0)';
+        this.transition = 'transform 0.25s ease-out';
+        this[':hover'] = {
+            transform: 'scale(1.05)',
+        };
+        this[':focus'] = {
+            transform: 'scale(1.05)',
+        };
+    };
+
+    rules.dim = function () {
+        this.opacity = 1;
+        this.transition = 'opacity .15s ease-in';
+        this[':hover'] = {
+            opacity: '.5',
+        };
+        this[':focus'] = {
+            opacity: '.5',
+        };
+    };
+
     addonSnake(renderer, renderer.assign(rules, ruleOverrides || {}));
 };
