@@ -36,6 +36,7 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`spread`](./spread.md) &mdash; returns an object with data attributes used as a selector
 - [`array`](./array.md) &mdash; use arrays to specify multiple values
 - [`snake`](./snake.md) &mdash; chain styling rules
+- [`tachyons`](./tachyons.md) &mdash; use Tachyons for rule chaining
 - [`rtl`](./rtl.md) &mdash; flips all styles RTL (right-to-left)
 - [`extract`](./extract.md) &mdash; allows extraction of CSS into external `*.css` style sheet
 
