@@ -172,7 +172,19 @@ for (var name in colors) {
     tachyons.push(['b' + capitalized, 'borderColor', color]);
 }
 
-exports.addon = function (renderer, rules) {
+exports.addon = function (renderer, ruleOverrides) {
+    var rules = {};
 
-    addonSnake(renderer, rules);
+    function onTachyon (tachyon) {
+        rules[tachyon[0]] = function () {
+            for (var i = 1; i < tachyon.length; i += 2) {
+                this[tachyon[i]] = tachyon[i + 1];
+            }
+        };
+    }
+
+    for (var i = 0; i < tachyons.length; i++)
+        onTachyon(tachyons[i]);
+
+    addonSnake(renderer, renderer.assign(rules, ruleOverrides || {}));
 };
