@@ -37,6 +37,14 @@ exports.addon = function (renderer) {
                     for (var prop in declarations)
                         rule.style.setProperty(prop, declarations[prop]);
                 }
+
+                // GC
+                for (var selectorTemplate2 in rules) {
+                    if (!(selectorTemplate2 in css)) {
+                        rules[selectorTemplate2].remove();
+                        delete rules[selectorTemplate2];
+                    }
+                }
             },
             remove: function () {
                 for (var selectorTemplate in rules)
