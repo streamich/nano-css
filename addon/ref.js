@@ -53,6 +53,29 @@ exports.addon = function (renderer) {
                 if (!pipe) {
                     el[sNano] = pipe = renderer.pipe();
                     el.setAttribute(pipe.attr, '');
+
+                    // Add unmount logic
+
+                    var observer = new MutationObserver(function (mutations) {
+                        for (var i = 0; i < mutations.length; i++) {
+                            var mutation = mutations[i];
+
+                            if (mutation.removedNodes.length) {
+                                var nodes = mutation.removedNodes;
+
+                                for (var j = 0; j < nodes.length; j++) {
+                                    if (nodes[j] === el) {
+                                        pipe.remove();
+                                        delete el[sNano];
+                                        observer.disconnect();
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                    });
+
+                    observer.observe(el.parentNode, {childList: true});
                 }
 
                 pipe.css(css);

@@ -16,6 +16,7 @@ class RefExample extends Component {
         super(props);
         this.state = {
             color: 'red',
+            show: true
         };
     }
 
@@ -23,12 +24,13 @@ class RefExample extends Component {
         var data = nano.ref({'&': {color: this.state.color}, '&:hover': {color: 'blue'}});
 
         return h('div', {},
-            h('div', data, 'Hello world'),
+            this.state.show && h('div', data, 'Hello world'),
 
             h('br'),
 
             h('button', {onClick: () => this.setState({color: 'red'})}, 'red'),
             h('button', {onClick: () => this.setState({color: 'blue'})}, 'blue'),
+            h('button', {onClick: () => this.setState({show: !this.state.show})}, 'show/hide'),
         );
     }
 }
