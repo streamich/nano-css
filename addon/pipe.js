@@ -11,22 +11,39 @@ exports.addon = function (renderer) {
         require('./__dev__/warnOnMissingDependencies')('pipe', renderer, ['putRule']);
     }
 
-    renderer.pipe = function (initialDecls) {
-        var className = 'a';
-        var rule = renderer.putRule('.' + className);
+    var counter = 0;
 
-        for (var prop in initialDecls) {
-            rule.style.setProperty(prop, initialDecls[prop]);
-        }
+    renderer.pipe = function () {
+        var rules = {};
+        var className = renderer.pfx + 'pipe-' + (counter++).toString(36);
+        var attr = 'data-' + className;
+        var scope1 = '.' + className;
+        var scope2 = '[' + attr + ']';
 
-        var closure = function (decls) {
-            for (var prop in decls) {
-                rule.style.setProperty(prop, decls[prop]);
+        var obj = {
+            attr: attr,
+            className: className,
+            css: function (css) {
+                for (var selectorTemplate in css) {
+                    var declarations = css[selectorTemplate];
+                    var rule = rules[selectorTemplate];
+
+                    if (!rule) {
+                        var selector = selectorTemplate.replace('&', scope1) + ',' + selectorTemplate.replace('&', scope2);
+
+                        rules[selectorTemplate] = rule = renderer.putRule(selector);
+                    }
+
+                    for (var prop in declarations)
+                        rule.style.setProperty(prop, declarations[prop]);
+                }
+            },
+            remove: function () {
+                for (var selectorTemplate in rules)
+                    rules[selectorTemplate].remove();
             }
-
-            return ' ' + className;
         };
 
-        return closure;
+        return obj;
     };
 };
