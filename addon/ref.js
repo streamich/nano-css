@@ -2,6 +2,9 @@
 
 var addonPipe = require('./pipe').addon;
 
+// eslint-disable-next-line no-undef
+var sNano = typeof Symbol === 'object' ? Symbol('nano-css') : '@@nano-css';
+
 exports.addon = function (renderer) {
     if (!renderer.pipe) {
         addonPipe(renderer);
@@ -14,7 +17,6 @@ exports.addon = function (renderer) {
     renderer.createRef = function () {
         var pipe = renderer.pipe();
         var el = null;
-
         var ref = function (element) {
             if (el) el = element;
             else {
@@ -22,7 +24,6 @@ exports.addon = function (renderer) {
                 pipe.remove();
             }
         };
-
         var obj = {ref: ref};
 
         obj[pipe.attr] = '';
@@ -31,5 +32,33 @@ exports.addon = function (renderer) {
             pipe.css(css);
             return obj;
         };
+    };
+
+    renderer.ref = function (css, originalRef) {
+        if (process.env.NODE_ENV !== 'production') {
+            if (originalRef && typeof originalRef !== 'function') {
+                console.error(
+                    'nano-css "ref" function expects argument to be a ref function, "' + (typeof originalRef) + '" provided.'
+                );
+            }
+        }
+
+        var obj = {
+            ref: function (el) {
+                if (originalRef) originalRef(el);
+                if (!el) return;
+
+                var pipe = el[sNano];
+
+                if (!pipe) {
+                    el[sNano] = pipe = renderer.pipe();
+                    el.setAttribute(pipe.attr, '');
+                }
+
+                pipe.css(css);
+            }
+        };
+
+        return obj;
     };
 };
