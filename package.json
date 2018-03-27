@@ -77,7 +77,7 @@
     "libreact": "0.17.0",
     "webpack-bundle-analyzer": "2.11.1",
     "eslint": "4.19.1",
-    "typescript": "2.7.2",
+    "typescript": "2.8.1",
     "tslib": "1.9.0",
     "ts-loader": "3.5.0"
   },
