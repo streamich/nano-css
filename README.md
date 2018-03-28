@@ -31,7 +31,7 @@ __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS libra
   - [`component`](./docs/component.md) &mdash; [*demo!*](https://codesandbox.io/s/yk8pk4v95j)
   - [`style()`](./docs/style.md) &mdash; [*demo!*](https://codesandbox.io/s/53qk3qkopn)
   - [`styled()()`](./docs/styled.md) &mdash; [*demo!*](https://codesandbox.io/s/w667y036p5)
-  - [`hyperstyle()`](./docs/hyperstyle.md) &mdash; [*demo!*](https://codesandbox.io/s/wqny7z17x8)
+  - [`hyperstyle()`](./docs/hyperstyle.md) &mdash; [*demo!*](https://codesandbox.io/s/wqny7z17x8)
   - [`stable`](./docs/stable.md)
   - [`atoms`](./docs/atoms.md) &mdash; [*demo!*](https://codesandbox.io/s/rlkxl6o9v4)
   - [`nesting`](./docs/nesting.md)
