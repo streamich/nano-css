@@ -27,7 +27,7 @@ __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS libra
   - [`jsx()`](./docs/jsx.md) &mdash; [*demo!*](https://codesandbox.io/s/5y63x88504)
   - [`useStyles()`](./docs/useStyles.md) &mdash; [*demo!*](https://codesandbox.io/s/o5k9jjo306)
   - [`withStyles()`](./docs/withStyles.md) &mdash; [*demo!*](https://codesandbox.io/s/5k3jvkk31l)
-  - [`decorator`](./docs/decorator.md) &mdash; [*demo 1*](https://codesandbox.io/s/j442958125) and [*demo 2*](https://codesandbox.io/s/3qjzv35941)
+  - [`decorator`](./docs/decorator.md) &mdash; [*demo № 1*](https://codesandbox.io/s/j442958125) and [*demo № 2*](https://codesandbox.io/s/3qjzv35941)
   - [`component`](./docs/component.md) &mdash; [*demo!*](https://codesandbox.io/s/yk8pk4v95j)
   - [`style()`](./docs/style.md) &mdash; [*demo!*](https://codesandbox.io/s/53qk3qkopn)
   - [`styled()()`](./docs/styled.md) &mdash; [*demo!*](https://codesandbox.io/s/w667y036p5)
