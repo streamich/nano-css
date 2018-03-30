@@ -74,7 +74,7 @@
     "mol-conventional-changelog": "1.2.0",
     "semantic-release": "12.4.1",
     "gitbook-cli": "2.3.2",
-    "libreact": "0.17.0",
+    "libreact": "0.18.0",
     "webpack-bundle-analyzer": "2.11.1",
     "eslint": "4.19.1",
     "typescript": "2.8.1",
