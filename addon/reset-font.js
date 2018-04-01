@@ -7,7 +7,7 @@ exports.addon = function (renderer) {
 
     renderer.put('', {
         'html, body': {
-            fontFamily: '"Open Sans",sans',
+            fontFamily: '"Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",sans-serif',
             fontWeight: 400,
             fontSize: '16px',
 

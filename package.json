@@ -1,6 +1,6 @@
 {
   "name": "nano-css",
-  "version": "1.12.0",
+  "version": "1.15.2",
   "description": "Smallest 5th gen CSS-in-JS library",
   "main": "index.js",
   "unpkg": "dist/nano-css.umd.min.js",
