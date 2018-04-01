@@ -60,15 +60,7 @@ exports.create = function (config) {
             if (process.env.NODE_ENV === 'production') {
                 renderer.sh.sheet.insertRule(rawCssRule, 0);
             } else {
-                try {
-                    renderer.sh.sheet.insertRule(rawCssRule, 0);
-                } catch (error) {
-                    // eslint-disable-next-line
-                    console.info('Could not insert CSS rule.');
-                    console.error(error);
-
-                    renderer.sh.appendChild(document.createTextNode(rawCssRule));
-                }
+                renderer.sh.appendChild(document.createTextNode(rawCssRule));
             }
         };
     }
