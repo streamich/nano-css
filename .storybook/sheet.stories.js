@@ -11,15 +11,17 @@ addonRule(renderer);
 addon(renderer);
 const {sheet} = renderer;
 
-const styles = sheet({
-    tomato: {
-        border: '1px solid tomato',
+const styles = sheet(
+    {
+        tomato: {
+            border: '1px solid tomato',
+        },
+        yellow: {
+            border: '1px solid yellow',
+        },
     },
-    yellow: {
-        border: '1px solid yellow',
-    },
-}, 'hello');
-
+    'hello'
+);
 
 const styles2 = renderer.sheet({
     tomato: {
@@ -32,14 +34,8 @@ const styles2 = renderer.sheet({
 
 storiesOf('Addons/sheet()', module)
     .add('Default', () =>
-        h('div', null,
-            h('div', {className: styles.tomato}, 'Red'),
-            h('div', {className: styles.yellow}, 'Yellow'),
-        )
+        h('div', null, h('div', {className: styles.tomato}, 'Red'), h('div', {className: styles.yellow}, 'Yellow'))
     )
     .add('No block name', () =>
-        h('div', null,
-            h('div', {className: styles2.tomato}, 'Red'),
-            h('div', {className: styles2.yellow}, 'Yellow'),
-        )
-    )
+        h('div', null, h('div', {className: styles2.tomato}, 'Red'), h('div', {className: styles2.yellow}, 'Yellow'))
+    );

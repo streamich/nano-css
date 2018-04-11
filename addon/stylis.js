@@ -3,14 +3,14 @@
 var Stylis = require('stylis');
 var onRulePlugin = require('./stylis/plugin-onRule');
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('stylis', renderer, ['put']);
     }
 
     renderer.stylis = new Stylis();
 
-    var plugin = onRulePlugin(function (rawCssRule) {
+    var plugin = onRulePlugin(function(rawCssRule) {
         renderer.putRaw(rawCssRule);
     });
 
@@ -18,7 +18,7 @@ exports.addon = function (renderer) {
 
     var put = renderer.put;
 
-    renderer.put = function (selector, css) {
+    renderer.put = function(selector, css) {
         if (typeof css !== 'string') {
             return put(selector, css);
         }

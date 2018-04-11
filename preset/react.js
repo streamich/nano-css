@@ -15,7 +15,7 @@ var addonStyle = require('../addon/style').addon;
 var addonStyled = require('../addon/styled').addon;
 var addonDecorator = require('../addon/decorator').addon;
 
-exports.preset = function (config) {
+exports.preset = function(config) {
     config = config || {};
     config.h = config.h || h;
 

@@ -19,30 +19,23 @@ const styles = {
     },
 };
 
-const Example1 = withStyles(styles, function Example1 (props) {
+const Example1 = withStyles(styles, function Example1(props) {
     var styles = props.styles;
-    return h('div', null,
-        h('div', {className: styles.tomato}, 'Red'),
-        h('div', {className: styles.yellow}, 'Yellow'),
-    )
+    return h('div', null, h('div', {className: styles.tomato}, 'Red'), h('div', {className: styles.yellow}, 'Yellow'));
 });
 
 const styles2 = {
     main: {
         border: '1px solid red',
-    }
+    },
 };
 
-function HelloWorld ({styles}) {
+function HelloWorld({styles}) {
     return h('div', {className: styles.main}, 'Hello world!');
 }
 
 const Bordered = withStyles(styles2, HelloWorld);
 
 storiesOf('Addons/withStyles()', module)
-    .add('Default', () =>
-        h(Example1)
-    )
-    .add('Hello world', () =>
-        h(Bordered)
-    )
+    .add('Default', () => h(Example1))
+    .add('Hello world', () => h(Bordered));

@@ -9,14 +9,13 @@ const renderer = create();
 addon(renderer);
 const {spread} = renderer;
 
-const rule = spread({
-  border: '1px solid red'
-}, 'RedBorder');
+const rule = spread(
+    {
+        border: '1px solid red',
+    },
+    'RedBorder'
+);
 
 storiesOf('Addons/spread()', module)
-  .add('As class name', () =>
-    h('div', {className: rule}, 'Hello world')
-  )
-  .add('As data attribute', () =>
-    h('div', rule, 'Hello world')
-  )
+    .add('As class name', () => h('div', {className: rule}, 'Hello world'))
+    .add('As data attribute', () => h('div', rule, 'Hello world'));

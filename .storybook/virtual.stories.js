@@ -6,7 +6,7 @@ const {create} = require('../index');
 
 const nano = create({
     pfx: 'test-',
-    h: require('react').createElement
+    h: require('react').createElement,
 });
 require('../addon/rule').addon(nano);
 require('../addon/virtual').addon(nano);
@@ -22,15 +22,15 @@ const className2 = nano.rule({
     border: '1px solid red',
     color: 'pink',
     ':hover': {
-        color: 'green'
-    }
+        color: 'green',
+    },
 });
 
 const styles1 = nano.sheet({
     button: {
         border: '1px solid blue',
-        color: 'blue'
-    }
+        color: 'blue',
+    },
 });
 
 const Button = nano.jsx('button', {
@@ -39,19 +39,11 @@ const Button = nano.jsx('button', {
     ':hover': {
         background: 'blue',
         color: 'white',
-    }
+    },
 });
 
 storiesOf('Addons/virtual', module)
-    .add('Default', () =>
-        h('div', {className: className1}, 'Hello world')
-    )
-    .add('Default 2', () =>
-        h('div', {className: className2}, 'Hello world 2')
-    )
-    .add('sheet()', () =>
-        h('div', {className: styles1.button}, 'sheet()')
-    )
-    .add('jsx()', () =>
-        h(Button, {}, 'Click me!')
-    )
+    .add('Default', () => h('div', {className: className1}, 'Hello world'))
+    .add('Default 2', () => h('div', {className: className2}, 'Hello world 2'))
+    .add('sheet()', () => h('div', {className: styles1.button}, 'sheet()'))
+    .add('jsx()', () => h(Button, {}, 'Click me!'));

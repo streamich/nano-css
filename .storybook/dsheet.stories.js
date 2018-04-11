@@ -17,17 +17,17 @@ const {dsheet} = renderer;
 
 const styles = dsheet({
     block: {
-        border: '1px solid red'
-    }
+        border: '1px solid red',
+    },
 });
 
 storiesOf('Addons/dsheet()', module)
-    .add('Default', () =>
-        h('div', {className: '' + styles.block}, 'Hello world')
-    )
+    .add('Default', () => h('div', {className: '' + styles.block}, 'Hello world'))
     .add('Dynamic', () =>
-        h('div', null,
+        h(
+            'div',
+            null,
             h('div', {className: styles.block({color: 'red'})}, 'Hello world'),
-            h('div', {className: styles.block({color: 'green'})}, 'Hello world'),
+            h('div', {className: styles.block({color: 'green'})}, 'Hello world')
         )
-    )
+    );

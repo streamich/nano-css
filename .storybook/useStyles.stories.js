@@ -19,29 +19,22 @@ const styles = {
     },
 };
 
-const Example1 = useStyles(styles, function Example1 (props, styles) {
-    return h('div', null,
-        h('div', {className: styles.tomato}, 'Red'),
-        h('div', {className: styles.yellow}, 'Yellow'),
-    )
+const Example1 = useStyles(styles, function Example1(props, styles) {
+    return h('div', null, h('div', {className: styles.tomato}, 'Red'), h('div', {className: styles.yellow}, 'Yellow'));
 });
 
 const styles2 = {
     main: {
         border: '1px solid red',
-    }
+    },
 };
 
-function HelloWorld (props, styles) {
+function HelloWorld(props, styles) {
     return h('div', {className: styles.main}, 'Hello world!');
 }
 
 const Bordered = useStyles(styles2, HelloWorld);
 
 storiesOf('Addons/useStyles()', module)
-    .add('Default', () =>
-        h(Example1)
-    )
-    .add('Hello world', () =>
-        h(Bordered)
-    )
+    .add('Default', () => h(Example1))
+    .add('Hello world', () => h(Bordered));

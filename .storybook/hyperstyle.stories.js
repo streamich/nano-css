@@ -13,19 +13,18 @@ addonSheet(renderer);
 addonHyperstyle(renderer);
 const {hyperstyle} = renderer;
 
-const h = hyperstyle({
-    tomato: {
-        border: '1px solid tomato',
+const h = hyperstyle(
+    {
+        tomato: {
+            border: '1px solid tomato',
+        },
+        yellow: {
+            border: '1px solid yellow',
+        },
     },
-    yellow: {
-        border: '1px solid yellow',
-    },
-}, 'hello');
+    'hello'
+);
 
-storiesOf('Addons/hyperstyle()', module)
-    .add('Default', () =>
-        h('div', null,
-            h('div', {styleName: 'tomato'}, 'Red'),
-            h('div', {styleName: 'yellow'}, 'Yellow'),
-        )
-    )
+storiesOf('Addons/hyperstyle()', module).add('Default', () =>
+    h('div', null, h('div', {styleName: 'tomato'}, 'Red'), h('div', {styleName: 'yellow'}, 'Yellow'))
+);

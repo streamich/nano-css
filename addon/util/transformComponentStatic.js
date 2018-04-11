@@ -1,10 +1,10 @@
 'use strict';
 
-module.exports = function (renderer, prototype, styles, block) {
+module.exports = function(renderer, prototype, styles, block) {
     var render_ = prototype.render;
     var className = '';
 
-    prototype.render = function () {
+    prototype.render = function() {
         var element = render_.call(this);
 
         if (element) {

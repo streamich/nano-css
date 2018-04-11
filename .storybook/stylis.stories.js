@@ -18,7 +18,4 @@ const className = rule(`
     }
 `);
 
-storiesOf('Addons/stylis', module)
-    .add('Default', () =>
-        h('div', {className}, 'Hello world')
-    )
+storiesOf('Addons/stylis', module).add('Default', () => h('div', {className}, 'Hello world'));

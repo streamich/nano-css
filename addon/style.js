@@ -1,11 +1,11 @@
 'use strict';
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('style', renderer, ['jsx']);
     }
 
-    renderer.style = function (fn, styles, dynamicTemplate, block) {
+    renderer.style = function(fn, styles, dynamicTemplate, block) {
         var jsxComponent = renderer.jsx(fn, styles, block);
 
         var Component = function(props) {
@@ -23,7 +23,7 @@ exports.addon = function (renderer) {
         };
 
         if (process.env.NODE_EVN !== 'production') {
-            if (block || (typeof fn === 'function')) {
+            if (block || typeof fn === 'function') {
                 Component.displayName = 'style(' + (block || fn.displayName || fn.name) + ')';
             }
         }

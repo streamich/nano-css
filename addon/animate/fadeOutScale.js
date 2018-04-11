@@ -1,6 +1,6 @@
 'use strict';
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (process.env.NODE_ENV !== 'production') {
         require('../__dev__/warnOnMissingDependencies')('animate', renderer, ['keyframes']);
     }
@@ -10,12 +10,12 @@ exports.addon = function (renderer) {
             to: {
                 opacity: 0,
                 transform: 'scale(.95)',
-            }
+            },
         },
 
         '.fadeOutScale': {
             animation: 'fadeOutScale .3s linear',
             'animation-fill-mode': 'forwards',
-        }
+        },
     });
 };

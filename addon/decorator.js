@@ -3,12 +3,12 @@
 var transformComponentStatic = require('./util/transformComponentStatic');
 var transformComponentDynamic = require('./util/transformComponentDynamic');
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('css', renderer, ['rule', 'cache']);
     }
 
-    renderer.css = function (a, b) {
+    renderer.css = function(a, b) {
         var isComponent = a && a.prototype && a.prototype.render;
 
         // Static class decorator.
@@ -17,7 +17,7 @@ exports.addon = function (renderer) {
 
             var componentWillMount_ = a.prototype.componentWillMount;
 
-            a.prototype.componentWillMount = function () {
+            a.prototype.componentWillMount = function() {
                 if (this.css) transformComponentDynamic(renderer, a, this.css.bind(this));
                 if (componentWillMount_) componentWillMount_.apply(this);
             };
@@ -25,7 +25,7 @@ exports.addon = function (renderer) {
             return a;
         }
 
-        return function (instanceOrComp, key, descriptor) {
+        return function(instanceOrComp, key, descriptor) {
             if (typeof key === 'string') {
                 // .render() method decorator
                 var Comp = instanceOrComp.constructor;

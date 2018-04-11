@@ -1,6 +1,6 @@
 'use strict';
 
-exports.addon = function (renderer, stylesheet) {
+exports.addon = function(renderer, stylesheet) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('hydrate', renderer, ['put']);
     }
@@ -19,12 +19,11 @@ exports.addon = function (renderer, stylesheet) {
 
         var cssRules = stylesheet.cssRules;
 
-        for (var i = 0; i < cssRules.length; i++)
-            hydrated[cssRules[i].selectorText] = 1;
+        for (var i = 0; i < cssRules.length; i++) hydrated[cssRules[i].selectorText] = 1;
 
         var put = renderer.put;
 
-        renderer.put = function (selector, css) {
+        renderer.put = function(selector, css) {
             if (selector in hydrated) {
                 if (process.env.NODE_ENV !== 'production') {
                     // eslint-disable-next-line

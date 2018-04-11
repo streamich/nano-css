@@ -6,13 +6,7 @@ const {create} = require('../index');
 const {addon: addonRule} = require('../addon/rule');
 const {addon: addonKeyframes} = require('../addon/keyframes');
 
-const animations = [
-    'fadeIn',
-    'fadeInDown',
-    'fadeInScale',
-    'fadeOut',
-    'fadeOutScale',
-];
+const animations = ['fadeIn', 'fadeInDown', 'fadeInScale', 'fadeOut', 'fadeOutScale'];
 
 const nano = create();
 addonRule(nano);

@@ -1,7 +1,7 @@
 'use strict';
 
-exports.addon = function (renderer) {
-    renderer.selector = function (parentSelectors, selector) {
+exports.addon = function(renderer) {
+    renderer.selector = function(parentSelectors, selector) {
         var parents = parentSelectors.split(',');
         var result = [];
         var selectors = selector.split(',');

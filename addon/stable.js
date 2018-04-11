@@ -2,6 +2,6 @@
 
 var stringify = require('fastest-stable-stringify');
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     renderer.stringify = stringify;
 };

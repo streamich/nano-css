@@ -8,7 +8,7 @@ var addonKeyframes = require('../addon/keyframes').addon;
 var addonRule = require('../addon/rule').addon;
 var addonSheet = require('../addon/sheet').addon;
 
-exports.preset = function (config) {
+exports.preset = function(config) {
     var nano = create(config);
 
     addonStable(nano);

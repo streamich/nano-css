@@ -4,16 +4,16 @@
 var create = require('../../index').create;
 var addonRule = require('../../addon/rule').addon;
 
-function createNano (config) {
+function createNano(config) {
     var nano = create(config);
 
     addonRule(nano);
 
     return nano;
-};
+}
 
-describe('rule()', function () {
-    it('installs rule() method', function () {
+describe('rule()', function() {
+    it('installs rule() method', function() {
         var nano = create();
 
         expect(typeof nano.rule).toBe('undefined');
@@ -23,25 +23,28 @@ describe('rule()', function () {
         expect(typeof nano.rule).toBe('function');
     });
 
-    it('puts CSS styles', function () {
+    it('puts CSS styles', function() {
         var nano = createNano({
-            pfx: 'test-'
+            pfx: 'test-',
         });
 
         nano.put = jest.fn();
 
-        var classNames = nano.rule({
-            color: 'red'
-        }, 'foobar');
+        var classNames = nano.rule(
+            {
+                color: 'red',
+            },
+            'foobar'
+        );
 
         expect(nano.put).toHaveBeenCalledTimes(1);
         expect(nano.put).toHaveBeenCalledWith('.test-foobar', {color: 'red'});
         expect(classNames).toBe(' test-foobar');
     });
 
-    it('generates class name automatically if not specified', function () {
+    it('generates class name automatically if not specified', function() {
         var nano = createNano({
-            pfx: 'test-'
+            pfx: 'test-',
         });
 
         nano.put = jest.fn();

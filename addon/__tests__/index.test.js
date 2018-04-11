@@ -4,7 +4,7 @@
 var env = require('./env');
 var create = require('../../index').create;
 
-function findCssRuleAndDelete (selector) {
+function findCssRuleAndDelete(selector) {
     var sheets = document.styleSheets;
 
     for (var i = 0; i < sheets.length; i++) {
@@ -26,12 +26,12 @@ function findCssRuleAndDelete (selector) {
     return null;
 }
 
-describe('nano-css', function () {
-    it('exists', function () {
+describe('nano-css', function() {
+    it('exists', function() {
         expect(typeof create).toBe('function');
     });
 
-    it('can create renderer', function () {
+    it('can create renderer', function() {
         var nano = create();
 
         expect(typeof nano).toBe('object');
@@ -39,33 +39,33 @@ describe('nano-css', function () {
         expect(typeof nano.put).toBe('function');
     });
 
-    it('default prefix is "_"', function () {
+    it('default prefix is "_"', function() {
         expect(create().pfx).toBe('_');
     });
 
-    it('default assign function is Object.assign', function () {
+    it('default assign function is Object.assign', function() {
         expect(create().assign).toBe(Object.assign);
     });
 
-    it('default stringify function is JSON.stringify', function () {
+    it('default stringify function is JSON.stringify', function() {
         expect(create().stringify).toBe(JSON.stringify);
     });
 
-    it('has no default hyperscript function', function () {
+    it('has no default hyperscript function', function() {
         expect(create().h).toBe(undefined);
     });
 
-    it('can set configuration', function () {
-        var assign = function () {
+    it('can set configuration', function() {
+        var assign = function() {
             return Object.assign.apply(Object, arguments);
         };
-        var h = function () {};
-        var stringify = function () {};
+        var h = function() {};
+        var stringify = function() {};
         var nano = create({
             pfx: 'hello-',
             h: h,
             assign: assign,
-            stringify: stringify
+            stringify: stringify,
         });
 
         expect(nano.pfx).toBe('hello-');
@@ -74,12 +74,12 @@ describe('nano-css', function () {
         expect(nano.stringify).toBe(stringify);
     });
 
-    describe('.put()', function () {
-        it('inserts CSS', function () {
+    describe('.put()', function() {
+        it('inserts CSS', function() {
             var nano = create();
 
             nano.put('.foo', {
-                color: 'red'
+                color: 'red',
             });
 
             if (env.isClient) {
@@ -94,7 +94,7 @@ describe('nano-css', function () {
             }
         });
 
-        it('puts many declarations', function () {
+        it('puts many declarations', function() {
             var nano = create();
 
             nano.put('.foo2', {
@@ -120,13 +120,13 @@ describe('nano-css', function () {
             }
         });
 
-        it('supports nesting', function () {
+        it('supports nesting', function() {
             var nano = create();
 
             nano.put('.foo3', {
-                '.nested' : {
+                '.nested': {
                     color: 'blue',
-                }
+                },
             });
 
             if (env.isClient) {
@@ -142,17 +142,17 @@ describe('nano-css', function () {
             }
         });
 
-        it('supports nesting - 2', function () {
+        it('supports nesting - 2', function() {
             var renderer = create();
 
             renderer.put('.foo', {
                 '.bar': {
                     '.baz': {
                         '.bazooka': {
-                            color: 'red'
-                        }
-                    }
-                }
+                            color: 'red',
+                        },
+                    },
+                },
             });
 
             if (env.isClient) {
@@ -167,13 +167,13 @@ describe('nano-css', function () {
             }
         });
 
-        it('supports pseudo selectors', function () {
+        it('supports pseudo selectors', function() {
             var nano = create();
 
             nano.put('.foo3', {
-                ':hover' : {
+                ':hover': {
                     color: 'green',
-                }
+                },
             });
 
             if (env.isClient) {
@@ -189,13 +189,13 @@ describe('nano-css', function () {
             }
         });
 
-        it('can insert global styles', function () {
+        it('can insert global styles', function() {
             var nano = create();
 
             nano.put('', {
-                '.global' : {
+                '.global': {
                     color: 'green',
-                }
+                },
             });
 
             if (env.isClient) {
@@ -211,23 +211,23 @@ describe('nano-css', function () {
             }
         });
 
-        it('supports @media queries - 2', function () {
+        it('supports @media queries - 2', function() {
             var nano = create();
             nano.putRaw = jest.fn();
 
             nano.put('', {
                 '@media screen': {
-                    '.global' : {
+                    '.global': {
                         color: 'green',
-                    }
-                }
+                    },
+                },
             });
 
             expect(nano.putRaw).toHaveBeenCalledTimes(1);
             expect(nano.putRaw.mock.calls[0][0].replace(/ /g, '')).toBe('@mediascreen{.global{color:green;}}');
         });
 
-        it('supports @media queries - 2', function () {
+        it('supports @media queries - 2', function() {
             var nano = create();
 
             if (env.isClient) {
@@ -237,9 +237,9 @@ describe('nano-css', function () {
             nano.put('.parent', {
                 '@media screen': {
                     '.foo': {
-                        color: 'red'
-                    }
-                }
+                        color: 'red',
+                    },
+                },
             });
 
             if (env.isClient) {

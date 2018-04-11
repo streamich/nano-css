@@ -20,25 +20,28 @@ addonStyle(renderer);
 addonStyled(renderer);
 const {styled} = renderer;
 
-const RedBorder = styled.div({
-  border: '1px solid red'
-}, (props) => {
-    if (props.primary) {
-        return {
-            color: 'blue'
-        };
+const RedBorder = styled.div(
+    {
+        border: '1px solid red',
+    },
+    props => {
+        if (props.primary) {
+            return {
+                color: 'blue',
+            };
+        }
     }
-});
+);
 
 const RedBorderItalic = styled(RedBorder)({
-    fontStyle: 'italic'
+    fontStyle: 'italic',
 });
 
 const Button = styled('button')({
     fontFamily: 'inherit',
     fontSize: '14px',
     fontWeight: 'bold',
-    lineHeight: 16/14,
+    lineHeight: 16 / 14,
     display: 'inline-block',
     margin: 0,
     verticalAlign: 'middle',
@@ -50,32 +53,20 @@ const Button = styled('button')({
     color: 'white',
     backgroundColor: 'blue',
     '&:hover': {
-        boxShadow: `inset 0 0 0 999px #888`
+        boxShadow: `inset 0 0 0 999px #888`,
     },
     '&:active': {
-        boxShadow: `inset 0 0 8px #999`
+        boxShadow: `inset 0 0 8px #999`,
     },
     '&:disabled': {
-        opacity: 1/4
-    }
-})
+        opacity: 1 / 4,
+    },
+});
 
 storiesOf('Addons/styled()', module)
-    .add('Default', () =>
-        h(RedBorder, null, 'Hello world')
-    )
-    .add('Custom CSS', () =>
-        h(RedBorder, {primary: true}, 'Hello world')
-    )
-    .add('Inline styles', () =>
-        h(RedBorder, {style: {color: 'red'}, primary: true}, 'Hello world')
-    )
-    .add('Composability', () =>
-        h(RedBorderItalic, null, 'Hello world')
-    )
-    .add('Button', () =>
-        h(Button, null, 'Click me!')
-    )
-    .add('Button 2', () =>
-        h(Button2, null, 'Click me!')
-    )
+    .add('Default', () => h(RedBorder, null, 'Hello world'))
+    .add('Custom CSS', () => h(RedBorder, {primary: true}, 'Hello world'))
+    .add('Inline styles', () => h(RedBorder, {style: {color: 'red'}, primary: true}, 'Hello world'))
+    .add('Composability', () => h(RedBorderItalic, null, 'Hello world'))
+    .add('Button', () => h(Button, null, 'Click me!'))
+    .add('Button 2', () => h(Button2, null, 'Click me!'));

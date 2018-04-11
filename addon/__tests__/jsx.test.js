@@ -7,7 +7,7 @@ var addonRule = require('../../addon/rule').addon;
 var addonCache = require('../../addon/cache').addon;
 var addonJsx = require('../../addon/jsx').addon;
 
-function createNano (config) {
+function createNano(config) {
     var nano = create(config);
 
     addonRule(nano);
@@ -15,23 +15,23 @@ function createNano (config) {
     addonJsx(nano);
 
     return nano;
-};
+}
 
-describe('jsx()', function () {
-    it('installs interface', function () {
+describe('jsx()', function() {
+    it('installs interface', function() {
         var nano = createNano();
 
         expect(typeof nano.jsx).toBe('function');
     });
 
-    it('creates a styling block', function () {
+    it('creates a styling block', function() {
         var nano = createNano();
         var Comp = nano.jsx('button', {color: 'red'});
 
         expect(typeof Comp).toBe('function');
     });
 
-    it('sets component name', function () {
+    it('sets component name', function() {
         var nano = createNano();
         var Comp = nano.jsx('button', {color: 'red'}, 'MyButton');
 

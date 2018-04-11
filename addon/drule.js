@@ -1,14 +1,14 @@
 'use strict';
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('drule', renderer, ['rule', 'cache']);
     }
 
-    renderer.drule = function (styles, block) {
+    renderer.drule = function(styles, block) {
         var className = renderer.rule(styles, block);
 
-        var closure = function (dynamicStyles) {
+        var closure = function(dynamicStyles) {
             if (!dynamicStyles) {
                 return className;
             }
@@ -18,7 +18,7 @@ exports.addon = function (renderer) {
             return className + dynamicClassName;
         };
 
-        closure.toString = function () {
+        closure.toString = function() {
             return className;
         };
 

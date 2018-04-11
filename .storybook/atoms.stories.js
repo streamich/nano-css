@@ -11,11 +11,11 @@ addonRule(renderer);
 addonAtoms(renderer);
 const {rule} = renderer;
 
-const className = rule({
-    bd: '1px solid red'
-}, 'atoms');
+const className = rule(
+    {
+        bd: '1px solid red',
+    },
+    'atoms'
+);
 
-storiesOf('Addons/Atoms', module)
-    .add('Default', () =>
-        h('div', {className}, 'Red')
-    )
+storiesOf('Addons/Atoms', module).add('Default', () => h('div', {className}, 'Red'));

@@ -16,29 +16,27 @@ class RefExample extends Component {
         super(props);
         this.state = {
             color: 'red',
-            show: true
+            show: true,
         };
     }
 
-    render () {
+    render() {
         var data = nano.ref({'&': {color: this.state.color}, '&:hover': {color: 'blue'}});
 
-        return h('div', {},
+        return h(
+            'div',
+            {},
             this.state.show && h('div', data, 'Hello world'),
 
             h('br'),
 
             h('button', {onClick: () => this.setState({color: 'red'})}, 'red'),
             h('button', {onClick: () => this.setState({color: 'blue'})}, 'blue'),
-            h('button', {onClick: () => this.setState({show: !this.state.show})}, 'show/hide'),
+            h('button', {onClick: () => this.setState({show: !this.state.show})}, 'show/hide')
         );
     }
 }
 
 storiesOf('Addons/ref', module)
-    .add('Default', () =>
-        h('div', css({'&': {color: 'red'}, '&:hover': {color: 'blue'}}), 'Hello world')
-    )
-    .add('ref()', () =>
-        h(RefExample)
-    )
+    .add('Default', () => h('div', css({'&': {color: 'red'}, '&:hover': {color: 'blue'}}), 'Hello world'))
+    .add('ref()', () => h(RefExample));

@@ -8,7 +8,4 @@ const {addon: resetEricMeyerCondensed} = require('../addon/reset/EricMeyerConden
 const nano = create();
 resetEricMeyerCondensed(nano);
 
-storiesOf('CSS resets', module)
-  .add('Eric Meyer - condensed', () =>
-    h('div', null, 'Hello world')
-  )
+storiesOf('CSS resets', module).add('Eric Meyer - condensed', () => h('div', null, 'Hello world'));

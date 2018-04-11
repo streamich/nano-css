@@ -4,72 +4,75 @@
 
 var env = require('./env');
 var create = require('../../index').create;
-var addonAmp= require('../../addon/amp').addon;
+var addonAmp = require('../../addon/amp').addon;
 
-function createNano (config, addonConfig) {
+function createNano(config, addonConfig) {
     var nano = create(config);
 
     addonAmp(nano, addonConfig);
 
     return nano;
-};
+}
 
-describe('amp', function () {
-    it('is a function', function () {
+describe('amp', function() {
+    it('is a function', function() {
         expect(typeof addonAmp).toBe('function');
     });
 
-    it('allows inserting rules', function () {
+    it('allows inserting rules', function() {
         var nano = createNano();
 
         nano.put('.foo', {
-            color: 'red'
+            color: 'red',
         });
 
         nano.put('.bar', {
-            color: 'red'
+            color: 'red',
         });
 
         expect(nano.raw.replace(/ /g, '')).toBe('.foo{color:red;}.bar{color:red;}');
     });
 
-    it('caps at limit', function () {
-        var nano = createNano({}, {
-            limit: 40
-        });
+    it('caps at limit', function() {
+        var nano = createNano(
+            {},
+            {
+                limit: 40,
+            }
+        );
 
         nano.put('.foo', {
-            color: 'red'
+            color: 'red',
         });
 
         nano.put('.bar', {
-            color: 'red'
+            color: 'red',
         });
 
         nano.put('.baz', {
-            color: 'red'
+            color: 'red',
         });
 
         expect(nano.raw.replace(/ /g, '')).toBe('.foo{color:red;}.bar{color:red;}');
     });
 
-    it('warns on !important', function () {
+    it('warns on !important', function() {
         var nano = createNano();
         var console$error = console.error;
         var calls = [];
 
-        console.error = function () {
+        console.error = function() {
             calls.push(arguments);
         };
 
         nano.put('.foo', {
-            color: 'red'
+            color: 'red',
         });
 
         expect(calls.length).toBe(0);
 
         nano.put('.bar', {
-            color: 'blue !important'
+            color: 'blue !important',
         });
 
         expect(nano.raw.indexOf('!important') > -1).toBe(true);
@@ -81,38 +84,38 @@ describe('amp', function () {
             expect(calls.length).toBe(0);
         }
 
-        console.error = console$error
+        console.error = console$error;
     });
 
-    it('removes !important', function () {
+    it('removes !important', function() {
         var nano = createNano(null, {
-            removeImportant: true
+            removeImportant: true,
         });
 
         nano.put('.bar', {
-            color: 'blue !important'
+            color: 'blue !important',
         });
 
         expect(nano.raw.indexOf('!important') > -1).toBe(false);
     });
 
-    it('warns on reserved selectors', function () {
+    it('warns on reserved selectors', function() {
         var nano = createNano();
         var console$error = console.error;
         var calls = [];
 
-        console.error = function () {
+        console.error = function() {
             calls.push(arguments);
         };
 
         nano.put('.foo', {
-            color: 'red'
+            color: 'red',
         });
 
         expect(calls.length).toBe(0);
 
         nano.put('.-amp-bar', {
-            color: 'blue'
+            color: 'blue',
         });
 
         if (env.isDev) {
@@ -122,7 +125,7 @@ describe('amp', function () {
         }
 
         nano.put('i-amp-baz', {
-            color: 'yellow'
+            color: 'yellow',
         });
 
         if (env.isDev) {
@@ -132,7 +135,7 @@ describe('amp', function () {
         }
 
         nano.put('amp-baz', {
-            color: 'green'
+            color: 'green',
         });
 
         if (env.isDev) {
@@ -141,56 +144,56 @@ describe('amp', function () {
             expect(calls.length).toBe(0);
         }
 
-        console.error = console$error
+        console.error = console$error;
     });
 
-    it('removes reserved selectors', function () {
+    it('removes reserved selectors', function() {
         var nano = createNano(null, {
-            removeReserved: true
+            removeReserved: true,
         });
 
         nano.put('.foo', {
-            color: 'blue'
+            color: 'blue',
         });
 
         var length = nano.raw.length;
 
         nano.put('.-amp-bar', {
-            color: 'red'
+            color: 'red',
         });
 
         expect(nano.raw.length).toBe(length);
 
         nano.put('i-amp-baz', {
-            color: 'green'
+            color: 'green',
         });
 
         expect(nano.raw.length).toBe(length);
 
         nano.put('amp-bazooka', {
-            color: 'orange'
+            color: 'orange',
         });
 
         expect(nano.raw.length > length).toBe(true);
     });
 
-    it('warns on banned declarations', function () {
+    it('warns on banned declarations', function() {
         var nano = createNano();
         var console$error = console.error;
         var calls = [];
 
-        console.error = function () {
+        console.error = function() {
             calls.push(arguments);
         };
 
         nano.put('.foo', {
-            color: 'red'
+            color: 'red',
         });
 
         expect(calls.length).toBe(0);
 
         nano.put('.bar', {
-            behavior: 'something'
+            behavior: 'something',
         });
 
         if (env.isDev) {
@@ -199,22 +202,22 @@ describe('amp', function () {
             expect(calls.length).toBe(0);
         }
 
-        console.error = console$error
+        console.error = console$error;
     });
 
-    it('removes banned declarations', function () {
+    it('removes banned declarations', function() {
         var nano = createNano(null, {
-            removeBanned: true
+            removeBanned: true,
         });
 
         nano.put('.foo', {
-            color: 'blue'
+            color: 'blue',
         });
 
         var length = nano.raw.length;
 
         nano.put('.bar', {
-            behavior: 'something'
+            behavior: 'something',
         });
 
         expect(nano.raw.length).toBe(length);

@@ -3,73 +3,73 @@
 
 var atoms = require('./atoms').atoms;
 
-exports.addon = function (renderer, rules) {
+exports.addon = function(renderer, rules) {
     rules = rules || {};
 
     var defaultRules = renderer.assign({}, atoms, {
-        s: function (prop, value) {
+        s: function(prop, value) {
             if (prop instanceof Object) {
                 for (var name in prop) {
                     defaultRules.s.call(this, name, prop[name]);
                 }
             } else {
-                this[prop] = (value instanceof Object) ? (value.obj || value) : value;
+                this[prop] = value instanceof Object ? value.obj || value : value;
             }
         },
 
-        hover: function (value) {
+        hover: function(value) {
             defaultRules.s.call(this, ':hover', value);
         },
 
-        focus: function (value) {
+        focus: function(value) {
             defaultRules.s.call(this, ':focus', value);
         },
 
-        bgWhite: function () {
+        bgWhite: function() {
             this.backgroundColor = '#fff';
         },
 
-        bgBlack: function () {
+        bgBlack: function() {
             this.backgroundColor = '#000';
         },
 
-        rel: function () {
+        rel: function() {
             this.position = 'relative';
         },
 
-        abs: function () {
+        abs: function() {
             this.position = 'absolute';
         },
 
-        pointer: function () {
+        pointer: function() {
             this.cursor = 'pointer';
         },
 
-        inlineBlock: function () {
+        inlineBlock: function() {
             this.display = 'inline-block';
         },
 
-        bold: function () {
+        bold: function() {
             this.fontWeight = 'bold';
         },
 
-        b: function () {
+        b: function() {
             this.fontWeight = 'bold';
         },
 
-        italic: function () {
+        italic: function() {
             this.fontStyle = 'italic';
         },
 
-        i: function () {
+        i: function() {
             this.fontStyle = 'italic';
         },
 
-        underline: function () {
+        underline: function() {
             this.textDecoration = 'underline';
         },
 
-        u: function () {
+        u: function() {
             this.textDecoration = 'underline';
         },
     });
@@ -78,11 +78,11 @@ exports.addon = function (renderer, rules) {
 
     var snake = {};
 
-    var start = function () {
+    var start = function() {
         var instance = Object.create(snake);
 
         instance.obj = {};
-        instance.toString = function () {
+        instance.toString = function() {
             if (process.env.NODE_ENV !== 'production') {
                 require('./__dev__/warnOnMissingDependencies')('snake', renderer, ['cache']);
             }
@@ -94,8 +94,8 @@ exports.addon = function (renderer, rules) {
         return instance;
     };
 
-    var checkStart = function (name, fn) {
-        return function () {
+    var checkStart = function(name, fn) {
+        return function() {
             if (!this.obj) {
                 var instance = start();
 
@@ -110,25 +110,25 @@ exports.addon = function (renderer, rules) {
         };
     };
 
-    var onRule = function (name) {
+    var onRule = function(name) {
         var rule = rules[name];
 
         if (typeof rule === 'function') {
             if (!rule.length) {
                 Object.defineProperty(snake, name, {
-                    get: checkStart(name, function () {
+                    get: checkStart(name, function() {
                         rule.call(this.obj);
                         return this;
-                    })
+                    }),
                 });
             } else {
-                snake[name] = checkStart(name, function () {
+                snake[name] = checkStart(name, function() {
                     rule.apply(this.obj, arguments);
                     return this;
                 });
             }
         } else {
-            snake[name] = checkStart(name, function (value) {
+            snake[name] = checkStart(name, function(value) {
                 this.obj['' + rule] = value;
                 return this;
             });

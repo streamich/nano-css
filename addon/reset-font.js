@@ -1,6 +1,6 @@
 'use strict';
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('reset-font', renderer, ['rule']);
     }

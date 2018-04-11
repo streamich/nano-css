@@ -13,30 +13,26 @@ addonJsx(renderer);
 addonStyle(renderer);
 const {style} = renderer;
 
-const RedBorder = style('div', {
-  border: '1px solid red'
-}, (props) => {
-    if (props.primary) {
-        return {
-            color: 'blue'
-        };
+const RedBorder = style(
+    'div',
+    {
+        border: '1px solid red',
+    },
+    props => {
+        if (props.primary) {
+            return {
+                color: 'blue',
+            };
+        }
     }
-});
+);
 
 const RedBorderItalic = style(RedBorder, {
-    fontStyle: 'italic'
+    fontStyle: 'italic',
 });
 
 storiesOf('Addons/style()', module)
-    .add('Default', () =>
-        h(RedBorder, null, 'Hello world')
-    )
-    .add('Custom CSS', () =>
-        h(RedBorder, {primary: true}, 'Hello world')
-    )
-    .add('Inline styles', () =>
-        h(RedBorder, {style: {color: 'red'}, primary: true}, 'Hello world')
-    )
-    .add('Composability', () =>
-        h(RedBorderItalic, null, 'Hello world')
-    )
+    .add('Default', () => h(RedBorder, null, 'Hello world'))
+    .add('Custom CSS', () => h(RedBorder, {primary: true}, 'Hello world'))
+    .add('Inline styles', () => h(RedBorder, {style: {color: 'red'}, primary: true}, 'Hello world'))
+    .add('Composability', () => h(RedBorderItalic, null, 'Hello world'));

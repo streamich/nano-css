@@ -15,14 +15,14 @@ var resets = [
     'Tantek',
     'Tripoli',
     'Universal',
-    'Yahoo'
+    'Yahoo',
 ];
 
-describe('reset', function () {
-    resets.forEach(function (name) {
+describe('reset', function() {
+    resets.forEach(function(name) {
         var addon = require('../../addon/reset/' + name).addon;
 
-        it(name, function () {
+        it(name, function() {
             var nano = create();
 
             nano.put = jest.fn();

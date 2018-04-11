@@ -1,24 +1,27 @@
 'use strict';
 
-exports.addon = function (renderer, config) {
+exports.addon = function(renderer, config) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('keyframes', renderer, ['putRaw', 'put']);
     }
 
-    config = renderer.assign({
-        prefixes: ['-webkit-', '-moz-', '-o-', ''],
-    }, config || {});
+    config = renderer.assign(
+        {
+            prefixes: ['-webkit-', '-moz-', '-o-', ''],
+        },
+        config || {}
+    );
 
     var prefixes = config.prefixes;
 
     if (renderer.client) {
         // Craete @keyframe Stylesheet `ksh`.
-        document.head.appendChild(renderer.ksh = document.createElement('style'));
+        document.head.appendChild((renderer.ksh = document.createElement('style')));
     }
 
     var putAt = renderer.putAt;
 
-    renderer.putAt = function (__, keyframes, prelude) {
+    renderer.putAt = function(__, keyframes, prelude) {
         // @keyframes
         if (prelude[1] === 'k') {
             var str = '';
@@ -27,8 +30,7 @@ exports.addon = function (renderer, config) {
                 var decls = keyframes[keyframe];
                 var strDecls = '';
 
-                for (var prop in decls)
-                    strDecls += renderer.decl(prop, decls[prop]);
+                for (var prop in decls) strDecls += renderer.decl(prop, decls[prop]);
 
                 str += keyframe + '{' + strDecls + '}';
             }
@@ -50,7 +52,7 @@ exports.addon = function (renderer, config) {
         putAt(__, keyframes, prelude);
     };
 
-    renderer.keyframes = function (keyframes, block) {
+    renderer.keyframes = function(keyframes, block) {
         if (!block) block = renderer.hash(keyframes);
         block = renderer.pfx + block;
 

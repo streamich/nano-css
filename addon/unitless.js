@@ -58,10 +58,10 @@ for (var i = 0; i < UNITLESS_NUMBER_PROPS.length; i++) {
     unitlessCssProperties['-o-' + prop] = 1;
 }
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     var decl = renderer.decl;
 
-    renderer.decl = function (prop, value) {
+    renderer.decl = function(prop, value) {
         var str = decl(prop, value);
 
         if (typeof value === 'number') {

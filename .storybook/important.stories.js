@@ -11,11 +11,11 @@ addonRule(renderer);
 addonImportant(renderer);
 const {rule} = renderer;
 
-const className1 = rule({
-    border: '1px solid red'
-}, 'RedBorderImportant');
+const className1 = rule(
+    {
+        border: '1px solid red',
+    },
+    'RedBorderImportant'
+);
 
-storiesOf('Addons/!important', module)
-    .add('Default', () =>
-        h('div', {className: className1}, 'Hello world')
-    )
+storiesOf('Addons/!important', module).add('Default', () => h('div', {className: className1}, 'Hello world'));

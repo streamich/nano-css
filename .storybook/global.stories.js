@@ -11,27 +11,23 @@ addon(nano);
 addonRule(nano);
 
 nano.global({
-  '.foo': {
-      color: 'red'
-  }
+    '.foo': {
+        color: 'red',
+    },
 });
 
 nano.rule({
     color: 'blue',
     '.bar': {
-        color: 'green'
+        color: 'green',
     },
     ':global': {
         '.baz': {
-            fontWeight: 'bold'
-        }
-    }
+            fontWeight: 'bold',
+        },
+    },
 });
 
 storiesOf('Addons/:global', module)
-  .add('global()', () =>
-    h('div', {className: 'foo'}, 'Hello world')
-  )
-  .add(':global', () =>
-    h('div', {className: 'bar baz'}, 'Hello world')
-  )
+    .add('global()', () => h('div', {className: 'foo'}, 'Hello world'))
+    .add(':global', () => h('div', {className: 'bar baz'}, 'Hello world'));

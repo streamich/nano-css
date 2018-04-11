@@ -2,7 +2,7 @@
 
 var pkgName = 'nano-css';
 
-module.exports = function warnOnMissingDependencies (addon, renderer, deps) {
+module.exports = function warnOnMissingDependencies(addon, renderer, deps) {
     var missing = [];
 
     for (var i = 0; i < deps.length; i++) {

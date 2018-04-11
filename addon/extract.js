@@ -1,10 +1,10 @@
 'use strict';
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (renderer.client) {
         console.error(
             'You are running nano-css "extract" addon in browser. ' +
-            'You should use it ONLY on server and ONLY at build time.'
+                'You should use it ONLY on server and ONLY at build time.'
         );
 
         return;
@@ -17,7 +17,7 @@ exports.addon = function (renderer) {
 
     // Evaluate all lazy-evaluated sheet() styles.
     if (sheet) {
-        renderer.sheet = function (map) {
+        renderer.sheet = function(map) {
             var styles = sheet.apply(this, arguments);
 
             for (var name in map) dummy = styles[name];
@@ -30,10 +30,10 @@ exports.addon = function (renderer) {
 
     // Render jsx component once to extract its static CSS.
     if (jsx) {
-        renderer.jsx = function () {
+        renderer.jsx = function() {
             var jsxComponent = jsx.apply(this, arguments);
 
-            process.nextTick(function () {
+            process.nextTick(function() {
                 jsxComponent(jsxComponent.defaultProps || {});
             });
 
@@ -46,10 +46,10 @@ exports.addon = function (renderer) {
     // Render styled component once with default props
     // to extract its static CSS and "default" dynamic CSS.
     if (style) {
-        renderer.style = function () {
+        renderer.style = function() {
             var styledComponent = style.apply(this, arguments);
 
-            process.nextTick(function () {
+            process.nextTick(function() {
                 styledComponent(styledComponent.defaultProps || {});
             });
 

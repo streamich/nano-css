@@ -3,20 +3,17 @@
 var addonLimit = require('./limit').addon;
 
 // Banned CSS declaration property names, for security reasons.
-var banned = [
-    'behavior',
-    '-moz-binding',
-];
+var banned = ['behavior', '-moz-binding'];
 
-var warnOnImportant = function (renderer) {
+var warnOnImportant = function(renderer) {
     var putRaw = renderer.putRaw;
 
-    renderer.putRaw = function (rawCssRule) {
+    renderer.putRaw = function(rawCssRule) {
         if (rawCssRule.indexOf('!important') > -1) {
             console.error(
                 '!important modifier is not allowed in AMP apps. ' +
-                'Detected !important modifier in below CSS rule. ' +
-                rawCssRule
+                    'Detected !important modifier in below CSS rule. ' +
+                    rawCssRule
             );
         }
 
@@ -24,40 +21,39 @@ var warnOnImportant = function (renderer) {
     };
 };
 
-var removeImportant = function (renderer) {
+var removeImportant = function(renderer) {
     var putRaw = renderer.putRaw;
 
-    renderer.putRaw = function (rawCssRule) {
+    renderer.putRaw = function(rawCssRule) {
         rawCssRule = rawCssRule.replace(/!important/g, '');
 
         return putRaw(rawCssRule);
     };
 };
 
-var warnOnReservedSelectors = function (renderer) {
+var warnOnReservedSelectors = function(renderer) {
     var putRaw = renderer.putRaw;
 
-    renderer.putRaw = function (rawCssRule) {
+    renderer.putRaw = function(rawCssRule) {
         var pos = rawCssRule.indexOf('{');
 
-        if (pos < 0)
-            return putRaw(rawCssRule);
+        if (pos < 0) return putRaw(rawCssRule);
 
         var selectors = ' ' + rawCssRule.substr(0, pos);
 
         if (selectors.match(/\s\.-amp-/g)) {
             console.error(
                 'Detected class name that starts with "-amp-". ' +
-                'Class names starting with "-amp-" are reserved from AMP components. ' +
-                rawCssRule
+                    'Class names starting with "-amp-" are reserved from AMP components. ' +
+                    rawCssRule
             );
         }
 
         if (selectors.match(/\si-amp-/g)) {
             console.error(
                 'Detected CSS selector that matches "i-amp-" elements. ' +
-                'Slectors for "i-amp-" elements are reserved from AMP components. ' +
-                rawCssRule
+                    'Slectors for "i-amp-" elements are reserved from AMP components. ' +
+                    rawCssRule
             );
         }
 
@@ -65,14 +61,13 @@ var warnOnReservedSelectors = function (renderer) {
     };
 };
 
-var removeReservedSelectors = function (renderer) {
+var removeReservedSelectors = function(renderer) {
     var putRaw = renderer.putRaw;
 
-    renderer.putRaw = function (rawCssRule) {
+    renderer.putRaw = function(rawCssRule) {
         var pos = rawCssRule.indexOf('{');
 
-        if (pos < 0)
-            return putRaw(rawCssRule);
+        if (pos < 0) return putRaw(rawCssRule);
 
         var selectors = ' ' + rawCssRule.substr(0, pos);
 
@@ -84,27 +79,23 @@ var removeReservedSelectors = function (renderer) {
     };
 };
 
-var warnOnBanned = function (renderer) {
+var warnOnBanned = function(renderer) {
     var decl = renderer.decl;
 
-    renderer.decl = function (prop, value) {
+    renderer.decl = function(prop, value) {
         if (banned.indexOf(renderer.kebab(prop)) > -1) {
-
-            console.error(
-                'Detected banned CSS prop, "' + prop + '" is not allowed in AMP apps.'
-            );
+            console.error('Detected banned CSS prop, "' + prop + '" is not allowed in AMP apps.');
         }
 
         return decl(prop, value);
     };
 };
 
-var removeBanned = function (renderer) {
+var removeBanned = function(renderer) {
     var decl = renderer.decl;
 
-    renderer.decl = function (prop, value) {
+    renderer.decl = function(prop, value) {
         if (banned.indexOf(renderer.kebab(prop)) > -1) {
-
             return '';
         }
 
@@ -112,7 +103,7 @@ var removeBanned = function (renderer) {
     };
 };
 
-exports.addon = function (renderer, config) {
+exports.addon = function(renderer, config) {
     config = config || {};
 
     if (process.env.NODE_ENV !== 'production') {

@@ -11,9 +11,9 @@ var addonStyle = require('../../addon/style').addon;
 var addonStyled = require('../../addon/styled').addon;
 var addonExtract = require('../../addon/extract').addon;
 
-var createNano = function () {
+var createNano = function() {
     var nano = create({
-        h: require('react').createElement
+        h: require('react').createElement,
     });
 
     addonRule(nano);
@@ -27,38 +27,38 @@ var createNano = function () {
     return nano;
 };
 
-describe('extract', function () {
-    it('extracts rule() CSS', function () {
+describe('extract', function() {
+    it('extracts rule() CSS', function() {
         var nano = createNano();
 
         nano.rule({
-            color: 'blue'
+            color: 'blue',
         });
 
         expect(nano.raw.includes('color:blue')).toBe(true);
     });
 
-    it('extracts sheet() CSS', function () {
+    it('extracts sheet() CSS', function() {
         var nano = createNano();
 
         nano.sheet({
             button: {
-                color: 'pink'
-            }
+                color: 'pink',
+            },
         });
 
         expect(nano.raw.includes('color:pink')).toBe(true);
     });
 
-    it('extracts jsx() CSS', function (done) {
+    it('extracts jsx() CSS', function(done) {
         var nano = createNano();
 
         var Button = nano.jsx('button', {
             cursor: 'pointer',
-            background: 'blue'
+            background: 'blue',
         });
 
-        process.nextTick(function () {
+        process.nextTick(function() {
             expect(nano.raw.includes('cursor:pointer')).toBe(true);
             expect(nano.raw.includes('background:blue')).toBe(true);
 
@@ -66,15 +66,15 @@ describe('extract', function () {
         });
     });
 
-    it('extracts style() CSS', function (done) {
+    it('extracts style() CSS', function(done) {
         var nano = createNano();
 
         var Button = nano.style('button', {
             cursor: 'pointer',
-            background: 'blue'
+            background: 'blue',
         });
 
-        process.nextTick(function () {
+        process.nextTick(function() {
             expect(nano.raw.includes('cursor:pointer')).toBe(true);
             expect(nano.raw.includes('background:blue')).toBe(true);
 
@@ -82,19 +82,23 @@ describe('extract', function () {
         });
     });
 
-    it('extracts style() dynamic CSS', function (done) {
+    it('extracts style() dynamic CSS', function(done) {
         var nano = createNano();
 
-        var Button = nano.style('button', {
-            cursor: 'pointer',
-            background: 'red'
-        }, function () {
-            return {
-                border: '1px solid red'
-            };
-        });
+        var Button = nano.style(
+            'button',
+            {
+                cursor: 'pointer',
+                background: 'red',
+            },
+            function() {
+                return {
+                    border: '1px solid red',
+                };
+            }
+        );
 
-        process.nextTick(function () {
+        process.nextTick(function() {
             expect(nano.raw.includes('cursor:pointer')).toBe(true);
             expect(nano.raw.includes('background:red')).toBe(true);
             expect(nano.raw.includes('border:1px solid red')).toBe(true);
@@ -103,24 +107,28 @@ describe('extract', function () {
         });
     });
 
-    it('extracts style() dynamic CSS', function (done) {
+    it('extracts style() dynamic CSS', function(done) {
         var nano = createNano();
 
-        var Button = nano.style('button', {
-            cursor: 'pointer',
-            background: 'red'
-        }, function (props) {
-            return {
-                border: '1px solid red',
-                padding: props.big ? '20px' : '10px'
-            };
-        });
+        var Button = nano.style(
+            'button',
+            {
+                cursor: 'pointer',
+                background: 'red',
+            },
+            function(props) {
+                return {
+                    border: '1px solid red',
+                    padding: props.big ? '20px' : '10px',
+                };
+            }
+        );
 
         Button.defaultProps = {
-            big: true
+            big: true,
         };
 
-        process.nextTick(function () {
+        process.nextTick(function() {
             expect(nano.raw.includes('cursor:pointer')).toBe(true);
             expect(nano.raw.includes('background:red')).toBe(true);
             expect(nano.raw.includes('border:1px solid red')).toBe(true);
@@ -130,24 +138,27 @@ describe('extract', function () {
         });
     });
 
-    it('extracts styled()() dynamic CSS', function (done) {
+    it('extracts styled()() dynamic CSS', function(done) {
         var nano = createNano();
 
-        var Button = nano.styled.button({
-            cursor: 'pointer',
-            background: 'red'
-        }, function (props) {
-            return {
-                border: '1px solid red',
-                padding: props.big ? '20px' : '10px'
-            };
-        });
+        var Button = nano.styled.button(
+            {
+                cursor: 'pointer',
+                background: 'red',
+            },
+            function(props) {
+                return {
+                    border: '1px solid red',
+                    padding: props.big ? '20px' : '10px',
+                };
+            }
+        );
 
         Button.defaultProps = {
-            big: true
+            big: true,
         };
 
-        process.nextTick(function () {
+        process.nextTick(function() {
             expect(nano.raw.includes('cursor:pointer')).toBe(true);
             expect(nano.raw.includes('background:red')).toBe(true);
             expect(nano.raw.includes('border:1px solid red')).toBe(true);

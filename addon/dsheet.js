@@ -1,16 +1,16 @@
 'use strict';
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('dsheet', renderer, ['sheet', 'cache']);
     }
 
-    renderer.dsheet = function (map, block) {
+    renderer.dsheet = function(map, block) {
         var styles = renderer.sheet(map, block);
         var closures = {};
 
-        var createClosure = function (elementModifier) {
-            var closure = function (dynamicStyles) {
+        var createClosure = function(elementModifier) {
+            var closure = function(dynamicStyles) {
                 if (!dynamicStyles) {
                     return styles[elementModifier];
                 }
@@ -20,7 +20,7 @@ exports.addon = function (renderer) {
                 return styles[elementModifier] + dynamicClassName;
             };
 
-            closure.toString = function () {
+            closure.toString = function() {
                 return styles[elementModifier];
             };
 

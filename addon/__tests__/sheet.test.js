@@ -5,17 +5,17 @@ var create = require('../../index').create;
 var addonRule = require('../../addon/rule').addon;
 var addonSheet = require('../../addon/sheet').addon;
 
-function createNano (config) {
+function createNano(config) {
     var nano = create(config);
 
     addonRule(nano);
     addonSheet(nano);
 
     return nano;
-};
+}
 
-describe('sheet()', function () {
-    it('installs sheet() method', function () {
+describe('sheet()', function() {
+    it('installs sheet() method', function() {
         var nano = create();
 
         expect(typeof nano.sheet).toBe('undefined');
@@ -26,22 +26,22 @@ describe('sheet()', function () {
         expect(typeof nano.sheet).toBe('function');
     });
 
-    it('returns a styles object', function () {
+    it('returns a styles object', function() {
         var nano = createNano();
         var styles = nano.sheet({
             input: {
                 color: 'red',
             },
             button: {
-                color: 'blue'
-            }
+                color: 'blue',
+            },
         });
 
         expect(typeof styles.input).toBe('string');
         expect(typeof styles.button).toBe('string');
     });
 
-    it('inserts a rule only when first accessed', function () {
+    it('inserts a rule only when first accessed', function() {
         var nano = createNano();
 
         nano.rule = jest.fn();
@@ -51,8 +51,8 @@ describe('sheet()', function () {
                 color: 'red',
             },
             button: {
-                color: 'blue'
-            }
+                color: 'blue',
+            },
         });
 
         expect(nano.rule).toHaveBeenCalledTimes(0);

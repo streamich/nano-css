@@ -10,11 +10,8 @@ require('../addon/rule').addon(renderer);
 const {rule} = renderer;
 
 const className = rule({
-  paddingLeft: '100px',
-  textAlign: 'left',
+    paddingLeft: '100px',
+    textAlign: 'left',
 });
 
-storiesOf('Addons/rtl', module)
-  .add('Default', () =>
-    h('div', {className: className}, 'Hello world')
-  )
+storiesOf('Addons/rtl', module).add('Default', () => h('div', {className: className}, 'Hello world'));

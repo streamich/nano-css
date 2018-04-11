@@ -2,7 +2,7 @@
 
 var addonCssom = require('./cssom').addon;
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (!renderer.putRule) {
         addonCssom(renderer);
     }
@@ -13,7 +13,7 @@ exports.addon = function (renderer) {
 
     var counter = 0;
 
-    renderer.pipe = function () {
+    renderer.pipe = function() {
         var rules = {};
         var className = renderer.pfx + 'pipe-' + (counter++).toString(36);
         var attr = 'data-' + className;
@@ -23,19 +23,19 @@ exports.addon = function (renderer) {
         var obj = {
             attr: attr,
             className: className,
-            css: function (css) {
+            css: function(css) {
                 for (var selectorTemplate in css) {
                     var declarations = css[selectorTemplate];
                     var rule = rules[selectorTemplate];
 
                     if (!rule) {
-                        var selector = selectorTemplate.replace('&', scope1) + ',' + selectorTemplate.replace('&', scope2);
+                        var selector =
+                            selectorTemplate.replace('&', scope1) + ',' + selectorTemplate.replace('&', scope2);
 
                         rules[selectorTemplate] = rule = renderer.putRule(selector);
                     }
 
-                    for (var prop in declarations)
-                        rule.style.setProperty(prop, declarations[prop]);
+                    for (var prop in declarations) rule.style.setProperty(prop, declarations[prop]);
                 }
 
                 // GC
@@ -46,10 +46,9 @@ exports.addon = function (renderer) {
                     }
                 }
             },
-            remove: function () {
-                for (var selectorTemplate in rules)
-                    rules[selectorTemplate].remove();
-            }
+            remove: function() {
+                for (var selectorTemplate in rules) rules[selectorTemplate].remove();
+            },
         };
 
         return obj;

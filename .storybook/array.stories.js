@@ -17,17 +17,13 @@ const cn1 = rule({
 
 const cn2 = rule([
     {
-        color: 'red'
+        color: 'red',
     },
     {
-        border: '1px solid green'
-    }
+        border: '1px solid green',
+    },
 ]);
 
 storiesOf('Addons/array', module)
-    .add('Value array', () =>
-        h('div', {className: cn1}, 'Value as array')
-    )
-    .add('CSS-like object array', () =>
-        h('div', {className: cn2}, 'CSS-like object array')
-    )
+    .add('Value array', () => h('div', {className: cn1}, 'Value as array'))
+    .add('CSS-like object array', () => h('div', {className: cn2}, 'CSS-like object array'));

@@ -1,6 +1,6 @@
 'use strict';
 
-exports.addon = function (renderer, limit) {
+exports.addon = function(renderer, limit) {
     limit = limit || 50000;
 
     if (process.env.NODE_ENV !== 'production') {
@@ -10,7 +10,7 @@ exports.addon = function (renderer, limit) {
     if (!renderer.client) {
         var putRaw = renderer.putRaw;
 
-        renderer.putRaw = function (rawCssRule) {
+        renderer.putRaw = function(rawCssRule) {
             if (renderer.raw.length + rawCssRule.length > limit) {
                 /* eslint-disable */
                 console.info('CSS was not injected, because total CSS would go over ' + limit + ' byte limit.');

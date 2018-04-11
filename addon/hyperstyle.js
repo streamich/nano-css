@@ -1,14 +1,14 @@
 'use strict';
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('hyperstyle', renderer, ['sheet']);
     }
 
-    renderer.hyperstyle = function (map, block) {
+    renderer.hyperstyle = function(map, block) {
         var styles = renderer.sheet(map, block);
 
-        return function (type, props) {
+        return function(type, props) {
             if (props) {
                 var styleName = props.styleName;
 

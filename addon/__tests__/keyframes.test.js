@@ -5,22 +5,22 @@ var env = require('./env');
 var create = require('../../index').create;
 var addonKeyframes = require('../../addon/keyframes').addon;
 
-function createNano (config) {
+function createNano(config) {
     var nano = create(config);
 
     addonKeyframes(nano);
 
     return nano;
-};
+}
 
-describe('keyframes', function () {
-    it('installs interface', function () {
+describe('keyframes', function() {
+    it('installs interface', function() {
         var nano = createNano();
 
         expect(typeof nano.keyframes).toBe('function');
     });
 
-    it('creates keyframe style sheet on client', function () {
+    it('creates keyframe style sheet on client', function() {
         var nano = createNano();
 
         if (env.isClient) {
@@ -30,35 +30,35 @@ describe('keyframes', function () {
         }
     });
 
-    describe('keyframes()', function () {
-        it('returns animation name', function () {
+    describe('keyframes()', function() {
+        it('returns animation name', function() {
             var nano = createNano();
             var name = nano.keyframes({
                 to: {
-                    transform: 'rotate(360deg)'
-                }
+                    transform: 'rotate(360deg)',
+                },
             });
 
             expect(typeof name).toBe('string');
             expect(name.length > 0).toBe(true);
         });
 
-        it('puts animation CSS', function () {
+        it('puts animation CSS', function() {
             var nano = create();
 
             addonKeyframes(nano, {
-                prefixes: ['']
+                prefixes: [''],
             });
 
             nano.putRaw = jest.fn();
             nano.ksh = {
-                appendChild: jest.fn()
+                appendChild: jest.fn(),
             };
 
             var name = nano.keyframes({
                 to: {
-                    transform: 'rotate(360deg)'
-                }
+                    transform: 'rotate(360deg)',
+                },
             });
 
             if (env.isClient) {
@@ -68,22 +68,22 @@ describe('keyframes', function () {
             }
         });
 
-        it('puts animation CSS with all prefixes', function () {
+        it('puts animation CSS with all prefixes', function() {
             var nano = create();
 
             addonKeyframes(nano, {
-                prefixes: ['-webkit-', '-moz-', '']
+                prefixes: ['-webkit-', '-moz-', ''],
             });
 
             nano.putRaw = jest.fn();
             nano.ksh = {
-                appendChild: jest.fn()
+                appendChild: jest.fn(),
             };
 
             var name = nano.keyframes({
                 to: {
-                    transform: 'rotate(360deg)'
-                }
+                    transform: 'rotate(360deg)',
+                },
             });
 
             if (env.isClient) {
@@ -97,25 +97,25 @@ describe('keyframes', function () {
         });
     });
 
-    describe('CSS-like object', function () {
-        it('puts animation CSS with all prefixes', function () {
+    describe('CSS-like object', function() {
+        it('puts animation CSS with all prefixes', function() {
             var nano = create();
 
             addonKeyframes(nano, {
-                prefixes: ['-webkit-', '-moz-', '']
+                prefixes: ['-webkit-', '-moz-', ''],
             });
 
             nano.putRaw = jest.fn();
             nano.ksh = {
-                appendChild: jest.fn()
+                appendChild: jest.fn(),
             };
 
             nano.put('', {
                 '@keyframes': {
                     to: {
-                        transform: 'rotate(360deg)'
-                    }
-                }
+                        transform: 'rotate(360deg)',
+                    },
+                },
             });
 
             if (env.isClient) {

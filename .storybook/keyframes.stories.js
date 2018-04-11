@@ -8,7 +8,7 @@ const {addon: addonRule} = require('../addon/rule');
 const {addon: addonKeyframes} = require('../addon/keyframes');
 
 const renderer = create({
-    pfx: 'animations-'
+    pfx: 'animations-',
 });
 addonAtoms(renderer);
 addonRule(renderer);
@@ -23,8 +23,8 @@ var styles = {
     animation: 'spinner-rotate-bar 1.2s infinite linear',
     '@keyframes spinner-rotate-bar': {
         to: {
-            transform: 'rotate(359.9deg)'
-        }
+            transform: 'rotate(359.9deg)',
+        },
     },
 };
 
@@ -32,23 +32,24 @@ const className = rule(styles);
 
 var animation1 = keyframes({
     to: {
-        transform: 'rotate(359deg)'
-    }
+        transform: 'rotate(359deg)',
+    },
 });
 
-var animation2 = keyframes({
-    to: {
-        transform: 'rotate(358deg)'
-    }
-}, 'rotator');
+var animation2 = keyframes(
+    {
+        to: {
+            transform: 'rotate(358deg)',
+        },
+    },
+    'rotator'
+);
 
 storiesOf('Addons/keyframes()', module)
-    .add('Bar spinner', () =>
-        h('div', {className}, '')
-    )
+    .add('Bar spinner', () => h('div', {className}, ''))
     .add('keyframes() hash', () =>
         h('div', {style: {background: 'red', width: 10, height: 10, animation: animation1 + ' 1s infinite linear'}}, '')
     )
     .add('keyframes() custom name', () =>
         h('div', {style: {background: 'red', width: 10, height: 10, animation: animation2 + ' 1s infinite linear'}}, '')
-    )
+    );

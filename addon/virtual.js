@@ -1,6 +1,6 @@
 'use strict';
 
-var createMemoizer = function (pfx) {
+var createMemoizer = function(pfx) {
     var offset = 10;
     var msb = 35;
     var power = 1;
@@ -9,7 +9,7 @@ var createMemoizer = function (pfx) {
         cache: {},
         length: 0,
 
-        next: function () {
+        next: function() {
             var vcount = self.length + offset;
 
             if (vcount === msb) {
@@ -21,7 +21,7 @@ var createMemoizer = function (pfx) {
             return vcount;
         },
 
-        get: function () {
+        get: function() {
             var curr = self.cache;
             var lastIndex = arguments.length - 1;
             var lastStep = arguments[lastIndex];
@@ -36,20 +36,20 @@ var createMemoizer = function (pfx) {
             if (!curr[lastStep]) curr[lastStep] = pfx + self.next().toString(36);
 
             return curr[lastStep];
-        }
+        },
     };
 
     return self;
 };
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('styled', renderer, ['putRaw']);
     }
 
     renderer.memo = createMemoizer(renderer.pfx);
 
-    renderer.atomic = function (selectorTemplate, rawDecl, atrule) {
+    renderer.atomic = function(selectorTemplate, rawDecl, atrule) {
         var memo = renderer.memo;
         var memoLength = memo.length;
         var className = memo.get(atrule, selectorTemplate, rawDecl);
@@ -68,7 +68,7 @@ exports.addon = function (renderer) {
         return className;
     };
 
-    renderer.virtual = function (selectorTemplate, decls, atrule) {
+    renderer.virtual = function(selectorTemplate, decls, atrule) {
         selectorTemplate = selectorTemplate || '&';
 
         var classNames = '';
@@ -76,7 +76,7 @@ exports.addon = function (renderer) {
         for (var prop in decls) {
             var value = decls[prop];
 
-            if ((value instanceof Object) && !(value instanceof Array)) {
+            if (value instanceof Object && !(value instanceof Array)) {
                 if (prop[0] === '@') {
                     renderer.virtual(selectorTemplate, value, prop);
                 } else {
@@ -96,7 +96,7 @@ exports.addon = function (renderer) {
         return classNames;
     };
 
-    renderer.rule = function (decls) {
+    renderer.rule = function(decls) {
         return renderer.virtual('&', decls);
     };
 };

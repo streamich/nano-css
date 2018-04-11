@@ -5,12 +5,12 @@ var Component = React.Component;
 var transformComponentStatic = require('./util/transformComponentStatic');
 var transformComponentDynamic = require('./util/transformComponentDynamic');
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('component', renderer, ['rule', 'cache']);
     }
 
-    function CssComponent (props, context) {
+    function CssComponent(props, context) {
         Component.call(this, props, context);
 
         var Comp = this.constructor;

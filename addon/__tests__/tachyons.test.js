@@ -6,7 +6,7 @@ var addonRule = require('../../addon/rule').addon;
 var addonCache = require('../../addon/cache').addon;
 var addonTachyons = require('../../addon/tachyons').addon;
 
-function createNano (config) {
+function createNano(config) {
     var nano = create(config);
 
     addonRule(nano);
@@ -14,30 +14,30 @@ function createNano (config) {
     addonTachyons(nano);
 
     return nano;
-};
+}
 
-describe('tachyons', function () {
-    it('works', function () {
+describe('tachyons', function() {
+    it('works', function() {
         var nano = createNano();
 
         expect(nano.s.f1.obj).toEqual({
-            fontSize: '3rem'
+            fontSize: '3rem',
         });
     });
 
-    it('multiple rules', function () {
+    it('multiple rules', function() {
         var nano = createNano();
 
         expect(nano.s.f4.i.b.strike.ttu.serif.measure.fl.wTwoThirds.obj).toMatchSnapshot();
     });
 
-    it('.grow', function () {
+    it('.grow', function() {
         var nano = createNano();
 
         expect(nano.s.grow.obj).toMatchSnapshot();
     });
 
-    it('.dim', function () {
+    it('.dim', function() {
         var nano = createNano();
 
         expect(nano.s.dim.obj).toMatchSnapshot();

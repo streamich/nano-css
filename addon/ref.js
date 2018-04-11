@@ -5,7 +5,7 @@ var addonPipe = require('./pipe').addon;
 // eslint-disable-next-line no-undef
 var sNano = typeof Symbol === 'object' ? Symbol('nano-css') : '@@nano-css';
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (!renderer.pipe) {
         addonPipe(renderer);
     }
@@ -14,10 +14,10 @@ exports.addon = function (renderer) {
         require('./__dev__/warnOnMissingDependencies')('ref', renderer, ['pipe']);
     }
 
-    renderer.createRef = function () {
+    renderer.createRef = function() {
         var pipe = renderer.pipe();
         var el = null;
-        var ref = function (element) {
+        var ref = function(element) {
             if (el) el = element;
             else {
                 el = null;
@@ -28,23 +28,25 @@ exports.addon = function (renderer) {
 
         obj[pipe.attr] = '';
 
-        return function (css) {
+        return function(css) {
             pipe.css(css);
             return obj;
         };
     };
 
-    renderer.ref = function (css, originalRef) {
+    renderer.ref = function(css, originalRef) {
         if (process.env.NODE_ENV !== 'production') {
             if (originalRef && typeof originalRef !== 'function') {
                 console.error(
-                    'nano-css "ref" function expects argument to be a ref function, "' + (typeof originalRef) + '" provided.'
+                    'nano-css "ref" function expects argument to be a ref function, "' +
+                        typeof originalRef +
+                        '" provided.'
                 );
             }
         }
 
         var obj = {
-            ref: function (el) {
+            ref: function(el) {
                 if (originalRef) originalRef(el);
                 if (!el) return;
 
@@ -56,7 +58,7 @@ exports.addon = function (renderer) {
 
                     // Add unmount logic
 
-                    var observer = new MutationObserver(function (mutations) {
+                    var observer = new MutationObserver(function(mutations) {
                         for (var i = 0; i < mutations.length; i++) {
                             var mutation = mutations[i];
 
@@ -79,7 +81,7 @@ exports.addon = function (renderer) {
                 }
 
                 pipe.css(css);
-            }
+            },
         };
 
         return obj;

@@ -24,9 +24,5 @@ putRaw(`
 `);
 
 storiesOf('Addons/putRaw()', module)
-  .add('Default', () =>
-    h('div', {className: 'red-border-raw'}, 'Hello world')
-  )
-  .add('Nesting', () =>
-    h('div', {className: 'red-border-raw'}, 'Hello ', h('span', null, 'world'))
-  )
+    .add('Default', () => h('div', {className: 'red-border-raw'}, 'Hello world'))
+    .add('Nesting', () => h('div', {className: 'red-border-raw'}, 'Hello ', h('span', null, 'world')));

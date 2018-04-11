@@ -2,7 +2,7 @@
 
 var addonCache = require('./cache').addon;
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     if (!renderer.cache) {
         addonCache(renderer);
     }
@@ -11,11 +11,11 @@ exports.addon = function (renderer) {
         require('./__dev__/warnOnMissingDependencies')('jsx', renderer, ['rule', 'cache']);
     }
 
-    renderer.jsx = function (fn, styles, block) {
+    renderer.jsx = function(fn, styles, block) {
         var className;
         var isElement = typeof fn === 'string';
 
-        var Component = function (props) {
+        var Component = function(props) {
             if (!className) {
                 className = renderer.rule(styles, block);
             }
@@ -39,9 +39,7 @@ exports.addon = function (renderer) {
 
             copy.className = (props.className || '') + className + dynamicClassName;
 
-            return (isElement || $as)
-                ? renderer.h($as || fn, copy)
-                : fn(copy);
+            return isElement || $as ? renderer.h($as || fn, copy) : fn(copy);
         };
 
         if (process.env.NODE_EVN !== 'production') {

@@ -82,8 +82,16 @@ var tachyons = [
     ['ttu', 'textTransform', 'uppercase'],
 
     // Fonts
-    ['sans-serif', 'fontFamily', "-apple-system,BlinkMacSystemFont,'avenir next', avenir,helvetica,'helvetica neue',ubuntu,roboto,noto,'segoe ui',arial,sans-serif"],
-    ['sansSerif', 'fontFamily', "-apple-system,BlinkMacSystemFont,'avenir next', avenir,helvetica,'helvetica neue',ubuntu,roboto,noto,'segoe ui',arial,sans-serif"],
+    [
+        'sans-serif',
+        'fontFamily',
+        "-apple-system,BlinkMacSystemFont,'avenir next', avenir,helvetica,'helvetica neue',ubuntu,roboto,noto,'segoe ui',arial,sans-serif",
+    ],
+    [
+        'sansSerif',
+        'fontFamily',
+        "-apple-system,BlinkMacSystemFont,'avenir next', avenir,helvetica,'helvetica neue',ubuntu,roboto,noto,'segoe ui',arial,sans-serif",
+    ],
     ['serif', 'fontFamily', 'georgia,times,serif'],
     ['code', 'fontFamily', 'Consolas,monaco,monospace'],
     ['courier', 'fontFamily', "'Courier Next', courier, monospace"],
@@ -172,22 +180,21 @@ for (var name in colors) {
     tachyons.push(['b' + capitalized, 'borderColor', color]);
 }
 
-exports.addon = function (renderer, ruleOverrides) {
+exports.addon = function(renderer, ruleOverrides) {
     var rules = {};
 
-    function onTachyon (tachyon) {
-        rules[tachyon[0]] = function () {
+    function onTachyon(tachyon) {
+        rules[tachyon[0]] = function() {
             for (var i = 1; i < tachyon.length; i += 2) {
                 this[tachyon[i]] = tachyon[i + 1];
             }
         };
     }
 
-    for (var i = 0; i < tachyons.length; i++)
-        onTachyon(tachyons[i]);
+    for (var i = 0; i < tachyons.length; i++) onTachyon(tachyons[i]);
 
     // Add hover rules
-    rules.grow = function () {
+    rules.grow = function() {
         this['-moz-osx-font-smoothing'] = 'grayscale';
         this.backfaceVisibility = 'hidden';
         this.transform = 'translateZ(0)';
@@ -200,7 +207,7 @@ exports.addon = function (renderer, ruleOverrides) {
         };
     };
 
-    rules.dim = function () {
+    rules.dim = function() {
         this.opacity = 1;
         this.transition = 'opacity .15s ease-in';
         this[':hover'] = {

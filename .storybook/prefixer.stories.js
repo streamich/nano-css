@@ -19,7 +19,4 @@ const className1 = rule({
     'text-shadow': '2px 2px #ff0000',
 });
 
-storiesOf('Addons/prefixer', module)
-    .add('Default', () =>
-        h('div', {className: className1}, 'Hello world')
-    )
+storiesOf('Addons/prefixer', module).add('Default', () => h('div', {className: className1}, 'Hello world'));

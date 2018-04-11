@@ -10,12 +10,12 @@ var addonRule = require('../addon/rule').addon;
 var addonSheet = require('../addon/sheet').addon;
 var addonJsx = require('../addon/jsx').addon;
 
-exports.preset = function (config) {
+exports.preset = function(config) {
     if (process.env.NODE_ENV !== 'production') {
         if (!config || !(config instanceof Object) || !config.h) {
             console.error(
                 'For "vdom" nano-css preset you have to provide virtual DOM ' +
-                'hyperscript function h. Such as: preset({h: require("react").createElement})'
+                    'hyperscript function h. Such as: preset({h: require("react").createElement})'
             );
         }
     }

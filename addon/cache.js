@@ -1,9 +1,9 @@
 'use strict';
 
-exports.addon = function (renderer) {
+exports.addon = function(renderer) {
     var cache = {};
 
-    renderer.cache = function (css) {
+    renderer.cache = function(css) {
         if (!css) return '';
 
         var key = renderer.hash(css);

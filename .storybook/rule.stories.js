@@ -9,11 +9,11 @@ const nano = create();
 addon(nano);
 const {rule} = nano;
 
-const className1 = rule({
-  border: '1px solid red'
-}, 'RedBorder');
+const className1 = rule(
+    {
+        border: '1px solid red',
+    },
+    'RedBorder'
+);
 
-storiesOf('Addons/rule()', module)
-  .add('Default', () =>
-    h('div', {className: className1}, 'Hello world')
-  )
+storiesOf('Addons/rule()', module).add('Default', () => h('div', {className: className1}, 'Hello world'));

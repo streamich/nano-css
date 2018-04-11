@@ -13,17 +13,20 @@ addonRule(renderer);
 addonDrule(renderer);
 const {drule} = renderer;
 
-const className1 = drule({
-  border: '1px solid red'
-}, 'RedBorder');
+const className1 = drule(
+    {
+        border: '1px solid red',
+    },
+    'RedBorder'
+);
 
 storiesOf('Addons/drule()', module)
-    .add('Default', () =>
-        h('div', {className: '' + className1}, 'Hello world')
-    )
+    .add('Default', () => h('div', {className: '' + className1}, 'Hello world'))
     .add('Dynamic styles', () =>
-        h('div', null,
+        h(
+            'div',
+            null,
             h('div', {className: className1({fontWeight: 'bold'})}, 'Hello world'),
             h('div', {className: className1({color: 'blue'})}, 'Hello world')
         )
-    )
+    );

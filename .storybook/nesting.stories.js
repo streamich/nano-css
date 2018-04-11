@@ -11,17 +11,17 @@ addonRule(renderer);
 addonNesting(renderer);
 const {rule} = renderer;
 
-const className = rule({
-    border: '1px solid red',
-    '&:hover': {
-        fontWeight: 'bold'
+const className = rule(
+    {
+        border: '1px solid red',
+        '&:hover': {
+            fontWeight: 'bold',
+        },
+        '&>span': {
+            color: 'red',
+        },
     },
-    '&>span': {
-        color: 'red',
-    },
-}, 'nesting');
+    'nesting'
+);
 
-storiesOf('Addons/Nesting', module)
-    .add('Default', () =>
-        h('div', {className}, 'Hover ', h('span', null, 'me!'))
-    )
+storiesOf('Addons/Nesting', module).add('Default', () => h('div', {className}, 'Hover ', h('span', null, 'me!')));

@@ -14,11 +14,11 @@ addonJsx(renderer);
 const {jsx} = renderer;
 
 const RedBorder = jsx('div', {
-  border: '1px solid red'
+    border: '1px solid red',
 });
 
 const Block = jsx('div', {
-    'text-align': 'center'
+    'text-align': 'center',
 });
 
 const Button = jsx('button', {
@@ -38,30 +38,16 @@ const Button = jsx('button', {
     },
     '@media (max-width: 480px)': {
         width: '160px',
-    }
+    },
 });
 
 const ButtonYellow = jsx(Button, {
-    color: 'yellow'
+    color: 'yellow',
 });
 
 storiesOf('Addons/jsx()', module)
-    .add('Default', () =>
-        h(RedBorder, null, 'Hello world')
-    )
-    .add('Custom CSS', () =>
-        h(RedBorder, {css: {fontWeight: 'bold'}}, 'Hello world')
-    )
-    .add('Inline styles', () =>
-        h(RedBorder, {style: {color: 'red'}, css: {fontWeight: 'bold'}}, 'Hello world')
-    )
-    .add('Button', () =>
-        h(Block, null,
-            h(Button, null, 'Click me!')
-        )
-    )
-    .add('Composition', () =>
-        h(Block, null,
-            h(ButtonYellow, null, 'Click me!')
-        )
-    )
+    .add('Default', () => h(RedBorder, null, 'Hello world'))
+    .add('Custom CSS', () => h(RedBorder, {css: {fontWeight: 'bold'}}, 'Hello world'))
+    .add('Inline styles', () => h(RedBorder, {style: {color: 'red'}, css: {fontWeight: 'bold'}}, 'Hello world'))
+    .add('Button', () => h(Block, null, h(Button, null, 'Click me!')))
+    .add('Composition', () => h(Block, null, h(ButtonYellow, null, 'Click me!')));

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (renderer, Comp, dynamicTemplate) {
+module.exports = function(renderer, Comp, dynamicTemplate) {
     if (process.env.NODE_ENV !== 'production') {
         if (typeof dynamicTemplate !== 'function') {
             var what;
@@ -18,7 +18,7 @@ module.exports = function (renderer, Comp, dynamicTemplate) {
     var prototype = Comp.prototype;
     var render_ = prototype.render;
 
-    prototype.render = function () {
+    prototype.render = function() {
         var element = render_.apply(this, arguments);
         var props = element.props;
         var dynamicClassName = '';
@@ -38,9 +38,13 @@ module.exports = function (renderer, Comp, dynamicTemplate) {
         var className = (props.className || '') + dynamicClassName;
 
         if (process.env.NODE_ENV !== 'production') {
-            return require('react').cloneElement(element, Object.assign({}, props, {
-                className: className
-            }), props.children);
+            return require('react').cloneElement(
+                element,
+                Object.assign({}, props, {
+                    className: className,
+                }),
+                props.children
+            );
         }
 
         props.className = className;
