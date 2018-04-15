@@ -66,7 +66,7 @@
     "source-map-support": "0.5.4",
     "webpack-dev-server": "2.11.2",
     "webpack": "3.11.0",
-    "yarn": "1.5.1",
+    "yarn": "1.6.0",
     "chai": "4.1.2",
     "@storybook/react": "3.4.1",
     "@storybook/addon-actions": "3.4.1",
