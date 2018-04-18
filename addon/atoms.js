@@ -43,6 +43,8 @@ var atoms = exports.atoms = {
     w:      'width',
     minW:   'min-width',
     maxW:   'max-width',
+    minH:   'min-height',
+    maxH:   'max-height',
     h:      'height',
     trs:    'transition',
     out:    'outline',

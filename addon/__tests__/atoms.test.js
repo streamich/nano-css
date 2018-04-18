@@ -36,10 +36,14 @@ describe('atoms', function () {
 
         nano.put('.bar', {
             col: 'blue',
-            ta: 'center'
+            ta: 'center',
+            minH: '100px',
+            maxH: '200px'
         });
 
         expect(nano.putRaw.mock.calls[0][0].includes('color:blue')).toBe(true);
         expect(nano.putRaw.mock.calls[0][0].includes('text-align:center')).toBe(true);
+        expect(nano.putRaw.mock.calls[0][0].includes('min-height:100px')).toBe(true);
+        expect(nano.putRaw.mock.calls[0][0].includes('max-height:200px')).toBe(true);
     });
 });
