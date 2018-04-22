@@ -74,7 +74,7 @@ exports.create = function (config) {
             value = decls[prop];
 
             if ((value instanceof Object) && !(value instanceof Array)) {
-                postponed.push([value, prop]);
+                postponed.push(prop);
             } else {
                 str += renderer.decl(prop, value, selector, atrule);
             }
@@ -86,13 +86,12 @@ exports.create = function (config) {
         }
 
         for (var i = 0; i < postponed.length; i++) {
-            prop = postponed[i][0];
-            value = postponed[i][1];
+            prop = postponed[i];
 
             if (prop[0] === '@') {
-                renderer.putAt(selector, prop, value);
+                renderer.putAt(selector, decls[prop], prop);
             } else {
-                renderer.put(renderer.selector(selector, prop), value, atrule);
+                renderer.put(renderer.selector(selector, prop), decls[prop], atrule);
             }
         }
     };
