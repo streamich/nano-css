@@ -68,16 +68,13 @@ exports.create = function (config) {
     renderer.put = function (selector, decls, atrule) {
         var str = '';
         var prop, value;
+        var postponed = [];
 
         for (prop in decls) {
             value = decls[prop];
 
             if ((value instanceof Object) && !(value instanceof Array)) {
-                if (prop[0] === '@') {
-                    renderer.putAt(selector, value, prop);
-                } else {
-                    renderer.put(renderer.selector(selector, prop), value, atrule);
-                }
+                postponed.push(prop);
             } else {
                 str += renderer.decl(prop, value, selector, atrule);
             }
@@ -86,6 +83,16 @@ exports.create = function (config) {
         if (str) {
             str = selector + '{' + str + '}';
             renderer.putRaw(atrule ? atrule + '{' + str + '}' : str);
+        }
+
+        for (var i = 0; i < postponed.length; i++) {
+            prop = postponed[i];
+
+            if (prop[0] === '@') {
+                renderer.putAt(selector, decls[prop], prop);
+            } else {
+                renderer.put(renderer.selector(selector, prop), decls[prop], atrule);
+            }
         }
     };
 
