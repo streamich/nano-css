@@ -58,7 +58,8 @@ exports.create = function (config) {
 
         renderer.putRaw = function (rawCssRule) {
             if (process.env.NODE_ENV === 'production') {
-                renderer.sh.sheet.insertRule(rawCssRule, 0);
+                var sheet = renderer.sh.sheet;
+                sheet.insertRule(rawCssRule, sheet.cssRules.length);
             } else {
                 renderer.sh.appendChild(document.createTextNode(rawCssRule));
             }
