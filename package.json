@@ -63,7 +63,7 @@
     "react-dom": "16.2.0",
     "react-test-renderer": "15.6.2",
     "rimraf": "2.6.2",
-    "source-map-support": "0.5.4",
+    "source-map-support": "0.5.5",
     "webpack-dev-server": "2.11.2",
     "webpack": "3.11.0",
     "yarn": "1.6.0",
