@@ -15,7 +15,8 @@ var resets = [
     'Tantek',
     'Tripoli',
     'Universal',
-    'Yahoo'
+    'Yahoo',
+    'Normalize',
 ];
 
 describe('reset', function () {
