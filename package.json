@@ -43,18 +43,11 @@
   },
   "devDependencies": {
     "@types/react": "16.3.17",
-    "@types/enzyme": "2.8.12",
-    "@types/enzyme-to-json": "1.5.1",
     "@types/jest": "22.2.3",
     "@types/node": "8.10.19",
     "@types/prop-types": "15.5.3",
-    "enzyme": "3.3.0",
-    "enzyme-to-json": "3.3.4",
-    "enzyme-adapter-react-16": "1.1.1",
-    "gulp": "3.9.1",
     "husky": "0.14.3",
     "jest": "21.2.1",
-    "jest-tap-reporter": "1.9.0",
     "lerna": "2.11.0",
     "lint-staged": "4.3.0",
     "prettier": "1.13.5",
@@ -67,16 +60,14 @@
     "webpack-dev-server": "2.11.2",
     "webpack": "3.12.0",
     "yarn": "1.7.0",
-    "chai": "4.1.2",
     "@storybook/react": "3.4.7",
     "@storybook/addon-actions": "3.4.7",
     "@storybook/addon-links": "3.4.7",
-    "mol-conventional-changelog": "1.4.0",
+    "git-cz": "^1.7.0",
     "semantic-release": "15.5.2",
     "@semantic-release/changelog": "2.0.2",
     "@semantic-release/npm": "3.3.1",
     "@semantic-release/git": "5.0.0",
-    "gitbook-cli": "2.3.2",
     "libreact": "0.18.0",
     "webpack-bundle-analyzer": "2.13.1",
     "eslint": "4.19.1",
@@ -86,7 +77,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/mol-conventional-changelog"
+      "path": "git-cz"
     }
   },
   "jest": {
@@ -99,9 +90,6 @@
       "js",
       "jsx",
       "json"
-    ],
-    "reporters": [
-      "jest-tap-reporter"
     ]
   },
   "prettier": {
