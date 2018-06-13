@@ -72,7 +72,10 @@
     "@storybook/addon-actions": "3.4.7",
     "@storybook/addon-links": "3.4.7",
     "mol-conventional-changelog": "1.4.0",
-    "semantic-release": "12.4.1",
+    "semantic-release": "^15.5.0",
+    "@semantic-release/changelog": "^2.0.2",
+    "@semantic-release/npm": "^3.3.1",
+    "@semantic-release/git": "^5.0.0",
     "gitbook-cli": "2.3.2",
     "libreact": "0.18.0",
     "webpack-bundle-analyzer": "2.13.1",
@@ -110,6 +113,18 @@
     "trailingComma": "es5",
     "bracketSpacing": false,
     "jsxBracketSameLine": false
+  },
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
   },
   "keywords": [
     "css",
