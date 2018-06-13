@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/streamich/nano-css/compare/v1.0.0...v2.0.0) (2018-06-13)
+
+
+### Features
+
+* semantic-releaes v2 ([ccb5d6d](https://github.com/streamich/nano-css/commit/ccb5d6d))
+
+
+### BREAKING CHANGES
+
+* v2
+
 # 1.0.0 (2018-06-13)
 
 
