@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/streamich/nano-css/compare/v2.0.0...v2.0.1) (2018-06-15)
+
+
+### Bug Fixes
+
+* remove complicated selectors in Normalize.css reset ([4f13854](https://github.com/streamich/nano-css/commit/4f13854))
+
 # [2.0.0](https://github.com/streamich/nano-css/compare/v1.0.0...v2.0.0) (2018-06-13)
 
 
