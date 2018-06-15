@@ -109,28 +109,11 @@ Object {
 
 exports[`reset Normalize 1`] = `
 Object {
-  "::-webkit-file-upload-button": Object {
-    "-webkit-appearance": "button",
-    "font": "inherit",
-  },
-  "[type=\\"number\\"]::-webkit-inner-spin-button,[type=\\"number\\"]::-webkit-outer-spin-button": Object {
-    "height": "auto",
-  },
-  "[type=\\"search\\"]": Object {
-    "-webkit-appearance": "textfield",
-    "outlineOffset": "-2px",
-  },
-  "[type=\\"search\\"]::-webkit-search-decoration": Object {
-    "-webkit-appearance": "none",
-  },
   "b,strong": Object {
     "fontWeight": "bolder",
   },
   "body": Object {
     "margin": 0,
-  },
-  "button,[type=\\"button\\"],[type=\\"reset\\"],[type=\\"submit\\"]": Object {
-    "-webkit-appearance": "button",
   },
   "button,input": Object {
     "overflow": "visible",
@@ -143,13 +126,6 @@ Object {
   },
   "button,select": Object {
     "textTransform": "none",
-  },
-  "button:-moz-focusring,[type=\\"button\\"]:-moz-focusring,[type=\\"reset\\"]:-moz-focusring,[type=\\"submit\\"]:-moz-focusring": Object {
-    "outline": "1px dotted ButtonText",
-  },
-  "button::-moz-focus-inner,[type=\\"button\\"]::-moz-focus-inner,[type=\\"reset\\"]::-moz-focus-inner,[type=\\"submit\\"]::-moz-focus-inner": Object {
-    "borderStyle": "none",
-    "padding": 0,
   },
   "code,kbd,samp": Object {
     "fontFamily": "monospace, monospace",
