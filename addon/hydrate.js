@@ -17,7 +17,7 @@ exports.addon = function (renderer, stylesheet) {
             return;
         }
 
-        var cssRules = stylesheet.cssRules;
+        var cssRules = stylesheet.sheet.cssRules;
 
         for (var i = 0; i < cssRules.length; i++)
             hydrated[cssRules[i].selectorText] = 1;
