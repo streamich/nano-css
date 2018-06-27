@@ -59,7 +59,11 @@ exports.create = function (config) {
         renderer.putRaw = function (rawCssRule) {
             if (process.env.NODE_ENV === 'production') {
                 var sheet = renderer.sh.sheet;
-                sheet.insertRule(rawCssRule, sheet.cssRules.length);
+                try {
+                    sheet.insertRule(rawCssRule, sheet.cssRules.length);
+                } catch (e) {
+                    // Ignore rules the browser doesn't recognize
+                }
             } else {
                 renderer.sh.appendChild(document.createTextNode(rawCssRule));
             }
