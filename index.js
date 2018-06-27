@@ -7,7 +7,7 @@ var hash = function (str) {
 
     while (i) hash = (hash * 33) ^ str.charCodeAt(--i);
 
-    return '_' + (hash >>> 0).toString(36);
+    return (hash >>> 0).toString(36);
 };
 
 exports.create = function (config) {

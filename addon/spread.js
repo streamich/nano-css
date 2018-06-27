@@ -6,7 +6,12 @@ exports.addon = function (renderer) {
     }
 
     renderer.spread = function (css, block) {
-        block = block || renderer.hash(css);
+        if (process.env.NODE_ENV === 'production') {
+            block = renderer.hash(css);
+        } else {
+            block = (block || '') + '_' + renderer.hash(css);
+        }
+        
         block = renderer.pfx + block;
         renderer.put('.' + block + ',[data-' + block + ']', css);
 

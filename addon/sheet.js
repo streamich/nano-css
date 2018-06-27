@@ -8,8 +8,10 @@ exports.addon = function (renderer) {
     renderer.sheet = function (map, block) {
         var result = {};
 
-        if (!block) {
-            block = renderer.hash(map);
+        if (process.env.NODE_ENV === 'production') {
+            block = renderer.hash(css);
+        } else {
+            block = (block || '') + '_' + renderer.hash(css);
         }
 
         var onElementModifier = function (elementModifier) {
