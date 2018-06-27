@@ -51,7 +51,12 @@ exports.addon = function (renderer, config) {
     };
 
     renderer.keyframes = function (keyframes, block) {
-        if (!block) block = renderer.hash(keyframes);
+        if (process.env.NODE_ENV === 'production') {
+            block = renderer.hash(css);
+        } else {
+            block = (block || '') + '_' + renderer.hash(css);
+        }
+        
         block = renderer.pfx + block;
 
         renderer.putAt('', keyframes, '@keyframes ' + block);
