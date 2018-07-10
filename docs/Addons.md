@@ -20,7 +20,7 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`atoms`](./atoms.md) &mdash; CSS shorthands for better DX
 - [`nesting`](./nesting.md) &mdash; better nesting features
 - [`keyframes()`](./keyframes.md) &mdash; adds `@keyframes` support
-- [`hydrate`](./hydrate.md) &mdash; adds support for re-hydration on client side
+- [`hydrate()`](./hydrate.md) &mdash; adds support for re-hydration on client side
 - [`prefixer`](./prefixer.md) &mdash; auto-prefixes your styles with correct vendor prefixes
 - [`stylis`](./stylis.md) &mdash; write CSS as strings
 - [`unitless`](./unitless.md) &mdash; automatically adds `px` to styles

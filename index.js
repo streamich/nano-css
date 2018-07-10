@@ -13,7 +13,6 @@ var hash = function (str) {
 exports.create = function (config) {
     config = config || {};
     var assign = config.assign || Object.assign;
-
     var client = typeof window === 'object';
 
     // Check if we are really in browser environment.

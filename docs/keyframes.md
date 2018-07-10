@@ -38,7 +38,7 @@ const className = rule({
 
 As a second argument, `keyframes` addon can accept a configuration object with the following keys:
 
-- `prefixes` &mdash; optional, array of prefixes to add to `@keyframes` at-rule, defaults to `['-webkit-', '-moz-', '-o-', '']`.
+- `prefixes` &mdash; optional, array of prefixes, defaults to `['-webkit-', '-moz-', '-o-', '']`.
 
 
 ## Installation

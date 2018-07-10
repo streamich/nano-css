@@ -17,6 +17,9 @@ put('.red-border', {
     }
 });
 
+put('.check-same-name-warning', {color: 'red'});
+put('.check-same-name-warning', {color: 'red'});
+
 storiesOf('Addons/put()', module)
     .add('Default', () =>
         h('div', {className: 'red-border'}, 'Hello world')

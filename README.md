@@ -36,7 +36,7 @@ __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS libra
   - [`atoms`](./docs/atoms.md) &mdash; [*demo!*](https://codesandbox.io/s/rlkxl6o9v4)
   - [`nesting`](./docs/nesting.md)
   - [`keyframes()`](./docs/keyframes.md)
-  - [`hydrate`](./docs/hydrate.md)
+  - [`hydrate()`](./docs/hydrate.md)
   - [`prefixer`](./docs/prefixer.md)
   - [`stylis`](./docs/stylis.md)
   - [`unitless`](./docs/unitless.md)
