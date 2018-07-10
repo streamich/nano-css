@@ -1,10 +1,10 @@
 # `sourcemaps` Addon
 
-Adds sourcempas in dev mode.
+Adds sourcemap support in development mode.
 
 ![](./sourcemaps.gif)
 
-Do now use this addon in production. Check environment to exclude it from production:
+Do not use this addon in production. Check environment to exclude it from production:
 
 ```js
 if (process.env.NODE_ENV !== 'production') {

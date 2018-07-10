@@ -14,6 +14,7 @@ var addonJsx = require('../addon/jsx').addon;
 var addonStyle = require('../addon/style').addon;
 var addonStyled = require('../addon/styled').addon;
 var addonDecorator = require('../addon/decorator').addon;
+var addonSourcemaps = require('../addon/sourcemaps').addon;
 
 exports.preset = function (config) {
     config = config || {};
@@ -33,6 +34,10 @@ exports.preset = function (config) {
     addonStyle(nano);
     addonStyled(nano);
     addonDecorator(nano);
+
+    if (process.env.NODE_ENV !== 'production') {
+        addonSourcemaps(nano);
+    }
 
     return nano;
 };

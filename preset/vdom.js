@@ -9,6 +9,7 @@ var addonKeyframes = require('../addon/keyframes').addon;
 var addonRule = require('../addon/rule').addon;
 var addonSheet = require('../addon/sheet').addon;
 var addonJsx = require('../addon/jsx').addon;
+var addonSourcemaps = require('../addon/sourcemaps').addon;
 
 exports.preset = function (config) {
     if (process.env.NODE_ENV !== 'production') {
@@ -30,6 +31,10 @@ exports.preset = function (config) {
     addonRule(nano);
     addonSheet(nano);
     addonJsx(nano);
+
+    if (process.env.NODE_ENV !== 'production') {
+        addonSourcemaps(nano);
+    }
 
     return nano;
 };
