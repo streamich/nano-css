@@ -1,26 +1,21 @@
 'use strict';
 
-exports.addon = function (renderer, stylesheet) {
+exports.addon = function (renderer) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('hydrate', renderer, ['put']);
     }
 
-    if (renderer.client) {
-        var hydrated = {};
-        stylesheet = stylesheet || renderer.sh;
+    var hydrated = {};
 
-        if (!stylesheet) {
-            if (process.env.NODE_ENV !== 'production') {
-                console.error('Hydration style sheet was not found.');
-            }
-
-            return;
-        }
-
-        var cssRules = stylesheet.sheet.cssRules;
+    renderer.hydrate = function (sh) {
+        var cssRules = sh.cssRules || sh.sheet.cssRules;
 
         for (var i = 0; i < cssRules.length; i++)
             hydrated[cssRules[i].selectorText] = 1;
+    };
+
+    if (renderer.client) {
+        if (renderer.sh) renderer.hydrate(renderer.sh);
 
         var put = renderer.put;
 
