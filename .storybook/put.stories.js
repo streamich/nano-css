@@ -5,6 +5,7 @@ const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../index');
 
 const renderer = create();
+require('../addon/sourcemaps').addon(renderer);
 const {put} = renderer;
 
 put('.red-border', {
