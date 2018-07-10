@@ -3,7 +3,25 @@
 var StackTrace = require('stacktrace-js');
 var SourcemapCodec = require('sourcemap-codec');
 
+function findStackframe (frames) {
+    for (var i = 4; i < frames.length; i++) {
+        if (!frames[i].fileName.match(/addon\/[^.]+\.js/)) {
+            return frames[i];
+        }
+    }
+}
+
 exports.addon = function (renderer) {
+    if (process.env.NODE_ENV === 'production') {
+        // eslint-disable-next-line no-console
+        console.log(
+            'nano-css sourcemaps addon should be installed only in development mode. ' +
+            'Use (process.env.NODE !== "production") to check if you are in development mode.'
+        );
+
+        return;
+    }
+
     var queue = [];
     var timeout = null;
     var sourceCache = {};
@@ -40,6 +58,7 @@ exports.addon = function (renderer) {
         var css = rules.join('\n') + '\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64 + ' */';
         var style = document.createElement('style');
 
+        style.setAttribute('data-sourcemaps', '');
         style.appendChild(document.createTextNode(css));
         document.head.appendChild(style);
     }
@@ -47,20 +66,13 @@ exports.addon = function (renderer) {
     function enqueue (rawCss) {
         StackTrace.get({sourceCache: sourceCache})
             .then(function (stackframes) {
-                var frame = stackframes[4];
+                var frame = findStackframe(stackframes);
 
                 if (!frame) {
                     return;
                 }
 
-                var pos = rawCss.indexOf('{');
-
-                if (pos < 1) return;
-
-                var selector = rawCss.substr(0, pos).trim();
-
                 queue.push({
-                    selector: selector,
                     rule: rawCss,
                     fileName: frame.fileName,
                     lineNumber: frame.lineNumber,
