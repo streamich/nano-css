@@ -35,7 +35,7 @@
     "react-dom": "*"
   },
   "dependencies": {
-    "fastest-stable-stringify": "^1.0.1",
+    "fastest-stable-stringify": "^2.0.0",
     "stylis": "3.5.0",
     "inline-style-prefixer": "^4.0.0",
     "rtl-css-js": "^1.9.0",
