@@ -17,6 +17,8 @@ const Button = style('button', {
     background: props.primary ? 'blue' : 'grey',
     fontSize: props.small ? '12px' : '16px'
 }));
+
+<Button>Click me!</Button>
 ```
 
 `style()` has the following signature:

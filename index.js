@@ -13,7 +13,6 @@ var hash = function (str) {
 exports.create = function (config) {
     config = config || {};
     var assign = config.assign || Object.assign;
-
     var client = typeof window === 'object';
 
     // Check if we are really in browser environment.
@@ -56,11 +55,24 @@ exports.create = function (config) {
         if (!renderer.sh)
             document.head.appendChild(renderer.sh = document.createElement('style'));
 
+        if (process.env.NODE_ENV !== 'production') {
+            renderer.sh.setAttribute('data-nano-css-dev', '');
+
+            // Test style sheet used in dev mode to test if .insetRule() would throw.
+            renderer.shTest = document.createElement('style');
+            renderer.shTest.setAttribute('data-nano-css-dev-tests', '');
+            document.head.appendChild(renderer.shTest);
+        }
+
         renderer.putRaw = function (rawCssRule) {
             if (process.env.NODE_ENV === 'production') {
                 var sheet = renderer.sh.sheet;
                 sheet.insertRule(rawCssRule, sheet.cssRules.length);
             } else {
+                // Test if .insertRule() works (does not throw).
+                renderer.shTest.sheet.insertRule(rawCssRule, renderer.shTest.sheet.cssRules.length);
+
+                // Insert pretty-printed CSS for dev mode.
                 renderer.sh.appendChild(document.createTextNode(rawCssRule));
             }
         };

@@ -37,7 +37,7 @@ It maps 1-to-1 to analogous CSS.
 
 ```css
 .selector {
-    color: red
+    color: red;
 }
 
 .selector:hover {
@@ -92,3 +92,5 @@ and camel-case property syntax.
 ```
 
 It also supports *Atoms* via the [`atoms`](./atoms.md) addon and "chaining" using the [`snake`](./snake.md) addon.
+You might also want to take a look at [`stylis`](./stylis.md) addon that supports writing CSS as a string and 
+[`tachyons`](./tachyons.md) addon that allows to chain *tachyons*.

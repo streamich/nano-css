@@ -17,6 +17,9 @@ const classNames2 = nano.rule({
     border: '1px solid red',
 });
 // _b
+
+<div className={classNames1} /> // <div class="_a _b _c" />
+<div className={classNames2} /> // <div class="_b" />
 ```
 
 ## Installation

@@ -15,18 +15,23 @@ exports.addon = function (renderer) {
         var onElementModifier = function (elementModifier) {
             var styles = map[elementModifier];
 
-            Object.defineProperty(result, elementModifier, {
-                configurable: true,
-                get: function () {
-                    var classNames = renderer.rule(styles, block + '-' + elementModifier);
+            if (process.env.NODE_ENV !== 'production') {
+                // In dev mode emit CSS immediately to generate sourcemaps.
+                result[elementModifier] = renderer.rule(styles, block + '-' + elementModifier);
+            } else {
+                Object.defineProperty(result, elementModifier, {
+                    configurable: true,
+                    get: function () {
+                        var classNames = renderer.rule(styles, block + '-' + elementModifier);
 
-                    Object.defineProperty(result, elementModifier, {
-                        value: classNames
-                    });
+                        Object.defineProperty(result, elementModifier, {
+                            value: classNames
+                        });
 
-                    return classNames;
-                },
-            });
+                        return classNames;
+                    },
+                });
+            }
         };
 
         for (var elementModifier in map) {

@@ -15,6 +15,11 @@ exports.addon = function (renderer) {
         var className;
         var isElement = typeof fn === 'string';
 
+        // In dev mode emit CSS immediately so correct sourcemaps can be generated.
+        if (process.env.NODE_ENV !== 'production') {
+            className = renderer.rule(styles, block);
+        }
+
         var Component = function (props) {
             if (!className) {
                 className = renderer.rule(styles, block);
