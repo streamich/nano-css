@@ -1,3 +1,22 @@
+# [2.1.0](https://github.com/streamich/nano-css/compare/v2.0.2...v2.1.0) (2018-07-11)
+
+
+### Features
+
+* 🎸 add "tr" atom for "transform" property ([e4d59e5](https://github.com/streamich/nano-css/commit/e4d59e5))
+* 🎸 add sourcemaps addon to presets ([8fb46c0](https://github.com/streamich/nano-css/commit/8fb46c0))
+* 🎸 create "safe" addon ([d6f0ad5](https://github.com/streamich/nano-css/commit/d6f0ad5))
+* 🎸 create "units" addon ([0e1e25c](https://github.com/streamich/nano-css/commit/0e1e25c))
+* 🎸 improve hydrate addon ([511b293](https://github.com/streamich/nano-css/commit/511b293))
+* 🎸 improve source maps, make work with jsx and sheet ([8b24e44](https://github.com/streamich/nano-css/commit/8b24e44))
+* 🎸 make first version of sourcemap addon work ([038b2c1](https://github.com/streamich/nano-css/commit/038b2c1))
+* 🎸 warn user on clashing block names ([79a0a36](https://github.com/streamich/nano-css/commit/79a0a36))
+
+
+### Performance Improvements
+
+* ⚡️ create units object only once ([4c39f31](https://github.com/streamich/nano-css/commit/4c39f31))
+
 ## [2.0.2](https://github.com/streamich/nano-css/compare/v2.0.1...v2.0.2) (2018-06-15)
 
 
