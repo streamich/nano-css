@@ -1,6 +1,7 @@
 'use strict';
 
 exports.addon = function (renderer) {
+    var units = {};
     var list = [
         'px',
         'cm',
@@ -19,19 +20,24 @@ exports.addon = function (renderer) {
         'vmax',
     ];
 
+    function f (unit, val) {
+        return val + unit;
+    }
+
     for (var i = 0; i < list.length; i++) {
         var unit = list[i];
 
-        renderer[unit] = function (val) {
-            return val + 'unit';
-        };
+        units[unit] = f.bind(null, unit);
     }
 
-    renderer.inch = function (val) {
+    units.inch = function (val) {
         return val + 'in';
     };
 
-    renderer.pct = function (val) {
+    units.pct = function (val) {
         return val + '%';
     };
+
+    renderer.assign(renderer, units);
+    renderer.units = units;
 };
