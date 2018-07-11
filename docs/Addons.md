@@ -41,6 +41,7 @@ plenty more to chose from. Below is a list of addons shipped with `nano-css`.
 - [`extract`](./extract.md) &mdash; allows extraction of CSS into external `*.css` style sheet
 - [`sourcemaps`](./sourcemaps.md) &mdash; generates source maps in dev mode
 - [`safe`](./safe.md) &mdash; don't crash on unknown/invalid CSS
+- [`.units`](./units.md) &mdash; CSS units as JavaScript functions
 
 ## Addon Installation
 
