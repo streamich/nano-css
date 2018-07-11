@@ -75,7 +75,7 @@
     "eslint": "4.19.1",
     "typescript": "2.9.2",
     "tslib": "1.9.2",
-    "ts-loader": "3.5.0"
+    "ts-loader": "4.4.2"
   },
   "config": {
     "commitizen": {
