@@ -72,7 +72,7 @@
     "@semantic-release/git": "5.0.0",
     "libreact": "0.18.0",
     "webpack-bundle-analyzer": "2.13.1",
-    "eslint": "4.19.1",
+    "eslint": "5.1.0",
     "typescript": "2.9.2",
     "tslib": "1.9.2",
     "ts-loader": "3.5.0"
