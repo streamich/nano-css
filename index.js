@@ -67,7 +67,11 @@ exports.create = function (config) {
         renderer.putRaw = function (rawCssRule) {
             if (process.env.NODE_ENV === 'production') {
                 var sheet = renderer.sh.sheet;
-                sheet.insertRule(rawCssRule, sheet.cssRules.length);
+                try {
+                    sheet.insertRule(rawCssRule, sheet.cssRules.length);
+                } catch (e) {
+                    // Ignore rules the browser doesn't recognize
+                }
             } else {
                 // Test if .insertRule() works (does not throw).
                 renderer.shTest.sheet.insertRule(rawCssRule, renderer.shTest.sheet.cssRules.length);
