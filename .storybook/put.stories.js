@@ -3,14 +3,19 @@ import {storiesOf} from '@storybook/react';
 const {action} = require('@storybook/addon-actions');
 const {linkTo} = require('@storybook/addon-links');
 const {create} = require('../index');
+const {addon: addonSafe} = require('../addon/safe');
 
 const renderer = create();
+addonSafe(renderer);
 const {put} = renderer;
 
 put('.red-border', {
     border: '1px solid red',
     ':hover': {
         fontWeight: 'bold'
+    },
+    '::trololo': {
+        color: 'blue',
     },
     span: {
         color: 'red'

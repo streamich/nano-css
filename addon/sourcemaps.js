@@ -58,7 +58,7 @@ exports.addon = function (renderer) {
         var css = rules.join('\n') + '\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64 + ' */';
         var style = document.createElement('style');
 
-        style.setAttribute('data-sourcemaps', '');
+        style.setAttribute('data-nano-css-sourcemaps', '');
         style.appendChild(document.createTextNode(css));
         document.head.appendChild(style);
     }
