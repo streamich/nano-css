@@ -64,7 +64,7 @@
     "yarn": "1.7.0",
     "@storybook/react": "3.4.7",
     "@storybook/addon-actions": "3.4.7",
-    "@storybook/addon-links": "3.4.7",
+    "@storybook/addon-links": "3.4.8",
     "git-cz": "^1.7.0",
     "semantic-release": "15.5.2",
     "@semantic-release/changelog": "2.0.2",
