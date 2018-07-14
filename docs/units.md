@@ -1,5 +1,7 @@
 # `.units` Addon
 
+> Inspired by [`electron-css`](https://github.com/azukaar/electron-css#units).
+
 Functions for adding units to your numbers.
 
 ```js
