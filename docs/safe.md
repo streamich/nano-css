@@ -5,6 +5,13 @@ rule is not recognized by a brwoser (for example, it might happen if you use som
 that is not supported by the brwoser) it will throw. For performance reasons, `nano-css` does not
 catch those errors. This addon will safely catch all insertion errors and log them.
 
+It will log errors only in development mode. If you want to suppress error messages even in
+development mode set `.quiet` key on options object to true:
+
+```js
+addonSave(nano, {quiet: true});
+```
+
 
 ## Installation
 
