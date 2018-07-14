@@ -1,30 +1,14 @@
 'use strict';
 
 var units = {};
-var list = [
-    'px',
-    'cm',
-    'mm',
-    'in',
-    'pt',
-    'pc',
-    'em',
-    'ex',
-    'ch',
-    'rem',
-    'vw',
-    'vh',
-    'deg',
-    'vmin',
-    'vmax',
-];
+var unitList = 'px,cm,mm,in,pt,pc,em,ex,ch,rem,vw,vh,deg,vmin,vmax'.split(',');
 
 function f (unit, val) {
     return val + unit;
 }
 
-for (var i = 0; i < list.length; i++) {
-    var unit = list[i];
+for (var i = 0; i < unitList.length; i++) {
+    var unit = unitList[i];
 
     units[unit] = f.bind(null, unit);
 }
