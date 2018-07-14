@@ -104,12 +104,20 @@ exports.create = function (config) {
             if ((value instanceof Object) && !(value instanceof Array)) {
                 postponed.push(prop);
             } else {
-                str += renderer.decl(prop, value, selector, atrule);
+                if ((process.env.NODE_ENV !== 'production') && !renderer.sourcemaps) {
+                    str += '    ' + renderer.decl(prop, value, selector, atrule) + '\n';
+                } else {
+                    str += renderer.decl(prop, value, selector, atrule);
+                }
             }
         }
 
         if (str) {
-            str = selector + '{' + str + '}';
+            if ((process.env.NODE_ENV !== 'production') && !renderer.sourcemaps) {
+                str = '\n' + selector + ' {\n' + str + '}\n';
+            } else {
+                str = selector + '{' + str + '}';
+            }
             renderer.putRaw(atrule ? atrule + '{' + str + '}' : str);
         }
 

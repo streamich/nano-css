@@ -90,7 +90,7 @@ describe('nano-css', function () {
             }
 
             if (env.isServer) {
-                expect(nano.raw).toBe('.foo{color:red;}');
+                expect(nano.raw.replace(/[\s\n]+/g, '')).toBe('.foo{color:red;}');
             }
         });
 
@@ -163,7 +163,9 @@ describe('nano-css', function () {
             }
 
             if (env.isServer) {
-                expect(renderer.raw).toBe('.foo .bar .baz .bazooka{color:red;}');
+                expect(renderer.raw.indexOf('.foo .bar .baz .bazooka') > -1).toBe(true);
+                expect(renderer.raw.indexOf('color') > -1).toBe(true);
+                expect(renderer.raw.indexOf('red') > -1).toBe(true);
             }
         });
 
@@ -224,10 +226,10 @@ describe('nano-css', function () {
             });
 
             expect(nano.putRaw).toHaveBeenCalledTimes(1);
-            expect(nano.putRaw.mock.calls[0][0].replace(/ /g, '')).toBe('@mediascreen{.global{color:green;}}');
+            expect(nano.putRaw.mock.calls[0][0].replace(/[\s\n]+/g, '')).toBe('@mediascreen{.global{color:green;}}');
         });
 
-        it('supports @media queries - 2', function () {
+        it('supports @media queries - 3', function () {
             var nano = create();
 
             if (env.isClient) {
@@ -248,7 +250,7 @@ describe('nano-css', function () {
             }
 
             if (env.isServer) {
-                expect(nano.raw).toBe('@media screen{.parent .foo{color:red;}}');
+                expect(nano.raw.replace(/[\s\n]+/g, '')).toBe('@mediascreen{.parent.foo{color:red;}}');
             }
         });
     });

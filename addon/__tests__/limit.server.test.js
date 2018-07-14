@@ -29,7 +29,7 @@ describe('limit', function () {
             color: 'red'
         });
 
-        expect(nano.raw.replace(/ /g, '')).toBe('.foo{color:red;}.bar{color:red;}.baz{color:red;}');
+        expect(nano.raw.replace(/[\s\n]+/g, '')).toBe('.foo{color:red;}.bar{color:red;}.baz{color:red;}');
     });
 
     it('caps at limit', function () {
@@ -48,7 +48,7 @@ describe('limit', function () {
         nano.put('.baz', {
             color: 'red'
         });
-
-        expect(nano.raw.replace(/ /g, '')).toBe('.foo{color:red;}.bar{color:red;}');
+console.log(nano.raw);
+        expect(nano.raw.replace(/[\s\n]+/g, '')).toBe('.foo{color:red;}.bar{color:red;}');
     });
 });

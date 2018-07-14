@@ -91,4 +91,6 @@ exports.addon = function (renderer) {
         enqueue(rawCSS);
         putRaw.apply(null, arguments);
     };
+
+    renderer.sourcemaps = true;
 };

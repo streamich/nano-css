@@ -4,7 +4,8 @@
 
 var env = require('./env');
 var create = require('../../index').create;
-var addonAmp= require('../../addon/amp').addon;
+var addonAmp = require('../../addon/amp').addon;
+var isProd = process.env.NODE_ENV === 'production';
 
 function createNano (config, addonConfig) {
     var nano = create(config);
@@ -30,28 +31,30 @@ describe('amp', function () {
             color: 'red'
         });
 
-        expect(nano.raw.replace(/ /g, '')).toBe('.foo{color:red;}.bar{color:red;}');
+        expect(nano.raw.replace(/[\s\n]+/g, '')).toBe('.foo{color:red;}.bar{color:red;}');
     });
 
-    it('caps at limit', function () {
-        var nano = createNano({}, {
-            limit: 40
+    if (isProd) {
+        it('caps at limit', function () {
+            var nano = createNano({}, {
+                limit: 40
+            });
+            
+            nano.put('.foo', {
+                color: 'red'
+            });
+            
+            nano.put('.bar', {
+                color: 'red'
+            });
+            
+            nano.put('.baz', {
+                color: 'red'
+            });
+            
+            expect(nano.raw.replace(/[\s\n]+/g, '')).toBe('.foo{color:red;}.bar{color:red;}');
         });
-
-        nano.put('.foo', {
-            color: 'red'
-        });
-
-        nano.put('.bar', {
-            color: 'red'
-        });
-
-        nano.put('.baz', {
-            color: 'red'
-        });
-
-        expect(nano.raw.replace(/ /g, '')).toBe('.foo{color:red;}.bar{color:red;}');
-    });
+    }
 
     it('warns on !important', function () {
         var nano = createNano();
@@ -211,12 +214,10 @@ describe('amp', function () {
             color: 'blue'
         });
 
-        var length = nano.raw.length;
-
         nano.put('.bar', {
             behavior: 'something'
         });
 
-        expect(nano.raw.length).toBe(length);
+        expect(nano.raw.indexOf('behavior')).toBe(-1);
     });
 });

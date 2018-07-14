@@ -15,7 +15,7 @@ exports.addon = function (renderer) {
         var onElementModifier = function (elementModifier) {
             var styles = map[elementModifier];
 
-            if (process.env.NODE_ENV !== 'production') {
+            if ((process.env.NODE_ENV !== 'production') && renderer.sourcemaps) {
                 // In dev mode emit CSS immediately to generate sourcemaps.
                 result[elementModifier] = renderer.rule(styles, block + '-' + elementModifier);
             } else {
