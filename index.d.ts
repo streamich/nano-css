@@ -1,4 +1,10 @@
-type ICssLikeObject = object;
+import * as CSS from 'csstype';
+
+interface ICssProps extends CSS.Properties, CSS.PropertiesHyphen {}
+
+interface ICssLikeObject extends ICssProps {
+    [selector: string]: any | ICssLikeObject;
+}
 
 interface IUnits {
     px: (num: number) => string;
@@ -17,6 +23,12 @@ interface IUnits {
     vmax: (num: number) => string;
 }
 
+type TDynamicCss = (css: ICssLikeObject) => string;
+type THyperstyleElement = object;
+type THyperstyle = (...args) => THyperstyleElement;
+type THyperscriptType = string | Function;
+type THyperscriptComponent = Function;
+
 interface NanoRenderer extends Partial<IUnits> {
     client: boolean;
     raw: string;
@@ -28,21 +40,42 @@ interface NanoRenderer extends Partial<IUnits> {
      * Need to install `rule` addon.
      */
     rule?: (css: ICssLikeObject, block?: string) => string;
-    drule?: (...args) => any;
-    sheet?: (...args) => any;
-    dsheet?: (...args) => any;
-    jsx?: (...args) => any;
-    style?: (...args) => any;
-    styled?: (...args) => any;
-    cache?: (...args) => any;
-    global?: (...args) => any;
-    keyframes?: (...args) => any;
-    hydrate?: (...args) => any;
-    hyperstyle?: (...args) => any;
-    pipe?: (...args) => any;
+    drule?: (css: ICssLikeObject, block?: string) => TDynamicCss;
+    sheet?: (cssMap: {[s: string]: ICssLikeObject}, block?: string) => {[s: string]: string};
+    dsheet?: (cssMap: {[s: string]: ICssLikeObject}, block?: string) => {[s: string]: TDynamicCss};
+    jsx?: (
+        type: THyperscriptType,
+        css: ICssLikeObject,
+        dynamicCss?: TDynamicCss,
+        block?: string
+    ) => THyperscriptComponent;
+    style?: (
+        type: THyperscriptType,
+        css: ICssLikeObject,
+        dynamicCss?: TDynamicCss,
+        block?: string
+    ) => THyperscriptComponent;
+    styled?: (
+        type: THyperscriptType
+    ) => (css: ICssLikeObject, dynamicCss?: TDynamicCss, block?: string) => THyperscriptComponent;
+    cache?: (css: ICssLikeObject) => string;
+    global?: (css: ICssLikeObject) => void;
+    keyframes?: (...args) => string;
+    hydrate?: (sh: CSSStyleSheet) => void;
+    hyperstyle?: (cssMap: {[s: string]: ICssLikeObject}, block?: string) => THyperstyle;
+    putRule?: (...args) => any;
+    createRef?: (...args) => any;
     ref?: (...args) => any;
-    useStyles?: (...args) => any;
-    withStyles?: (...args) => any;
+    useStyles?: (
+        cssMap: {[s: string]: ICssLikeObject},
+        fn: (props, styles: {[s: string]: string}) => THyperstyleElement,
+        block?: string
+    ) => THyperscriptComponent;
+    withStyles?: (
+        cssMap: {[s: string]: ICssLikeObject},
+        fn: THyperscriptComponent,
+        block?: string
+    ) => THyperscriptComponent;
     s?: object;
     units?: IUnits;
 }
@@ -56,6 +89,6 @@ interface INanoOptions {
     stringify?: (obj: object) => string;
 }
 
-type TCreateNano = (options: INanoOptions) => NanoRenderer;
+type TCreateNano = (options?: INanoOptions) => NanoRenderer;
 
 export const create: TCreateNano;
