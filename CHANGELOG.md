@@ -1,3 +1,15 @@
+# [2.2.0](https://github.com/streamich/nano-css/compare/v2.1.0...v2.2.0) (2018-07-14)
+
+
+### Features
+
+* 🎸 make `safe` addom less chatty ([c449a13](https://github.com/streamich/nano-css/commit/c449a13))
+
+
+### Performance Improvements
+
+* ⚡️ store all units in a string ([7142d86](https://github.com/streamich/nano-css/commit/7142d86))
+
 # [2.1.0](https://github.com/streamich/nano-css/compare/v2.0.2...v2.1.0) (2018-07-11)
 
 
