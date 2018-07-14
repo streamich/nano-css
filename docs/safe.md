@@ -9,7 +9,7 @@ It will log errors only in development mode. If you want to suppress error messa
 development mode set `.quiet` key on options object to true:
 
 ```js
-addonSave(nano, {quiet: true});
+addonSafe(nano, {quiet: true});
 ```
 
 
