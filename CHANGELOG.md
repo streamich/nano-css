@@ -1,3 +1,19 @@
+# [3.0.0](https://github.com/streamich/nano-css/compare/v2.2.0...v3.0.0) (2018-07-15)
+
+
+### Features
+
+* 🎸 add TypeScript type definitions ([696dd4d](https://github.com/streamich/nano-css/commit/696dd4d))
+* 🎸 improve TypeScript definitions ([21a3a49](https://github.com/streamich/nano-css/commit/21a3a49))
+* 🎸 pretty-print CSS in DEV mode ([446e9c1](https://github.com/streamich/nano-css/commit/446e9c1))
+* 🎸 protect .putRaw from unknown pseudo-selectors ([d122cf5](https://github.com/streamich/nano-css/commit/d122cf5))
+* 🎸 remove `safe` addon in favor of new changes ([9f0c2fc](https://github.com/streamich/nano-css/commit/9f0c2fc))
+
+
+### BREAKING CHANGES
+
+* safe addon is now removed and .putRaw will not throw
+
 # [2.2.0](https://github.com/streamich/nano-css/compare/v2.1.0...v2.2.0) (2018-07-14)
 
 
