@@ -29,6 +29,7 @@ The `create()` function accepts an options object with the following keys:
 - `pfx` &mdash; optional, string, prefix to add to all generated class and animation names, defaults to `_`.
 - `h` &mdash; optional, hyperscript function of your virtual DOM library. Only necessary if you are using addons that require it.
 - `sh` &mdash; optional, DOM style sheet element, useful when re-hydrating server rendered styles.
+- `verbose` &mdash; optional, boolean, whether to be chatty in console in DEV mode.
 
 
 ```js

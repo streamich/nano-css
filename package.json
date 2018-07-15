@@ -4,6 +4,8 @@
   "description": "Smallest 5th gen CSS-in-JS library",
   "main": "index.js",
   "unpkg": "dist/nano-css.umd.min.js",
+  "types": "index.d.ts",
+  "typings": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/streamich/nano-css.git"
@@ -41,7 +43,8 @@
     "rtl-css-js": "^1.9.0",
     "css-tree": "^1.0.0-alpha.28",
     "stacktrace-js": "^2.0.0",
-    "sourcemap-codec": "^1.4.1"
+    "sourcemap-codec": "^1.4.1",
+    "csstype": "^2.5.5"
   },
   "devDependencies": {
     "@types/react": "16.3.17",

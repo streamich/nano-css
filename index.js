@@ -58,19 +58,34 @@ exports.create = function (config) {
         if (process.env.NODE_ENV !== 'production') {
             renderer.sh.setAttribute('data-nano-css-dev', '');
 
-            // Test style sheet used in dev mode to test if .insetRule() would throw.
+            // Test style sheet used in DEV mode to test if .insetRule() would throw.
             renderer.shTest = document.createElement('style');
             renderer.shTest.setAttribute('data-nano-css-dev-tests', '');
             document.head.appendChild(renderer.shTest);
         }
 
         renderer.putRaw = function (rawCssRule) {
+            // .insertRule() is faster than .appendChild(), that's why we use it in PROD.
+            // But CSS injected using .insertRule() is not displayed in Chrome Devtools,
+            // that's why we use .appendChild in DEV.
             if (process.env.NODE_ENV === 'production') {
                 var sheet = renderer.sh.sheet;
-                sheet.insertRule(rawCssRule, sheet.cssRules.length);
+
+                // Unknown pseudo-selectors will throw, this try/catch swallows all errors.
+                try {
+                    sheet.insertRule(rawCssRule, sheet.cssRules.length);
+                // eslint-disable-next-line no-empty
+                } catch (error) {}
             } else {
-                // Test if .insertRule() works (does not throw).
-                renderer.shTest.sheet.insertRule(rawCssRule, renderer.shTest.sheet.cssRules.length);
+                // Test if .insertRule() works in dev mode. Unknown pseudo-selectors will throw when
+                // .insertRule() is used, but .appendChild() will not throw.
+                try {
+                    renderer.shTest.sheet.insertRule(rawCssRule, renderer.shTest.sheet.cssRules.length);
+                } catch (error) {
+                    if (config.verbose) {
+                        console.error(error);
+                    }
+                }
 
                 // Insert pretty-printed CSS for dev mode.
                 renderer.sh.appendChild(document.createTextNode(rawCssRule));
@@ -89,12 +104,20 @@ exports.create = function (config) {
             if ((value instanceof Object) && !(value instanceof Array)) {
                 postponed.push(prop);
             } else {
-                str += renderer.decl(prop, value, selector, atrule);
+                if ((process.env.NODE_ENV !== 'production') && !renderer.sourcemaps) {
+                    str += '    ' + renderer.decl(prop, value, selector, atrule) + '\n';
+                } else {
+                    str += renderer.decl(prop, value, selector, atrule);
+                }
             }
         }
 
         if (str) {
-            str = selector + '{' + str + '}';
+            if ((process.env.NODE_ENV !== 'production') && !renderer.sourcemaps) {
+                str = '\n' + selector + ' {\n' + str + '}\n';
+            } else {
+                str = selector + '{' + str + '}';
+            }
             renderer.putRaw(atrule ? atrule + '{' + str + '}' : str);
         }
 
