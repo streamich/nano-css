@@ -3,11 +3,13 @@
 
 var env = require('./env');
 var create = require('../../index').create;
+var addonRule = require('../../addon/rule').addon;
 var addonVirtual = require('../../addon/virtual').addon;
 
 function createNano (config) {
     var nano = create(config);
 
+    addonRule(nano);
     addonVirtual(nano);
 
     return nano;

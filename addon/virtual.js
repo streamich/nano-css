@@ -44,7 +44,7 @@ var createMemoizer = function (pfx) {
 
 exports.addon = function (renderer) {
     if (process.env.NODE_ENV !== 'production') {
-        require('./__dev__/warnOnMissingDependencies')('styled', renderer, ['putRaw']);
+        require('./__dev__/warnOnMissingDependencies')('virtual', renderer, ['rule', 'putRaw']);
     }
 
     renderer.memo = createMemoizer(renderer.pfx);
