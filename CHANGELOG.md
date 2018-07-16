@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/streamich/nano-css/compare/v3.0.0...v3.0.1) (2018-07-16)
+
+
+### Bug Fixes
+
+* 🐛 enumerate map returned by sheet() ([58da52a](https://github.com/streamich/nano-css/commit/58da52a)), closes [#189](https://github.com/streamich/nano-css/issues/189)
+
 # [3.0.0](https://github.com/streamich/nano-css/compare/v2.2.0...v3.0.0) (2018-07-15)
 
 

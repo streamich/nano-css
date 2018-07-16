@@ -1,6 +1,6 @@
 {
   "name": "nano-css",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Smallest 5th gen CSS-in-JS library",
   "main": "index.js",
   "unpkg": "dist/nano-css.umd.min.js",
@@ -52,7 +52,7 @@
     "@types/jest": "22.2.3",
     "@types/node": "8.10.19",
     "@types/prop-types": "15.5.3",
-    "husky": "0.14.3",
+    "husky": "^0.14.3",
     "jest": "21.2.1",
     "lerna": "2.11.0",
     "lint-staged": "4.3.0",
@@ -79,8 +79,7 @@
     "eslint": "4.19.1",
     "typescript": "2.9.2",
     "tslib": "1.9.2",
-    "ts-loader": "3.5.0",
-    "husky": "^0.14.3"
+    "ts-loader": "3.5.0"
   },
   "config": {
     "commitizen": {
