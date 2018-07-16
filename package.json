@@ -23,6 +23,7 @@
     "demo": "webpack-dev-server --config demo/webpack.config.js",
     "prettier": "prettier --write '**/*.ts'",
     "precommit": "lint-staged",
+    "prepush": "yarn test",
     "storybook": "start-storybook -p 6010",
     "semantic-release": "semantic-release"
   },
@@ -78,7 +79,8 @@
     "eslint": "4.19.1",
     "typescript": "2.9.2",
     "tslib": "1.9.2",
-    "ts-loader": "3.5.0"
+    "ts-loader": "3.5.0",
+    "husky": "^0.14.3"
   },
   "config": {
     "commitizen": {
