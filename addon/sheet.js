@@ -21,11 +21,13 @@ exports.addon = function (renderer) {
             } else {
                 Object.defineProperty(result, elementModifier, {
                     configurable: true,
+                    enumerable: true,
                     get: function () {
                         var classNames = renderer.rule(styles, block + '-' + elementModifier);
 
                         Object.defineProperty(result, elementModifier, {
-                            value: classNames
+                            value: classNames,
+                            enumerable: true
                         });
 
                         return classNames;
