@@ -102,7 +102,7 @@ export interface NanoRenderer
     put: (selector: string, css: CssLikeObject, atrule?: string) => void;
 }
 
-interface Options {
+export interface NanoOptions {
     /**
      * Prefix added to all class names and animation names.
      */
@@ -149,6 +149,6 @@ interface Options {
     stringify?: (obj: object) => string;
 }
 
-type CreateNano = (options?: Options) => NanoRenderer;
+type CreateNano = (options?: NanoOptions) => NanoRenderer;
 
 export const create: CreateNano;

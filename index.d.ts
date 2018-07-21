@@ -4,12 +4,15 @@ import {UnitsAddon} from './types/addon/units';
 import {DruleAddon} from './types/addon/drule';
 import {SheetAddon} from './types/addon/sheet';
 import {AtomsAddon} from './types/addon/atoms';
+import {SheetPreset} from './types/preset/sheet';
 
 export * from './types/nano';
 
 declare module 'nano-css' {
     export const create: CreateNano;
 }
+
+// Addons
 
 declare module 'nano-css/addon/rule' {
     export const addon: RuleAddon;
@@ -29,4 +32,10 @@ declare module 'nano-css/addon/units' {
 
 declare module 'nano-css/addon/atoms' {
     export const addon: AtomsAddon;
+}
+
+// Presets
+
+declare module 'nano-css/preset/sheet' {
+    export const preset: SheetPreset;
 }
