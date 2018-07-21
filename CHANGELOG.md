@@ -1,3 +1,14 @@
+# [3.1.0](https://github.com/streamich/nano-css/compare/v3.0.1...v3.1.0) (2018-07-21)
+
+
+### Features
+
+* 🎸 add atoms addon typings ([472415c](https://github.com/streamich/nano-css/commit/472415c))
+* 🎸 add drule addon typings ([fe0345c](https://github.com/streamich/nano-css/commit/fe0345c))
+* 🎸 add keyframes() addon typings ([4615452](https://github.com/streamich/nano-css/commit/4615452))
+* 🎸 add sheet addon typings ([2b86cc2](https://github.com/streamich/nano-css/commit/2b86cc2))
+* add sheet preset typings ([94c11ac](https://github.com/streamich/nano-css/commit/94c11ac))
+
 ## [3.0.1](https://github.com/streamich/nano-css/compare/v3.0.0...v3.0.1) (2018-07-16)
 
 
