@@ -1,15 +1,10 @@
 import {CssLikeObject} from './common';
 import {RulePatch} from './addon/rule';
+import {DrulePatch} from './addon/drule';
+import {UnitsPatch} from './addon/units';
 
 /*
 interface NanoRenderer extends Partial<IUnits> {
-    client: boolean;
-    raw: string;
-    pfx: string;
-    putRaw: (rawCss: string) => void;
-    put: (selector: string, css: ICssLikeObject, atrule?: string) => void;
-    rule?: (css: ICssLikeObject, block?: string) => string;
-    drule?: (css: ICssLikeObject, block?: string) => TDynamicCss;
     sheet?: (cssMap: {[s: string]: ICssLikeObject}, block?: string) => {[s: string]: string};
     dsheet?: (cssMap: {[s: string]: ICssLikeObject}, block?: string) => {[s: string]: TDynamicCss};
     jsx?: (
@@ -50,7 +45,7 @@ interface NanoRenderer extends Partial<IUnits> {
 }
 */
 
-export interface NanoRenderer extends Partial<RulePatch> {
+export interface NanoRenderer extends Partial<RulePatch>, Partial<UnitsPatch>, Partial<DrulePatch> {
     /**
      * Equals to `true` if in browser environment.
      */
@@ -103,15 +98,53 @@ export interface NanoRenderer extends Partial<RulePatch> {
     put: (selector: string, css: CssLikeObject, atrule?: string) => void;
 }
 
-interface INanoOptions {
+interface Options {
+    /**
+     * Prefix added to all class names and animation names.
+     */
     pfx?: string;
+
+    /**
+     * Hyperscript function of your virtual DOM library. Needed only if you use
+     * addons (like `jsx`, `style`, `styled`, `component`) that create components.
+     *
+     * ```js
+     * const nano = create({
+     *     h: React.createElement,
+     * });
+     * ```
+     */
     h?: (...args) => any;
+
+    /**
+     * Stylesheet `<sheet>` to be used to inject CSS. If not provided, one will
+     * be automatically created. You can also provide an external stylesheet
+     * `<link>`, but then you need to set proper attributes on it: `rel="stylesheet" type="text/css"`.
+     *
+     * ```js
+     * const nano = create({
+     *     sh: typeof window === 'object' ? document.getElementById('nano-css') : undefined,
+     * });
+     * ```
+     */
     sh?: CSSStyleSheet;
+
+    /**
+     * Whether to be chatty in DEV mode.
+     */
     verbose?: boolean;
+
+    /**
+     * Defaults to `Object.assign`.
+     */
     assign?: (...objects: object[]) => object;
+
+    /**
+     * Defaults to `JSON.stringify`.
+     */
     stringify?: (obj: object) => string;
 }
 
-type CreateNano = (options?: INanoOptions) => NanoRenderer;
+type CreateNano = (options?: Options) => NanoRenderer;
 
 export const create: CreateNano;
