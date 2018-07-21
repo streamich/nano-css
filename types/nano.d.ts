@@ -2,10 +2,10 @@ import {CssLikeObject} from './common';
 import {RulePatch} from './addon/rule';
 import {DrulePatch} from './addon/drule';
 import {UnitsPatch} from './addon/units';
+import {SheetPatch} from './addon/sheet';
 
 /*
 interface NanoRenderer extends Partial<IUnits> {
-    sheet?: (cssMap: {[s: string]: ICssLikeObject}, block?: string) => {[s: string]: string};
     dsheet?: (cssMap: {[s: string]: ICssLikeObject}, block?: string) => {[s: string]: TDynamicCss};
     jsx?: (
         type: THyperscriptType,
@@ -45,7 +45,11 @@ interface NanoRenderer extends Partial<IUnits> {
 }
 */
 
-export interface NanoRenderer extends Partial<RulePatch>, Partial<UnitsPatch>, Partial<DrulePatch> {
+export interface NanoRenderer
+    extends Partial<RulePatch>,
+        Partial<UnitsPatch>,
+        Partial<DrulePatch>,
+        Partial<SheetPatch> {
     /**
      * Equals to `true` if in browser environment.
      */
