@@ -3,6 +3,7 @@ import {RuleAddon} from './types/addon/rule';
 import {UnitsAddon} from './types/addon/units';
 import {DruleAddon} from './types/addon/drule';
 import {SheetAddon} from './types/addon/sheet';
+import {AtomsAddon} from './types/addon/atoms';
 
 export * from './types/nano';
 
@@ -24,4 +25,8 @@ declare module 'nano-css/addon/sheet' {
 
 declare module 'nano-css/addon/units' {
     export const addon: UnitsAddon;
+}
+
+declare module 'nano-css/addon/atoms' {
+    export const addon: AtomsAddon;
 }

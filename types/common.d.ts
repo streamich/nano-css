@@ -1,6 +1,7 @@
 import * as CSS from 'csstype';
+import {Atoms} from './addon/atoms';
 
-interface CssProps extends CSS.Properties, CSS.PropertiesHyphen {}
+interface CssProps extends CSS.Properties, CSS.PropertiesHyphen, Atoms {}
 
 interface CssLikeObject extends CssProps {
     [selector: string]: any | CssLikeObject;
