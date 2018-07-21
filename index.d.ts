@@ -5,6 +5,7 @@ import {DruleAddon} from './types/addon/drule';
 import {SheetAddon} from './types/addon/sheet';
 import {AtomsAddon} from './types/addon/atoms';
 import {SheetPreset} from './types/preset/sheet';
+import {KeyframesAddon} from './types/addon/keyframes';
 
 export * from './types/nano';
 
@@ -32,6 +33,10 @@ declare module 'nano-css/addon/units' {
 
 declare module 'nano-css/addon/atoms' {
     export const addon: AtomsAddon;
+}
+
+declare module 'nano-css/addon/keyframes' {
+    export const addon: KeyframesAddon;
 }
 
 // Presets

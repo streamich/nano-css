@@ -3,6 +3,7 @@ import {RulePatch} from './addon/rule';
 import {DrulePatch} from './addon/drule';
 import {UnitsPatch} from './addon/units';
 import {SheetPatch} from './addon/sheet';
+import {KeyframesPatch} from './addon/keyframes';
 
 /*
 interface NanoRenderer extends Partial<IUnits> {
@@ -49,7 +50,8 @@ export interface NanoRenderer
     extends Partial<RulePatch>,
         Partial<UnitsPatch>,
         Partial<DrulePatch>,
-        Partial<SheetPatch> {
+        Partial<SheetPatch>,
+        Partial<KeyframesPatch> {
     /**
      * Equals to `true` if in browser environment.
      */
