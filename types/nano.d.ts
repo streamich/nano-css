@@ -4,6 +4,8 @@ import {DrulePatch} from './addon/drule';
 import {UnitsPatch} from './addon/units';
 import {SheetPatch} from './addon/sheet';
 import {KeyframesPatch} from './addon/keyframes';
+import {ComponentPatch} from './addon/component';
+import {DecoratorPatch} from './addon/decorator';
 
 /*
 interface NanoRenderer extends Partial<IUnits> {
@@ -51,7 +53,9 @@ export interface NanoRenderer
         Partial<UnitsPatch>,
         Partial<DrulePatch>,
         Partial<SheetPatch>,
-        Partial<KeyframesPatch> {
+        Partial<KeyframesPatch>,
+        Partial<ComponentPatch>,
+        Partial<DecoratorPatch> {
     /**
      * Equals to `true` if in browser environment.
      */

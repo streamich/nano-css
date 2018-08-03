@@ -11,6 +11,7 @@ const renderer = create({h});
 addonRule(renderer);
 addonCache(renderer);
 addonDecorator(renderer);
+
 const {css} = renderer;
 
 @css({

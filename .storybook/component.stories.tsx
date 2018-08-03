@@ -10,8 +10,8 @@ const renderer = create({h});
 addonRule(renderer);
 addonCache(renderer);
 addonComponent(renderer);
-const {Component} = renderer;
 
+const {Component} = renderer;
 
 class CssTest extends Component {
     static css = {
