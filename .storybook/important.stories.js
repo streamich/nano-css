@@ -15,7 +15,14 @@ const className1 = rule({
     border: '1px solid red'
 }, 'RedBorderImportant');
 
+const className2 = rule({
+    border: '1px solid red !important'
+}, 'RedBorderImportantImportant');
+
 storiesOf('Addons/!important', module)
     .add('Default', () =>
         h('div', {className: className1}, 'Hello world')
+    )
+    .add('Double !important', () =>
+        h('div', {className: className2}, 'Hello world')
     )
