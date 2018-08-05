@@ -21,7 +21,20 @@ const className = rule({
     },
 }, 'nesting');
 
+const classNamePlus = rule({
+    border: '1px solid red',
+    '& + &': {
+        border: '1px solid blue',
+    },
+}, 'plus');
+
 storiesOf('Addons/Nesting', module)
     .add('Default', () =>
         h('div', {className}, 'Hover ', h('span', null, 'me!'))
+    )
+    .add('& + &', () =>
+        h('div', {},
+            h('div', {className: classNamePlus}, 'a'),
+            h('div', {className: classNamePlus}, 'b'),
+        )
     )

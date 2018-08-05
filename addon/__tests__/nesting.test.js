@@ -31,17 +31,55 @@ describe('nesting', function () {
 
         expect(nano.putRaw.mock.calls[0][0].includes('.foo .one,.foo .two')).toBe(true);
     });
-/*
-    it('expands & operand after', () => {
-        expect(interpolateSelectors(['.one', '#two'], '.test &')).toBe('.test .one,.test #two');
+
+    it('expands & operand after', function () {
+        var nano = createNano();
+
+        nano.putRaw = jest.fn();
+
+        nano.put('.one, #two', {
+            '.foo &': {
+                color: 'tomato'
+            }
+        });
+
+        var result = nano.putRaw.mock.calls[0][0].replace(/ +(?= )/g,'');
+
+        expect(result.includes('.foo .one,.foo #two')).toBe(true);
     });
 
-    it('expands & operand before', () => {
-        expect(interpolateSelectors(['.test'], '&:hover')).toBe('.test:hover');
+    it('expands & operand before', function () {
+        var nano = createNano();
+
+        nano.putRaw = jest.fn();
+        nano.put('.foo', {
+            '&:hover': {
+                color: 'tomato'
+            },
+            '& .bar': {
+                color: 'tomato'
+            },
+        });
+
+        var css1 = nano.putRaw.mock.calls[0][0].replace(/ +(?= )/g,'');
+        var css2 = nano.putRaw.mock.calls[1][0].replace(/ +(?= )/g,'');
+
+        expect(css1.includes('.foo:hover')).toBe(true);
+        expect(css2.includes('.foo .bar')).toBe(true);
     });
 
-    it('expands & operand before and preserves spaces', () => {
-        expect(interpolateSelectors(['.one', '.two'], '& .test')).toBe('.one .test,.two .test');
+    it('expands multiple & operands', function () {
+        var nano = createNano();
+
+        nano.putRaw = jest.fn();
+        nano.put('.foo', {
+            '& + &': {
+                color: 'tomato'
+            },
+        });
+
+        var css1 = nano.putRaw.mock.calls[0][0].replace(/ +(?= )/g,'');
+
+        expect(css1.includes('.foo + .foo')).toBe(true);
     });
-    */
 });

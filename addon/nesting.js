@@ -7,20 +7,16 @@ exports.addon = function (renderer) {
         var selectors = selector.split(',');
         var len1 = parents.length;
         var len2 = selectors.length;
-        var i, j, part1, part2, sel, pos, parent, replacedSelector;
+        var i, j, sel, pos, parent, replacedSelector;
 
         for (i = 0; i < len2; i++) {
             sel = selectors[i];
             pos = sel.indexOf('&');
 
             if (pos > -1) {
-                part1 = sel.substr(0, pos);
-                part2 = sel.substr(pos + 1);
-
                 for (j = 0; j < len1; j++) {
                     parent = parents[j];
-                    replacedSelector = part1 + parent + part2;
-
+                    replacedSelector = sel.replace(/&/g, parent);
                     result.push(replacedSelector);
                 }
             } else {
