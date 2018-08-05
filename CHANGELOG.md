@@ -1,3 +1,16 @@
+# [3.2.0](https://github.com/streamich/nano-css/compare/v3.1.0...v3.2.0) (2018-08-05)
+
+
+### Bug Fixes
+
+* 🐛 add !important only if it is not already there ([8f0bc4c](https://github.com/streamich/nano-css/commit/8f0bc4c))
+* 🐛 replace all & operators in nesting addon ([0e1eca8](https://github.com/streamich/nano-css/commit/0e1eca8))
+
+
+### Features
+
+* 🎸 add placeholders for decorator and comp addons types ([2c897e0](https://github.com/streamich/nano-css/commit/2c897e0))
+
 # [3.1.0](https://github.com/streamich/nano-css/compare/v3.0.1...v3.1.0) (2018-07-21)
 
 
