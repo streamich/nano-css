@@ -21,7 +21,9 @@ exports.addon = function (renderer) {
         var css = '';
 
         for (var i = 0; i < decls.length; i++) {
-            rawDecl = decls[i];
+            rawDecl = decls[i].trim();
+
+            if (!rawDecl) continue;
 
             // Don't add "!important" if it is already added.
             if (!hasImportant(rawDecl)) {
