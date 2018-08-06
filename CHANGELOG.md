@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/streamich/nano-css/compare/v3.2.0...v3.2.1) (2018-08-06)
+
+
+### Bug Fixes
+
+* 🐛 don't insert empty !important declarations ([197430d](https://github.com/streamich/nano-css/commit/197430d))
+
 # [3.2.0](https://github.com/streamich/nano-css/compare/v3.1.0...v3.2.0) (2018-08-05)
 
 
