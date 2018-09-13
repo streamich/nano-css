@@ -192,5 +192,37 @@ describe('virtual', function () {
             expect(nano.atomic).toHaveBeenCalledTimes(1);
             expect(nano.atomic).toHaveBeenCalledWith('&', 'color:blue', undefined);
         });
+
+	    it.only('doesn\'t break keyframes', function() {
+		    var nano = createNano();
+
+		    // nano.atomic = jest.fn();
+
+		    nano.virtual('&', {
+			    animation: 'sk-foldCubeAngle 2.4s infinite linear both',
+			    '@keyframes sk-foldCubeAngle': {
+				    '0%, 10%': {
+					    transform: 'perspective(140px) rotateX(-180deg)',
+					    opacity: 0
+				    },
+				    '25%, 75%': {
+					    transform: 'perspective(140px) rotateX(0deg)',
+					    opacity: 1
+				    },
+				    '90%, 100%': {
+					    transform: 'perspective(140px) rotateY(180deg)',
+					    opacity: 0
+				    }
+			    }
+		    });
+
+		    // expect(nano.atomic).toHaveBeenCalled();
+
+		    // var result = nano.putRaw.mock;
+		    if (env.isServer) {
+			    expect(nano.raw).toEqual('@keyframes sk-foldCubeAngle{0%, 10%{transform:perspective(140px) rotateX(-180deg);opacity:0;}25%, 75%{transform:perspective(140px) rotateX(0deg);opacity:1;}90%, 100%{transform:perspective(140px) rotateY(180deg);opacity:0;}}');
+
+		    }
+	    });
     });
 });
