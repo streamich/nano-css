@@ -20,7 +20,7 @@ exports.addon = function (renderer) {
         obj[renderer.camel(prop)] = value;
         obj = prefixAll(obj);
 
-        var str = '';
+        var result = {};
 
         for (var propPrefixed in obj) {
             value = obj[propPrefixed];
@@ -30,35 +30,24 @@ exports.addon = function (renderer) {
             propPrefixed = renderer.kebab(propPrefixed);
 
             if (value instanceof Array) {
-                str += propPrefixed + ':' + value.join(';' + propPrefixed + ':') + ';';
+                result[propPrefixed] = value.join(';' + propPrefixed + ':');
             } else {
-                str += propPrefixed + ':' + value + ';';
+                result[propPrefixed] =  value;
             }
         }
 
-        return str;
+        return result;
     };
 
     renderer.decl = function (prop, value) {
-        var str = decl(prop, value);
-        var declarations = str.split(';');
+        var result = renderer.prefix(prop, value);
 
-        if (!declarations.length) {
-            return str;
-        }
+        var returned = '';
+        Object.keys(result).forEach(function(key) {
+            var str = decl(key, value);
+            returned += str;
+        });
 
-        var prefixed = '';
-
-        for (var i = 0; i < declarations.length; i++) {
-            var declaration = declarations[i];
-
-            if (declaration) {
-                var pos = declaration.indexOf(':');
-
-                prefixed += renderer.prefix(declaration.substr(0, pos), declaration.substr(pos + 1));
-            }
-        }
-
-        return prefixed;
+        return returned;
     };
 };
