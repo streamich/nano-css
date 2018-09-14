@@ -5,6 +5,7 @@ var env = require('./env');
 var create = require('../../index').create;
 var addonRule = require('../../addon/rule').addon;
 var addonVirtual = require('../../addon/virtual').addon;
+var addonKeyframes = require('../../addon/keyframes').addon;
 
 function createNano (config) {
     var nano = create(config);
@@ -193,10 +194,9 @@ describe('virtual', function () {
             expect(nano.atomic).toHaveBeenCalledWith('&', 'color:blue', undefined);
         });
 
-	    it.only('doesn\'t break keyframes', function() {
+	    it('doesn\'t break keyframes', function() {
 		    var nano = createNano();
-
-		    // nano.atomic = jest.fn();
+            addonKeyframes(nano);
 
 		    nano.virtual('&', {
 			    animation: 'sk-foldCubeAngle 2.4s infinite linear both',
@@ -216,11 +216,8 @@ describe('virtual', function () {
 			    }
 		    });
 
-		    // expect(nano.atomic).toHaveBeenCalled();
-
-		    // var result = nano.putRaw.mock;
 		    if (env.isServer) {
-			    expect(nano.raw).toEqual('@keyframes sk-foldCubeAngle{0%, 10%{transform:perspective(140px) rotateX(-180deg);opacity:0;}25%, 75%{transform:perspective(140px) rotateX(0deg);opacity:1;}90%, 100%{transform:perspective(140px) rotateY(180deg);opacity:0;}}');
+			    expect(nano.raw).toEqual('._a{animation:sk-foldCubeAngle 2.4s infinite linear both}@-webkit-keyframes sk-foldCubeAngle{0%, 10%{transform:perspective(140px) rotateX(-180deg);opacity:0;}25%, 75%{transform:perspective(140px) rotateX(0deg);opacity:1;}90%, 100%{transform:perspective(140px) rotateY(180deg);opacity:0;}}@-moz-keyframes sk-foldCubeAngle{0%, 10%{transform:perspective(140px) rotateX(-180deg);opacity:0;}25%, 75%{transform:perspective(140px) rotateX(0deg);opacity:1;}90%, 100%{transform:perspective(140px) rotateY(180deg);opacity:0;}}@-o-keyframes sk-foldCubeAngle{0%, 10%{transform:perspective(140px) rotateX(-180deg);opacity:0;}25%, 75%{transform:perspective(140px) rotateX(0deg);opacity:1;}90%, 100%{transform:perspective(140px) rotateY(180deg);opacity:0;}}@keyframes sk-foldCubeAngle{0%, 10%{transform:perspective(140px) rotateX(-180deg);opacity:0;}25%, 75%{transform:perspective(140px) rotateX(0deg);opacity:1;}90%, 100%{transform:perspective(140px) rotateY(180deg);opacity:0;}}');
 
 		    }
 	    });
