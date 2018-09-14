@@ -77,10 +77,10 @@ exports.addon = function (renderer) {
             var value = decls[prop];
 
             if (prop.indexOf('keyframes') > -1) {
-            	console.log('keyframes in prop!', prop, value);
+                console.log('keyframes in prop!', prop, value);
 
-            	renderer.putRaw(prop + ':' + renderer.stringify(value));
-            	continue;
+                renderer.putRaw(prop + ':' + renderer.stringify(value));
+                continue;
             }
 
             if ((value instanceof Object) && !(value instanceof Array)) {
