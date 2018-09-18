@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/streamich/nano-css/compare/v3.3.0...v3.4.0) (2018-09-18)
+
+
+### Features
+
+* better prefixing ([e5e83c4](https://github.com/streamich/nano-css/commit/e5e83c4)), closes [#206](https://github.com/streamich/nano-css/issues/206)
+
 # [3.3.0](https://github.com/streamich/nano-css/compare/v3.2.1...v3.3.0) (2018-09-18)
 
 
