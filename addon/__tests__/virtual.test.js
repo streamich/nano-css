@@ -5,6 +5,7 @@ var env = require('./env');
 var create = require('../../index').create;
 var addonRule = require('../../addon/rule').addon;
 var addonVirtual = require('../../addon/virtual').addon;
+var addonKeyframes = require('../../addon/keyframes').addon;
 
 function createNano (config) {
     var nano = create(config);
@@ -192,5 +193,33 @@ describe('virtual', function () {
             expect(nano.atomic).toHaveBeenCalledTimes(1);
             expect(nano.atomic).toHaveBeenCalledWith('&', 'color:blue', undefined);
         });
+
+	    it('doesn\'t break keyframes', function() {
+		    var nano = createNano();
+            addonKeyframes(nano);
+
+		    nano.virtual('&', {
+			    animation: 'sk-foldCubeAngle 2.4s infinite linear both',
+			    '@keyframes sk-foldCubeAngle': {
+				    '0%, 10%': {
+					    transform: 'perspective(140px) rotateX(-180deg)',
+					    opacity: 0
+				    },
+				    '25%, 75%': {
+					    transform: 'perspective(140px) rotateX(0deg)',
+					    opacity: 1
+				    },
+				    '90%, 100%': {
+					    transform: 'perspective(140px) rotateY(180deg)',
+					    opacity: 0
+				    }
+			    }
+		    });
+
+		    if (env.isServer) {
+			    expect(nano.raw).toEqual('._a{animation:sk-foldCubeAngle 2.4s infinite linear both}@-webkit-keyframes sk-foldCubeAngle{0%, 10%{transform:perspective(140px) rotateX(-180deg);opacity:0;}25%, 75%{transform:perspective(140px) rotateX(0deg);opacity:1;}90%, 100%{transform:perspective(140px) rotateY(180deg);opacity:0;}}@-moz-keyframes sk-foldCubeAngle{0%, 10%{transform:perspective(140px) rotateX(-180deg);opacity:0;}25%, 75%{transform:perspective(140px) rotateX(0deg);opacity:1;}90%, 100%{transform:perspective(140px) rotateY(180deg);opacity:0;}}@-o-keyframes sk-foldCubeAngle{0%, 10%{transform:perspective(140px) rotateX(-180deg);opacity:0;}25%, 75%{transform:perspective(140px) rotateX(0deg);opacity:1;}90%, 100%{transform:perspective(140px) rotateY(180deg);opacity:0;}}@keyframes sk-foldCubeAngle{0%, 10%{transform:perspective(140px) rotateX(-180deg);opacity:0;}25%, 75%{transform:perspective(140px) rotateX(0deg);opacity:1;}90%, 100%{transform:perspective(140px) rotateY(180deg);opacity:0;}}');
+
+		    }
+	    });
     });
 });
