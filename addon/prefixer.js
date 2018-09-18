@@ -24,6 +24,9 @@ exports.addon = function (renderer) {
 
         for (var propPrefixed in obj) {
             value = obj[propPrefixed];
+            if (propPrefixed.slice(0, 2) === 'ms') {
+                propPrefixed = 'M' + propPrefixed.slice(1);
+            }
             propPrefixed = renderer.kebab(propPrefixed);
 
             if (value instanceof Array) {
