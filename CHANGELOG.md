@@ -1,3 +1,29 @@
+# [3.4.0](https://github.com/streamich/nano-css/compare/v3.3.0...v3.4.0) (2018-09-18)
+
+
+### Features
+
+* better prefixing ([e5e83c4](https://github.com/streamich/nano-css/commit/e5e83c4)), closes [#206](https://github.com/streamich/nano-css/issues/206)
+
+# [3.3.0](https://github.com/streamich/nano-css/compare/v3.2.1...v3.3.0) (2018-09-18)
+
+
+### Bug Fixes
+
+* improve kebab case conversion ([1819a14](https://github.com/streamich/nano-css/commit/1819a14))
+
+
+### Features
+
+* better kebab case conversion ([380f65f](https://github.com/streamich/nano-css/commit/380f65f))
+
+## [3.2.1](https://github.com/streamich/nano-css/compare/v3.2.0...v3.2.1) (2018-08-06)
+
+
+### Bug Fixes
+
+* 🐛 don't insert empty !important declarations ([197430d](https://github.com/streamich/nano-css/commit/197430d))
+
 # [3.2.0](https://github.com/streamich/nano-css/compare/v3.1.0...v3.2.0) (2018-08-05)
 
 

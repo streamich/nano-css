@@ -76,6 +76,11 @@ exports.addon = function (renderer) {
         for (var prop in decls) {
             var value = decls[prop];
 
+            if (prop.indexOf('keyframes') > -1) {
+                renderer.putAt('', value, prop);
+                continue;
+            }
+
             if ((value instanceof Object) && !(value instanceof Array)) {
                 if (prop[0] === '@') {
                     classNames += renderer.virtual(selectorTemplate, value, prop);
