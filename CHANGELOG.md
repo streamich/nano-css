@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/streamich/nano-css/compare/v3.4.0...v3.5.0) (2018-12-26)
+
+
+### Features
+
+* add Emmet based abbreviations for css atoms ([#215](https://github.com/streamich/nano-css/issues/215)) ([ee1f487](https://github.com/streamich/nano-css/commit/ee1f487))
+
 # [3.4.0](https://github.com/streamich/nano-css/compare/v3.3.0...v3.4.0) (2018-09-18)
 
 
