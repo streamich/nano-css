@@ -34,6 +34,7 @@ __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS libra
   - [`hyperstyle()`](./docs/hyperstyle.md) &mdash; [*demo!*](https://codesandbox.io/s/wqny7z17x8)
   - [`stable`](./docs/stable.md)
   - [`atoms`](./docs/atoms.md) &mdash; [*demo!*](https://codesandbox.io/s/rlkxl6o9v4)
+  - [`emmet`](./docs/emmet.md)
   - [`nesting`](./docs/nesting.md)
   - [`keyframes()`](./docs/keyframes.md)
   - [`hydrate()`](./docs/hydrate.md)
