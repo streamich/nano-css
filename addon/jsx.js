@@ -49,7 +49,7 @@ exports.addon = function (renderer) {
                 : fn(copy);
         };
 
-        if (process.env.NODE_EVN !== 'production') {
+        if (process.env.NODE_ENV !== 'production') {
             if (block) {
                 Component.displayName = 'jsx(' + block + ')';
             }

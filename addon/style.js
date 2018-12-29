@@ -22,7 +22,7 @@ exports.addon = function (renderer) {
             return jsxComponent(copy);
         };
 
-        if (process.env.NODE_EVN !== 'production') {
+        if (process.env.NODE_ENV !== 'production') {
             if (block || (typeof fn === 'function')) {
                 Component.displayName = 'style(' + (block || fn.displayName || fn.name) + ')';
             }
