@@ -26,7 +26,6 @@ var UNITLESS_NUMBER_PROPS = [
     'grid-column-start',
     'font-weight',
     'line-clamp',
-    'line-height',
     'opacity',
     'order',
     'orphans',
