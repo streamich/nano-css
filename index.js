@@ -124,7 +124,7 @@ exports.create = function (config) {
         for (var i = 0; i < postponed.length; i++) {
             prop = postponed[i];
 
-            if (prop[0] === '@') {
+            if (prop[0] === "@" && prop !== "@font-face") {
                 renderer.putAt(selector, decls[prop], prop);
             } else {
                 renderer.put(renderer.selector(selector, prop), decls[prop], atrule);
