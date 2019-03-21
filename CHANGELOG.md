@@ -1,3 +1,27 @@
+# [4.0.0](https://github.com/streamich/nano-css/compare/v3.5.0...v4.0.0) (2019-03-21)
+
+
+### Bug Fixes
+
+* 🐛`NODE_EVN` should be `NODE_ENV` ([8feead7](https://github.com/streamich/nano-css/commit/8feead7))
+* upgrade react-dom due to vulnerability ([8bdeeba](https://github.com/streamich/nano-css/commit/8bdeeba))
+* upgrade webpack-dev-server due to vulnerability ([602d9c3](https://github.com/streamich/nano-css/commit/602d9c3))
+
+
+### Features
+
+* 🎸 add vcssom addon ([63e27f2](https://github.com/streamich/nano-css/commit/63e27f2))
+* 🎸 create unified CSSOM createRule() for all use cases ([6976707](https://github.com/streamich/nano-css/commit/6976707))
+* 🎸 improve cssom addon ([6f1ead5](https://github.com/streamich/nano-css/commit/6f1ead5))
+* 🎸support `[@font-face](https://github.com/font-face)` ([a905b54](https://github.com/streamich/nano-css/commit/a905b54)), closes [#220](https://github.com/streamich/nano-css/issues/220)
+
+
+### BREAKING CHANGES
+
+* cssom addon API changed, pipe addon as a consequence now behaves
+differently, too
+* old putRule() CSSOM function is now removed, use createRule() instead
+
 # [3.5.0](https://github.com/streamich/nano-css/compare/v3.4.0...v3.5.0) (2018-12-26)
 
 
