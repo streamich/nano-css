@@ -30,11 +30,4 @@ describe('jsx()', function () {
 
         expect(typeof Comp).toBe('function');
     });
-
-    it('sets component name', function () {
-        var nano = createNano();
-        var Comp = nano.jsx('button', {color: 'red'}, 'MyButton');
-
-        expect(Comp.displayName).toBe('jsx(MyButton)');
-    });
 });
