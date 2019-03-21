@@ -43,6 +43,19 @@ var cssToTree = function (tree, css, selector, prelude) {
 
 exports.cssToTree = cssToTree;
 
+function removeRule (sh, rule) {
+    var maxIndex = rule.index;
+    var rules = sh.cssRules || sh.rules;
+    maxIndex = Math.max(maxIndex, rules.length - 1);
+    while (maxIndex >= 0) {
+        if (rules[maxIndex] === rule) {
+            sh.deleteRule(maxIndex);
+            break;
+        }
+        maxIndex--;
+    }
+}
+
 exports.addon = function (renderer) {
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('pipe', renderer, ['createRule']); // cssom
@@ -94,7 +107,7 @@ exports.addon = function (renderer) {
             if (newTree[prelude] === undefined) {
                 var rules = oldTree[prelude];
                 for (var selector in rules) {
-                    msh.deleteRule(rules[selector].index);
+                    removeRule(msh, rules[selector]);
                 }
             }
         }
@@ -113,10 +126,9 @@ exports.addon = function (renderer) {
                 var newRules = newTree[prelude];
 
                 // Remove rules not present in new tree.
-                for (var selector in oldRules) {
+                for (var selector in oldRules)
                     if (!newRules[selector])
-                        sh.deleteRule(oldRules[selector].index)
-                }
+                        deleteRule(sh, oldRules[selector]);
 
                 // Apply new rules.
                 for (var selector in newRules) {
