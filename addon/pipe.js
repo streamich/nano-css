@@ -48,7 +48,7 @@ exports.addon = function (renderer) {
             },
             remove: function () {
                 for (var selectorTemplate in rules)
-                    rules[selectorTemplate].remove();
+                    renderer.sh.deleteRule(rule.index);
             }
         };
 
