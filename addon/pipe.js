@@ -8,7 +8,7 @@ exports.addon = function (renderer) {
     }
 
     if (process.env.NODE_ENV !== 'production') {
-        require('./__dev__/warnOnMissingDependencies')('pipe', renderer, ['putRule']);
+        require('./__dev__/warnOnMissingDependencies')('pipe', renderer, ['createRule']);
     }
 
     var counter = 0;
@@ -48,7 +48,7 @@ exports.addon = function (renderer) {
             },
             remove: function () {
                 for (var selectorTemplate in rules)
-                    rules[selectorTemplate].remove();
+                    renderer.sh.deleteRule(rule.index);
             }
         };
 
