@@ -1,5 +1,5 @@
 import * as CSS from 'csstype';
-import {Atoms} from './addon/atoms';
+import {Atoms} from '../addon/atoms';
 
 interface CssProps extends CSS.Properties, CSS.PropertiesHyphen, Atoms {}
 

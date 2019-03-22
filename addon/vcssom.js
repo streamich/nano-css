@@ -1,73 +1,31 @@
 'use strict';
 
-var cssToTree = function (tree, css, selector, prelude) {
-    var declarations = {};
-    var hasDeclarations = false;
-    var key, value;
-
-    for (key in css) {
-        value = css[key];
-        if (typeof value !== 'object') {
-            hasDeclarations = true;
-            declarations[key] = value;
-        }
-    }
-
-    if (hasDeclarations) {
-        if (!tree[prelude]) tree[prelude] = {};
-        tree[prelude][selector] = declarations;
-    }
-
-    for (key in css) {
-        value = css[key];
-        if (typeof value === 'object') {
-            if (key[0] === '@') {
-                cssToTree(tree, value, selector, key);
-            } else {
-                var hasCurrentSymbol = key.indexOf('&') > -1;
-                var selectorParts = selector.split(',');
-                if (hasCurrentSymbol) {
-                    for (var i = 0; i < selectorParts.length; i++) {
-                        selectorParts[i] = key.replace(/&/g, selectorParts[i]);
-                    }
-                } else {
-                    for (var i = 0; i < selectorParts.length; i++) {
-                        selectorParts[i] = selectorParts[i] + ' ' + key;
-                    }
-                }
-                cssToTree(tree, value, selectorParts.join(','), prelude);
-            }
-        }
-    }
-};
-
-exports.cssToTree = cssToTree;
+var removeRule = require('./vcssom/removeRule').removeRule;
 
 exports.addon = function (renderer) {
     if (process.env.NODE_ENV !== 'production') {
-        require('./__dev__/warnOnMissingDependencies')('pipe', renderer, ['createRule']); // cssom
+        require('./__dev__/warnOnMissingDependencies')('cssom', renderer, ['createRule']); // cssom
     }
+
+    // VCSSOM support only browser environment.
+    if (!renderer.client) return;
+
+    var kebab = renderer.kebab;
 
     function VRule (rule, decl) {
         this.rule = rule;
         this.decl = decl;
     }
-
     VRule.prototype.diff = function (newDecl) {
         var oldDecl = this.decl;
         var style = this.rule.style;
         var property;
-
         for (property in oldDecl)
             if (newDecl[property] === undefined)
                 style.removeProperty(property);
-
-        for (property in newDecl) {
-            if (newDecl[property] !== oldDecl[property]) {
-                style.setProperty(property, newDecl[property]);
-            }
-        }
-
+        for (property in newDecl)
+            if (newDecl[property] !== oldDecl[property])
+                style.setProperty(kebab(property), newDecl[property]);
         this.decl = newDecl;
     };
 
@@ -83,7 +41,6 @@ exports.addon = function (renderer) {
          */
         this.tree = {};
     }
-
     VSheet.prototype.diff = function (newTree) {
         var sh = renderer.sh.sheet;
         var msh = renderer.msh.sheet;
@@ -94,7 +51,7 @@ exports.addon = function (renderer) {
             if (newTree[prelude] === undefined) {
                 var rules = oldTree[prelude];
                 for (var selector in rules) {
-                    msh.deleteRule(rules[selector].index);
+                    removeRule(msh, rules[selector]);
                 }
             }
         }
@@ -113,10 +70,9 @@ exports.addon = function (renderer) {
                 var newRules = newTree[prelude];
 
                 // Remove rules not present in new tree.
-                for (var selector in oldRules) {
+                for (var selector in oldRules)
                     if (!newRules[selector])
-                        sh.deleteRule(oldRules[selector].index)
-                }
+                        deleteRule(sh, oldRules[selector]);
 
                 // Apply new rules.
                 for (var selector in newRules) {

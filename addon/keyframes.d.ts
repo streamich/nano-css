@@ -1,7 +1,6 @@
-import {CssLikeObject} from '../common';
-import {NanoRenderer} from '../nano';
+import {NanoRenderer} from '../types/nano';
 
-export interface KeyframesPatch {
+export interface KeyframesAddon {
     /**
      * @param frames Map of keyframes.
      * @param block Optional semantic name.
@@ -32,4 +31,4 @@ export interface KeyframesPatch {
     keyframes: (frames: object, block?: string) => string;
 }
 
-export type KeyframesAddon = <T extends NanoRenderer>(nano: T) => T & KeyframesPatch;
+export function addon(nano: NanoRenderer);

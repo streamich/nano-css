@@ -1,11 +1,8 @@
-import {CssLikeObject} from '../common';
-import {NanoRenderer} from '../nano';
+import {CssLikeObject} from '../types/common';
+import {NanoRenderer} from '../types/nano';
 
-export interface RulePatch {
+export interface RuleAddon {
     /**
-     * @param css [CSS-like object](https://github.com/streamich/nano-css/blob/master/docs/put.md#css-like-object).
-     * @param block Optional semantic name of this rule, must be unique.
-     *
      * You need to install `rule` addon to add this method.
      *
      * ```js
@@ -19,8 +16,11 @@ export interface RulePatch {
      *   color: 'red',
      * });
      * ```
+     *
+     * @param css [CSS-like object](https://github.com/streamich/nano-css/blob/master/docs/put.md#css-like-object).
+     * @param block Optional semantic name of this rule, must be unique.
      */
     rule: (css: CssLikeObject, block?: string) => string;
 }
 
-export type RuleAddon = <T extends NanoRenderer>(nano: T) => T & RulePatch;
+export function addon(nano: NanoRenderer);

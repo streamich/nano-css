@@ -1,7 +1,7 @@
-import {CssLikeObject} from '../common';
-import {NanoRenderer} from '../nano';
+import {CssLikeObject} from '../types/common';
+import {NanoRenderer} from '../types/nano';
 
-export interface SheetPatch {
+export interface SheetAddon {
     /**
      * Creates a collection of CSS rules.
      *
@@ -19,4 +19,4 @@ export interface SheetPatch {
     sheet: (cssMap: {[s: string]: CssLikeObject}, block?: string) => {[s: string]: string};
 }
 
-export type SheetAddon = <T extends NanoRenderer>(nano: T) => T & SheetPatch;
+export function addon(nano: NanoRenderer);
