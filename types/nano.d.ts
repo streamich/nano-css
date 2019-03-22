@@ -1,61 +1,28 @@
+import {RuleAddon} from '../addon/rule';
+import {VCSSOMAddon} from '../addon/vcssom';
+import {CSSOMAddon} from '../addon/cssom';
 import {CssLikeObject} from './common';
-import {RulePatch} from './addon/rule';
-import {DrulePatch} from './addon/drule';
-import {UnitsPatch} from './addon/units';
-import {SheetPatch} from './addon/sheet';
-import {KeyframesPatch} from './addon/keyframes';
-import {ComponentPatch} from './addon/component';
-import {DecoratorPatch} from './addon/decorator';
+import {ComponentAddon} from '../addon/component';
+import {DecoratorAddon} from '../addon/decorator';
+import {EmmetAddon} from '../addon/emmet';
+import {SheetAddon} from '../addon/sheet';
+import {UnitsAddon} from '../addon/units';
+import {KeyframesAddon} from '../addon/keyframes';
 
-/*
-interface NanoRenderer extends Partial<IUnits> {
-    dsheet?: (cssMap: {[s: string]: ICssLikeObject}, block?: string) => {[s: string]: TDynamicCss};
-    jsx?: (
-        type: THyperscriptType,
-        css: ICssLikeObject,
-        dynamicCss?: TDynamicCss,
-        block?: string
-    ) => THyperscriptComponent;
-    style?: (
-        type: THyperscriptType,
-        css: ICssLikeObject,
-        dynamicCss?: TDynamicCss,
-        block?: string
-    ) => THyperscriptComponent;
-    styled?: (
-        type: THyperscriptType
-    ) => (css: ICssLikeObject, dynamicCss?: TDynamicCss, block?: string) => THyperscriptComponent;
-    cache?: (css: ICssLikeObject) => string;
-    global?: (css: ICssLikeObject) => void;
-    keyframes?: (...args) => string;
-    hydrate?: (sh: CSSStyleSheet) => void;
-    hyperstyle?: (cssMap: {[s: string]: ICssLikeObject}, block?: string) => THyperstyle;
-    putRule?: (...args) => any;
-    createRef?: (...args) => any;
-    ref?: (...args) => any;
-    useStyles?: (
-        cssMap: {[s: string]: ICssLikeObject},
-        fn: (props, styles: {[s: string]: string}) => THyperstyleElement,
-        block?: string
-    ) => THyperscriptComponent;
-    withStyles?: (
-        cssMap: {[s: string]: ICssLikeObject},
-        fn: THyperscriptComponent,
-        block?: string
-    ) => THyperscriptComponent;
-    s?: object;
-    units?: IUnits;
-}
-*/
+export type Addons = RuleAddon &
+    SheetAddon &
+    ComponentAddon &
+    UnitsAddon &
+    KeyframesAddon &
+    DecoratorAddon &
+    EmmetAddon &
+    CSSOMAddon &
+    VCSSOMAddon;
 
-export interface NanoRenderer
-    extends Partial<RulePatch>,
-        Partial<UnitsPatch>,
-        Partial<DrulePatch>,
-        Partial<SheetPatch>,
-        Partial<KeyframesPatch>,
-        Partial<ComponentPatch>,
-        Partial<DecoratorPatch> {
+/**
+ * nano-css main object.
+ */
+export interface NanoRenderer extends Partial<Addons> {
     /**
      * Equals to `true` if in browser environment.
      */
@@ -155,6 +122,5 @@ export interface NanoOptions {
     stringify?: (obj: object) => string;
 }
 
-type CreateNano = (options?: NanoOptions) => NanoRenderer;
-
+export type CreateNano = (options?: NanoOptions) => NanoRenderer;
 export const create: CreateNano;

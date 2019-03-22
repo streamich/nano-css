@@ -1,5 +1,4 @@
-import {CssLikeObject} from '../common';
-import {NanoRenderer} from '../nano';
+import {NanoRenderer} from '../types/nano';
 
 export interface Units {
     /**
@@ -83,8 +82,8 @@ export interface Units {
     pct: (val: number) => string;
 }
 
-export interface UnitsPatch extends Units {
+export interface UnitsAddon extends Units {
     units: Units;
 }
 
-export type UnitsAddon = <T extends NanoRenderer>(nano: T) => T & UnitsPatch;
+export function addon(nano: NanoRenderer);

@@ -1,5 +1,4 @@
 import {CreateNano} from './types/nano';
-import {RuleAddon} from './types/addon/rule';
 import {UnitsAddon} from './types/addon/units';
 import {DruleAddon} from './types/addon/drule';
 import {SheetAddon} from './types/addon/sheet';

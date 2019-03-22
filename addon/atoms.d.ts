@@ -1,5 +1,5 @@
 import * as CSS from 'csstype';
-import {NanoRenderer} from '../nano';
+import {NanoRenderer} from '../types/nano';
 
 type TLength = string | number;
 
@@ -240,4 +240,4 @@ export interface Atoms {
     tr?: CSS.TransformProperty;
 }
 
-export type AtomsAddon = <T extends NanoRenderer>(nano: T) => T;
+export function addon(nano: NanoRenderer);

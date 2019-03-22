@@ -12,4 +12,4 @@ export interface Tree {
     };
 }
 
-export function cssToTree(css: Css): Tree;
+export function cssToTree(tree: {}, css: Css, selector: string, prelude: string): Tree;

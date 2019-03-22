@@ -1,10 +1,12 @@
+import {NanoRenderer} from '../types/nano';
+
 export interface CSSOMRule extends CSSRule {
     index: number;
     style: CSSStyleDeclaration;
     styleMap: any;
 }
 
-export interface AddonCSSOM {
+export interface CSSOMAddon {
     /**
      * @param selector CSS rule selector string.
      * @param prelude Media query at-rule prelude string.
@@ -12,4 +14,4 @@ export interface AddonCSSOM {
     createRule(selector: string, prelude: string): CSSOMRule;
 }
 
-export function addon<Nano extends {sh: HTMLStyleElement}>(nano: Nano): Nano & AddonCSSOM;
+export function addon(nano: NanoRenderer);

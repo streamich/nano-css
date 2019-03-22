@@ -1,12 +1,13 @@
-import {AddonCSSOM} from './cssom';
+import {CSSOMAddon} from './cssom';
 import {Css} from './vcssom/cssToTree';
+import {NanoRenderer} from '../types/nano';
 
 export interface VSheet {
     diff(css: Css);
 }
 
-export interface AddonVCSSOM {
+export interface VCSSOMAddon {
     VSheet: new () => VSheet;
 }
 
-export function addon<Nano extends AddonCSSOM>(nano: Nano): Nano & AddonVCSSOM;
+export function addon(nano: NanoRenderer);

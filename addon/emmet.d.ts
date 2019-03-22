@@ -1,9 +1,9 @@
 import * as CSS from 'csstype';
-import {NanoRenderer} from '../nano';
+import {NanoRenderer} from '../types/nano';
 
 type TLength = string | number;
 
-export interface Emmet {
+export interface EmmetAddon {
     // Visual Formatting; //
     /**
      * Short for `position` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
@@ -611,4 +611,4 @@ export interface Emmet {
     us?: CSS.UserSelectProperty;
 }
 
-export type EmmetAddon = <T extends NanoRenderer>(nano: T) => T;
+export function addon(nano: NanoRenderer);
