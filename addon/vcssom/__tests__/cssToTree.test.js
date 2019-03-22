@@ -1,7 +1,7 @@
 /* eslint-disable */
 'use strict';
 
-var cssToTree = require('../vcssom').cssToTree;
+var cssToTree = require('../cssToTree').cssToTree;
 
 describe('cssToTree', function () {
     test('exist', function () {

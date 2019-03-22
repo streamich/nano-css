@@ -1,4 +1,4 @@
-import {cssToTree} from '../../addon/vcssom';
+import {cssToTree} from '../../addon/vcssom/cssToTree';
 import {HookUseMemo} from './types';
 
 const createUseCssDiffWithNano = (nano: any) => (useMemo: HookUseMemo) => {
