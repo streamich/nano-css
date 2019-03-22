@@ -61,28 +61,25 @@ exports.addon = function (renderer) {
         require('./__dev__/warnOnMissingDependencies')('cssom', renderer, ['createRule']); // cssom
     }
 
+    // VCSSOM support only browser environment.
+    if (!renderer.client) return;
+
     var kebab = renderer.kebab;
 
     function VRule (rule, decl) {
         this.rule = rule;
         this.decl = decl;
     }
-
     VRule.prototype.diff = function (newDecl) {
         var oldDecl = this.decl;
         var style = this.rule.style;
         var property;
-
         for (property in oldDecl)
             if (newDecl[property] === undefined)
                 style.removeProperty(property);
-
-        for (property in newDecl) {
-            if (newDecl[property] !== oldDecl[property]) {
+        for (property in newDecl)
+            if (newDecl[property] !== oldDecl[property])
                 style.setProperty(kebab(property), newDecl[property]);
-            }
-        }
-
         this.decl = newDecl;
     };
 
@@ -98,7 +95,6 @@ exports.addon = function (renderer) {
          */
         this.tree = {};
     }
-
     VSheet.prototype.diff = function (newTree) {
         var sh = renderer.sh.sheet;
         var msh = renderer.msh.sheet;
