@@ -8,6 +8,14 @@ import {EmmetAddon} from '../addon/emmet';
 import {SheetAddon} from '../addon/sheet';
 import {UnitsAddon} from '../addon/units';
 import {KeyframesAddon} from '../addon/keyframes';
+import {AmpAddon} from '../addon/amp';
+import {ArrayAddon} from '../addon/array';
+import {CacheAddon} from '../addon/cache';
+import {DsheetAddon} from '../addon/dsheet';
+import {ExtractAddon} from '../addon/extract';
+import {GlobalAddon} from '../addon/global';
+import {GoogleFontAddon} from '../addon/googleFont';
+import {HydrateAddon} from '../addon/hydrate';
 
 export type Addons = RuleAddon &
     SheetAddon &
@@ -17,7 +25,15 @@ export type Addons = RuleAddon &
     DecoratorAddon &
     EmmetAddon &
     CSSOMAddon &
-    VCSSOMAddon;
+    VCSSOMAddon &
+    ArrayAddon &
+    CacheAddon &
+    DsheetAddon &
+    ExtractAddon &
+    GlobalAddon &
+    GoogleFontAddon &
+    HydrateAddon &
+    AmpAddon;
 
 /**
  * nano-css main object.
@@ -123,4 +139,3 @@ export interface NanoOptions {
 }
 
 export type CreateNano = (options?: NanoOptions) => NanoRenderer;
-export const create: CreateNano;

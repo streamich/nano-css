@@ -1,4 +1,4 @@
-import {create} from './nano';
+import {create} from '..';
 
 const nano = create();
 
