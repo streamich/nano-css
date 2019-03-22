@@ -1,3 +1,24 @@
+# [5.0.0](https://github.com/streamich/nano-css/compare/v4.0.0...v5.0.0) (2019-03-22)
+
+
+### Bug Fixes
+
+* 🐛 don't load VCSSOM in non-browser environments ([857b2d2](https://github.com/streamich/nano-css/commit/857b2d2))
+* 🐛 search for rule index before removing it ([27b48ca](https://github.com/streamich/nano-css/commit/27b48ca))
+
+
+### Features
+
+* 🎸 add CSSOM and VCSSOM TypeScript typings ([607253a](https://github.com/streamich/nano-css/commit/607253a))
+* 🎸 add TypeScript definitiosn for some missing addons ([6611aac](https://github.com/streamich/nano-css/commit/6611aac))
+* 🎸 allow JS-style snake-case declaration properties ([9b8197a](https://github.com/streamich/nano-css/commit/9b8197a))
+* 🎸 move TypeScript typings inline next to implementations ([224ee56](https://github.com/streamich/nano-css/commit/224ee56))
+
+
+### BREAKING CHANGES
+
+* 🧨 refactoring TypeScript types might break some TypeScript builds
+
 # [4.0.0](https://github.com/streamich/nano-css/compare/v3.5.0...v4.0.0) (2019-03-21)
 
 
