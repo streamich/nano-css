@@ -1,5 +1,6 @@
 import {createElement as h} from 'react';
 import {storiesOf} from '@storybook/react';
+import {Demo} from './vcssom/hook';
 const {create} = require('../index');
 const {addon: addonCSSOM} = require('../addon/cssom');
 const {addon: addonVCSSOM} = require('../addon/vcssom');
@@ -49,3 +50,4 @@ storiesOf('Addons/VCSSOM', module)
     .add('rule', () =>
         h('div', {className: 'test_vcssom'}, 'addonVCSSOM')
     )
+    .add('hook demo', () => h(Demo))
