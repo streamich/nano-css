@@ -19,6 +19,7 @@ export const Demo = () => {
     const className = useCss({
         color: 'red',
         border: '1px solid red',
+        fontWeight: 'bold',
         '&:hover': {
           color: 'blue',
         },

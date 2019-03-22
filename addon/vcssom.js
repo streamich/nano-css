@@ -58,8 +58,10 @@ function removeRule (sh, rule) {
 
 exports.addon = function (renderer) {
     if (process.env.NODE_ENV !== 'production') {
-        require('./__dev__/warnOnMissingDependencies')('pipe', renderer, ['createRule']); // cssom
+        require('./__dev__/warnOnMissingDependencies')('cssom', renderer, ['createRule']); // cssom
     }
+
+    var kebab = renderer.kebab;
 
     function VRule (rule, decl) {
         this.rule = rule;
@@ -77,7 +79,7 @@ exports.addon = function (renderer) {
 
         for (property in newDecl) {
             if (newDecl[property] !== oldDecl[property]) {
-                style.setProperty(property, newDecl[property]);
+                style.setProperty(kebab(property), newDecl[property]);
             }
         }
 
