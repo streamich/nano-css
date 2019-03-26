@@ -28,6 +28,9 @@ exports.addon = function (renderer) {
                 style.setProperty(kebab(property), newDecl[property]);
         this.decl = newDecl;
     };
+    VRule.prototype.del = function () {
+        removeRule(this.rule);
+    };
 
     function VSheet () {
         /**
@@ -42,17 +45,14 @@ exports.addon = function (renderer) {
         this.tree = {};
     }
     VSheet.prototype.diff = function (newTree) {
-        var sh = renderer.sh.sheet;
-        var msh = renderer.msh.sheet;
         var oldTree = this.tree;
 
         // Remove media queries not present in new tree.
         for (var prelude in oldTree) {
             if (newTree[prelude] === undefined) {
                 var rules = oldTree[prelude];
-                for (var selector in rules) {
-                    removeRule(msh, rules[selector]);
-                }
+                for (var selector in rules)
+                    rules[selector].del();
             }
         }
 
@@ -72,7 +72,7 @@ exports.addon = function (renderer) {
                 // Remove rules not present in new tree.
                 for (var selector in oldRules)
                     if (!newRules[selector])
-                        deleteRule(sh, oldRules[selector]);
+                        oldRules[selector].del();
 
                 // Apply new rules.
                 for (var selector in newRules) {
@@ -92,5 +92,6 @@ exports.addon = function (renderer) {
         this.tree = newTree;
     };
 
-    renderer.VSheet = VSheet
+    renderer.VRule = VRule;
+    renderer.VSheet = VSheet;
 };
