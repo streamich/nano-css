@@ -3,12 +3,12 @@
 var removeRule = require('./vcssom/removeRule').removeRule;
 
 exports.addon = function (renderer) {
+    // VCSSOM support only browser environment.
+    if (!renderer.client) return;
+
     if (process.env.NODE_ENV !== 'production') {
         require('./__dev__/warnOnMissingDependencies')('cssom', renderer, ['createRule']); // cssom
     }
-
-    // VCSSOM support only browser environment.
-    if (!renderer.client) return;
 
     var kebab = renderer.kebab;
 
