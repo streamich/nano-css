@@ -12,9 +12,9 @@ exports.addon = function (renderer) {
 
     var kebab = renderer.kebab;
 
-    function VRule (rule, decl) {
-        this.rule = rule;
-        this.decl = decl;
+    function VRule (selector, prelude) {
+        this.rule = renderer.createRule(selector, prelude);
+        this.decl = {};
     }
     VRule.prototype.diff = function (newDecl) {
         var oldDecl = this.decl;
@@ -60,7 +60,7 @@ exports.addon = function (renderer) {
             if (oldTree[prelude] === undefined) {
                 // Whole media query is new.
                 for (var selector in newTree[prelude]) {
-                    var rule = new VRule(renderer.createRule(selector, prelude), {});
+                    var rule = new VRule(selector, prelude);
                     rule.diff(newTree[prelude][selector]);
                     newTree[prelude][selector] = rule;
                 }
@@ -81,7 +81,7 @@ exports.addon = function (renderer) {
                         rule.diff(newRules[selector]);
                         newRules[selector] = rule;
                     } else {
-                        rule = new VRule(renderer.createRule(selector, prelude), {});
+                        rule = new VRule(selector, prelude);
                         rule.diff(newRules[selector]);
                         newRules[selector] = rule;
                     }

@@ -31,3 +31,10 @@ Use `rule` object to set CSS.
 rule.style.color = 'red';
 rule.style.setProperty('color', 'green');
 ```
+
+
+## Installation
+
+Simply install `cssom` addon.
+
+Read more about the [Addon Installation](./Addons.md#addon-installation).

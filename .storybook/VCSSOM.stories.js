@@ -26,6 +26,7 @@ sheet.diff({
     '@media only screen and (max-width: 600px)': {
         '.test_vcssom': {
             'text-decoration': 'underline',
+            color: 'green',
         },
     }
 });
