@@ -1,3 +1,16 @@
+# [5.1.0](https://github.com/streamich/nano-css/compare/v5.0.0...v5.1.0) (2019-03-26)
+
+
+### Bug Fixes
+
+* 🐛 don't crash CSSOM and VCSSOM addons on server side ([123f76c](https://github.com/streamich/nano-css/commit/123f76c))
+
+
+### Features
+
+* 🎸 add .del() to VRule, removeRule() now acc only 1 arg ([6d25e55](https://github.com/streamich/nano-css/commit/6d25e55))
+* 🎸 change VRule interface, add vcssom docs ([18cea49](https://github.com/streamich/nano-css/commit/18cea49))
+
 # [5.0.0](https://github.com/streamich/nano-css/compare/v4.0.0...v5.0.0) (2019-03-22)
 
 
