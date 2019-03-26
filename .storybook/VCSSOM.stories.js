@@ -26,6 +26,7 @@ sheet.diff({
     '@media only screen and (max-width: 600px)': {
         '.test_vcssom': {
             'text-decoration': 'underline',
+            color: 'green',
         },
     }
 });
@@ -41,6 +42,15 @@ sheet.diff({
         '.test_vcssom:hover': {
             color: 'red',
         }
+    },
+    '@media only screen and (max-width: 600px)': {
+        '.test_vcssom': {
+            'text-decoration': 'underline',
+            color: 'pink',
+        },
+        '.test_vcssom:hover': {
+            color: 'yellow',
+        },
     }
 });
 

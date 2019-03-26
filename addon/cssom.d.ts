@@ -11,7 +11,7 @@ export interface CSSOMAddon {
      * @param selector CSS rule selector string.
      * @param prelude Media query at-rule prelude string.
      */
-    createRule(selector: string, prelude: string): CSSOMRule;
+    createRule(selector: string, prelude?: string): CSSOMRule;
 }
 
 export function addon(nano: NanoRenderer);
