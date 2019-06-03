@@ -1,3 +1,10 @@
+# [5.2.0](https://github.com/streamich/nano-css/compare/v5.1.0...v5.2.0) (2019-06-03)
+
+
+### Features
+
+* add "::placeholder" support to prefixer ([caf78d8](https://github.com/streamich/nano-css/commit/caf78d8))
+
 # [5.1.0](https://github.com/streamich/nano-css/compare/v5.0.0...v5.1.0) (2019-03-26)
 
 
