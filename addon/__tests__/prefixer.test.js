@@ -70,7 +70,8 @@ describe('prefixer', function () {
 			'input::-webkit-input-placeholder',
 			'input::-moz-placeholder',
 			'input:-ms-input-placeholder',
-			'input:-moz-placeholder'
+			'input:-moz-placeholder',
+			'::placeholder',
 		].forEach(function (key) {
 			expect(result.includes(key)).toBe(true);
 		});
@@ -93,7 +94,8 @@ describe('prefixer', function () {
 			'::-webkit-input-placeholder',
 			'::-moz-placeholder',
 			':-ms-input-placeholder',
-			':-moz-placeholder'
+			':-moz-placeholder',
+			'::placeholder',
 		].forEach(function (key) {
 			expect(result.includes(key)).toBe(true);
 		});
