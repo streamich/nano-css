@@ -10,6 +10,7 @@ var matchCallback = function (match) {
 
 exports.addon = function (renderer) {
     var decl = renderer.decl;
+    var origPut = renderer.put;
 
     renderer.camel = function (prop) {
         return prop.replace(CAMEL_REGEX, matchCallback);
@@ -32,7 +33,7 @@ exports.addon = function (renderer) {
             if (value instanceof Array) {
                 result[propPrefixed] = value.join(';' + propPrefixed + ':');
             } else {
-                result[propPrefixed] =  value;
+                result[propPrefixed] = value;
             }
         }
 
@@ -43,11 +44,36 @@ exports.addon = function (renderer) {
         var result = renderer.prefix(prop, value);
 
         var returned = '';
-        Object.keys(result).forEach(function(key) {
+        Object.keys(result).forEach(function (key) {
             var str = decl(key, value);
             returned += str;
         });
 
         return returned;
     };
+
+    function newPut(selector, decls, atrule) {
+        var indexed = selector.indexOf('::placeholder');
+        if (indexed > -1) {
+            var split = selector.split(',');
+            if (split.length > 1) {
+                split.forEach(function(sp) {
+                    newPut(sp.trim(), decls, atrule);
+                });
+                return;
+            }
+            var bareSelect = selector.substring(0, indexed);
+            [
+                '::-webkit-input-placeholder',
+                '::-moz-placeholder',
+                ':-ms-input-placeholder',
+                ':-moz-placeholder'
+            ].forEach(function(ph) {
+                origPut(bareSelect + ph, decls, atrule);
+            });
+        }
+        origPut(selector, decls, atrule);
+    }
+
+    renderer.put = newPut;
 };
