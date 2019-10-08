@@ -11,6 +11,7 @@ import {KeyframesAddon} from '../addon/keyframes';
 import {AmpAddon} from '../addon/amp';
 import {ArrayAddon} from '../addon/array';
 import {CacheAddon} from '../addon/cache';
+import {DruleAddon} from '../addon/drule';
 import {DsheetAddon} from '../addon/dsheet';
 import {ExtractAddon} from '../addon/extract';
 import {GlobalAddon} from '../addon/global';
@@ -28,6 +29,7 @@ export type Addons = RuleAddon &
     VCSSOMAddon &
     ArrayAddon &
     CacheAddon &
+    DruleAddon &
     DsheetAddon &
     ExtractAddon &
     GlobalAddon &
