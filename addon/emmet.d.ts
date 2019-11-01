@@ -193,7 +193,7 @@ export interface EmmetAddon {
     /**
      * Short for `text-decoration` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    td?: CSS.TextDecorationProperty;
+    td?: CSS.TextDecorationProperty<TLength>;
     /**
      * Short for `text-emphasis` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
