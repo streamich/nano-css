@@ -167,7 +167,7 @@ export interface Atoms {
     /**
      * Short for `text-decoration` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    td?: CSS.TextDecorationProperty;
+    td?: CSS.TextDecorationProperty<TLength>;
 
     /**
      * Short for `float` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
