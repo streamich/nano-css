@@ -1,3 +1,16 @@
+# [5.3.0](https://github.com/streamich/nano-css/compare/v5.2.0...v5.3.0) (2020-02-17)
+
+
+### Bug Fixes
+
+* **addon\atom:** mistake in types; ([3be2d1f](https://github.com/streamich/nano-css/commit/3be2d1ff04c8e3d1580280b52aa47a52cdfdb7e7))
+* **addon\emmet:** mistake in types; ([54583fe](https://github.com/streamich/nano-css/commit/54583fe04a22efc97fabfc7655abdcd8f2394119))
+
+
+### Features
+
+* 🎸 export all types ([23a1ade](https://github.com/streamich/nano-css/commit/23a1adeeb8f436b108644ee9fb1b2c83dc2265b4))
+
 # [5.2.0](https://github.com/streamich/nano-css/compare/v5.1.0...v5.2.0) (2019-06-03)
 
 
