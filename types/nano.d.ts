@@ -18,6 +18,26 @@ import {GlobalAddon} from '../addon/global';
 import {GoogleFontAddon} from '../addon/googleFont';
 import {HydrateAddon} from '../addon/hydrate';
 
+export * from '../addon/rule';
+export * from '../addon/vcssom';
+export * from '../addon/cssom';
+export * from './common';
+export * from '../addon/component';
+export * from '../addon/decorator';
+export * from '../addon/emmet';
+export * from '../addon/sheet';
+export * from '../addon/units';
+export * from '../addon/keyframes';
+export * from '../addon/amp';
+export * from '../addon/array';
+export * from '../addon/cache';
+export * from '../addon/drule';
+export * from '../addon/dsheet';
+export * from '../addon/extract';
+export * from '../addon/global';
+export * from '../addon/googleFont';
+export * from '../addon/hydrate';
+
 export type Addons = RuleAddon &
     SheetAddon &
     ComponentAddon &
