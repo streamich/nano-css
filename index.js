@@ -3,11 +3,11 @@
 var KEBAB_REGEX = /[A-Z]/g;
 
 var hash = function (str) {
-    var hash = 5381, i = str.length;
+    var h = 5381, i = str.length;
 
-    while (i) hash = (hash * 33) ^ str.charCodeAt(--i);
+    while (i) h = (h * 33) ^ str.charCodeAt(--i);
 
-    return '_' + (hash >>> 0).toString(36);
+    return '_' + (h >>> 0).toString(36);
 };
 
 exports.create = function (config) {
@@ -124,7 +124,7 @@ exports.create = function (config) {
         for (var i = 0; i < postponed.length; i++) {
             prop = postponed[i];
 
-            if (prop[0] === "@" && prop !== "@font-face") {
+            if (prop[0] === '@' && prop !== '@font-face') {
                 renderer.putAt(selector, decls[prop], prop);
             } else {
                 renderer.put(renderer.selector(selector, prop), decls[prop], atrule);
