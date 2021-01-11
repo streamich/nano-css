@@ -7,92 +7,92 @@ export interface Atoms {
     /**
      * Short for `display` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    d?: CSS.DisplayProperty;
+    d?: CSS.Property.Display;
 
     /**
      * Short for `margin` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    mar?: CSS.MarginProperty<TLength>;
+    mar?: CSS.Property.Margin<TLength>;
 
     /**
      * Short for `margin-top` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    mart?: CSS.MarginBottomProperty<TLength>;
+    mart?: CSS.Property.MarginBottom<TLength>;
 
     /**
      * Short for `margin-right` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    marr?: CSS.MarginBottomProperty<TLength>;
+    marr?: CSS.Property.MarginBottom<TLength>;
 
     /**
      * Short for `margin-bottom` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    marb?: CSS.MarginBottomProperty<TLength>;
+    marb?: CSS.Property.MarginBottom<TLength>;
 
     /**
      * Short for `margin-left` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    marl?: CSS.MarginBottomProperty<TLength>;
+    marl?: CSS.Property.MarginBottom<TLength>;
 
     /**
      * Short for `padding` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    pad?: CSS.PaddingProperty<TLength>;
+    pad?: CSS.Property.Padding<TLength>;
 
     /**
      * Short for `padding-top` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    padt?: CSS.PaddingBottomProperty<TLength>;
+    padt?: CSS.Property.PaddingBottom<TLength>;
 
     /**
      * Short for `padding-right` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    padr?: CSS.PaddingBottomProperty<TLength>;
+    padr?: CSS.Property.PaddingBottom<TLength>;
 
     /**
      * Short for `padding-bottom` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    padb?: CSS.PaddingBottomProperty<TLength>;
+    padb?: CSS.Property.PaddingBottom<TLength>;
 
     /**
      * Short for `padding-left` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    padl?: CSS.PaddingBottomProperty<TLength>;
+    padl?: CSS.Property.PaddingBottom<TLength>;
 
     /**
      * Short for `border` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    bd?: CSS.BorderBottomProperty<TLength>;
+    bd?: CSS.Property.BorderBottom<TLength>;
 
     /**
      * Short for `border-top` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    bdt?: CSS.BorderBottomProperty<TLength>;
+    bdt?: CSS.Property.BorderBottom<TLength>;
 
     /**
      * Short for `border-right` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    bdr?: CSS.BorderBottomProperty<TLength>;
+    bdr?: CSS.Property.BorderBottom<TLength>;
 
     /**
      * Short for `border-bottom` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    bdb?: CSS.BorderBottomProperty<TLength>;
+    bdb?: CSS.Property.BorderBottom<TLength>;
 
     /**
      * Short for `border-left` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    bdl?: CSS.BorderBottomProperty<TLength>;
+    bdl?: CSS.Property.BorderBottom<TLength>;
 
     /**
      * Short for `border-radius` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    bdrad?: CSS.BorderRadiusProperty<TLength>;
+    bdrad?: CSS.Property.BorderRadius<TLength>;
 
     /**
      * Short for `color` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    col?: CSS.Color;
+    col?: CSS.Property.Color;
 
     /**
      * Short for `opacity` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
@@ -102,142 +102,142 @@ export interface Atoms {
     /**
      * Short for `background` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    bg?: CSS.BackgroundProperty<TLength>;
+    bg?: CSS.Property.Background<TLength>;
 
     /**
      * Short for `background-color` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    bgc?: CSS.BackgroundColorProperty;
+    bgc?: CSS.Property.BackgroundColor;
 
     /**
      * Short for `font-size` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    fz?: CSS.FontSizeProperty<TLength>;
+    fz?: CSS.Property.FontSize<TLength>;
 
     /**
      * Short for `font-style` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    fs?: CSS.FontStyleProperty;
+    fs?: CSS.Property.FontStyle;
 
     /**
      * Short for `font-weight` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    fw?: CSS.FontWeightProperty;
+    fw?: CSS.Property.FontWeight;
 
     /**
      * Short for `font-family` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    ff?: CSS.FontFamilyProperty;
+    ff?: CSS.Property.FontFamily;
 
     /**
      * Short for `line-height` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    lh?: CSS.LineHeightProperty<TLength>;
+    lh?: CSS.Property.LineHeight<TLength>;
 
     /**
      * Short for `box-sizing` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    bxz?: CSS.BoxSizingProperty;
+    bxz?: CSS.Property.BoxSizing;
 
     /**
      * Short for `cursor` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    cur?: CSS.CursorProperty;
+    cur?: CSS.Property.Cursor;
 
     /**
      * Short for `overflow` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    ov?: CSS.OverflowProperty;
+    ov?: CSS.Property.Overflow;
 
     /**
      * Short for `position` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    pos?: CSS.PositionProperty;
+    pos?: CSS.Property.Position;
 
     /**
      * Short for `list-style` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    ls?: CSS.ListStyleProperty;
+    ls?: CSS.Property.ListStyle;
 
     /**
      * Short for `text-align` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    ta?: CSS.TextAlignProperty;
+    ta?: CSS.Property.TextAlign;
 
     /**
      * Short for `text-decoration` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    td?: CSS.TextDecorationProperty<TLength>;
+    td?: CSS.Property.TextDecoration<TLength>;
 
     /**
      * Short for `float` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    fl?: CSS.FloatProperty;
+    fl?: CSS.Property.Float;
 
     /**
      * Short for `width` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    w?: CSS.WidthProperty<TLength>;
+    w?: CSS.Property.Width<TLength>;
 
     /**
      * Short for `min-width` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    minW?: CSS.MinWidthProperty<TLength>;
+    minW?: CSS.Property.MinWidth<TLength>;
 
     /**
      * Short for `max-width` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    maxW?: CSS.MaxWidthProperty<TLength>;
+    maxW?: CSS.Property.MaxWidth<TLength>;
 
     /**
      * Short for `min-height` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    minH?: CSS.MinHeightProperty<TLength>;
+    minH?: CSS.Property.MinHeight<TLength>;
 
     /**
      * Short for `max-height` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    maxH?: CSS.MaxHeightProperty<TLength>;
+    maxH?: CSS.Property.MaxHeight<TLength>;
 
     /**
      * Short for `height` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    h?: CSS.HeightProperty<TLength>;
+    h?: CSS.Property.Height<TLength>;
 
     /**
      * Short for `transition` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    trs?: CSS.TransitionProperty;
+    trs?: CSS.Property.Transition;
 
     /**
      * Short for `outline` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    out?: CSS.OutlineProperty<TLength>;
+    out?: CSS.Property.Outline<TLength>;
 
     /**
      * Short for `visibility` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    vis?: CSS.VisibilityProperty;
+    vis?: CSS.Property.Visibility;
 
     /**
      * Short for `word-wrap` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    ww?: CSS.WordWrapProperty;
+    ww?: CSS.Property.WordWrap;
 
     /**
      * Short for `content` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    con?: CSS.ContentProperty;
+    con?: CSS.Property.Content;
 
     /**
      * Short for `z-index` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    z?: CSS.ZIndexProperty;
+    z?: CSS.Property.ZIndex;
 
     /**
      * Short for `transform` property. Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
-    tr?: CSS.TransformProperty;
+    tr?: CSS.Property.Transform;
 }
 
 export function addon(nano: NanoRenderer);

@@ -1,6 +1,6 @@
 'use strict';
 
-var prefixAll = require('inline-style-prefixer/static');
+var prefix = require('inline-style-prefixer').prefix;
 
 var CAMEL_REGEX = /-[a-z\u00E0-\u00F6\u00F8-\u00FE]/g;
 
@@ -19,7 +19,7 @@ exports.addon = function (renderer) {
     renderer.prefix = function (prop, value) {
         var obj = {};
         obj[renderer.camel(prop)] = value;
-        obj = prefixAll(obj);
+        obj = prefix(obj);
 
         var result = {};
 
