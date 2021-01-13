@@ -1,3 +1,10 @@
+## [5.3.1](https://github.com/streamich/nano-css/compare/v5.3.0...v5.3.1) (2021-01-13)
+
+
+### Bug Fixes
+
+* make every export to be listed manually since TSC 4 ([78e50fa](https://github.com/streamich/nano-css/commit/78e50fab882411613c53aa76b81578fc698fadf8))
+
 # [5.3.0](https://github.com/streamich/nano-css/compare/v5.2.0...v5.3.0) (2020-02-17)
 
 
