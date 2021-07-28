@@ -20,14 +20,7 @@ exports.addon = function (renderer) {
         var put = renderer.put;
 
         renderer.put = function (selector, css) {
-            if (selector in hydrated) {
-                if (process.env.NODE_ENV !== 'production') {
-                    // eslint-disable-next-line
-                    console.info('Hydrated selector: ' + selector);
-                }
-
-                return;
-            }
+            if (selector in hydrated) return;
 
             put(selector, css);
         };
