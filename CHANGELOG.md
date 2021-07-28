@@ -1,3 +1,10 @@
+## [5.3.2](https://github.com/streamich/nano-css/compare/v5.3.1...v5.3.2) (2021-07-28)
+
+
+### Bug Fixes
+
+* remove hydration logging in development ([1bf7053](https://github.com/streamich/nano-css/commit/1bf70533d4641b27073378a6d33f564fc1e27878))
+
 ## [5.3.1](https://github.com/streamich/nano-css/compare/v5.3.0...v5.3.1) (2021-01-13)
 
 
