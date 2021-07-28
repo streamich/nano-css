@@ -7,7 +7,7 @@ module.exports = {
     useTabs: false,
     semi: true,
     singleQuote: true,
-    trailingComma: 'all',
+    trailingComma: 'none',
     bracketSpacing: false,
     jsxBracketSameLine: false
 };

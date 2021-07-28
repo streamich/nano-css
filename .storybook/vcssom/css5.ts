@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useCss} from './react';
 
-export const styled = useCss => h => tag => ({as = tag, css, className, ...rest}) => {
+export const styled = (useCss) => (h) => (tag) => ({as = tag, css, className, ...rest}) => {
     const extraClass = useCss(css);
     rest.className = className ? className + ' ' + extraClass : extraClass;
     return h(as, rest);
