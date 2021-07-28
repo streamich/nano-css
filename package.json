@@ -10,6 +10,7 @@
     "type": "git",
     "url": "https://github.com/streamich/nano-css.git"
   },
+  "license": "The Unlicense",
   "scripts": {
     "lint": "eslint ./index.js",
     "lint:fix": "yarn lint --fix",
