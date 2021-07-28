@@ -48,7 +48,7 @@ exports.create = function (config) {
         },
         putRaw: function (rawCssRule) {
             renderer.raw += rawCssRule;
-        },
+        }
     }, config);
 
     if (renderer.client) {
