@@ -1,3 +1,10 @@
+## [5.3.3](https://github.com/streamich/nano-css/compare/v5.3.2...v5.3.3) (2021-07-28)
+
+
+### Bug Fixes
+
+* remove trailing comma ([985a66c](https://github.com/streamich/nano-css/commit/985a66c3723dce2616f1f08cf6533796c13e5f47))
+
 ## [5.3.2](https://github.com/streamich/nano-css/compare/v5.3.1...v5.3.2) (2021-07-28)
 
 
