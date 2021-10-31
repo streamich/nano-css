@@ -42,7 +42,7 @@
   "dependencies": {
     "css-tree": "^1.1.2",
     "csstype": "^3.0.6",
-    "fastest-stable-stringify": "^2.0.2",
+    "safe-stable-stringify": "^2.2.0",
     "inline-style-prefixer": "^6.0.0",
     "rtl-css-js": "^1.14.0",
     "sourcemap-codec": "^1.4.8",
