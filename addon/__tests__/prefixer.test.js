@@ -32,7 +32,6 @@ describe('prefixer', function () {
 		var result = nano.putRaw.mock.calls[0][0].replace(/ +(?= )/g,'');
 		[
 			'-ms-user-select',
-			'-moz-user-select',
 			'-webkit-user-select',
 			'user-select'
 		].forEach(function(key) {
