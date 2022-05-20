@@ -29,9 +29,6 @@ jobs:
           name: Test
           command: yarn test
       - run:
-          name: Post to GitHub
-          command: npx ci-scripts github-post
-      - run:
           name: Post to Slack
           command: npx ci-scripts slack
 
@@ -56,9 +53,6 @@ jobs:
       - run:
           name: Test
           command: yarn test
-      - run:
-          name: Post to GitHub
-          command: npx ci-scripts github-post
       - run:
           name: Post to Slack
           command: npx ci-scripts slack
