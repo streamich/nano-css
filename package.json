@@ -3,7 +3,6 @@
   "version": "5.3.4",
   "description": "Smallest 5th gen CSS-in-JS library",
   "main": "index.js",
-  "unpkg": "dist/nano-css.umd.min.js",
   "types": "index.d.ts",
   "typings": "index.d.ts",
   "repository": {
