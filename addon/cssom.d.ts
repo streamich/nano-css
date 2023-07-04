@@ -14,4 +14,4 @@ export interface CSSOMAddon {
     createRule(selector: string, prelude?: string): CSSOMRule;
 }
 
-export function addon(nano: NanoRenderer);
+export function addon(nano: NanoRenderer): any;

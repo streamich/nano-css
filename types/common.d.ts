@@ -9,6 +9,6 @@ export interface CssLikeObject extends CssProps {
 
 export type TDynamicCss = (css: CssLikeObject) => string;
 export type THyperstyleElement = object;
-export type THyperstyle = (...args) => THyperstyleElement;
+export type THyperstyle = (...args: any[]) => THyperstyleElement;
 export type THyperscriptType = string | Function;
 export type THyperscriptComponent = Function;

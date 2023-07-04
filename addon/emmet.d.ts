@@ -611,4 +611,4 @@ export interface EmmetAddon {
     us?: CSS.Property.UserSelect;
 }
 
-export function addon(nano: NanoRenderer);
+export function addon(nano: NanoRenderer): any;

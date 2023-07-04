@@ -5,4 +5,4 @@ export interface DruleAddon {
     drule: (css: CssLikeObject, block?: string) => TDynamicCss;
 }
 
-export function addon(nano: NanoRenderer);
+export function addon(nano: NanoRenderer): any;

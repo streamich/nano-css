@@ -31,4 +31,4 @@ export interface KeyframesAddon {
     keyframes: (frames: object, block?: string) => string;
 }
 
-export function addon(nano: NanoRenderer);
+export function addon(nano: NanoRenderer): any;

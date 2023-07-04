@@ -19,4 +19,4 @@ export interface SheetAddon {
     sheet: (cssMap: {[s: string]: CssLikeObject}, block?: string) => {[s: string]: string};
 }
 
-export function addon(nano: NanoRenderer);
+export function addon(nano: NanoRenderer): any;

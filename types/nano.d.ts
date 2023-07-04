@@ -137,7 +137,7 @@ export interface NanoOptions {
      * });
      * ```
      */
-    h?: (...args) => any;
+    h?: (...args: any[]) => any;
 
     /**
      * Stylesheet `<sheet>` to be used to inject CSS. If not provided, one will

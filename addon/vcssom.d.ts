@@ -15,13 +15,13 @@ export interface VRule {
      * Re-render css rule according to new CSS declarations.
      * @param decl CSS declarations, like `{color: 'red'}`
      */
-    diff(decl: CssProps);
+    diff(decl: CssProps): any;
 
     /**
      * Removes this `VRule` from CSSOM. After calling this method, you
      * cannot call `diff` anymore as this rule will be removed from style sheet.
      */
-    del();
+    del(): any;
 }
 
 export interface VSheet {
@@ -61,7 +61,7 @@ export interface VSheet {
      *
      * @param css CSS-like object with media queries as top level.
      */
-    diff(css: Css);
+    diff(css: Css): any;
 }
 
 export interface VCSSOMAddon {
@@ -69,4 +69,4 @@ export interface VCSSOMAddon {
     VSheet: new () => VSheet;
 }
 
-export function addon(nano: NanoRenderer);
+export function addon(nano: NanoRenderer): any;

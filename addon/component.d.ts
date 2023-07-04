@@ -1,7 +1,7 @@
 import {NanoRenderer} from '../types/nano';
 
 export interface ComponentAddon {
-    Component;
+    Component: any;
 }
 
-export function addon(nano: NanoRenderer);
+export function addon(nano: NanoRenderer): any;

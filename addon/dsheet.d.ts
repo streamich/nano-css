@@ -5,4 +5,4 @@ export interface DsheetAddon {
     dsheet(map: object, block?: string): object;
 }
 
-export function addon(nano: NanoRenderer);
+export function addon(nano: NanoRenderer): any;

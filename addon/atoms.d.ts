@@ -240,4 +240,4 @@ export interface Atoms {
     tr?: CSS.Property.Transform;
 }
 
-export function addon(nano: NanoRenderer);
+export function addon(nano: NanoRenderer): any;
