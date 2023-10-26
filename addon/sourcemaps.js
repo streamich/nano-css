@@ -1,7 +1,7 @@
 'use strict';
 
 var StackTrace = require('stacktrace-js');
-var SourcemapCodec = require('@jridgewell/sourcemap-code');
+var SourcemapCodec = require('@jridgewell/sourcemap-codec');
 
 function findStackframe (frames) {
     for (var i = 4; i < frames.length; i++) {
