@@ -25,8 +25,7 @@
     "prettier": "prettier --write '**/*.ts'",
     "precommit": "lint-staged",
     "prepush": "yarn test",
-    "storybook": "start-storybook -p 6010",
-    "semantic-release": "semantic-release"
+    "storybook": "start-storybook -p 6010"
   },
   "lint-staged": {
     "**/*.ts": [
@@ -49,9 +48,6 @@
     "stylis": "^4.3.0"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "5.0.1",
-    "@semantic-release/git": "9.0.0",
-    "@semantic-release/npm": "7.0.9",
     "@storybook/addon-actions": "6.1.11",
     "@storybook/addon-links": "6.1.11",
     "@storybook/react": "6.1.11",
@@ -73,7 +69,6 @@
     "react-dom": "17.0.1",
     "react-test-renderer": "17.0.1",
     "rimraf": "3.0.2",
-    "semantic-release": "17.3.1",
     "source-map-support": "0.5.19",
     "ts-loader": "8.0.14",
     "tslib": "2.1.0",
@@ -109,18 +104,6 @@
     "trailingComma": "none",
     "bracketSpacing": false,
     "jsxBracketSameLine": false
-  },
-  "release": {
-    "verifyConditions": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git"
-    ],
-    "prepare": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git"
-    ]
   },
   "keywords": [
     "css",
