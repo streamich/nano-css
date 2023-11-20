@@ -61,7 +61,7 @@ var pos =    'position',
     tov =    text + '-overflow',
     st =     'stroke',
     stw =    st + '-width',
-    stl =    st + '-linecap'
+    stl =    st + '-linecap',
     an =     'animation',
     ann =    an + '-name'
     ;
@@ -112,10 +112,10 @@ var atoms = exports.atoms = {
     mrb,
     mrl,
     mar:    mr,
-    mart:   mart,
-    marr:   marr,
-    marb:   marb,
-    marl:   marl,
+    mart:   mrt,
+    marr:   mrr,
+    marb:   mrb,
+    marl:   mrl,
 
     // Paddings
     pd,
