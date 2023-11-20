@@ -62,6 +62,8 @@ var pos =    'position',
     st =     'stroke',
     stw =    st + '-width',
     stl =    st + '-linecap'
+    an =     'animation',
+    ann =    an + '-name'
     ;
 
 var atoms = exports.atoms = {
@@ -170,14 +172,20 @@ var atoms = exports.atoms = {
     ws:     'white-space',
     lh:     'line-' + h,
     va:     'vertical-' + align,
-    
+
     // Pointer
     cur:    'cursor',
     pe:     'pointer-events',
     us:     'user-select',
 
     // Animations
-    an:     'animation',
+    an,
+    ann,
+    and:    an + '-duration',
+    anf:    an + '-fill-mode',
+    anit:   an + '-iteration-count',
+    anp:    an + '-play-state',
+    ant:    an + '-timing-function',
     trs:    'transition',
     tr:     'transform',
 
