@@ -1,3 +1,20 @@
+# [5.5.0](https://github.com/streamich/nano-css/compare/v5.4.0...v5.5.0) (2023-11-20)
+
+
+### Bug Fixes
+
+* 🐛 add comman operators ([0ca247d](https://github.com/streamich/nano-css/commit/0ca247da04241af4a228f118919856a0f839d971))
+* 🐛 correct syntax errors ([d7c98b1](https://github.com/streamich/nano-css/commit/d7c98b10b86c50837afd8b742a25c4ee70b6a9ae))
+
+
+### Features
+
+* 🎸 add more animation-* atoms ([90a4405](https://github.com/streamich/nano-css/commit/90a44053c411a2803cb4fdfcf0c65e07103b42f7))
+* 🎸 add more atoms ([fb0a3c8](https://github.com/streamich/nano-css/commit/fb0a3c82f295fdd7a8cdb4bd0fea260a47905138))
+* 🎸 add TypeScript atom types ([8debe40](https://github.com/streamich/nano-css/commit/8debe40d1e56d80363cdb457f382a89c258f0cf4))
+* 🎸 finalize atom TypeScript types ([4b37ed5](https://github.com/streamich/nano-css/commit/4b37ed5915f560fa2232a3fa99d612a12c6ff346))
+* 🎸 finalize new atom list ([248e68e](https://github.com/streamich/nano-css/commit/248e68ed4568875d91725db864649febb2f189ca))
+
 # [5.4.0](https://github.com/streamich/nano-css/compare/v5.3.5...v5.4.0) (2023-11-20)
 
 
