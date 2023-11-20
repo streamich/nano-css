@@ -1,3 +1,10 @@
+# [5.4.0](https://github.com/streamich/nano-css/compare/v5.3.5...v5.4.0) (2023-11-20)
+
+
+### Features
+
+* update sourcemap library ([86aa0eb](https://github.com/streamich/nano-css/commit/86aa0eb0d26116d640b8aed192cc5f69f025b27d))
+
 ## [5.3.5](https://github.com/streamich/nano-css/compare/v5.3.4...v5.3.5) (2022-05-20)
 
 
