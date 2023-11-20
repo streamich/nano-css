@@ -14,6 +14,8 @@ __Motto of `nano-css` is simple__: *create the smallest possible CSS-in-JS libra
 - __Extract CSS__ into external style sheet
 - __Public domain__ &mdash; [Unlicense license](./LICENSE)
 
+> For pre-configured simple-to-use package see [`nano-theme`](https://github.com/streamich/nano-theme), which builds on top of `nano-css`.
+
 
 ## Reference
 
