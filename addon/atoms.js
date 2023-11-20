@@ -1,11 +1,29 @@
 'use strict';
 
+var mr  =    'margin',
+    mrt =    'margin-top',
+    mrr =    'margin-right',
+    mrb =    'margin-bottom',
+    mrl =    'margin-left'
+    pd  =    'padding',
+    pdt =    'padding-top',
+    pdr =    'padding-right',
+    pdb =    'padding-bottom',
+    pdl =    'padding-left'
+    ;
+
 var atoms = exports.atoms = {
-    // Layout
-    d:      'display',
-    bxz:    'box-sizing',
-    ov:     'overflow',
+    // Positioning
     pos:    'position',
+    t:      'top',
+    r:      'right',
+    b:      'bottom',
+    l:      'left',
+    z:      'z-index',
+
+    // Layout (box model)
+    d:      'display',
+    vis:    'visibility',
     fl:     'float',
     w:      'width',
     h:      'height',
@@ -13,22 +31,49 @@ var atoms = exports.atoms = {
     maxW:   'max-width',
     minH:   'min-height',
     maxH:   'max-height',
-    vis:    'visibility',
-    z:      'z-index',
+    ov:     'overflow',
+    ovx:    'overflow-x',
+    ovy:    'overflow-y',
+    bxz:    'box-sizing',
+    cl:     'clip',
+    clp:    'clip-path',
+    clr:    'clear',
+
+    // Flexbox
+    fl:     'flex',
+    fld:    'flex-direction',
+    flg:    'flex-grow',
+    fls:    'flex-shrink',
+    flb:    'flex-basis',
+    flw:    'flex-wrap',
+    jc:     'justify-content',
+    ai:     'align-items',
+    ac:     'align-content',
+    as:     'align-self',
 
     // Margins
-    mar:    'margin',
-    mart:   'margin-top',
-    marr:   'margin-right',
-    marb:   'margin-bottom',
-    marl:   'margin-left',
+    mr,
+    mrt,
+    mrr,
+    mrb,
+    mrl,
+    mar:    mr,
+    mart:   mart,
+    marr:   marr,
+    marb:   marb,
+    marl:   marl,
 
     // Paddings
-    pad:    'padding',
-    padt:   'padding-top',
-    padr:   'padding-right',
-    padb:   'padding-bottom',
-    padl:   'padding-left',
+    pd,
+    pdt,
+    pdr,
+    pdb,
+    pdl,
+    pad:    pd,
+    padt:   pdt,
+    padr:   pdr,
+    padb:   pdb,
+    padl:   pdl,
 
     // Borders
     bd:     'border',
@@ -44,6 +89,13 @@ var atoms = exports.atoms = {
     op:     'opacity',
     bg:     'background',
     bgc:    'background-color',
+    bgi:    'background-image',
+    bgr:    'background-repeat',
+    bga:    'background-attachment',
+    bgp:    'background-position',
+    bgs:    'background-size',
+    bgo:    'background-origin',
+    bgcl:   'background-clip',
 
     // Text
     fz:     'font-size',
@@ -53,12 +105,16 @@ var atoms = exports.atoms = {
     lh:     'line-height',
     ta:     'text-align',
     td:     'text-decoration',
+    tt:     'text-transform',
     ww:     'word-wrap',
     
     // Pointer
     cur:    'cursor',
+    pe:     'pointer-events',
+    us:     'user-select',
 
     // Animations
+    an:     'animation',
     trs:    'transition',
     tr:     'transform',
 
