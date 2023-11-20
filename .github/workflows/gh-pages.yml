@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  release:
+  gh-pages:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -17,10 +17,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: yarn
-      - run: yarn
-      - run: yarn test
-      - name: Semantic Release
-        uses: cycjimmy/semantic-release-action@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: yarn install --frozen-lockfile
+      - run: yarn test --coverage
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./coverage/lcov-report
