@@ -3,7 +3,7 @@ version: 2
 refs:
   container: &container
     docker:
-      - image: circleci/node:18
+      - image: cimg/ruby:2.7.1-node
     working_directory: ~/repo
 
 jobs:
