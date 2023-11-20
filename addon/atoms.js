@@ -134,6 +134,8 @@ var atoms = exports.atoms = {
     bdb,
     bdl,
     bdrad,
+    bdc:    bd + '-' + col,
+    bds:    bd + '-' + style,
     out:    'outline',
     bxsh:   'box-shadow',
 
