@@ -8186,10 +8186,10 @@ hyphenate-style-name@^1.0.2, hyphenate-style-name@^1.0.3:
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz#691879af8e220aea5750e8827db4ef62a54e361d"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
 
-iconista@2.14.0:
-  version "2.14.0"
-  resolved "https://registry.yarnpkg.com/iconista/-/iconista-2.14.0.tgz#2c6568b0517296e88ad20d027e9a91fa097db655"
-  integrity sha512-RE7OnToL4rr9GopkJsnil0kePv48c/wDFZlC/yDxjIEKKcOoorrqQ/Fwj/ijQhRc4b3xfWWBbagKx6NJj3zeNQ==
+iconista@2.16.1:
+  version "2.16.1"
+  resolved "https://registry.yarnpkg.com/iconista/-/iconista-2.16.1.tgz#576ad1ad27cb2c2b04dc99e2f3ff17b7ec7fcb92"
+  integrity sha512-MW4mYwGyWaC9E6EsKwZLODzE9YSg06rYEqWuOjMyqqSS5f1B7UiM1qxSvQVLYK+iFTgubL/moZQ1jM8uXz62gA==
   dependencies:
     react-use "^5.7.1"
 
