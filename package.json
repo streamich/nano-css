@@ -42,7 +42,7 @@
     "css-tree": "^1.1.2",
     "csstype": "^3.1.2",
     "fastest-stable-stringify": "^2.0.2",
-    "inline-style-prefixer": "^7.0.0",
+    "inline-style-prefixer": "^7.0.1",
     "rtl-css-js": "^1.16.1",
     "stacktrace-js": "^2.0.2",
     "stylis": "^4.3.0"
