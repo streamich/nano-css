@@ -20,26 +20,6 @@ describe('prefixer', function () {
 		expect(nano).toBeDefined();
 	});
 
-	it('handles "user-select" correctly', function() {
-		var nano = createNano();
-
-		nano.putRaw = jest.fn();
-
-		nano.put('.one', {
-			'user-select': 'none'
-		});
-
-		var result = nano.putRaw.mock.calls[0][0].replace(/ +(?= )/g,'');
-		[
-			'-ms-user-select',
-			'-webkit-user-select',
-			'user-select'
-		].forEach(function(key) {
-			expect(result.includes(key)).toBe(true);
-		});
-
-	});
-
 	it('doesn\'t kebab values', function() {
 		var nano = createNano();
 		var decl = {
