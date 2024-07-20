@@ -42,7 +42,6 @@ export interface Atoms {
      */
     z?: CSS.Property.ZIndex;
 
-
     // Layout (box model)
 
     /**
@@ -141,7 +140,6 @@ export interface Atoms {
      */
     tbl?: CSS.Property.TableLayout;
 
-
     // Flexbox
 
     /**
@@ -203,7 +201,6 @@ export interface Atoms {
      * Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
     as?: CSS.Property.AlignSelf;
-
 
     // Margins
 
@@ -329,7 +326,6 @@ export interface Atoms {
      */
     padl?: CSS.Property.PaddingLeft<TLength>;
 
-
     // Borders
 
     /**
@@ -391,7 +387,6 @@ export interface Atoms {
      * Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
     bxsh?: CSS.Property.BoxShadow;
-
 
     // Colors
 
@@ -565,7 +560,6 @@ export interface Atoms {
      */
     va?: CSS.Property.VerticalAlign<TLength>;
 
-
     // Pointer
 
     /**
@@ -585,7 +579,6 @@ export interface Atoms {
      * Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
     us?: CSS.Property.UserSelect;
-
 
     // Animations
 
@@ -643,7 +636,6 @@ export interface Atoms {
      */
     tr?: CSS.Property.Transform;
 
-
     // SVG
 
     /**
@@ -663,7 +655,6 @@ export interface Atoms {
      * Requires [`atoms` addon](https://github.com/streamich/nano-css/blob/master/docs/atoms.md).
      */
     stl?: CSS.Property.StrokeLinecap;
-
 
     // Other
 
