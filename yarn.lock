@@ -8116,10 +8116,10 @@ hyphenate-style-name@^1.0.2, hyphenate-style-name@^1.0.3:
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz#691879af8e220aea5750e8827db4ef62a54e361d"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
 
-iconista@2.22.0:
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/iconista/-/iconista-2.22.0.tgz#cac3c5b6d428a1971545bdb285aac7ac7309c39c"
-  integrity sha512-2/HramvrGXNu6WUEQAIZ84+xhGTbpB/d05r0QAPzOjkyoGsVud63HhCoQcHCxwlvPma74jA0LSpJrJmZqx6TPQ==
+iconista@2.23.0:
+  version "2.23.0"
+  resolved "https://registry.yarnpkg.com/iconista/-/iconista-2.23.0.tgz#c93c50ca07ad039231ab08bccb38ecd7db40482f"
+  integrity sha512-NPh2pKQtZmj99+Ne4awFusyE6raC4RySgOo7NM90O2+fYoLcX6Gz7XUSQ1NgF/Kfnd2TSyfX1FkqT6iTswA4NQ==
   dependencies:
     bootstrap-icons "^1.11.3"
     react-use "^5.7.1"
