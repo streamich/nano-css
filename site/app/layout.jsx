@@ -4,6 +4,44 @@ import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
 import './globals.css'
 
+const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1] || ''
+const isUserOrOrgPage = repositoryName.endsWith('.github.io')
+const basePath = repositoryName && !isUserOrOrgPage ? `/${repositoryName}` : ''
+
+const withBasePath = (value) => {
+  if (!basePath || typeof value !== 'string' || !value.startsWith('/') || value.startsWith('//')) {
+    return value
+  }
+
+  if (value === basePath || value.startsWith(`${basePath}/`)) {
+    return value
+  }
+
+  return `${basePath}${value}`
+}
+
+const normalizePageMap = (node) => {
+  if (Array.isArray(node)) {
+    return node.map(normalizePageMap)
+  }
+
+  if (!node || typeof node !== 'object') {
+    return node
+  }
+
+  const normalized = {}
+
+  for (const [key, value] of Object.entries(node)) {
+    if ((key === 'route' || key === 'href') && typeof value === 'string') {
+      normalized[key] = withBasePath(value)
+    } else {
+      normalized[key] = normalizePageMap(value)
+    }
+  }
+
+  return normalized
+}
+
 export const metadata = {
   title: {
     default: 'nano-css — Tiny CSS-in-JS Library',
@@ -33,6 +71,8 @@ const footer = (
 )
 
 export default async function RootLayout({ children }) {
+  const pageMap = normalizePageMap(await getPageMap())
+
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <Head>
@@ -41,7 +81,7 @@ export default async function RootLayout({ children }) {
       <body>
         <Layout
           navbar={navbar}
-          pageMap={await getPageMap()}
+          pageMap={pageMap}
           docsRepositoryBase="https://github.com/streamich/nano-css/tree/master/site"
           footer={footer}
           sidebar={{ defaultMenuCollapseLevel: 1 }}
