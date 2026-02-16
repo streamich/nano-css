@@ -1,0 +1,69 @@
+---
+title: Configuration
+---
+
+# Configuration
+
+The `create()` function accepts an optional configuration object.
+
+```js
+import { create } from 'nano-css';
+
+const nano = create(config);
+```
+
+## Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `pfx` | `string` | `'_'` | Prefix added to all generated class and animation names |
+| `h` | `function` | — | Hyperscript function from your virtual DOM library (e.g. `React.createElement`). Required for `jsx()`, `style()`, `styled()`, and `component` addons |
+| `sh` | `HTMLElement` | — | DOM style sheet element for re-hydrating server-rendered styles |
+| `verbose` | `boolean` | `false` | Enable verbose console output in development mode |
+
+## Examples
+
+### With React
+
+```js
+import { createElement } from 'react';
+import { create } from 'nano-css';
+
+const nano = create({
+  pfx: 'my-company-',
+  h: createElement,
+});
+```
+
+### With Preact
+
+```js
+import { h } from 'preact';
+import { create } from 'nano-css';
+
+const nano = create({
+  h: h,
+});
+```
+
+### With Server-Side Rendering
+
+```js
+const nano = create({
+  sh: typeof document === 'object'
+    ? document.getElementById('nano-css')
+    : null,
+});
+```
+
+## Built-in API
+
+The renderer object created by `create()` includes these properties out of the box (no addons required):
+
+| Property | Description |
+|----------|-------------|
+| `nano.put(selector, css, atrule?)` | Inject CSS by selector and CSS-like object |
+| `nano.putRaw(rawCss)` | Inject a raw CSS string |
+| `nano.raw` | Accumulated CSS string (useful for server-side rendering) |
+| `nano.client` | `true` when running in a browser environment |
+| `nano.pfx` | The configured class name prefix |

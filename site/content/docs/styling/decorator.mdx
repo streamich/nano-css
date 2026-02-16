@@ -1,0 +1,84 @@
+---
+title: "@css Decorator"
+---
+
+# @css Decorator
+
+The `decorator` addon exposes a `@css` decorator for styling React class components.
+
+```jsx
+const { css } = nano;
+
+@css({
+  display: 'inline-block',
+  borderRadius: '3px',
+  padding: '0.5rem 0',
+  color: 'white',
+  border: '2px solid white',
+})
+class Button extends React.Component {
+  render() {
+    return <button>Click me!</button>;
+  }
+}
+```
+
+## Usage Patterns
+
+### Simple Decorator with Static CSS
+
+```jsx
+@css
+class Button extends React.Component {
+  static css = { color: 'red' };
+
+  render() {
+    return <button />;
+  }
+}
+```
+
+### Dynamic CSS Template
+
+```jsx
+@css
+class Button extends React.Component {
+  css() {
+    return {
+      background: this.props.primary ? 'blue' : 'grey',
+    };
+  }
+
+  render() {
+    return <button />;
+  }
+}
+```
+
+### Method Decorator for Dynamic Styles
+
+```jsx
+@css({ color: 'red' })
+class Button extends React.Component {
+  @css((props) => ({
+    background: props.primary ? 'blue' : 'grey',
+  }))
+  render() {
+    return <button />;
+  }
+}
+```
+
+## Installation
+
+Requires `cache` and `rule` addons:
+
+```js
+import { addon as addonCache } from 'nano-css/addon/cache';
+import { addon as addonRule } from 'nano-css/addon/rule';
+import { addon as addonDecorator } from 'nano-css/addon/decorator';
+
+addonCache(nano);
+addonRule(nano);
+addonDecorator(nano);
+```

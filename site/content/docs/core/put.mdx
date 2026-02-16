@@ -1,0 +1,90 @@
+---
+title: put()
+---
+
+# put()
+
+`put()` is the only addon that comes pre-installed with nano-css. It injects CSS given a selector and a CSS-like object.
+
+```js
+nano.put('.foo', {
+  color: 'red',
+  ':hover': {
+    color: 'blue',
+  },
+});
+```
+
+```html
+<div class="foo">Hover me!</div>
+```
+
+## CSS-like Objects
+
+The second argument is a **CSS-like object** that maps directly to CSS:
+
+```js
+{
+  color: 'red',
+  ':hover': {
+    color: 'blue',
+  },
+}
+```
+
+Equivalent CSS:
+
+```css
+.selector {
+  color: red;
+}
+.selector:hover {
+  color: blue;
+}
+```
+
+## Nesting
+
+`put()` supports arbitrarily deep nesting out of the box:
+
+```js
+nano.put('.card', {
+  div: {
+    span: {
+      ':hover': {
+        color: 'blue',
+      },
+    },
+  },
+});
+```
+
+Result:
+
+```css
+.card div span:hover {
+  color: blue;
+}
+```
+
+> For advanced nesting with `&` selectors and comma separation, install the [nesting](/docs/addons/nesting) addon.
+
+## Property Syntax
+
+Both kebab-case and camelCase property names are supported:
+
+```js
+// kebab-case
+nano.put('.a', { 'text-decoration': 'none' });
+
+// camelCase
+nano.put('.b', { textDecoration: 'none' });
+```
+
+## At-Rules
+
+Pass an at-rule string as the third argument:
+
+```js
+nano.put('.responsive', { fontSize: '14px' }, '@media (max-width: 600px)');
+```

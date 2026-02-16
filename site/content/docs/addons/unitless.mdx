@@ -1,0 +1,30 @@
+---
+title: unitless
+---
+
+# unitless
+
+Automatically appends `px` to numeric values for properties that require units.
+
+```js
+nano.put('.foo', {
+  width: 50,
+  zIndex: 10,
+});
+```
+
+```css
+.foo {
+  width: 50px;
+  z-index: 10;
+}
+```
+
+Properties like `opacity`, `z-index`, `flex`, etc. remain unitless.
+
+## Installation
+
+```js
+import { addon as addonUnitless } from 'nano-css/addon/unitless';
+addonUnitless(nano);
+```

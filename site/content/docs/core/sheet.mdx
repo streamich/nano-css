@@ -1,0 +1,48 @@
+---
+title: sheet()
+---
+
+# sheet()
+
+`sheet()` lets you define multiple rules at once. Unlike `rule()`, styles are **lazily injected** — CSS is only added to the DOM when a class name is first accessed.
+
+```js
+const styles = nano.sheet({
+  input: {
+    border: '1px solid grey',
+  },
+  button: {
+    border: '1px solid red',
+    color: 'red',
+  },
+});
+```
+
+```jsx
+<input className={styles.input} />
+<button className={styles.button}>Click me!</button>
+```
+
+> **Lazy injection:** CSS is not injected when `sheet()` is called. It's injected when you first access `styles.input` or `styles.button`. This means unused styles never make it to the DOM.
+
+## Semantic Names
+
+Name your sheet for readable class names:
+
+```js
+const styles = sheet(cssMap, 'ContactForm');
+
+console.log(styles.input); // → ' pfx-ContactForm-input'
+```
+
+## Installation
+
+Requires the `rule` addon:
+
+```js
+import { addon as addonRule } from 'nano-css/addon/rule';
+import { addon as addonSheet } from 'nano-css/addon/sheet';
+
+addonRule(nano);
+addonSheet(nano);
+```

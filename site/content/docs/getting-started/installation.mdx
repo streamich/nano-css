@@ -1,0 +1,79 @@
+---
+title: Installation
+---
+
+# Installation
+
+Install nano-css via npm:
+
+```bash
+npm i nano-css
+```
+
+## Basic Usage
+
+Create a renderer and start injecting styles:
+
+```js
+import { create } from 'nano-css';
+
+const nano = create();
+
+nano.put('.test', {
+  color: 'red',
+  border: '1px solid red',
+});
+```
+
+```html
+<div class="test">Hello world!</div>
+```
+
+## Recommended Setup
+
+For a real project, create a dedicated `nano.js` file that configures and exports your renderer:
+
+```js
+import { createElement } from 'react';
+import { create } from 'nano-css';
+import { addon as addonCache } from 'nano-css/addon/cache';
+import { addon as addonStable } from 'nano-css/addon/stable';
+import { addon as addonNesting } from 'nano-css/addon/nesting';
+import { addon as addonAtoms } from 'nano-css/addon/atoms';
+import { addon as addonKeyframes } from 'nano-css/addon/keyframes';
+import { addon as addonRule } from 'nano-css/addon/rule';
+import { addon as addonSheet } from 'nano-css/addon/sheet';
+import { addon as addonJsx } from 'nano-css/addon/jsx';
+
+const nano = create({
+  pfx: 'my-app-',
+  h: createElement,
+});
+
+addonCache(nano);
+addonStable(nano);
+addonNesting(nano);
+addonAtoms(nano);
+addonKeyframes(nano);
+addonRule(nano);
+addonSheet(nano);
+addonJsx(nano);
+
+const { rule, sheet, jsx, keyframes } = nano;
+
+export { nano, rule, sheet, jsx, keyframes };
+```
+
+> **Tip:** Use [presets](/docs/getting-started/presets) to skip the manual addon setup.
+
+## Addon Installation Pattern
+
+All addons live in the `nano-css/addon/` folder and export an `addon` named export. An addon is a function that receives the renderer object:
+
+```js
+import { addon as addonRule } from 'nano-css/addon/rule';
+
+addonRule(nano);
+
+nano.rule({ color: 'red' });
+```

@@ -1,0 +1,55 @@
+---
+title: styled()()
+---
+
+# styled()()
+
+`styled()()` provides a familiar styled-components API with pre-generated HTML tag helpers.
+
+```jsx
+const Button = nano.styled('button')({
+  display: 'inline-block',
+  borderRadius: '3px',
+}, (props) => ({
+  background: props.primary ? 'blue' : 'grey',
+}));
+```
+
+## Tag Helpers
+
+Use the pre-generated tag methods:
+
+```jsx
+const Button = nano.styled.button({
+  display: 'inline-block',
+  borderRadius: '3px',
+}, (props) => ({
+  background: props.primary ? 'blue' : 'grey',
+}));
+```
+
+## Naming
+
+```js
+const Button = nano.styled.button(css, dynamicCss, 'MyButton');
+// or
+const Button = nano.styled('button')(css, dynamicCss, 'MyButton');
+```
+
+## Installation
+
+Requires `cache`, `rule`, `jsx`, and `style` addons:
+
+```js
+import { addon as addonCache } from 'nano-css/addon/cache';
+import { addon as addonRule } from 'nano-css/addon/rule';
+import { addon as addonJsx } from 'nano-css/addon/jsx';
+import { addon as addonStyle } from 'nano-css/addon/style';
+import { addon as addonStyled } from 'nano-css/addon/styled';
+
+addonCache(nano);
+addonRule(nano);
+addonJsx(nano);
+addonStyle(nano);
+addonStyled(nano);
+```

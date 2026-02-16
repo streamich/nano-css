@@ -1,0 +1,19 @@
+---
+title: extract
+---
+
+# extract
+
+Enables CSS extraction into external style sheets at build time by:
+
+- Eagerly injecting styles from `sheet()` (normally lazy)
+- Rendering `jsx()` and `style()` components with default props
+
+This is a low-level building block for build-time extraction workflows.
+
+## Installation
+
+```js
+import { addon as addonExtract } from 'nano-css/addon/extract';
+addonExtract(nano);
+```

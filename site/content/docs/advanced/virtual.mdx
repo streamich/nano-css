@@ -1,0 +1,47 @@
+---
+title: virtual
+---
+
+# virtual
+
+Splits CSS rules into **atomic single declarations**, each assigned its own class name and reused across rules.
+
+```js
+const classNames1 = nano.rule({
+  color: 'red',
+  border: '1px solid red',
+  textAlign: 'center',
+});
+// → '_a _b _c'
+
+const classNames2 = nano.rule({
+  border: '1px solid red',
+});
+// → '_b'  (reused!)
+```
+
+## `.atomic()`
+
+```js
+nano.atomic('&', 'color:red');           // _a
+nano.atomic('&:hover', 'color:blue');    // _b
+nano.atomic('&', 'color:red');           // _a (cached)
+```
+
+## `.virtual()`
+
+```js
+const classNames = nano.virtual('&', {
+  color: 'red',
+  border: '1px solid red',
+  textAlign: 'center',
+});
+// → '_a _b _c'
+```
+
+## Installation
+
+```js
+import { addon as addonVirtual } from 'nano-css/addon/virtual';
+addonVirtual(nano);
+```

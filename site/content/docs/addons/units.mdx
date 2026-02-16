@@ -1,0 +1,31 @@
+---
+title: ".units"
+---
+
+# .units
+
+Helper functions for CSS units.
+
+```js
+nano.px(36);    // '36px'
+nano.em(1);     // '1em'
+nano.pct(25);   // '25%'
+nano.inch(3);   // '3in'
+```
+
+Also available on the `.units` property:
+
+```js
+nano.units.px(36);
+nano.units.em(1);
+nano.units.pct(25);
+```
+
+Supports all CSS units. Special names: `.pct()` for `%` and `.inch()` for `in`.
+
+## Installation
+
+```js
+import { addon as addonUnits } from 'nano-css/addon/units';
+addonUnits(nano);
+```

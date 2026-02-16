@@ -1,0 +1,16 @@
+export default {
+  ssr: 'Server-Side Rendering',
+  hydrate: 'hydrate()',
+  virtual: 'virtual',
+  cssom: 'cssom',
+  vcssom: 'vcssom',
+  spread: 'spread()',
+  extract: 'extract',
+  limit: 'limit',
+  amp: 'amp',
+  rtl: 'rtl',
+  'google-font': 'googleFont()',
+  animations: 'Animations',
+  resets: 'CSS Resets',
+  'reset-font': 'reset-font',
+}

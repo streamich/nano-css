@@ -1,0 +1,17 @@
+export default {
+  atoms: 'atoms',
+  emmet: 'emmet',
+  nesting: 'nesting',
+  keyframes: 'keyframes()',
+  prefixer: 'prefixer',
+  stable: 'stable',
+  unitless: 'unitless',
+  important: '!important',
+  global: ':global',
+  array: 'array',
+  snake: 'snake',
+  tachyons: 'tachyons',
+  stylis: 'stylis',
+  units: '.units',
+  sourcemaps: 'sourcemaps',
+}

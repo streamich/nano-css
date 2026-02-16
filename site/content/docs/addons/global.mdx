@@ -1,0 +1,42 @@
+---
+title: ":global"
+---
+
+# :global
+
+Allows emitting global CSS styles without nesting.
+
+## Using `:global` Selector
+
+```js
+nano.put('.foo', {
+  color: 'red',
+  ':global': {
+    '.global_class': {
+      border: '1px solid red',
+    },
+  },
+});
+```
+
+```css
+.foo { color: red; }
+.global_class { border: 1px solid red; }
+```
+
+## Using `global()` Function
+
+```js
+nano.global({
+  '.global_class': {
+    border: '1px solid red',
+  },
+});
+```
+
+## Installation
+
+```js
+import { addon as addonGlobal } from 'nano-css/addon/global';
+addonGlobal(nano);
+```

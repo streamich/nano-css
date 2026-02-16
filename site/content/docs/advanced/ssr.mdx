@@ -1,0 +1,29 @@
+---
+title: Server-Side Rendering
+---
+
+# Server-Side Rendering
+
+In non-browser environments, nano-css accumulates CSS as a string in the `raw` property instead of injecting into the DOM.
+
+```js
+html += `<style>${nano.raw}</style>`;
+```
+
+## Re-hydrating
+
+Install the [hydrate](/docs/advanced/hydrate) addon and provide your style sheet element:
+
+```js
+const nano = create({
+  sh: typeof document === 'object'
+    ? document.getElementById('nano-css')
+    : null,
+});
+```
+
+nano-css will skip CSS rules that are already present in the style sheet.
+
+## External Style Sheet Extraction
+
+Use the [extract](/docs/advanced/extract) addon to extract styles into an external CSS file at build time.

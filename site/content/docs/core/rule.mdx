@@ -1,0 +1,59 @@
+---
+title: rule()
+---
+
+# rule()
+
+`rule()` is a wrapper around `put()` that automatically generates a unique class name and returns it.
+
+```js
+const className = nano.rule({
+  color: 'tomato',
+  ':hover': {
+    color: 'blue',
+  },
+});
+```
+
+```html
+<div class={className}>Hello world!</div>
+```
+
+## Semantic Names
+
+Provide an optional name as the second argument for readable class names:
+
+```js
+const className = nano.rule(css, 'RedText');
+// → ' pfx-RedText'
+```
+
+> If you name all your rules explicitly, you don't need the [stable](/docs/addons/stable) addon.
+
+## Leading Space
+
+nano-css always returns class names with a **leading space**, making concatenation easy:
+
+```jsx
+const otherClass = 'foo';
+const className = rule(css);
+
+<div className={otherClass + className}>Hello world!</div>
+// → <div class="foo _xuhuadsf">
+```
+
+## Stable Class Names
+
+By default, class names are generated using `JSON.stringify`. For stable hashes across environments (important for SSR), install the [stable](/docs/addons/stable) addon.
+
+## Installation
+
+```js
+import { create } from 'nano-css';
+import { addon } from 'nano-css/addon/rule';
+
+const nano = create();
+addon(nano);
+
+const { rule } = nano;
+```

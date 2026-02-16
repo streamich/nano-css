@@ -1,0 +1,22 @@
+---
+title: sourcemaps
+---
+
+# sourcemaps
+
+Generates CSS source maps in development mode for easier debugging.
+
+> **Warning:** Do not use in production. Gate it behind an environment check:
+
+```js
+if (process.env.NODE_ENV !== 'production') {
+  addonSourcemaps(nano);
+}
+```
+
+## Installation
+
+```js
+import { addon as addonSourcemaps } from 'nano-css/addon/sourcemaps';
+addonSourcemaps(nano);
+```

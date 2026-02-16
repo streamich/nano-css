@@ -1,0 +1,50 @@
+---
+title: nesting
+---
+
+# nesting
+
+Extends the built-in nesting with comma-separated selectors and the `&` parent selector.
+
+## Comma-Separated Selectors
+
+```js
+nano.put('.foo', {
+  '.bar, .baz': {
+    color: 'red',
+  },
+});
+```
+
+```css
+.foo .bar, .foo .baz {
+  color: red;
+}
+```
+
+## Parent Selector `&`
+
+```js
+nano.put('.foo', {
+  color: 'red',
+  '&:hover': {
+    color: 'blue',
+  },
+  '.global_class &': {
+    color: 'green',
+  },
+});
+```
+
+```css
+.foo { color: red; }
+.foo:hover { color: blue; }
+.global_class .foo { color: green; }
+```
+
+## Installation
+
+```js
+import { addon as addonNesting } from 'nano-css/addon/nesting';
+addonNesting(nano);
+```

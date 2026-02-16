@@ -12,3 +12,8 @@ lerna-debug.log
 /dist/
 _book/
 /demo/
+
+# Static docs site artifacts
+site/.next/
+site/out/
+site/node_modules/

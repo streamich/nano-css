@@ -1,0 +1,45 @@
+---
+title: array
+---
+
+# array
+
+Allows specifying multiple values for the same property and merging multiple CSS objects.
+
+## Multiple Values
+
+```js
+nano.put('.foo', {
+  display: ['flex', '-webkit-flex'],
+});
+```
+
+```css
+.foo {
+  display: flex;
+  display: -webkit-flex;
+}
+```
+
+## Merging Objects
+
+```js
+nano.put('.bar', [
+  { color: 'red' },
+  { border: '1px solid red' },
+]);
+```
+
+```css
+.bar {
+  color: red;
+  border: 1px solid red;
+}
+```
+
+## Installation
+
+```js
+import { addon as addonArray } from 'nano-css/addon/array';
+addonArray(nano);
+```

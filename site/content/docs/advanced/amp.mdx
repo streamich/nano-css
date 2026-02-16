@@ -1,0 +1,26 @@
+---
+title: amp
+---
+
+# amp
+
+Enforces AMP style sheet restrictions:
+
+- Limits style sheet size to 50 Kb
+- Warns/removes `!important` modifiers
+- Warns/removes banned declarations (`behavior`, `-moz-binding`)
+- Warns/removes reserved selectors (`.-amp-*`, `i-amp-*`)
+
+```js
+import { addon as addonAmp } from 'nano-css/addon/amp';
+
+addonAmp(nano);
+
+// With options
+addonAmp(nano, {
+  limit: 50000,
+  removeImportant: true,
+  removeReserved: true,
+  removeBanned: true,
+});
+```

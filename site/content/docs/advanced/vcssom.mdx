@@ -1,0 +1,47 @@
+---
+title: vcssom
+---
+
+# vcssom
+
+Virtual CSSOM for efficient CSS diffing. The `.diff()` method computes differences and only adds or removes necessary rules.
+
+## VRule
+
+```js
+const rule = new nano.VRule('.my-class');
+
+rule.diff({ color: 'red', 'font-weight': 'bold' });
+rule.diff({ color: 'blue' }); // removes font-weight, updates color
+rule.del(); // remove from CSSOM
+```
+
+## VSheet
+
+```js
+const sheet = new nano.VSheet();
+
+sheet.diff({
+  '': {
+    '.my-class': { color: 'red' },
+    '.my-class:hover': { color: 'blue' },
+  },
+  '@media only screen and (max-width: 600px)': {
+    '.my-class': { fontWeight: 'bold' },
+  },
+});
+
+sheet.diff({}); // removes all CSS
+```
+
+## Installation
+
+Requires the `cssom` addon:
+
+```js
+import { addon as addonCssom } from 'nano-css/addon/cssom';
+import { addon as addonVcssom } from 'nano-css/addon/vcssom';
+
+addonCssom(nano);
+addonVcssom(nano);
+```

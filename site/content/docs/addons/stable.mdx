@@ -1,0 +1,18 @@
+---
+title: stable
+---
+
+# stable
+
+Ensures deterministic class name generation across JavaScript environments by using `fastest-stable-stringify` instead of `JSON.stringify`.
+
+This is important for server-side rendering — without it, class names generated on the server may not match the client.
+
+## Installation
+
+```js
+import { addon as addonStable } from 'nano-css/addon/stable';
+addonStable(nano);
+```
+
+> **Tip:** If you name all your rules explicitly (e.g. `rule(css, 'MyButton')`), you don't need this addon.
