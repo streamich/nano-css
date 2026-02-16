@@ -27,7 +27,7 @@ const navbar = (
 const footer = (
   <Footer>
     <span style={{ fontSize: '0.85rem', color: '#888' }}>
-      MIT {new Date().getFullYear()} © nano-css contributors
+      Unlicense {new Date().getFullYear()} © nano-css contributors
     </span>
   </Footer>
 )
