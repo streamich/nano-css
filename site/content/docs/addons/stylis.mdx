@@ -1,0 +1,25 @@
+---
+title: stylis
+---
+
+# stylis
+
+Write CSS as strings using the [Stylis](https://github.com/thysultan/stylis.js) preprocessor.
+
+```js
+const className = nano.rule(`
+  color: red;
+  &:hover {
+    color: blue;
+  }
+`);
+```
+
+> **Note:** Some other addons may not work when using Stylis string syntax.
+
+## Installation
+
+```js
+import { addon as addonStylis } from 'nano-css/addon/stylis';
+addonStylis(nano);
+```

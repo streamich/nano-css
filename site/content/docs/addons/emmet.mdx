@@ -1,0 +1,26 @@
+---
+title: emmet
+---
+
+# emmet
+
+A superset of the `atoms` addon using [Emmet](https://emmet.io/) abbreviations.
+
+```js
+const className = nano.rule({
+  c: '#fafafa',       // color
+  bgc: '#424242',     // background-color
+  bd: '1px solid #424242', // border
+});
+```
+
+> **Warning:** Do not use both `atoms` and `emmet` at the same time — some abbreviations may conflict.
+
+See the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) (CSS section) for all abbreviations.
+
+## Installation
+
+```js
+import { addon as addonEmmet } from 'nano-css/addon/emmet';
+addonEmmet(nano);
+```

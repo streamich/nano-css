@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Publish Docs Site
 
 on:
   push:
@@ -7,6 +7,8 @@ on:
 jobs:
   gh-pages:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     strategy:
       matrix:
         node-version: [20.x]
@@ -17,10 +19,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: yarn
-      - run: yarn install --frozen-lockfile
-      - run: yarn test --coverage
+          cache-dependency-path: site/yarn.lock
+      - run: yarn --cwd site --frozen-lockfile
+      - run: yarn --cwd site build
+      - run: touch site/out/.nojekyll
       - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./coverage/lcov-report
+          publish_dir: ./site/out

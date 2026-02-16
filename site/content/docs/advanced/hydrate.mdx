@@ -1,0 +1,48 @@
+---
+title: hydrate()
+---
+
+# hydrate()
+
+Re-hydrates CSS styles generated on the server.
+
+## Setup
+
+Add the `nano-css` id to your server-rendered style sheet:
+
+```js
+html += `<style id="nano-css">${nano.raw}</style>`;
+```
+
+Provide the style sheet element when creating the renderer:
+
+```js
+const nano = create({
+  sh: typeof document === 'object'
+    ? document.getElementById('nano-css')
+    : null,
+});
+```
+
+nano-css will not inject rules that are already present.
+
+## Manual Hydration
+
+Hydrate any external stylesheet:
+
+```html
+<link rel="stylesheet" href="extracted.css" id="extracted-css" />
+```
+
+```js
+nano.hydrate(document.getElementById('extracted-css'));
+```
+
+> Does not currently hydrate media queries or animation keyframes.
+
+## Installation
+
+```js
+import { addon as addonHydrate } from 'nano-css/addon/hydrate';
+addonHydrate(nano);
+```

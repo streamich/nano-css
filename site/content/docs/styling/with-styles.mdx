@@ -1,0 +1,43 @@
+---
+title: withStyles()
+---
+
+# withStyles()
+
+`withStyles()` is a higher-order component that injects a `styles` prop.
+
+```jsx
+const MyComp = nano.withStyles({
+  main: {
+    border: '1px solid red',
+  },
+}, ({ styles }) => {
+  return <div className={styles.main} />;
+});
+```
+
+## Naming
+
+```jsx
+// Explicit name
+const MyComp = nano.withStyles(cssMap, fn, 'MyComponent');
+
+// Auto-detected
+const MyComp = nano.withStyles(cssMap, function MyComponent({ styles }) {
+  return <div className={styles.main} />;
+});
+```
+
+## Installation
+
+Requires `rule` and `sheet` addons:
+
+```js
+import { addon as addonRule } from 'nano-css/addon/rule';
+import { addon as addonSheet } from 'nano-css/addon/sheet';
+import { addon as addonWithStyles } from 'nano-css/addon/withStyles';
+
+addonRule(nano);
+addonSheet(nano);
+addonWithStyles(nano);
+```

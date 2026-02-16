@@ -1,0 +1,26 @@
+---
+title: spread()
+---
+
+# spread()
+
+Like `rule()`, but returns an object with data attributes that can be spread.
+
+```jsx
+const rule = nano.spread({ color: 'red' });
+
+<div {...rule}>Hello world!</div>
+```
+
+Can also be stringified for a class name:
+
+```jsx
+<div className={rule}>Hello world!</div>
+```
+
+## Installation
+
+```js
+import { addon as addonSpread } from 'nano-css/addon/spread';
+addonSpread(nano);
+```

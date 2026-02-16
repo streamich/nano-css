@@ -1,0 +1,60 @@
+---
+title: dsheet()
+---
+
+# dsheet()
+
+`dsheet()` (*Dynamic Sheet*) combines `sheet()` with dynamic overrides, similar to what `drule()` does for `rule()`.
+
+```js
+const styles = nano.dsheet({
+  input: {
+    border: '1px solid grey',
+  },
+  button: {
+    border: '1px solid red',
+    color: 'red',
+  },
+});
+```
+
+## Usage
+
+Access styles statically or with overrides:
+
+```jsx
+{/* Static */}
+<input className={styles.input()} />
+<input className={'' + styles.input} />
+
+{/* With dynamic overrides */}
+<input className={styles.input({
+  color: 'red',
+  outline: 'none',
+  ':focus': {
+    outline: '1px solid blue',
+  },
+})} />
+```
+
+## Naming
+
+```js
+const styles = nano.dsheet(cssMap, 'ContactForm');
+```
+
+## Installation
+
+Requires `cache`, `rule`, and `sheet` addons:
+
+```js
+import { addon as addonCache } from 'nano-css/addon/cache';
+import { addon as addonRule } from 'nano-css/addon/rule';
+import { addon as addonSheet } from 'nano-css/addon/sheet';
+import { addon as addonDsheet } from 'nano-css/addon/dsheet';
+
+addonCache(nano);
+addonRule(nano);
+addonSheet(nano);
+addonDsheet(nano);
+```

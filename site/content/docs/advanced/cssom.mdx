@@ -1,0 +1,29 @@
+---
+title: cssom
+---
+
+# cssom
+
+Creates `CSSRule` objects in the browser for direct style manipulation.
+
+```js
+const rule = nano.createRule('.my-component');
+rule.style.color = 'red';
+rule.style.setProperty('color', 'green');
+```
+
+## With Media Queries
+
+```js
+const rule = nano.createRule(
+  '.my-component',
+  '@media only screen and (max-width: 600px)'
+);
+```
+
+## Installation
+
+```js
+import { addon as addonCssom } from 'nano-css/addon/cssom';
+addonCssom(nano);
+```

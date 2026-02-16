@@ -1,0 +1,28 @@
+---
+title: rtl
+---
+
+# rtl
+
+Flips all styles for right-to-left (RTL) layout support.
+
+```js
+nano.put('.foo', {
+  textAlign: 'left',
+  marginLeft: '100px',
+});
+```
+
+```css
+.foo {
+  text-align: right;
+  margin-right: 100px;
+}
+```
+
+## Installation
+
+```js
+import { addon as addonRtl } from 'nano-css/addon/rtl';
+addonRtl(nano);
+```

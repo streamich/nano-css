@@ -1,0 +1,60 @@
+---
+title: Introduction
+asIndexPage: true
+---
+
+# Introduction
+
+**nano-css** is a tiny 5th generation CSS-in-JS library. It has a very small core of only ~0.5 Kb and provides all additional features through a modular addon system.
+
+## Why nano-css?
+
+- **Tiny footprint** — ~0.5 Kb core vs ~15 Kb for styled-components
+- **Framework agnostic** — works with React, Preact, Vue.js, or standalone
+- **Isomorphic** — server and browser with stable class names and re-hydration
+- **Fast** — uses `.insertRule()` and style caching for high performance
+- **Modular** — pick only the addons you need, keep your bundle small
+- **Full-featured** — `@media` queries, `@keyframes`, vendor prefixes, nesting, and more
+
+## How It Works
+
+nano-css follows a simple pattern: create a renderer, then extend it with addons.
+
+```js
+import { create } from 'nano-css';
+import { addon as addonRule } from 'nano-css/addon/rule';
+import { addon as addonAtoms } from 'nano-css/addon/atoms';
+
+const nano = create();
+addonRule(nano);
+addonAtoms(nano);
+
+const className = nano.rule({
+  col: 'red',        // atoms shorthand for "color"
+  bdrad: '4px',      // atoms shorthand for "border-radius"
+});
+```
+
+Each addon is a function that receives the renderer object and extends it with new methods or behavior.
+
+## Architecture
+
+The library is organized into several layers:
+
+| Layer | Examples | Description |
+|-------|----------|-------------|
+| **Core** | `put()`, `putRaw()` | The minimal renderer — inject CSS by selector |
+| **Rules** | `rule()`, `drule()`, `sheet()`, `dsheet()` | Generate class names from CSS objects |
+| **Styling** | `jsx()`, `style()`, `styled()` | Create styled components for virtual DOM libraries |
+| **Utilities** | `atoms`, `nesting`, `keyframes`, `prefixer` | Enhance CSS authoring with shortcuts and features |
+| **Advanced** | `virtual`, `vcssom`, `hydrate`, `extract` | Performance optimizations and build-time tools |
+
+## Getting Started
+
+Head to the [Installation](/docs/getting-started/installation) guide to set up nano-css in your project,
+or explore the [Addons](/docs/addons) to see what's available.
+
+## Recommended Setup
+
+For most projects, we recommend using a [preset](/docs/getting-started/presets) or setting up a
+dedicated configuration file. See the [Installation](/docs/getting-started/installation) guide for details.

@@ -1,0 +1,32 @@
+---
+title: googleFont()
+---
+
+# googleFont()
+
+Loads fonts from Google Fonts.
+
+```ts
+googleFont(name: string, widths?: number | number[], subsets?: string | string[])
+```
+
+## Example
+
+```js
+nano.googleFont('Roboto Slab', [400, 700], 'cyrillic');
+```
+
+Then use it:
+
+```js
+const className = nano.rule({
+  fontFamily: '"Roboto Slab", sans',
+});
+```
+
+## Installation
+
+```js
+import { addon as addonGoogleFont } from 'nano-css/addon/googleFont';
+addonGoogleFont(nano);
+```

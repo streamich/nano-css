@@ -1,0 +1,45 @@
+---
+title: useStyles()
+---
+
+# useStyles()
+
+`useStyles()` provides a style map as the second argument to your component function.
+
+```jsx
+const MyComp = nano.useStyles({
+  main: {
+    border: '1px solid red',
+  },
+}, (props, styles) => {
+  return <div className={styles.main} />;
+});
+```
+
+## Naming
+
+Specify a component name as the third argument, or use a named function:
+
+```jsx
+// Explicit name
+const MyComp = nano.useStyles(cssMap, fn, 'MyComponent');
+
+// Auto-detected from function name
+const MyComp = nano.useStyles(cssMap, function MyComponent(props, styles) {
+  return <div className={styles.main} />;
+});
+```
+
+## Installation
+
+Requires `rule` and `sheet` addons:
+
+```js
+import { addon as addonRule } from 'nano-css/addon/rule';
+import { addon as addonSheet } from 'nano-css/addon/sheet';
+import { addon as addonUseStyles } from 'nano-css/addon/useStyles';
+
+addonRule(nano);
+addonSheet(nano);
+addonUseStyles(nano);
+```

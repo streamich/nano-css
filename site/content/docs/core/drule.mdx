@@ -1,0 +1,68 @@
+---
+title: drule()
+---
+
+# drule()
+
+`drule()` (*Dynamic Rule*) is similar to `rule()` but allows adding style overrides at render time.
+
+```js
+const classNames = nano.drule({
+  border: '1px solid #888',
+  color: '#888',
+});
+```
+
+## Static Usage
+
+When called without arguments, it behaves like `rule()`:
+
+```jsx
+<button className={classNames()}>Click me!</button>
+<button className={'' + classNames}>Click me!</button>
+```
+
+## Dynamic Overrides
+
+Pass a CSS object to add overrides on the fly:
+
+```jsx
+<button className={classNames({ color: 'red' })}>Click me!</button>
+```
+
+## Example
+
+A button that changes color based on props:
+
+```jsx
+const classNames = nano.drule({
+  border: '1px solid #888',
+  color: '#fff',
+});
+
+const Button = ({ children, primary }) => (
+  <button
+    className={classNames({
+      background: primary ? 'blue' : 'grey',
+    })}
+  >
+    {children}
+  </button>
+);
+```
+
+## Installation
+
+Requires `rule` and `cache` addons:
+
+```js
+import { create } from 'nano-css';
+import { addon as addonCache } from 'nano-css/addon/cache';
+import { addon as addonRule } from 'nano-css/addon/rule';
+import { addon as addonDrule } from 'nano-css/addon/drule';
+
+const nano = create();
+addonCache(nano);
+addonRule(nano);
+addonDrule(nano);
+```

@@ -1,0 +1,51 @@
+---
+title: keyframes()
+---
+
+# keyframes()
+
+Adds `@keyframes` support to nano-css.
+
+## Inline Keyframes
+
+Define keyframes directly in a rule:
+
+```js
+const className = nano.rule({
+  animation: 'my-animation 2s',
+  '@keyframes my-animation': {
+    '0%': { transform: 'rotate(0deg)' },
+    '100%': { transform: 'rotate(359deg)' },
+  },
+});
+```
+
+## Named Keyframes
+
+Generate a unique animation name automatically:
+
+```js
+const animation = nano.keyframes({
+  '0%': { transform: 'rotate(0deg)' },
+  '100%': { transform: 'rotate(359deg)' },
+});
+
+const className = nano.rule({
+  animation: `${animation} 5s`,
+});
+```
+
+## Configuration
+
+```js
+addonKeyframes(nano, {
+  prefixes: ['-webkit-', '-moz-', '-o-', ''],
+});
+```
+
+## Installation
+
+```js
+import { addon as addonKeyframes } from 'nano-css/addon/keyframes';
+addonKeyframes(nano);
+```

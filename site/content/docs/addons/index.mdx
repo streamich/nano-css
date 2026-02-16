@@ -1,0 +1,82 @@
+---
+title: Addons Overview
+asIndexPage: true
+---
+
+# Addons
+
+nano-css ships with a single pre-installed addon (`put()`). All other features are provided through addons. Each addon is a function that extends the renderer.
+
+## Installation Pattern
+
+All addons are in `nano-css/addon/` and export an `addon` named function:
+
+```js
+import { addon as addonRule } from 'nano-css/addon/rule';
+
+addonRule(nano);
+nano.rule({ color: 'red' });
+```
+
+## Available Addons
+
+### Core API
+
+| Addon | Description |
+|-------|-------------|
+| [`put()`](/docs/core/put) | Inject CSS by selector — pre-installed |
+| [`rule()`](/docs/core/rule) | Generate class names from CSS objects |
+| [`drule()`](/docs/core/drule) | Dynamic rules with runtime overrides |
+| [`sheet()`](/docs/core/sheet) | Lazy collection of rules |
+| [`dsheet()`](/docs/core/dsheet) | Dynamic sheets with runtime overrides |
+
+### Styling Components
+
+| Addon | Description |
+|-------|-------------|
+| [`jsx()`](/docs/styling/jsx) | Styled components for virtual DOM |
+| [`style()`](/docs/styling/style) | Styled components with dynamic templates |
+| [`styled()()`](/docs/styling/styled) | Familiar styled-components API |
+| [`Component`](/docs/styling/component) | React Component base class |
+| [`@css`](/docs/styling/decorator) | Decorator for class components |
+| [`useStyles()`](/docs/styling/use-styles) | Styles as second component argument |
+| [`withStyles()`](/docs/styling/with-styles) | HOC that injects styles prop |
+| [`hyperstyle()`](/docs/styling/hyperstyle) | Styled hyperscript function |
+
+### Utilities
+
+| Addon | Description |
+|-------|-------------|
+| [`atoms`](/docs/addons/atoms) | CSS property shorthands |
+| [`emmet`](/docs/addons/emmet) | Emmet-style abbreviations |
+| [`nesting`](/docs/addons/nesting) | Advanced nesting with `&` |
+| [`keyframes()`](/docs/addons/keyframes) | `@keyframes` support |
+| [`prefixer`](/docs/addons/prefixer) | Vendor prefix auto-detection |
+| [`stable`](/docs/addons/stable) | Deterministic class name hashing |
+| [`unitless`](/docs/addons/unitless) | Auto-add `px` to numeric values |
+| [`!important`](/docs/addons/important) | Add `!important` to all declarations |
+| [`:global`](/docs/addons/global) | Emit global styles |
+| [`array`](/docs/addons/array) | Multiple values for declarations |
+| [`snake`](/docs/addons/snake) | Method chaining for CSS objects |
+| [`tachyons`](/docs/addons/tachyons) | Tachyons-style utilities |
+| [`stylis`](/docs/addons/stylis) | Write CSS as strings |
+| [`.units`](/docs/addons/units) | Unit helper functions |
+| [`sourcemaps`](/docs/addons/sourcemaps) | CSS source maps in dev |
+
+### Advanced
+
+| Addon | Description |
+|-------|-------------|
+| [`hydrate()`](/docs/advanced/hydrate) | Client-side CSS re-hydration |
+| [`virtual`](/docs/advanced/virtual) | Atomic CSS splitting |
+| [`cssom`](/docs/advanced/cssom) | CSSOM rule creation |
+| [`vcssom`](/docs/advanced/vcssom) | Virtual CSSOM diffing |
+| [`spread()`](/docs/advanced/spread) | Data attribute selectors |
+| [`extract`](/docs/advanced/extract) | Build-time CSS extraction |
+| [`limit`](/docs/advanced/limit) | Server-side size limit |
+| [`amp`](/docs/advanced/amp) | AMP compatibility |
+| [`rtl`](/docs/advanced/rtl) | Right-to-left style flipping |
+| [`googleFont()`](/docs/advanced/google-font) | Load Google Fonts |
+| [`animate/*`](/docs/advanced/animations) | Animation presets |
+| [`reset/*`](/docs/advanced/resets) | CSS reset collections |
+| [`reset-font`](/docs/advanced/reset-font) | Font reset styles |

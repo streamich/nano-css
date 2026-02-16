@@ -1,0 +1,27 @@
+---
+title: prefixer
+---
+
+# prefixer
+
+Auto-prefixes styles with vendor prefixes using `inline-style-prefixer`.
+
+```js
+nano.put('.foo', {
+  flex: 1,
+});
+```
+
+```css
+.foo {
+  -webkit-flex: 1;
+  flex: 1;
+}
+```
+
+## Installation
+
+```js
+import { addon as addonPrefixer } from 'nano-css/addon/prefixer';
+addonPrefixer(nano);
+```

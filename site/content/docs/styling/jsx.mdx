@@ -1,0 +1,92 @@
+---
+title: jsx()
+---
+
+# jsx()
+
+`jsx()` creates styled components (called "styling blocks") for virtual DOM libraries. It is a 5th generation CSS-in-JS interface.
+
+```jsx
+const Button = nano.jsx('button', {
+  display: 'inline-block',
+  borderRadius: '3px',
+  padding: '0.5rem 0',
+  margin: '0.5rem 1rem',
+  width: '11rem',
+  background: 'transparent',
+  color: 'white',
+  border: '2px solid white',
+});
+
+<Button>Click me!</Button>
+```
+
+> **Note:** You must provide the hyperscript function `h` when creating the nano-css instance:
+>
+> ```js
+> import { createElement } from 'react';
+> const nano = create({ h: createElement });
+> ```
+
+## Naming
+
+```js
+const Button = nano.jsx('button', css, 'MyButton');
+```
+
+## Special Props
+
+All props are passed through to the underlying element, except:
+
+| Prop | Description |
+|------|-------------|
+| `css` | CSS-like object of dynamic style overrides |
+| `$as` | Overwrite the underlying element type |
+| `$ref` | Pass a ref to the underlying element |
+
+```jsx
+{/* Dynamic styles */}
+<Button css={{ background: primary ? 'blue' : 'grey' }}>Click me!</Button>
+
+{/* Change element type */}
+<Button $as="a">Click me!</Button>
+{/* renders: <a>Click me!</a> */}
+```
+
+## Composition
+
+Use components as types for composition:
+
+```js
+const BaseButton = nano.jsx('button', {
+  color: 'red',
+  border: '1px solid red',
+});
+
+const SmallButton = nano.jsx(BaseButton, {
+  fontSize: '11px',
+});
+```
+
+## Changing Element Type
+
+```js
+const Link = (props) => Button({ ...props, $as: 'a' });
+
+<Link>Click me!</Link>
+// renders: <a>Click me!</a>
+```
+
+## Installation
+
+Requires `cache` and `rule` addons:
+
+```js
+import { addon as addonCache } from 'nano-css/addon/cache';
+import { addon as addonRule } from 'nano-css/addon/rule';
+import { addon as addonJsx } from 'nano-css/addon/jsx';
+
+addonCache(nano);
+addonRule(nano);
+addonJsx(nano);
+```

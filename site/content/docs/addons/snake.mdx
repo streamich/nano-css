@@ -1,0 +1,54 @@
+---
+title: snake
+---
+
+# snake
+
+Create CSS objects using method chaining.
+
+```js
+const css = nano.s.col('red').bdrad('5px').bgWhite.mar('10px').pointer.obj;
+// → { color: 'red', 'border-radius': '5px', backgroundColor: '#fff',
+//     margin: '10px', cursor: 'pointer' }
+```
+
+## Built-in Properties
+
+| Property | Result |
+|----------|--------|
+| `.rel` | `position: relative` |
+| `.abs` | `position: absolute` |
+| `.bgWhite` | `backgroundColor: '#fff'` |
+| `.bgBlack` | `backgroundColor: '#000'` |
+| `.pointer` | `cursor: pointer` |
+| `.bold`, `.b` | `fontWeight: bold` |
+| `.italic`, `.i` | `fontStyle: italic` |
+| `.underline`, `.u` | `textDecoration: underline` |
+
+All `atoms` shorthands are available as methods:
+
+```js
+nano.s.bg('pink').pad('20px').col('red');
+```
+
+## Pseudo Selectors
+
+```js
+nano.s.hover(nano.s.col('red')).focus(nano.s.col('yellow'));
+```
+
+## Evaluating
+
+Get the CSS object with `.obj`, or inject and get class names:
+
+```jsx
+<div className={nano.s.col('red').valueOf()}>text</div>
+<div className={'' + nano.s.col('red')}>text</div>
+```
+
+## Installation
+
+```js
+import { addon as addonSnake } from 'nano-css/addon/snake';
+addonSnake(nano);
+```

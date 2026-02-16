@@ -1,0 +1,54 @@
+---
+title: Presets
+---
+
+# Presets
+
+Presets are pre-configured bundles of addons that set up nano-css for common use cases. Instead of manually installing each addon, use a preset to get started quickly.
+
+## Available Presets
+
+### `sheet`
+
+Installs `rule()`, `sheet()`, `stable`, `nesting`, `atoms`, `keyframes`, and `sourcemaps` addons.
+
+```js
+import { preset } from 'nano-css/preset/sheet';
+
+const { rule, sheet } = preset();
+
+export { rule, sheet };
+```
+
+### `vdom`
+
+Everything in the `sheet` preset, plus the `jsx()` addon for virtual DOM libraries. Requires providing an `h` function in the configuration.
+
+```js
+import { createElement } from 'react';
+import { preset } from 'nano-css/preset/vdom';
+
+const { rule, sheet, jsx } = preset({ h: createElement });
+
+export { rule, sheet, jsx };
+```
+
+### `react`
+
+Everything in the `vdom` preset, plus `snake`, `style()`, `styled()()`, and `decorator` addons. Automatically uses `React.createElement` as the hyperscript function.
+
+```js
+import { preset } from 'nano-css/preset/react';
+
+const { rule, sheet, jsx, styled } = preset();
+
+export { rule, sheet, jsx, styled };
+```
+
+## Comparison
+
+| Preset | Addons Included |
+|--------|----------------|
+| **sheet** | stable, nesting, atoms, keyframes, rule, sheet, sourcemaps |
+| **vdom** | *sheet* + jsx (requires `h` in config) |
+| **react** | *vdom* + snake, style, styled, decorator (auto-sets `h`) |

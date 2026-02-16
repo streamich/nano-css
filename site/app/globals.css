@@ -1,0 +1,220 @@
+/* nano-css docs - Professional theme overrides */
+
+:root {
+  --nano-accent: #0a0a0a;
+  --nano-muted: #666;
+  --nano-border: #e5e5e5;
+  --nano-surface: #fafafa;
+  --nano-brand: #0969da;
+}
+
+.dark {
+  --nano-accent: #fafafa;
+  --nano-muted: #999;
+  --nano-border: #2a2a2a;
+  --nano-surface: #111;
+  --nano-brand: #58a6ff;
+}
+
+/* Landing page hero */
+.nano-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1.5rem 4rem;
+  min-height: 70vh;
+}
+
+.nano-hero h1 {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0;
+  color: var(--nano-accent);
+}
+
+.nano-hero .nano-tagline {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: var(--nano-muted);
+  margin-top: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  max-width: 540px;
+}
+
+.nano-hero .nano-version {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  color: var(--nano-muted);
+  border: 1px solid var(--nano-border);
+  border-radius: 999px;
+  background: var(--nano-surface);
+}
+
+.nano-cta {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nano-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 150ms ease;
+}
+
+.nano-cta .primary {
+  background: var(--nano-accent);
+  color: var(--nano-surface);
+}
+.nano-cta .primary:hover {
+  opacity: 0.85;
+}
+
+.nano-cta .secondary {
+  border: 1px solid var(--nano-border);
+  color: var(--nano-accent);
+  background: transparent;
+}
+.nano-cta .secondary:hover {
+  background: var(--nano-surface);
+  border-color: var(--nano-muted);
+}
+
+/* Stats bar */
+.nano-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nano-stat {
+  text-align: center;
+}
+
+.nano-stat .value {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--nano-accent);
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.nano-stat .label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--nano-muted);
+  margin-top: 0.25rem;
+}
+
+/* Feature grid */
+.nano-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 960px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.nano-feature {
+  padding: 1.75rem;
+  border: 1px solid var(--nano-border);
+  border-radius: 12px;
+  background: var(--nano-surface);
+  transition: border-color 150ms ease;
+}
+.nano-feature:hover {
+  border-color: var(--nano-muted);
+}
+
+.nano-feature h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--nano-accent);
+}
+
+.nano-feature p,
+.nano-feature-text {
+  font-size: 0.9rem;
+  color: var(--nano-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Install snippet */
+.nano-install {
+  max-width: 480px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.nano-install code {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9rem;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  background: var(--nano-surface);
+  border: 1px solid var(--nano-border);
+  border-radius: 8px;
+  color: var(--nano-accent);
+}
+
+/* Footer section on landing */
+.nano-footer-section {
+  text-align: center;
+  padding: 3rem 1.5rem 5rem;
+  color: var(--nano-muted);
+  font-size: 0.85rem;
+}
+
+.nano-footer-section a {
+  color: var(--nano-brand);
+  text-decoration: none;
+}
+.nano-footer-section a:hover {
+  text-decoration: underline;
+}
+
+/* Quick start code block on landing */
+.nano-quickstart {
+  max-width: 560px;
+  margin: 0 auto 4rem;
+  text-align: left;
+}
+
+.nano-quickstart h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--nano-accent);
+  letter-spacing: -0.02em;
+}
+
+/* Separator line */
+.nano-separator {
+  max-width: 960px;
+  margin: 0 auto;
+  border: none;
+  border-top: 1px solid var(--nano-border);
+}

@@ -1,0 +1,36 @@
+---
+title: Animations
+---
+
+# Animations
+
+Pre-built CSS animation addons. Install any to get a class name and keyframes.
+
+## Available Animations
+
+| Addon | Effect |
+|-------|--------|
+| `animate/fadeIn` | Fade in (opacity 0 → 1) |
+| `animate/fadeInDown` | Fade in from above |
+| `animate/fadeInScale` | Fade in with scale |
+| `animate/fadeOut` | Fade out (opacity 1 → 0) |
+| `animate/fadeOutScale` | Fade out with scale |
+
+## Usage
+
+```js
+import { addon as addonFadeIn } from 'nano-css/addon/animate/fadeIn';
+addonFadeIn(nano);
+```
+
+Use as a class name:
+
+```html
+<div class="fadeIn">Hello world!</div>
+```
+
+Or as a custom animation:
+
+```html
+<div style="animation: fadeIn 1s linear;">Hello world!</div>
+```

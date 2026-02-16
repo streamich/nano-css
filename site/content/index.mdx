@@ -1,0 +1,90 @@
+---
+title: nano-css — Tiny CSS-in-JS Library
+---
+
+<div className="nano-hero">
+  <h1>nano-css</h1>
+  <div className="nano-tagline">Tiny 5th generation CSS-in-JS library with a modular architecture. Start with a ~0.5 Kb core, add only what you need.</div>
+  <span className="nano-version">v5.5.0</span>
+
+  <div className="nano-cta">
+    <a href="/docs" className="primary">Get Started</a>
+    <a href="/docs/getting-started/installation" className="secondary">Installation</a>
+  </div>
+
+  <div className="nano-stats">
+    <div className="nano-stat">
+      <span className="value">~0.5 Kb</span>
+      <span className="label">Core Size</span>
+    </div>
+    <div className="nano-stat">
+      <span className="value">40+</span>
+      <span className="label">Addons</span>
+    </div>
+    <div className="nano-stat">
+      <span className="value">3</span>
+      <span className="label">Presets</span>
+    </div>
+    <div className="nano-stat">
+      <span className="value">5th Gen</span>
+      <span className="label">CSS-in-JS</span>
+    </div>
+  </div>
+</div>
+
+<hr className="nano-separator" />
+
+<div className="nano-features">
+  <div className="nano-feature">
+    <h3>Tiny Core</h3>
+    <div className="nano-feature-text">The core is only ~0.5 Kb, compared to ~15 Kb for libraries like styled-components. Add features only as you need them through addons.</div>
+  </div>
+  <div className="nano-feature">
+    <h3>Framework Agnostic</h3>
+    <div className="nano-feature-text">Works with React, Preact, Vue.js, or any other virtual DOM library — or even standalone without any framework at all.</div>
+  </div>
+  <div className="nano-feature">
+    <h3>Isomorphic</h3>
+    <div className="nano-feature-text">Full server-side rendering support with stable class names across environments and seamless client-side re-hydration.</div>
+  </div>
+  <div className="nano-feature">
+    <h3>High Performance</h3>
+    <div className="nano-feature-text">Uses .insertRule() for fast style injection and caches generated styles to avoid duplicate work.</div>
+  </div>
+  <div className="nano-feature">
+    <h3>Modular Addons</h3>
+    <div className="nano-feature-text">Over 40 addons — from atoms and keyframes to styled components and sourcemaps. Install only what your project needs.</div>
+  </div>
+  <div className="nano-feature">
+    <h3>Auto-Prefixing</h3>
+    <div className="nano-feature-text">Built-in vendor prefixing, media queries, @keyframes support, and advanced nesting with the &amp; selector.</div>
+  </div>
+</div>
+
+<div className="nano-quickstart">
+  <h2>Quick Start</h2>
+
+```js
+import { create } from 'nano-css';
+import { addon as addonRule } from 'nano-css/addon/rule';
+
+const nano = create();
+addonRule(nano);
+
+const className = nano.rule({
+  color: 'tomato',
+  ':hover': {
+    color: 'blue',
+  },
+});
+```
+
+</div>
+
+<div className="nano-install">
+  <code>npm i nano-css</code>
+</div>
+
+<div className="nano-footer-section">
+  Released under the <a href="https://unlicense.org/">Unlicense</a>. Open source, free forever.
+</div>

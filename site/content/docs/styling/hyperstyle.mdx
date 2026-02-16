@@ -1,0 +1,57 @@
+---
+title: hyperstyle()
+---
+
+# hyperstyle()
+
+`hyperstyle()` creates a styled hyperscript function that maps `styleName` props to class names.
+
+```jsx
+const h = nano.hyperstyle({
+  foo: {
+    color: 'red',
+  },
+});
+
+const App = () => h('div', { styleName: 'foo' }, 'My app...');
+```
+
+## With JSX
+
+Set the hyperscript function in your build tool, then use `styleName` in JSX:
+
+```jsx
+/** @jsx h */
+
+const h = nano.hyperstyle({
+  foo: { color: 'red' },
+});
+
+const App = () => <div styleName="foo">My app...</div>;
+```
+
+### TypeScript
+
+```json
+{
+  "compilerOptions": {
+    "jsxFactory": "h"
+  }
+}
+```
+
+## Installation
+
+Requires `cache`, `rule`, and `sheet` addons:
+
+```js
+import { addon as addonCache } from 'nano-css/addon/cache';
+import { addon as addonRule } from 'nano-css/addon/rule';
+import { addon as addonSheet } from 'nano-css/addon/sheet';
+import { addon as addonHyperstyle } from 'nano-css/addon/hyperstyle';
+
+addonCache(nano);
+addonRule(nano);
+addonSheet(nano);
+addonHyperstyle(nano);
+```

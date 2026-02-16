@@ -1,0 +1,17 @@
+---
+title: limit
+---
+
+# limit
+
+Limits the total size of server-side generated CSS in bytes.
+
+```js
+import { addon as addonLimit } from 'nano-css/addon/limit';
+
+// Default: 50,000 bytes (50 Kb — Google AMP maximum)
+addonLimit(nano);
+
+// Custom limit
+addonLimit(nano, 100000);
+```
