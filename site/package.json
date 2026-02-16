@@ -6,7 +6,7 @@
     "dev": "next dev",
     "clean": "npx rimraf .next out",
     "build": "next build",
-    "start": "next start"
+    "start": "serve out -l 3000"
   },
   "dependencies": {
     "next": "^15",
@@ -15,5 +15,8 @@
     "react": "^19",
     "react-dom": "^19",
     "typescript": "^5"
+  },
+  "devDependencies": {
+    "serve": "^14.2.5"
   }
 }
