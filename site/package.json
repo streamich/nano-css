@@ -13,6 +13,7 @@
     "nextra": "^4",
     "nextra-theme-docs": "^4",
     "react": "^19",
-    "react-dom": "^19"
+    "react-dom": "^19",
+    "typescript": "^5"
   }
 }
