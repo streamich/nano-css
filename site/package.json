@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "clean": "npx rimraf .next out",
     "build": "next build",
     "start": "next start"
   },

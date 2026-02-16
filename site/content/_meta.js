@@ -17,6 +17,6 @@ export default {
   },
   github_link: {
     title: 'GitHub',
-    href: 'https://github.com/nicknisi/nano-css',
+    href: 'https://github.com/streamich/nano-css',
   },
 }

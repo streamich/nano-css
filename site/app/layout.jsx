@@ -20,7 +20,7 @@ const navbar = (
         nano-css
       </span>
     }
-    projectLink="https://github.com/nicknisi/nano-css"
+    projectLink="https://github.com/streamich/nano-css"
   />
 )
 
@@ -42,7 +42,7 @@ export default async function RootLayout({ children }) {
         <Layout
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/nicknisi/nano-css/tree/master/website"
+          docsRepositoryBase="https://github.com/streamich/nano-css/tree/master/site"
           footer={footer}
           sidebar={{ defaultMenuCollapseLevel: 1 }}
           editLink="Edit this page on GitHub"
